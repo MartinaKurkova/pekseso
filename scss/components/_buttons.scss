@@ -4,25 +4,15 @@
 @use "../base/fonts";
 
 @mixin btn {
-    // display: inline-block;
-    // padding: .625rem 1.25rem;
-    // background: variables.$color-secondary;
-    // border-radius: .3125rem;
-    // border: none;
-    // cursor: pointer;
-    // transition: transform 0.3s ease, box-shadow 0.3s ease;
-    // color: white;
-    // text-decoration: none;
-    // font-weight: 400;
-    // font-family: variables.$font-sans;
-}
-
-.btn {
     display: inline-block;
-    padding: 15px 30px;
-    border-radius: 10px;
-    font-weight: 600;
+    padding: .9375rem 1.875rem;
+    border-radius: .3125rem;
+    font-weight: 400;
     text-decoration: none;
     text-align: center;
     width: fit-content;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

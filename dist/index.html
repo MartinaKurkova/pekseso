@@ -10,46 +10,39 @@
 </head>
 <body>
     <header class="header" role="banner">
-            <div class="header__container">
-                <div class="header__logo">
-                    <div class="header__logo-title">
-                        <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
-                            Pekseso
-                        </a>
-                    </div>
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
                 </div>
-                <!-- main navigation -->
-               <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
-                    <ul class="header__nav-list">
-                        <li class="header__nav-item">
-                            <a href="/" class="header__nav-link">Úvod</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="/herna/" class="header__nav-link">Herna</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a>
-                        </li>
-                        <li class="header__nav-item">
-                            <a href="/kontakt/" class="header__nav-link header__nav-link">Kontakt</a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <!-- hamburger menu -->
-                <button class="header__menu-toggle"
-                    type="button" 
-                    aria-label="Otevřít navigaci" 
-                    aria-expanded="false" 
-                    aria-controls="header__navigation"
-                    data-menu-toggle>
-                    <div class="header__hamburger">
-                        <span class="header__hamburger-line"></span>
-                    </div>
-                    <span class="header__menu-text">Menu</span>
-                </button>
             </div>
-        </header>
+
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    <li class="header__nav-item"><a href="/herna/" class="header__nav-link">Herna</a></li>
+                    <li class="header__nav-item"><a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a></li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+        </div>
+</header>
 
     <!-- hero -->
     <section class="hero">

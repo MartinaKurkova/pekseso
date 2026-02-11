@@ -29,6 +29,7 @@
     }
 
     &__btn {
+        @include buttons.btn;
         background-color: variables.$color-secondary;
         color: variables.$color-text;
         margin-top: 3rem;
@@ -103,6 +104,7 @@
     }
 
     &__btn {
+        @include buttons.btn;
         background-color: variables.$color-primary;
         color: white;
         margin-top: 2rem;
@@ -118,11 +120,30 @@
         margin-top: 3rem;
 
         @media screen and (max-width: 48rem) {
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(6, 1fr);
         }
 
         @media screen and (max-width: 36rem) {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        & > :nth-last-child(2) {
+            @media screen and (min-width: 36.01rem) and (max-width: 48rem) {
+                grid-column: 2 / span 2;
+                justify-content: center;
+            }
+        }
+
+        & > :last-child:nth-child(odd) {
+            @media screen and (max-width: 48rem) {
+                grid-column: 4 / span 2;
+                justify-content: center;
+            }
+
+            @media screen and (max-width: 36rem) {
+                grid-column: 2 / span 2;
+                justify-content: center;
+            }
         }
     }
 
@@ -132,6 +153,14 @@
         display: block;
         background-color: white;
         box-shadow: variables.$shadow;
+
+        @media screen and (max-width: 48rem) {
+            grid-column: span 2;
+        }
+
+        @media screen and (max-width: 36rem) {
+            grid-column: span 2;
+        }
     }
 }
 
@@ -159,8 +188,9 @@
     }
 
     &__btn {
+        @include buttons.btn;
         background-color: variables.$color-secondary;
-        color: #333333;
+        color: variables.$color-text;
     }
 
     &__image-container {

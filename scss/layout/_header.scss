@@ -5,35 +5,46 @@
 
 /* header */
 .header{
-    background-color: #540D6E;
+    background-color: variables.$color-primary;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%; 
     z-index: 999;
-}
+    box-shadow: variables.$shadow;
 
-.header__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 70rem;    
-    margin: 0 auto;     
-    padding: 0.5rem 1.25rem;
-}
 
-.header__logo-link {
-    font-optical-sizing: auto;
-    font-weight: 700;
-    color: white;
-    text-decoration: none;
-    font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-}
-.header__logo-title {
-    margin: 0;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 70rem;    
+        margin: 0 auto;     
+        padding: 0.5rem 1.25rem;
+    }
+
+    &__logo-link {
+        font-optical-sizing: auto;
+        font-weight: 200;
+        color: white;
+        text-decoration: none;
+        font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+    }
+
+    &__logo-color {
+        color: variables.$color-secondary;
+        font-family: variables.$font-sans;
+        font-weight: 200;
+        font-style: normal;
+    }
+    &__logo-title {
+        margin: 0;
+    }
+
+
 }
 
 @keyframes cursor {

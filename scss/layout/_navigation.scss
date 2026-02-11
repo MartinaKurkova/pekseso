@@ -3,15 +3,12 @@
 @use "../base/base";
 @use "../base/fonts";
 
-// navigation
+// --- SPOLEČNÉ STYLY (Desktop i mobil) ---
 .header {
     &__nav-list {
         display: flex;
         margin: 0;
         padding: 0;
-    }
-
-    &__nav-item {
         list-style-type: none;
     }
 
@@ -25,65 +22,47 @@
         padding: 0.5rem 1rem;
         border-radius: .25rem;
         transition: transform 0.3s ease, opacity 0.3s ease;
-    }
 
-    // Hover, focus, active
-    &__nav-link:hover {
-        background-color: variables.$color-hover;
-    }
+        &:hover {
+            background-color: variables.$color-hover;
+        }
 
-    &__nav-link:focus-visible {
-        outline: 3px solid variables.$color-outline; 
-        outline-offset: 2px;
-        background-color: variables.$color-hover;
-        font-weight: 600;
+        &:focus-visible {
+            outline: 3px solid variables.$color-outline; 
+            outline-offset: 2px;
+            background-color: variables.$color-hover;
+            font-weight: 600;
+        }
     }
 
     &__nav-item--active &__nav-link {
         font-weight: 800;
     }
 
-    // CTA button
-    // &__nav-link_cta {
-    //     background-color: white;
-    //     color: variables.$color-primary;
-    // }
-
-    // &__nav-link_cta:hover,
-    // &__nav-link_cta:focus-visible,
-    // &__nav-link_cta--active {
-    //     background-color: #f5f5f5;
-    //     opacity: 0.9;
-    //     outline: 3px solid variables.$color-outline; 
-    //     outline-offset: 2px;
-    // }
-}
-
-// Hamburger menu
-.header {
     &__menu-toggle {
-        display: none;
+        display: none; 
     }
 }
 
-// Hamburger – mobile breakpoint
-@media screen and (max-width: 59.375rem) {
+//mobil
+@media screen and (max-width: 48rem) {
     .header {
         &__menu-toggle {
+            display: flex;
             background: none;
             border: none;
             cursor: pointer;
             padding: 0;
             height: 2rem;
-            display: flex;
             align-items: center;
             justify-content: flex-start;
             padding-left: 0.25rem;
             gap: 0.5rem;
             z-index: 1000;
+            position: relative;
         }
 
-        // Hamburger icon
+        // Hamburger ikona
         &__hamburger-line,
         &__hamburger-line::before,
         &__hamburger-line::after {
@@ -98,135 +77,126 @@
 
         &__hamburger-line {
             position: relative;
-        }
+            &::before { 
+                top: -0.5rem; 
+                position: absolute; 
+                left: 0; 
+            }
 
-        &__hamburger-line::before,
-        &__hamburger-line::after {
-            position: absolute;
-            left: 0;
-        }
-
-         &__hamburger-line::before {
-            top: -0.5rem;
-        }
-
-        &__hamburger-line::after {
-            top: 0.5rem; 
+            &::after { 
+                top: 0.5rem; 
+                position: absolute; 
+                left: 0; 
+            }
         }
 
         &__menu-text {
             color: white;
+            font-family: variables.$font-sans;
+            font-weight: 200;
             text-transform: uppercase;
+            font-style: normal;
 
-            @media screen and (max-width:26.25rem) {
-                display: none;
+            @media screen and (max-width: 18.75rem) { 
+                display: none; 
             }
         }
 
-        // Hamburger menu open
-        &__menu-toggle.is-active 
-        &__hamburger-line {
-            transform: rotate(45deg);
-            background-color: variables.$color-primary;
+        // Aktivní stav hamburgeru
+        &__menu-toggle.is-active {
+            .header__hamburger-line {
+                transform: rotate(45deg);
+                background-color: variables.$color-primary;
+
+                &::before { 
+                    transform: rotate(-90deg) translateX(-0.5rem); background-color: variables.$color-primary; 
+                }
+
+                &::after { 
+                    opacity: 0; 
+                }
+            }
+            .header__menu-text { 
+                color: variables.$color-primary; 
+            }
         }
 
-        &__menu-toggle.is-active 
-        &__hamburger-line::before {
-            transform: rotate(-90deg) translateX(-0.5rem);
-            background-color: variables.$color-primary;
-        }
-
-        &__menu-toggle.is-active 
-        &__hamburger-line::after {
-            opacity: 0;
-        }
-
-        &__menu-toggle.is-active 
-        &__menu-text {
-            color: variables.$color-primary;
-        }
-
-        // Hamburger navigation
-        &__nav-list {
-            flex-direction: column;
+        // animace plochy
+        &__navigation {
             position: fixed;
             top: 0;
-            right: -100%;
-            width: 40%;
-            height: 100vh;
-            background-color: white;
-            padding: 5rem 1rem 2rem 0;
-            margin: 0;
-            box-shadow: -4px 0 0.6em rgba(0, 0, 0, 0.2);
-            transform: translateX(0);
-            transition: transform 0.3s ease;
-            transition: right 0.3s ease;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            pointer-events: none; 
             z-index: 999;
+        }
 
-            @media screen and (min-width: 35rem) {
-                width: 25%;
+        &__nav-overlay,
+        &__nav-list {
+            position: absolute;
+            top: 0;
+            right: -100%; 
+            height: 100vh;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        &__nav-overlay {
+            width: 80%;
+            background-color: variables.$color-secondary;
+            z-index: 1;
+            transition-delay: 0.1s; 
+        }
+
+        &__nav-list {
+            flex-direction: column;
+            width: 70%;
+            background-color: white;
+            padding: 6rem 1rem 2rem 1.5rem;
+            z-index: 2;
+            box-shadow: variables.$shadow;
+            transition-delay: 0s; 
+        }
+
+        // stav otevřeno
+        &__navigation.is-open {
+            pointer-events: all;
+
+            .header__nav-overlay {
+                right: 0;
+                transition-delay: 0s; 
+            }
+
+            .header__nav-list {
+                right: 0;
+                transition-delay: 0.15s; 
             }
         }
 
-        &__nav-list--visible {
-            right: 0;
-        }
-
+        // Úprava odkazů v mobilním menu
         &__nav-item {
-            padding-left: 1rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         &__nav-link {
             color: variables.$color-primary;
-            font-weight: 400; 
-        }
+            font-size: 1rem;
+            width: 100%;
 
-        &__nav-link:focus {
-            font-weight: 600;
-        }
-
-        &__nav-link:hover {
-            background-color: white;
-            font-weight: 800;
-        }
-
-        &__nav-item--active &__nav-link {
-            background-color: white;
-            font-weight: 800;
-        }
-
-        // CTA button
-        &__nav-link_cta {
-            background-color: variables.$color-primary;
-            color: white;
-        }
-
-        &__nav-link_cta:hover,
-        &__nav-link_cta:focus-visible,
-        &__nav-link_cta--active {
-            background-color: variables.$color-hover;
-            color: white;
-            opacity: 0.9;
-            outline: 3px solid variables.$color-outline; 
-            outline-offset: 2px;
+            &:hover, &:focus {  
+                font-weight: 800; 
+                color: variables.$color-primary;
+                background-color: white;
+                font-size: 1.1rem;
+            }
         }
     }
 }
 
-.no-scroll {
-    overflow: hidden;
-}
+// Pomocné třídy
+.no-scroll { overflow: hidden; }
 
-/* Screen reader only class */
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
 }
