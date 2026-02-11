@@ -1,0 +1,28 @@
+@use "../utils/variables";
+@use "../base/fonts";
+
+
+html {
+    box-sizing: border-box;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: variables.$font-sans;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1.45;
+    color: #0D0D0D;
+    margin: 0;
+}
+
+.container {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}

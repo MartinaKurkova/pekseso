@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 283.46 283.46">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke: #4f266a;
+      }
+
+      .st0, .st1 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+
+      .st2 {
+        fill: #ffd241;
+      }
+
+      .st1 {
+        stroke: #ffd241;
+      }
+    </style>
+  </defs>
+  <path class="st0" d="M211.03,148.88v106.28c0,8.64-7.01,15.64-15.65,15.64H40.17c-8.64,0-15.65-7-15.65-15.64V28.93c0-8.64,7.01-15.64,15.65-15.64h155.21c8.64,0,15.65,7,15.65,15.64v23"/>
+  <polyline class="st0" points="211.03 67.86 211.03 123.77 211.03 132.21 211.03 135.49"/>
+  <polyline class="st0" points="199.47 148.88 199.47 207.33 199.47 215.77 199.47 234.52 36.07 234.52 36.07 25.79 199.47 25.79 199.47 51.92"/>
+  <polyline class="st0" points="199.47 67.86 199.47 123.77 199.47 132.21 199.47 135.49"/>
+  <circle class="st1" cx="117.77" cy="252.87" r="9.06"/>
+  <rect class="st2" x="106.37" y="60.37" width="71.84" height="71.84"/>
+  <rect class="st2" x="190.41" y="60.37" width="71.84" height="71.84"/>
+  <rect class="st2" x="106.37" y="143.93" width="71.84" height="71.84"/>
+  <rect class="st2" x="190.41" y="143.93" width="71.84" height="71.84"/>
+  <rect class="st0" x="97.1" y="51.92" width="71.84" height="71.84"/>
+  <rect class="st0" x="181.15" y="51.92" width="71.84" height="71.84"/>
+  <rect class="st0" x="97.1" y="135.48" width="71.84" height="71.84"/>
+  <rect class="st0" x="181.15" y="135.48" width="71.84" height="71.84"/>
+</svg>

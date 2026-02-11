@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -23,17 +21,17 @@
                 <!-- main navigation -->
                <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
                     <ul class="header__nav-list">
-                        <li class="header__nav-item {% if page.url == '/' %}header__nav-item--active{% endif %}">
+                        <li class="header__nav-item">
                             <a href="/" class="header__nav-link">Úvod</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="/o-mne" class="header__nav-link">Herna</a>
+                            <a href="/herna/" class="header__nav-link">Herna</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="/eshop" class="header__nav-link">Papírová pexesa</a>
+                            <a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a>
                         </li>
                         <li class="header__nav-item">
-                            <a href="/kontakt/" class="header__nav-link header__nav-link_cta">Kontakt</a>
+                            <a href="/kontakt/" class="header__nav-link header__nav-link">Kontakt</a>
                         </li>
                     </ul>
                 </nav>
@@ -58,11 +56,15 @@
         <div class="hero__container container">
             <div class="hero__text-container">
                 <h1 class="hero__heading">Když se ilustrace potkají s <span class="hero__heading--italic">hrou</span></h1>
-                <div class="hero__perex">Najděte všechny dvojice v autorském on-line pexesu. Stačí jedno otočení a hra začíná.</div>
+                <div class="hero__perex perex">Najděte všechny dvojice v autorském on-line pexesu. Stačí jedno otočení a hra začíná.</div>
                 <a href="" class="hero__btn btn">otočit první kartičku</a>
             </div>
             <div class="hero__image-container">
-                <img src="/images/pexeso2.webp" alt="" class="hero__image">
+                <img src="/images/pexeso2.webp" 
+                alt="pexeso psi" 
+                class="hero__image"
+                width="1000"
+                height="1000">
             </div>
         </div>
     </section>
@@ -72,38 +74,38 @@
         <div class="advantages__container container">
             <div class="advantages__column">
                 <h2 class="advantages__heading">Autorský rukopis</h2>
-                <img src="images/icons/pencil-solid.svg" 
+                <img src="images/icons/pencil.svg" 
                 alt="" 
                 class="advantages__icon"
-                width="50"
-                height="50">
+                width="80"
+                height="80">
                 <p class="advantages__description">Originální digitální ilustrace, které vdechnou hře jedinečný charakter.</p>
             </div>
             <div class="advantages__column">
                 <h2 class="advantages__heading">Poznávání světa</h2>
-                <img src="images/icons/lightbulb-solid.svg" 
+                <img src="images/icons/bulb.svg" 
                 alt="" 
                 class="advantages__icon"
-                width="50"
-                height="50">
+                width="80"
+                height="80">
                 <p class="advantages__description">Každá sada v sobě ukrývá kus přírody, historie nebo tradic.</p>
             </div>
             <div class="advantages__column">
                 <h2 class="advantages__heading">Pro malé i velké</h2>
-                <img src="images/icons/people-group-solid.svg" 
+                <img src="images/icons/people.svg" 
                 alt="" 
                 class="advantages__icon"
-                width="50"
-                height="50">
+                width="80"
+                height="80">
                 <p class="advantages__description">Hravé ilustrace, které potěší dětskou zvědavost i oko dospělého.</p>
             </div>
             <div class="advantages__column">
                 <h2 class="advantages__heading">On-line i v kapse</h2>
-                <img src="images/icons/cloud-solid.svg" 
+                <img src="images/icons/offline.svg" 
                 alt="" 
                 class="advantages__icon"
-                width="50"
-                height="50">
+                width="80"
+                height="80">
                 <p class="advantages__description">Trénujte paměť v naší herně nebo si pexeso rozložte na stole u čaje.</p>
             </div>
         </div>
@@ -114,7 +116,7 @@
         <div class="play__container container">
             <div class="play__text-container">
                 <h2 class="play__heading"><span class="play__heading--italic">Vyberte</span> si svůj svět</h2>
-                <p class="play__perex">Vstupte do on-line herny a vyzkoušejte si všechny ilustrované sady. Stačí si zvolit téma a najít první dvojici.</p>
+                <p class="play__perex perex">Vstupte do on-line herny a vyzkoušejte si všechny ilustrované sady. Stačí si zvolit téma a najít první dvojici.</p>
                 <a href="" class="play__btn btn">chci si hrát</a>
             </div>
             <div class="play__image-container">
@@ -148,11 +150,11 @@
       </section>
 
       <!-- offline -->
-       <section class="offline">
+    <section class="offline">
         <div class="offline__container container">
             <div class="offline__text-container">
                 <h2 class="offline__heading">Přeneste hru ke <span class="offline__heading--italic">společnému </span> stolu</h2>
-                <p class="offline__perex">Líbí se vám ilustrace v online herně? Dopřejte si je i v jejich hmatatelné podobě. Pexesa tisknu na prémiový nenatíraný papír s vysokou gramáží, který je radost držet v ruce. Je to ideální způsob, jak zpomalit a užít si společné chvíle bez obrazovek.</p>
+                <p class="offline__perex perex">Líbí se vám ilustrace v online herně? Dopřejte si je i v jejich hmatatelné podobě. Pexesa tisknu na prémiový nenatíraný papír s vysokou gramáží, který je radost držet v ruce. Je to ideální způsob, jak zpomalit a užít si společné chvíle bez obrazovek.</p>
                 <a href="" class="offline__btn btn">prohlédnout papírová pexesa</a>
             </div>
             <div class="offline__image-container">
@@ -163,11 +165,14 @@
                 height="600">
             </div>
         </div>
-       </section>
+    </section>
 
-       <!-- footer -->
-        <footer class="footer">
-            <div class="footer__container container"></div>
-        </footer>
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer__container container"></div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
 </body>
 </html>
