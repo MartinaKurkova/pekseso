@@ -1,7 +1,6 @@
-// Pexeso pro jednoho hráče - Psi
-// Automatické zamíchání, počítání tahů a času
+// Pexeso pro jednoho hráče
 
-// === PROMĚNNÉ ===
+// proměnné
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
@@ -12,26 +11,42 @@ let seconds = 0;
 let minutes = 0;
 let gameStarted = false;
 
-// === ELEMENTY ===
 const cards = document.querySelectorAll('.game__card');
 const movesDisplay = document.querySelector('.game__moves');
 const timerDisplay = document.querySelector('.game__counter');
 const playAgainBtn = document.querySelector('.game__again');
+const modal = document.getElementById('gameModal');
+const modalMoves = document.getElementById('modalMoves');
+const modalTime = document.getElementById('modalTime');
+const modalPlayAgainBtn = document.getElementById('modalPlayAgain');
 
-// === INICIALIZACE HRY ===
+// začátek hry
 function initGame() {
-    // Zamíchání karet
+    // zamíchání karet
     shuffleCards();
     
-    // Přidání event listenerů na karty
+    // přidání posluchačů na karty
     cards.forEach(card => {
         card.addEventListener('click', flipCard);
     });
     
-    // Tlačítko hrát znovu
+    // tlačítko hrát znovu
     playAgainBtn.addEventListener('click', resetGame);
     
-    // Reset hodnot
+    // tlačítko v modalu
+    modalPlayAgainBtn.addEventListener('click', () => {
+        closeModal();
+        resetGame();
+    });
+    
+    // zavření modalu kliknutím mimo
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // reset hodnot
     moves = 0;
     matchedPairs = 0;
     seconds = 0;
@@ -41,7 +56,7 @@ function initGame() {
     updateTimerDisplay();
 }
 
-// === ZAMÍCHÁNÍ KARET ===
+// zamíchání karet
 function shuffleCards() {
     const gameGrid = document.querySelector('.game__grid');
     const cardsArray = Array.from(cards);
@@ -52,55 +67,52 @@ function shuffleCards() {
         [cardsArray[i], cardsArray[j]] = [cardsArray[j], cardsArray[i]];
     }
     
-    // Přidání karet zpět do gridu v novém pořadí
+    // přidání karet zpět do gridu v novém pořadí
     cardsArray.forEach(card => gameGrid.appendChild(card));
 }
 
-// === OTOČENÍ KARTY ===
+// otočení karty
 function flipCard() {
-    // Kontroly - nelze otočit kartu pokud:
-    if (lockBoard) return; // je zamčená hra
-    if (this === firstCard) return; // je to stejná karta
-    if (this.classList.contains('game__card--flipped')) return; // je už otočená
+    // kontrola
+    if (lockBoard) return; 
+    if (this === firstCard) return; 
+    if (this.classList.contains('game__card--flipped')) return;
     
-    // Spuštění časovače při prvním tahu
+    // časovaču
     if (!gameStarted) {
         startTimer();
         gameStarted = true;
     }
     
-    // Otočení karty
+    // otočení karty
     this.classList.add('game__card--flipped');
     
-    // První nebo druhá karta?
+    // porovnání karet
     if (!firstCard) {
-        // První karta
+        // první karta
         firstCard = this;
         return;
     }
     
-    // Druhá karta
+    // druhá karta
     secondCard = this;
     moves++;
     updateMovesDisplay();
     
-    // Kontrola shody
+    // kontrola shody
     checkForMatch();
 }
 
-// === KONTROLA SHODY ===
+// kontrola shody karet
 function checkForMatch() {
-    // Získání data-pair atributu z obrázků
     const firstPair = firstCard.querySelector('.game__image--front').dataset.pair;
     const secondPair = secondCard.querySelector('.game__image--front').dataset.pair;
     
-    // Je to shoda?
     if (firstPair === secondPair) {
         disableCards();
         matchedPairs++;
-        
-        // Konec hry?
-        if (matchedPairs === 9) { // 9 párů
+
+        if (matchedPairs === 12) { 
             endGame();
         }
     } else {
@@ -108,19 +120,18 @@ function checkForMatch() {
     }
 }
 
-// === SPRÁVNÁ SHODA - DEAKTIVACE KARET ===
+// správná shoda
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
     
-    // Přidání třídy pro matched stav (můžeš použít pro CSS styling)
     firstCard.classList.add('game__card--matched');
     secondCard.classList.add('game__card--matched');
     
     resetBoard();
 }
 
-// === ŠPATNÁ SHODA - OTOČENÍ ZPĚT ===
+// neshoda
 function unflipCards() {
     lockBoard = true;
     
@@ -128,15 +139,15 @@ function unflipCards() {
         firstCard.classList.remove('game__card--flipped');
         secondCard.classList.remove('game__card--flipped');
         resetBoard();
-    }, 1000); // 1 sekunda na zapamatování
+    }, 1000);
 }
 
-// === RESET PROMĚNNÝCH PRO DALŠÍ TAH ===
+// reset proměnných
 function resetBoard() {
     [firstCard, secondCard, lockBoard] = [null, null, false];
 }
 
-// === ČASOVAČ ===
+// časovač
 function startTimer() {
     timerInterval = setInterval(() => {
         seconds++;
@@ -158,34 +169,50 @@ function updateTimerDisplay() {
     timerDisplay.textContent = `Čas: ${displayMinutes}:${displaySeconds}`;
 }
 
-// === AKTUALIZACE POČTU TAHŮ ===
+// počty tahů
 function updateMovesDisplay() {
     movesDisplay.textContent = `Počet tahů: ${moves}`;
 }
 
-// === KONEC HRY ===
+// konec hry
 function endGame() {
     stopTimer();
     
     setTimeout(() => {
-        alert(`🎉 Gratulujeme! 🎉\n\nDokončil jsi hru!\n\nPočet tahů: ${moves}\nČas: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+        showModal();
     }, 500);
 }
 
-// === RESTART HRY ===
-function resetGame(e) {
-    e.preventDefault();
+// modal
+function showModal() {
+    modalMoves.textContent = moves;
+    modalTime.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     
-    // Stop časovače
+    modal.classList.add('game__modal--show');
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeModal() {
+    modal.classList.remove('game__modal--show');
+    document.body.style.overflow = ''; 
+}
+
+// restart hry
+function resetGame(e) {
+    if (e && e.preventDefault) {
+        e.preventDefault();
+    }
+    
+    // stop časovače
     stopTimer();
     
-    // Reset všech karet
+    // reset všech karet
     cards.forEach(card => {
         card.classList.remove('game__card--flipped', 'game__card--matched');
         card.addEventListener('click', flipCard);
     });
     
-    // Reset proměnných
+    // reset proměnných
     firstCard = null;
     secondCard = null;
     lockBoard = false;
@@ -195,13 +222,13 @@ function resetGame(e) {
     minutes = 0;
     gameStarted = false;
     
-    // Aktualizace zobrazení
+    // aktualizace zobrazení
     updateMovesDisplay();
     updateTimerDisplay();
     
-    // Nové zamíchání
+    // nové zamíchání
     shuffleCards();
 }
 
-// === SPUŠTĚNÍ HRY PŘI NAČTENÍ STRÁNKY ===
+// spuštění hry při načtení stránky
 document.addEventListener('DOMContentLoaded', initGame);

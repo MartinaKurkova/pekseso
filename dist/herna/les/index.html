@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    <li class="header__nav-item"><a href="/herna/" class="header__nav-link">Herna</a></li>
+                    <li class="header__nav-item"><a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a></li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+        </div>
+</header>
+
+ <main>
+
+    
+<section class="game">
+    <div class="game__container container">
+        <div class="game__text-container">
+            <h1 class="game__heading">pekseso <span class="game__heading--italic">Lesní zvířata</span></h1>
+            <div class="game__counters">
+                <p class="game__moves">Počet tahů: 0</p>
+                <p class="game__counter">Čas: 00:00</p>
+            </div>
+        </div>
+        <!-- grid -->
+        <div class="game__grid">
+            <!-- Pár 1 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les1_A" 
+                    data-pair="les1" 
+                    src="/images/les/les_1.svg" 
+                    alt="Pexeso les bažant"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les1_B" 
+                    data-pair="les1" 
+                    src="/images/les/les_1.svg" 
+                    alt="Pexeso les bažant"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 2 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les2_A" 
+                    data-pair="les2" 
+                    src="/images/les/les_2.svg" 
+                    alt="Pexeso les hrdlička"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les2_B" 
+                    data-pair="les2" 
+                    src="/images/les/les_2.svg" 
+                    alt="Pexeso les hrdlička"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 3 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les3_A" 
+                    data-pair="les3" 
+                    src="/images/les/les_3.svg" 
+                    alt="Pexeso les husa"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les3_B" 
+                    data-pair="les3" 
+                    src="/images/les/les_3.svg" 
+                    alt="Pexeso les husa"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 4 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les4_A" 
+                    data-pair="les4" 
+                    src="/images/les/les_4.svg" 
+                    alt="Pexeso les jelen"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les4_B" 
+                    data-pair="les4" 
+                    src="/images/les/les_4.svg" 
+                    alt="Pexeso les hrdlička"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 5 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les5_A" 
+                    data-pair="les5" 
+                    src="/images/les/les_5.svg" 
+                    alt="Pexeso les jezevec"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les5_B" 
+                    data-pair="les5" 
+                    src="/images/les/les_5.svg" 
+                    alt="Pexeso les jezevec"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 6 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les6_A" 
+                    data-pair="les6" 
+                    src="/images/les/les_6.svg" 
+                    alt="Pexeso les lasička"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les6_B" 
+                    data-pair="les6" 
+                    src="/images/les/les_6.svg" 
+                    alt="Pexeso les lasička"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 7 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les7_A" 
+                    data-pair="les7" 
+                    src="/images/les/les_7.svg" 
+                    alt="Pexeso les liška"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les7_B" 
+                    data-pair="les7" 
+                    src="/images/les/les_7.svg" 
+                    alt="Pexeso les liška"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 8 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les8_A" 
+                    data-pair="les8" 
+                    src="/images/les/les_8.svg" 
+                    alt="Pexeso les zajíc"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les8_B" 
+                    data-pair="les8" 
+                    src="/images/les/les_8.svg" 
+                    alt="Pexeso les zajíc"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 9 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les9_A" 
+                    data-pair="les9" 
+                    src="/images/les/les_9.svg" 
+                    alt="Pexeso les veverka"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les9_B" 
+                    data-pair="les9" 
+                    src="/images/les/les_9.svg" 
+                    alt="Pexeso les veverka"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 10 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les10_A" 
+                    data-pair="les10" 
+                    src="/images/les/les_10.svg" 
+                    alt="Pexeso les sova"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les10_B" 
+                    data-pair="les10" 
+                    src="/images/les/les_10.svg" 
+                    alt="Pexeso les sova"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 11 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les11_A" 
+                    data-pair="les11" 
+                    src="/images/les/les_11.svg" 
+                    alt="Pexeso les medvěd"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les11_B" 
+                    data-pair="les11" 
+                    src="/images/les/les_11.svg" 
+                    alt="Pexeso les medvěd"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 12 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les12_A" 
+                    data-pair="les12" 
+                    src="/images/les/les_12.svg" 
+                    alt="Pexeso les výr"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="les12_B" 
+                    data-pair="les12" 
+                    src="/images/les/les_12.svg" 
+                    alt="Pexeso les výr"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/les/silueta.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+
+        </div>
+        <!-- buttons -->
+         <div class="game__buttons">
+            <a href="/herna/psi/" class="game__again game__btn">hrát znovu</a>
+            <a href="/herna/" class="game__theme game__btn">vybrat jiný motiv</a>
+         </div>
+    </div>
+    
+    <!-- Modal pro konec hry -->
+    <div class="game__modal" id="gameModal">
+        <div class="game__modal-content">
+            <h2 class="game__modal-title">Dohráno!</h2>
+            <p class="game__modal-text">Objevili jste všechny skryté dvojice. Pokud se vám ilustrace líbí, v papírové verzi jich na vás čeká rovnou dvaatřicet.</p>
+            <div class="game__modal-stats">
+                <div class="game__modal-stat">
+                    <span class="game__modal-stat-label">Počet tahů</span>
+                    <span class="game__modal-stat-value" id="modalMoves">0</span>
+                </div>
+                <div class="game__modal-stat">
+                    <span class="game__modal-stat-label">Čas</span>
+                    <span class="game__modal-stat-value" id="modalTime">00:00</span>
+                </div>
+            </div>
+            <div class="game__modal-buttons">
+                <a href="/papirova_pexesa/" class="game__modal-btn game__modal-btn--primary">
+                    do e-shopu
+                </a>
+                <button class="game__modal-btn game__modal-btn--primary--secondary" id="modalPlayAgain">
+                    hrát znovu
+                </button>
+                <a href="/herna/" class="game__modal-btn game__modal-btn--secondary">
+                    vybrat jiný motiv
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/js/game.js"></script>
+
+</main>
+
+ <!-- footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </div>
+
+            <div class="footer__section footer__section-about">
+                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
+            </div>
+
+            <div class="footer__section footer__section_contact">
+                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
+                <address class="footer__contact">
+                    <span id="email-footer"></span><br>
+                </address>
+                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </div>
+
+            <div class="footer__section footer__nav">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a class="footer__legal" href="/kontakt/zasady/">Zásady ochrany osobních údajů</a>
+            <a class="footer__legal" href="/kontakt/zasady/">Obchodní podmínky</a>
+            </div>
+
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

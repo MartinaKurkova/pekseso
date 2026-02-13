@@ -318,16 +318,132 @@
                     width="200"
                     height="200">
             </div>
+            <!-- Pár 10 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="pes10_A" 
+                    data-pair="pes10" 
+                    src="/images/psi/psi_10.svg" 
+                    alt="Pexeso psi ohař"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/psi/psi_zadni.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="pes10_B" 
+                    data-pair="pes10" 
+                    src="/images/psi/psi_10.svg" 
+                    alt="Pexeso psi ohař"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/psi/psi_zadni.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 11 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="pes11_A" 
+                    data-pair="pes11" 
+                    src="/images/psi/psi_11.svg" 
+                    alt="Pexeso psi pudl"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/psi/psi_zadni.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="pes11_B" 
+                    data-pair="pes11" 
+                    src="/images/psi/psi_11.svg" 
+                    alt="Pexeso psi pudl"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/psi/psi_zadni.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <!-- Pár 12 -->
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="pes12_A" 
+                    data-pair="pes12" 
+                    src="/images/psi/psi_12.svg" 
+                    alt="Pexeso psi čivava"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/psi/psi_zadni.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
+            <div class="game__card">
+                <img class="game__image game__image--front" 
+                    id="pes12_B" 
+                    data-pair="pes12" 
+                    src="/images/psi/psi_12.svg" 
+                    alt="Pexeso psi čivava"
+                    width="200"
+                    height="200">
+                <img class="game__image game__image--back" 
+                    src="/images/psi/psi_zadni.svg" 
+                    alt="Zadní strana karty"
+                    width="200"
+                    height="200">
+            </div>
         </div>
         <!-- buttons -->
          <div class="game__buttons">
             <a href="/herna/psi/" class="game__again game__btn">hrát znovu</a>
             <a href="/herna/" class="game__theme game__btn">vybrat jiný motiv</a>
          </div>
-    </div>     
+    </div>
+    
+    <!-- Modal pro konec hry -->
+    <div class="game__modal" id="gameModal">
+        <div class="game__modal-content">
+            <h2 class="game__modal-title">Dohráno!</h2>
+            <p class="game__modal-text">Objevili jste všechny skryté dvojice. Pokud se vám ilustrace líbí, v papírové verzi jich na vás čeká rovnou dvaatřicet.</p>
+            <div class="game__modal-stats">
+                <div class="game__modal-stat">
+                    <span class="game__modal-stat-label">Počet tahů</span>
+                    <span class="game__modal-stat-value" id="modalMoves">0</span>
+                </div>
+                <div class="game__modal-stat">
+                    <span class="game__modal-stat-label">Čas</span>
+                    <span class="game__modal-stat-value" id="modalTime">00:00</span>
+                </div>
+            </div>
+            <div class="game__modal-buttons">
+                <a href="/papirova_pexesa/" class="game__modal-btn game__modal-btn--primary">
+                    do e-shopu
+                </a>
+                <button class="game__modal-btn game__modal-btn--primary--secondary" id="modalPlayAgain">
+                    hrát znovu
+                </button>
+                <a href="/herna/" class="game__modal-btn game__modal-btn--secondary">
+                    vybrat jiný motiv
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
 
-<script src="/js/ga.js"></script>
+<script src="/js/game.js"></script>
 
 </main>
 
