@@ -1003,6 +1003,11 @@ ul {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .game__modal-btn--primary {
+  background-color: #540D6E;
+  color: white;
+  border: none;
+}
+.game__modal-btn--primary2 {
   background-color: #FFD23F;
   color: #0D0D0D;
   border: none;

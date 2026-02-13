@@ -252,6 +252,12 @@
         @include buttons.btn;
         
         &--primary {
+            background-color: variables.$color-primary;
+            color: white;
+            border: none;
+        }
+
+        &--primary2 {
             background-color: variables.$color-secondary;
             color: variables.$color-text;
             border: none;
