@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    <li class="header__nav-item"><a href="/herna/" class="header__nav-link">Herna</a></li>
+                    <li class="header__nav-item"><a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a></li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+        </div>
+</header>
+
+ <main>
+
+    
+<section class="herna">
+    <div class="herna__container container">
+        <div class="herna__text-container">
+            <h1 class="herna__heading">Pusťte se do <span class="herna__heading--italic">hry</span></h1>
+            <p class="herna__perex perex">Vyberte si motiv, který je vám nejbližší, a prověřte svou paměť v doprovodu autorských ilustrací. Kterou sadu otevřete jako první?</p>
+        </div>
+        <div class="herna__grid-container">
+            <!-- card -->
+            <div class="herna__grid-card">
+                <a href="/herna/les/" class="herna__link">
+                    <span class="herna__sr-only">Výběr motivu pexesa – Koho potkáš v lese</span>
+                </a>
+                <div class="herna__grid-item">
+                    <div class="herna__item-container">
+                        <img src="/images/gallery/lasicka-01.svg" alt="Pexeso Koho potkáš v lese" class="herna__image">
+                        <h2 class="herna__subheading">Koho potkáš v lese</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- card -->
+            <div class="herna__grid-card">
+                <a href="/herna/zelenina/" class="herna__link">
+                    <span class="herna__sr-only">Výběr motivu pexesa – Zelenina</span>
+                </a>
+                <div class="herna__grid-item">
+                    <div class="herna__item-container">
+                        <img src="/images/gallery/lilek.svg" alt="Zelenina" class="herna__image">
+                        <h2 class="herna__subheading herna__subheading--black">Zelenina</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- card -->
+            <div class="herna__grid-card">
+                <a href="/herna/ptaci/" class="herna__link">
+                    <span class="herna__sr-only">Výběr motivu pexesa – Ptáci</span>
+                </a>
+                <div class="herna__grid-item">
+                    <div class="herna__item-container">
+                        <img src="/images/gallery/fregatka.svg" alt="Ptáci" class="herna__image">
+                        <h2 class="herna__subheading">Ptáci</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- card -->
+            <div class="herna__grid-card">
+                <a href="/herna/vanoce/" class="herna__link">
+                    <span class="herna__sr-only">Výběr motivu pexesa – Vánoce</span>
+                </a>
+                <div class="herna__grid-item">
+                    <div class="herna__item-container">
+                        <img src="/images/gallery/louskacek.svg" alt="Vánoce" class="herna__image">
+                        <h2 class="herna__subheading herna__subheading--black">Vánoce</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- card -->
+            <div class="herna__grid-card">
+                <a href="/herna/psi/" class="herna__link">
+                    <span class="herna__sr-only">Výběr motivu pexesa – Psi</span>
+                </a>
+                <div class="herna__grid-item">
+                    <div class="herna__item-container">
+                        <img src="/images/gallery/baset.svg" alt="Psi" class="herna__image">
+                        <h2 class="herna__subheading">Psi</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+ <!-- footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </div>
+
+            <div class="footer__section footer__section-about">
+                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
+            </div>
+
+            <div class="footer__section footer__section_contact">
+                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
+                <address class="footer__contact">
+                    <span id="email-footer"></span><br>
+                </address>
+                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </div>
+
+            <div class="footer__section footer__nav">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a class="footer__legal" href="/kontakt/zasady/">Zásady ochrany osobních údajů</a>
+            <a class="footer__legal" href="/kontakt/zasady/">Obchodní podmínky</a>
+            </div>
+
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

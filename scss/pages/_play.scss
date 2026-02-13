@@ -1,0 +1,92 @@
+@use "../utils/variables";
+@use "../base/typography";
+@use "../base/base";
+@use "../base/fonts";
+@use "../components/buttons";
+
+.herna {
+
+    &__container {
+        padding-top: 7rem;
+
+        @media screen and (max-width: 48rem) {
+            padding-top: 5rem;
+        }
+    }
+
+    &__heading {
+        text-align: center;
+    }
+
+    &__perex {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    // grid
+     &__sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    &__grid-container {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+        gap: 1.25rem;
+
+        @media screen and (max-width: 36rem) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__grid-card {
+        grid-column: span 2;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+
+    &__grid-card:hover {
+        transform: translateY(-4px);
+    }
+
+    &__link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+
+    &__image {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: .3125rem;
+    }
+
+    &__subheading {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
+        color: white;
+        width: 100%; 
+        padding: 0 1rem; 
+    }
+
+    &__subheading--black {
+        color: variables.$color-text;
+    }
+
+}

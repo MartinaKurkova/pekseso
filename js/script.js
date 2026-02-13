@@ -60,3 +60,26 @@ window.addEventListener("resize", () => {
         closeMenu();
     }
 });
+
+
+
+//E-mail
+document.addEventListener('DOMContentLoaded', function() {
+  const user = 'ahoj';
+  const domain = 'pekseso.cz';
+  const email = user + '@' + domain;
+  
+  // Pro hlavní kontakt
+  const emailDisplay = document.getElementById('email-display');
+  if (emailDisplay) {
+    emailDisplay.innerHTML = 
+      '<a href="mailto:' + email + '" class="contact__address-link">' + email + '</a>';
+  }
+  
+  // Pro patičku
+  const emailFooter = document.getElementById('email-footer');
+  if (emailFooter) {
+    emailFooter.innerHTML = 
+      '<a href="mailto:' + email + '" class="footer__contact-link">' + email + '</a>';
+  }
+});

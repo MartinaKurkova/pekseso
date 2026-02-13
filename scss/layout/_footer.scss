@@ -3,7 +3,198 @@
 @use "../base/base";
 @use "../base/fonts";
 
-/* footer */
+// Footer
 .footer {
-    background-color: #540D6E;
+    background-color: variables.$color-primary;
+    color: white;
+    font-size: 1rem;
+
+    &__container {
+        padding: 2rem 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-row: auto;
+        column-gap: 1.25rem;
+        row-gap: 0;
+
+        @media screen and (max-width: 48rem) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (max-width: 36rem) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__section-logo {
+        grid-column: 1/-1;
+        grid-row: 1/2;
+        margin-bottom: 0;
+    }
+
+    &__heading {
+        color: white;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+        text-transform: uppercase;
+    }
+
+    &__heading-color {
+        font-family: variables.$font-sans;
+        font-weight: 200;
+        font-style: normal;
+        color: variables.$color-secondary;
+    }
+
+    &__section-about {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    &__text {
+        margin: 0.5rem 0 0 0;
+    }
+
+    // nav
+    &__nav {
+        grid-column: 3/4;
+        grid-row: 2/3;
+
+        @media screen and (max-width: 48rem) {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        @media screen and (max-width: 36rem) {
+            grid-column: 1/2;
+            grid-row: 4/5;
+        }
+    }
+
+    &__nav-list {
+        margin: 0 0 1rem 0;
+        padding: 0;
+        list-style-type:none !important;
+        color: color;
+    }
+
+    &__nav-link {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        font-weight: 200; 
+        color: white;
+    }
+
+    &__nav-item{
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        font-weight: 200; 
+        color: white;
+        padding: 0;
+    }
+
+    // contact
+    &__section_contact {
+        grid-column: 2/3;
+        grid-row: 2/3;
+
+        @media screen and (max-width: 48rem) {
+            grid-column: 1/2;
+            grid-row: 3/4;
+        }
+    }
+    &__heading_contact {
+        font-size: 1rem;
+        color: white;
+        margin: 0.5rem 0 0 0;
+        font-weight: 600;
+    }
+
+    &__credit-link,
+    &__contact-link {
+        color: white;
+        text-decoration: none;
+        font-style: normal;
+        font-family: variables.$font-sans;
+        font-weight: 200;
+        font-size: 1rem;
+    }
+
+    &__address {
+        font-style: normal;
+    }
+
+    // legal
+    &__legal {
+        color: white;
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
+        display: block;
+    }
+
+    // info
+    &__section_info {
+        grid-column: 1/3;
+        grid-row: 4/5;
+
+        @media screen and (max-width: 36rem) {
+            grid-row: 6/7;
+        }
+    }
+}
+
+
+// Desktop breaipoint
+// @media screen and (min-width: 53.75rem) {
+//         .footer {
+//         &__container {
+//             grid-template-columns: 1fr 1fr 1fr;
+//             grid-template-areas: 
+//             "about contact social"
+//             "info info info";
+//         }
+
+//         &__section_about {
+//             grid-area: about;
+//         }
+
+//         &__section_contact {
+//             grid-area: contact;
+//         }
+
+//         &__section_social {
+//             grid-area: social;
+//         }
+
+//         &__section_info {
+//             grid-area: info;
+//             display: grid;
+//             gap: 1rem;
+//             grid-template-columns: 1fr 1fr 1fr;
+//             grid-template-columns: 1fr, 2fr;
+//         }
+
+//         &__copyright {
+//             grid-column: 1/2;
+//         }
+
+//         &__credit {
+//             grid-column: 2/4;
+//         }
+//     }
+// }
+
+// animation
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
