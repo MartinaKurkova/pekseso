@@ -21,6 +21,12 @@
         align-items: last baseline;
         justify-content: space-between;
         margin-bottom: 1.5rem;
+
+        @media screen and (max-width: 48rem) {
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+        }
     }
 
     &__heading {
@@ -32,6 +38,13 @@
         display: flex;
         font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
         gap: 2rem;
+
+        @media screen and (max-width: 48rem) {
+            align-items: last baseline;
+            justify-content: space-between;
+            width: 100%;
+            padding-top: 0.5rem;
+        }
 
         @media screen and (max-width: 36rem) {
             gap: 1.25rem;
@@ -250,6 +263,7 @@
 
     &__modal-btn {
         @include buttons.btn;
+        font-size: 1rem;
         
         &--primary {
             background-color: variables.$color-primary;

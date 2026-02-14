@@ -775,6 +775,13 @@ ul {
   justify-content: space-between;
   margin-bottom: 1.5rem;
 }
+@media screen and (max-width: 48rem) {
+  .game__text-container {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+}
 .game__heading {
   font-size: clamp(1.5rem, 1.5rem + 2vw, 2.9rem);
   margin: 0;
@@ -783,6 +790,14 @@ ul {
   display: flex;
   font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
   gap: 2rem;
+}
+@media screen and (max-width: 48rem) {
+  .game__counters {
+    align-items: last baseline;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 0.5rem;
+  }
 }
 @media screen and (max-width: 36rem) {
   .game__counters {
@@ -1001,6 +1016,7 @@ ul {
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
 }
 .game__modal-btn--primary {
   background-color: #540D6E;
