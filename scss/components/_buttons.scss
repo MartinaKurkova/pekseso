@@ -5,7 +5,7 @@
 
 @mixin btn {
     display: inline-block;
-    padding: .9375rem 1.875rem;
+    padding: .75rem 1.25rem;
     border-radius: .3125rem;
     font-weight: 400;
     text-decoration: none;
@@ -15,4 +15,31 @@
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@mixin btn_hover {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: .3125rem;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-4px);
+    transition: all ease-in 1s;
+    box-shadow: variables.$shadow;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@mixin btn_focus_visible {
+    outline: 3px solid variables.$color-outline;
+    outline-offset: 3px;
+}
+
+@mixin btn_active {
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: .3125rem;
+    transform: translateY(3px);
+    text-decoration: none;
+    font-weight: 600;
 }

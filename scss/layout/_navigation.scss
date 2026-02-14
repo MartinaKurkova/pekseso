@@ -20,18 +20,16 @@
         font-size: 0.875rem;
         font-weight: 400; 
         padding: 0.5rem 1rem;
-        border-radius: .25rem;
         transition: transform 0.3s ease, opacity 0.3s ease;
 
         &:hover {
-            background-color: variables.$color-hover;
+            font-weight: 600;
+            border-bottom: 1px solid white;
         }
 
         &:focus-visible {
-            outline: 3px solid variables.$color-outline; 
-            outline-offset: 2px;
-            background-color: variables.$color-hover;
             font-weight: 600;
+            border-bottom: 2px solid variables.$color-secondary;
         }
     }
 
@@ -44,7 +42,47 @@
     }
 }
 
-//mobil
+// --- DESKTOP SUBMENU ---
+@media screen and (min-width: 48.0625rem) {
+    .header__nav-list-second {
+        display: none;
+        position: absolute;
+        background: white;
+        box-shadow: variables.$shadow;
+        list-style: none;
+        padding: 0.5rem 0;
+        margin: 0;
+        min-width: 200px;
+    }
+
+    .header__nav-item:hover .header__nav-list-second {
+        display: block;
+    }
+
+    .header__nav-item {
+        position: relative;
+    }
+    
+    // Barva odkazů v submenu
+    .header__nav-list-second .header__nav-link {
+        color: variables.$color-primary;
+    }
+
+    .header__nav-list-second .header__nav-item {
+        
+        &:hover {
+            background-color: variables.$color-hover;
+            border-bottom: 1px solid variables.$color-primary;
+            background-color: white;
+        }
+
+        &:focus-visible {
+            font-weight: 600;
+        }
+    }
+}
+
+// --- MOBIL ---
 @media screen and (max-width: 48rem) {
     .header {
         &__menu-toggle {
@@ -109,7 +147,8 @@
                 background-color: variables.$color-primary;
 
                 &::before { 
-                    transform: rotate(-90deg) translateX(-0.5rem); background-color: variables.$color-primary; 
+                    transform: rotate(-90deg) translateX(-0.5rem); 
+                    background-color: variables.$color-primary; 
                 }
 
                 &::after { 
@@ -189,6 +228,30 @@
                 background-color: white;
                 font-size: 1.1rem;
             }
+        }
+        
+        // SUBMENU NA MOBILU
+        &__nav-list-second {
+            position: static;
+            display: none;
+            box-shadow: none;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        &__nav-item--open &__nav-list-second {
+            display: block;
+        }
+        
+        // Šipka indikující submenu
+        &__nav-item:has(.header__nav-list-second) > &__nav-link::after {
+            content: " ▼";
+            font-size: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        &__nav-item--open > &__nav-link::after {
+            transform: rotate(180deg);
         }
     }
 }

@@ -26,14 +26,33 @@ function closeMenu() {
     hamburgerBtn.setAttribute("aria-expanded", "false");
     hamburgerBtn.setAttribute("aria-label", "Otevřít navigaci");
     body.classList.remove("no-scroll");
+    
+    // Zavřít všechna submenu při zavření hlavního menu
+    const openSubmenus = document.querySelectorAll(".header__nav-item--open");
+    openSubmenus.forEach(item => item.classList.remove("header__nav-item--open"));
 }
 
 // Event Listeners
 hamburgerBtn.addEventListener("click", toggleMenu);
 
-// Zavření při kliknutí na odkaz
-const navLinks = document.querySelectorAll(".header__nav-link");
-navLinks.forEach(link => {
+// SUBMENU TOGGLE (jen na mobilu)
+const itemsWithSubmenu = document.querySelectorAll(".header__nav-item:has(.header__nav-list-second)");
+
+itemsWithSubmenu.forEach(item => {
+    const link = item.querySelector(".header__nav-link");
+    
+    link.addEventListener("click", (e) => {
+        // Jen na mobilu
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // Zabránit navigaci na desktop
+            item.classList.toggle("header__nav-item--open");
+        }
+    });
+});
+
+// Zavření při kliknutí na odkaz v submenu
+const submenuLinks = document.querySelectorAll(".header__nav-list-second .header__nav-link");
+submenuLinks.forEach(link => {
     link.addEventListener("click", closeMenu);
 });
 
@@ -56,12 +75,10 @@ document.addEventListener("keydown", (e) => {
 
 // Resize check
 window.addEventListener("resize", () => {
-    if (window.innerWidth > 950 && navigation.classList.contains("is-open")) {
+    if (window.innerWidth > 768 && navigation.classList.contains("is-open")) {
         closeMenu();
     }
 });
-
-
 
 //E-mail
 document.addEventListener('DOMContentLoaded', function() {
@@ -69,14 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const domain = 'pekseso.cz';
   const email = user + '@' + domain;
   
-  // Pro hlavní kontakt
   const emailDisplay = document.getElementById('email-display');
   if (emailDisplay) {
     emailDisplay.innerHTML = 
       '<a href="mailto:' + email + '" class="contact__address-link">' + email + '</a>';
   }
   
-  // Pro patičku
   const emailFooter = document.getElementById('email-footer');
   if (emailFooter) {
     emailFooter.innerHTML = 
