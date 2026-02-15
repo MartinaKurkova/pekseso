@@ -292,6 +292,9 @@
         position: relative;
         overflow: hidden;
         transition: 0.3s ease;
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
     }
 
     &__question.active {
