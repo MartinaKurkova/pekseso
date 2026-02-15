@@ -1,0 +1,561 @@
+@use "../utils/variables";
+@use "../base/typography";
+@use "../base/base";
+@use "../base/fonts";
+@use "../components/buttons";
+
+.contact-hero {
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 0 1.25rem;
+
+        // @media screen and (max-width: 62.5rem) {
+        //     grid-template-columns: repeat(2, 1fr);
+        // }
+
+        @media screen and (max-width: 43.75rem) {
+            flex-direction: column;
+        }
+    }
+
+    &__text-container {
+        flex: 6;
+        margin-bottom: 0;
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.2s;
+        opacity: 0; 
+    }
+
+    &__heading {
+        padding-top: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    &__perex {
+        margin-bottom: 0;
+    }
+
+    &__button {
+        @include buttons.btn;
+        background-color: variables.$color-primary;
+        color: white;
+        margin: 2rem 0;
+    }
+}
+
+// Form
+.contact {
+    background-color: variables.$color-secondary;
+    margin-top: 2rem;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr, 2fr;
+        grid-template-rows: auto;
+        grid-column: 1rem;
+        margin: 0 auto;
+        padding: 1rem 1.25rem 0 1.25rem;
+        gap: 3rem;
+
+        @media screen and (max-width: 43.75rem) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+    }
+
+    &__form-container {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        border-radius: .3125rem;
+        padding: 0;
+
+        @media screen and (max-width: 43.75rem) {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+    }
+
+    &__info-container {
+        grid-column: 2/3;
+        grid-row: 1/2;
+
+         @media screen and (max-width: 43.75rem) {
+            grid-column: 1/2;
+            grid-row: 2/3;
+        }
+    }
+}
+
+.contact-form {
+    &__legend {
+        margin-top: 2rem;
+        font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+
+         @media screen and (max-width: 43.75rem) {
+            margin-top: 1rem;
+        }
+    }
+
+    &__fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (min-width: 50rem)  {
+            grid-column: 2/3;
+            grid-row: 1/3;
+        }
+    }
+
+    &__label {
+        display: block;
+        margin: 0.5rem 0 0.2rem 0;
+        font-weight: 500;
+    }
+
+    &__label--textarea {
+        margin-top: 0.8rem;
+    }
+
+    &__input,
+    &__textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: .3125rem;
+        border: 1px solid white;
+        font-family: inherit;
+        margin-bottom: 0.5rem;
+    }
+
+    &__GDPR {
+        color: variables.$color-text;
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
+    }
+
+    &__note {
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+
+    &__input:focus,
+    &__textarea:focus,
+    &__button:focus {
+        outline: 2px solid variables.$color-outline;
+    }
+
+    &__button {
+        @include buttons.btn;
+        margin-bottom: 3rem;
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+        font-size: 1rem;
+    }
+
+    &__button-cta:hover {
+        @include buttons.btn_hover;
+        margin-bottom: 3rem;
+    }
+
+    &__button-cta:focus-visible {
+        @include buttons.btn_focus_visible;
+        margin-bottom: 3rem;
+    }
+
+    &__button-cta:active,
+    &__button-cta:focus {
+        @include buttons.btn_active;
+        margin-bottom: 3rem;
+    }
+
+    // errors
+    &__input.is-invalid,
+    &__textarea.is-invalid,
+    &__checkbox.is-invalid {
+        border: 2px solid variables.$color-secondary !important; 
+        background-color: #fff8f8; 
+    }
+
+    &__input.is-invalid:focus,
+    &__textarea.is-invalid:focus {
+        outline-color: variables.$color-secondary;
+        box-shadow: 0 0 5px rgba(217, 48, 37, 0.3);
+    }
+
+    &__error {
+        color: variables.$color-secondary;
+        font-size: 0.85rem;
+        margin: 0 0 0.8rem 0;
+        font-weight: 500;
+    }
+}
+
+#checkbox-error {
+    margin-left: 0;
+    display: block;
+}
+
+
+// Address
+.contact {
+
+    &__subheading {
+        margin-top: 2rem;
+        font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+    }
+
+    &__address, 
+    &__address-name {
+        font-style: normal;
+        margin: 0;
+        font-family: variables.$font-sans;
+        font-weight: 200;
+        font-size: 1rem;
+    }
+
+    &__address-link {
+        color: variables.$color-text;
+        text-decoration: none;
+        font-family: variables.$font-sans;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 1rem;
+    }
+
+    &__subheading--business,
+    &__subheading--social {
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+        font-family: variables.$font-sans;
+        color: variables.$color-text;
+        font-weight: 800;
+    }
+
+    &__business-text {
+        margin-top: 0;
+    }
+
+    &__social {
+        margin-bottom: 3rem;
+    }
+
+    &__social-links {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+    } 
+
+    &__social-icon--img {
+        width: 35px; 
+        height: 35px;
+        fill: variables.$color-primary;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+
+    &__social-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        margin-right: 0.1rem; 
+        transition: transform 0.2s ease;
+        font-family: variables.$font-sans;
+        color: variables.$color-text;
+    }
+
+    &__social-link:hover {
+        transform: translateY(-2px); 
+    }
+
+    &__social-link:focus-visible {
+        outline: 2px solid #007acc;
+        outline-offset: 2px;
+    }
+}
+
+// faq
+.faq {
+    &__container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__question {
+        border: 1px solid variables.$color-primary;
+        border-radius: .3125rem;
+        margin: 20px 0;
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s ease;
+    }
+
+    &__question.active {
+        background-color: white;
+        box-shadow: variables.$shadow;
+    }
+
+    &__title {
+        margin: 0 35px 0 0;
+        font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);;
+    }
+
+    &__text {
+        display: none;
+        margin: 30px 0 0;
+    }
+
+    &__question.active .faq__text {
+        display: block;
+    }
+
+    &__toggle {
+        background-color: transparent;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        height: 30px;
+        width: 30px;
+        transition: background-color 0.3s ease;
+    }
+
+    &__toggle:focus {
+        outline: 0;
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    &__chevron {
+        display: block;
+    }
+
+    &__times {
+        display: none;
+    }
+
+    &__question.active .faq__chevron {
+        display: none;
+    }
+
+    &__question.active .faq__times {
+        display: block;
+    }
+
+    &__question.active .faq__toggle {
+        background-color: variables.$color-secondary;
+    }
+}
+
+// zasady
+.gdpr-hero {
+
+    &__container {
+        margin: 0 auto;
+        padding: 3rem 1.25rem;
+    }
+
+    &__heading {
+        padding-top: 4rem;
+        font-weight: 900;
+        font-size: clamp(1.8rem, calc(1.8rem + 2.5vw), 4rem);
+        margin-bottom: 1rem;
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.2s;
+        opacity: 0; 
+    }
+}
+
+.gdpr {
+    &__container {
+        margin: 0 auto;
+        padding: 2rem 1.25rem;
+    }
+
+    &__heading {
+        font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
+        margin: 2rem 0 0 0;
+    }
+
+    &__list {
+        padding: 0.5rem 1.2rem;
+        margin: 0;
+    }
+
+    &__paragraph {
+        padding: 0.5rem 0;
+        margin: 0;
+    }
+    
+}
+
+
+
+// thanks
+.thanks {
+
+    &__container {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-columns: auto;
+        grid-column: 2rem;
+        margin: 0 auto;
+        padding: 3rem 1.25rem;
+
+        @media screen and (max-width: 37.5rem) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__text-container {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    &__heading {
+        padding: 4rem 0 2rem 0;
+        font-weight: 900;
+        font-size: clamp(1.8rem, calc(1.8rem + 2.5vw), 4rem);
+        margin-bottom: 1rem;
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.2s;
+        opacity: 0; 
+    }
+
+    &__paragraph {
+        margin-top: 0;
+    }
+
+    &__image-container {
+        grid-column: 2/3;
+        grid-row: 1/2;
+
+        @media screen and (max-width: 37.5rem) {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__image {
+        display: block;
+        max-width: 200px;
+        min-height: auto;
+        margin-top: 1rem;
+    }
+
+    // Buttons
+    &__buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+
+        @media screen and (max-width: 48.75rem) {
+            flex-direction: column;
+        }
+    }
+    &__button-cta {
+        @include buttons.btn;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+
+        @media screen and (max-width: 48.75rem){
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__button-cta:hover {
+        @include buttons.btn_hover;
+    }
+
+    &__button-cta:focus-visible {
+        @include buttons.btn_focus_visible;
+    }
+
+    &__button-cta:active,
+    &__button-cta:focus {
+        @include buttons.btn_active;
+    }
+
+    // button secondary
+    &__button-secondary {
+        @include buttons.btn;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+        border: 2px solid variables.$color-secondary;
+
+        @media screen and (max-width: 48.75rem){
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__link-secondary {
+        color: variables.$color-secondary;
+        text-decoration: none;
+        font-weight: 400;
+        font-family: variables.$font-sans;
+        font-size: 1.2rem;
+
+        @media screen and (max-width: 31.25rem) {
+            font-size: 1rem;
+        }
+    }
+
+    &__social-icon {
+        font-size: 2.5rem; 
+        color: variables.$color-primary;
+    }
+
+    &__social-icon--img {
+        width: 35px; 
+        height: 35px;
+        fill: variables.$color-primary;
+        margin-left: 7px;
+        align-self: flex-end;
+    }
+
+    &__social-link {
+        text-decoration: none;
+        display: inline-block;
+        margin-right: 0.1rem; 
+        transition: transform 0.2s ease;
+    }
+
+    &__social-link:hover {
+        transform: translateY(-2px); 
+    }
+
+    &__social-link:focus-visible {
+        outline: 2px solid #007acc;
+        outline-offset: 2px;
+    }
+
+    &__social-links {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    } 
+}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/herna/" class="header__nav-link">Herna</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/herna/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/herna/psi/" class="header__nav-link">Psi</a></li>
+                            <li class="header__nav-item"><a href="/herna/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/herna/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/herna/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header__nav-item"><a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a></li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+        </div>
+</header>
+
+ <main>
+
+    
+<section class="contact-hero">
+    <div class="contact-hero__container container">
+        <div class="contact-hero__text-container">
+            <h1 class="contact-hero__heading">Napište mi <span class="contact-hero__heading--italic">zprávu</span></h1>
+            <p class="contact-hero__perex perex">Máte dotaz k pexesům, objednávce, nebo byste chtěli probrat spolupráci? Ráda se s vámi spojím.</p>
+                <a href="mailto:ahoj@pekseso.cz" class="contact-hero__button btn">Napsat e-mail</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact form -->
+ <section class="contact">
+    <div class="contact__container container">
+        <div class="contact__form-container" id="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <!-- hidden inputs -->
+                <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
+                <input type="hidden" name="_email.from" value="Kontaktní formulář">
+                <input type="hidden" name="_email.subject" value="Nová zpráva z kontaktního formuláře">
+                <input type="checkbox" name="botcheck" class="contact-form__checkbox" style="display: none;">
+                <fieldset class="contact-form__fieldset">
+                    <h2 class="contact-form__legend">Kontaktujte mě</h2>
+
+                    <!-- name -->
+                    <div class="contact-form__field">
+                        <label for="jmeno" class="contact-form__label">
+                            Jméno a příjmení <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="contact-form__input" 
+                            name="name" 
+                            id="jmeno" 
+                            placeholder="Kdo mi píše?" 
+                            required>
+                        <div id="jmeno-error" class="contact-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                <!-- email -->
+                    <div class="contact-form__field">
+                        <label for="email" class="contact-form__label">
+                            E-mail <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            class="contact-form__input" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Kam vám mám odepsat?" 
+                            required>
+                        <div id="email-error" class="contact-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- subject -->
+                    <div class="contact-form__field">
+                        <label for="subject" class="contact-form__label">Předmět zprávy</label>
+                        <input 
+                            type="text" 
+                            class="contact-form__input" 
+                            name="subject" 
+                            id="subject" 
+                            placeholder="Stručně mi napište, s čím se ozýváte"
+                            aria-describedby="subject-help">
+                    </div>
+
+                    <!-- message -->
+                    <div class="contact-form__field">
+                        <label for="message" class="contact-form__label contact-form__label--textarea">
+                            Vaše zpráva <span aria-hidden="true">*</span>
+                        </label>
+                        <textarea 
+                            name="message" 
+                            class="contact-form__textarea" 
+                            id="message" 
+                            placeholder="Tady začíná váš příběh…" 
+                            rows="15" 
+                            required></textarea>
+                            <div id="message-error" class="contact-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- checkbox -->
+                    <div class="contact-form__field">
+                        <input 
+                            type="checkbox" 
+                            id="checkbox" 
+                            class="contact-form__checkbox"
+                            name="checkbox"
+                            required />
+                        <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/kontakt/zasady/" class="contact-form__GDPR">Zásadami ochrany osobních údajů.</a> *</label>
+                        <div id="checkbox-error" class="contact-form__error" role="alert"></div>
+                    </div>
+
+                    <div class="contact-form__required">
+                        <p class="contact-form__note">* Povinné položky</p>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="contact-form__button">
+                        Odeslat zprávu
+                    </button>
+
+                    <div id="form-status" class="contact-form__status" role="status" aria-live="polite"></div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- Contact informatiion -->
+         <div class="contact__info-container">
+            <div class="contact__info">
+            <h2 class="contact__subheading">Kontaktní údaje</h2>
+            <address class="contact__address">
+                <p class="contact__address-name">MgA. Martina Kurková Nožičková</p>
+                <span id="email-display"></span><br>
+                <a href="tel:+420605034317" 
+                class="contact__address-link">+420 605 034 317</a><br>
+                <span class="contact__address">Riegrova 624, 289 12 Sadská</span>
+            </address>
+            <div class="contact__business-info">
+                <p class="contact__subheading--business">Fakturační údaje</p>
+                <p class="contact__business-text">
+                    IČ: 04088140<br>
+                    ID datové schránky: b5kh82b<br>
+                    Fyzická osoba zapsaná v živnostenském rejstříku<br>
+                    Neplátce DPH
+                </p>
+            </div>
+            <!-- social -->
+            <div class="contact__social">
+                <p class="contact__subheading--social">Sledujte mě na sociálních sítích</p>
+                <div class="contact__social-links">
+                        <a href="https://www.instagram.com/pekseso" 
+                        class="contact__social-link" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="Instagram profil Martiny Kurkové Nožičkové">
+                            <img src="/images/logo/instragram.svg" 
+                                    alt="logo Instagram" 
+                                    class="contact__social-icon--img"
+                                    aria-hidden="true"
+                                    width="35"
+                                    height="35">
+                            pekseso
+                        </a>
+                    </div>
+            </div>
+        </div>
+         </div>
+    </div>
+ </section>
+
+ <section class="about">
+
+ </section>
+
+ <!-- faq -->
+ <section class="faq">
+    <div class="faq__container container">
+        <h2 class="faq__heading">Často kladené otázky<span class="faq__heading--italic"> (FAQ)</span></h2>
+        <div class="faq-boxes">
+            <div class="faq__question">
+                <h3 class="faq__title">Jaká pexesa v herně najdu?</h3>
+                <p class="faq__text">V herně si můžete vyzkoušet zkrácené verze všech mých autorských sad. Je to taková malá ochutnávka motivů předtím, než si pořídíte jejich papírovou podobu.</p>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" 
+                        class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+            <!-- question -->
+             <div class="faq__question">
+                <h3 class="faq__title">V čem jsou papírová pexesa výjimečná?</h3>
+                <p class="faq__text">Kladu velký důraz na hmatový zážitek a odolnost. Pexesa tisknu na prémiový nenatíraný papír s vysokou gramáží ($350 \text{ g}$), který je příjemný na dotek a hned tak se neohne. Barvy jsou díky tomu přirozené a hluboké.</p>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+            <!-- question -->
+             <div class="faq__question">
+                <h3 class="faq__title">Musím pexeso stříhat?</h3>
+                <p class="faq__text">Ano! Věřím, že stříhání k pexesu neodmyslitelně patří. Je to moment, kdy se na hru začnete těšit, a pro děti je to skvělý trénink jemné motoriky. Součástí každého archu je i skládací krabička, do které si pexeso po hře schováte.</p>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+            <!-- question -->
+             <div class="faq__question">
+                <h3 class="faq__title">Jak pexesa odesíláte a kdy dorazí?</h3>
+                <p class="faq__text">Balíčky posílám nejčastěji přes Zásilkovnu. Většinou stíhám pexesa vypravit do 2–3 pracovních dnů, aby u vás byla co nejdříve.</p>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+            <!-- question -->
+             <div class="faq__question">
+                <h3 class="faq__title">Kreslíte i pexesa na zakázku?</h3>
+                <p class="faq__text">Moc ráda! Pokud byste chtěli pexeso s vlastním motivem pro firmu, školu nebo jako speciální dárek, napište mi na e-mail. Společně něco vymyslíme.</p>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+         </div>
+    </div>
+</section>
+ <script src="/js/form.js"></script>
+ <script src="/js/faq.js"></script>
+
+
+</main>
+
+ <!-- footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </div>
+
+            <div class="footer__section footer__section-about">
+                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
+            </div>
+
+            <div class="footer__section footer__section_contact">
+                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
+                <address class="footer__contact">
+                    <span id="email-footer"></span><br>
+                </address>
+                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </div>
+
+            <div class="footer__section footer__nav">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a class="footer__legal" href="/kontakt/zasady/">Zásady ochrany osobních údajů</a>
+            <a class="footer__legal" href="/kontakt/zasady/">Obchodní podmínky</a>
+            </div>
+
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

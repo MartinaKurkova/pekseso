@@ -152,7 +152,7 @@
         transition: all 0.3s ease;
         
         &:hover {
-            background-color: darken(variables.$color-secondary, 10%);
+            @include buttons.btn_hover;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
