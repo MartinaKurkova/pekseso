@@ -10,8 +10,8 @@ ogImage:
 ogType: website
 twitterCard: summary_large_image 
 ---
-
-<section class="contact-hero">
+<div class="contact__wrapper">
+    <section class="contact-hero">
     <div class="contact-hero__container container">
         <div class="contact-hero__text-container">
             <h1 class="contact-hero__heading">Napište mi <span class="contact-hero__heading--italic">zprávu</span></h1>
@@ -161,13 +161,10 @@ twitterCard: summary_large_image
     </div>
  </section>
 
- <section class="about">
-
- </section>
-
  <!-- faq -->
- <section class="faq">
-    <div class="faq__container container">
+ <section class="questions">
+    <div class="questions__container container">
+        <div class="faq__container">
         <h2 class="faq__heading">Často kladené otázky<span class="faq__heading--italic"> (FAQ)</span></h2>
         <div class="faq-boxes">
             <!-- question -->
@@ -287,6 +284,23 @@ twitterCard: summary_large_image
             </div>
          </div>
     </div>
+    <div class="about__container">
+        <h2 class="about__heading">Kdo za Peksesem stojí</h2>
+        <div class="about__image-container">
+            <img src="/images/Autoportret_medium_550.webp" 
+                alt="autoportrét" 
+                class="about__image"
+                width="550"
+                height="550">
+        </div>
+        <div class="about__text-container">
+            <p class="about__text">Jmenuji se Martina Kurková Nožičková a jsem ilustrátorka. Projekt Pe[ks]eso vznikl z mé slabosti pro tradiční hry, kvalitní papír a čistou digitální kresbu. Baví mě tvořit věci, které jsou nejen hezké na pohled, ale mají i smysl a učí nás vnímat detaily kolem nás.</p>
+            <p class="about__text">Moje další ilustrační a grafické projekty si můžete prohlédnout v mém portfoliu na <a href="www.martinakurkova.cz" class="about__perex--italic" target="_blank">www.martinakurkova.cz</a></p>
+        </div>
+    </div>
+    </div>
 </section>
+</div>
+
  <script src="/js/form.js"></script>
  <script src="/js/faq.js"></script>

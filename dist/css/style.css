@@ -889,6 +889,17 @@ ul {
   color: #0D0D0D;
 }
 
+.contact__wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: "hero hero hero" "contact contact contact" "faq faq faq";
+  gap: 1.25rem;
+}
+
+.contact-hero {
+  grid-area: hero;
+}
 .contact-hero__container {
   display: flex;
   flex-direction: row;
@@ -935,10 +946,12 @@ ul {
 .contact {
   background-color: #FFD23F;
   margin-top: 2rem;
+  grid-area: contact;
 }
 .contact__container {
+  grid-area: form;
   display: grid;
-  grid-template-columns: 1fr, 2fr;
+  grid-template-columns: 2fr 1fr;
   grid-template-rows: auto;
   grid-column: 1rem;
   margin: 0 auto;
@@ -1149,9 +1162,24 @@ ul {
   outline-offset: 2px;
 }
 
+.questions {
+  grid-area: faq;
+}
+.questions__container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  padding: 2rem 1.25rem 0 1.25rem;
+}
+@media screen and (max-width: 43.75rem) {
+  .questions__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
 .faq__container {
-  width: 100%;
-  margin: 0 auto;
+  padding-bottom: 2rem;
 }
 .faq__question {
   border: 1px solid #540D6E;
@@ -1217,6 +1245,16 @@ ul {
 }
 .faq__question.active .faq__toggle {
   background-color: #FFD23F;
+}
+
+.about__container {
+  margin: 0 auto;
+}
+.about__image {
+  border-radius: 50%;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .gdpr-hero__container {
