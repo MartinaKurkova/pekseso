@@ -909,6 +909,16 @@ ul {
   grid-template-rows: auto;
   gap: 1.25rem;
 }
+@media screen and (max-width: 48rem) {
+  .shop__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 30rem) {
+  .shop__grid {
+    grid-template-columns: 1fr;
+  }
+}
 .shop__sr-only {
   position: absolute;
   width: 1px;
@@ -977,6 +987,41 @@ ul {
 
 .info {
   background-color: #FFD23F;
+}
+.info__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 1.25rem;
+}
+@media screen and (max-width: 48rem) {
+  .info__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.info__heading {
+  grid-column: span 4;
+  text-align: center;
+  margin-bottom: 0;
+}
+@media screen and (max-width: 48rem) {
+  .info__heading {
+    grid-column: span 2;
+  }
+}
+.info__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: last baseline;
+}
+.info__subheading {
+  text-align: center;
+  font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
+  font-weight: 600;
+}
+.info__description {
+  text-align: center;
 }
 
 .contact__wrapper {

@@ -26,6 +26,14 @@
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
         gap: 1.25rem;
+
+        @media screen and (max-width: 48rem) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (max-width: 30rem) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__sr-only {
@@ -96,4 +104,42 @@
 
 .info {
     background-color: variables.$color-secondary;
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        gap: 1.25rem;
+
+        @media screen and (max-width: 48rem) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__heading {
+        grid-column: span 4;
+        text-align: center;
+        margin-bottom: 0;
+
+        @media screen and (max-width: 48rem) {
+            grid-column: span 2;
+        }
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: last baseline;
+    }
+
+    &__subheading {
+        text-align: center;
+        font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
+        font-weight: 600;
+    }
+
+    &__description {
+        text-align: center;
+    }
 }
