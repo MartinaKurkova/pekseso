@@ -30,10 +30,6 @@
         @media screen and (max-width: 48rem) {
             grid-template-columns: repeat(2, 1fr);
         }
-
-        @media screen and (max-width: 30rem) {
-            grid-template-columns: 1fr;
-        }
     }
 
     &__sr-only {
@@ -141,5 +137,20 @@
 
     &__description {
         text-align: center;
+    }
+}
+
+// transport
+.transport {
+
+    &__item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    &__icon {
+        border-radius: 50%;
     }
 }

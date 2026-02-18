@@ -914,11 +914,6 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media screen and (max-width: 30rem) {
-  .shop__grid {
-    grid-template-columns: 1fr;
-  }
-}
 .shop__sr-only {
   position: absolute;
   width: 1px;
@@ -1022,6 +1017,16 @@ ul {
 }
 .info__description {
   text-align: center;
+}
+
+.transport__item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.transport__icon {
+  border-radius: 50%;
 }
 
 .contact__wrapper {
