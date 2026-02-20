@@ -1019,11 +1019,24 @@ ul {
   text-align: center;
 }
 
+.transport__columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 1.25rem;
+}
+.transport__heading {
+  margin-bottom: 1rem;
+}
+.transport__subheading {
+  font-size: clamp(1rem, 1rem + 0.5vw, 1.3rem);
+  font-weight: 600;
+}
 .transport__item {
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3125rem;
 }
 .transport__icon {
   border-radius: 50%;

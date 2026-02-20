@@ -143,11 +143,27 @@
 // transport
 .transport {
 
+    &__columns {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 1.25rem;
+    }
+
+    &__heading {
+        margin-bottom: 1rem;
+    }
+
+    &__subheading {
+        font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
+        font-weight: 600;
+    }
+
     &__item {
         display: flex;
         gap: 1rem;
         align-items: center;
-        margin-bottom: 1rem;
+        margin-bottom: .3125rem;
     }
 
     &__icon {
