@@ -901,7 +901,6 @@ ul {
 
 .shop__container {
   margin: 0 auto;
-  padding: 2rem 1.25rem 2rem 1.25rem;
 }
 .shop__grid {
   display: grid;
@@ -1019,27 +1018,42 @@ ul {
   text-align: center;
 }
 
-.transport__columns {
+.transport__heading {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.transport__subheading {
+  text-align: center;
+}
+.transport__icons {
+  display: flex;
+  gap: 1.25rem;
+}
+.transport__icon {
+  border-radius: 50%;
+}
+.transport__boxes {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   gap: 1.25rem;
 }
-.transport__heading {
-  margin-bottom: 1rem;
-}
-.transport__subheading {
-  font-size: clamp(1rem, 1rem + 0.5vw, 1.3rem);
-  font-weight: 600;
-}
-.transport__item {
+.transport__box {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 0.3125rem;
+  justify-content: start;
+  padding: 1.5rem;
+  border: 2px solid #FFD23F;
+  border-radius: 0.3125rem;
 }
-.transport__icon {
-  border-radius: 50%;
+.transport__title {
+  text-align: center;
+  margin: 1rem 0;
+}
+.transport__description {
+  text-align: center;
+  margin: 0;
 }
 
 .contact__wrapper {

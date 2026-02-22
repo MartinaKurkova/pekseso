@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 283.46 283.46">
+  <!-- Generator: Adobe Illustrator 30.1.0, SVG Export Plug-In . SVG Version: 2.1.1 Build 136)  -->
+  <defs>
+    <style>
+      .st0 {
+        stroke-dasharray: 4.88 4.88;
+      }
+
+      .st0, .st1, .st2 {
+        fill: none;
+        stroke: #4f266a;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+
+      .st3 {
+        fill: #fff;
+      }
+
+      .st1 {
+        stroke-dasharray: 4.88 4.88 4.88 4.88;
+      }
+    </style>
+  </defs>
+  <rect class="st3" x="99.3" y="161.48" width="172.61" height="115.92" rx="9.86" ry="9.86"/>
+  <rect class="st2" x="92.16" y="155.53" width="172.61" height="115.92" rx="9.86" ry="9.86"/>
+  <path class="st2" d="M96.16,159.16l75.7,64.46c3.75,3.19,9.25,3.19,13,0l75.66-64.27"/>
+  <line class="st2" x1="95.19" y1="268.69" x2="161.95" y2="215.17"/>
+  <line class="st2" x1="194.83" y1="215.17" x2="261.73" y2="268.69"/>
+  <path class="st2" d="M77.67,48.93c0,21.77-17.52,47.68-27.98,61.22-3.87,5-11.4,5-15.27,0-10.46-13.54-27.98-39.45-27.98-61.22C6.44,17.89,22.38,7.04,42.05,7.04s35.61,10.85,35.61,41.89Z"/>
+  <circle class="st3" cx="46.14" cy="47.06" r="26.79"/>
+  <circle class="st2" cx="42.05" cy="42.98" r="26.79"/>
+  <g>
+    <path class="st2" d="M59.03,113.9s.88-.07,2.49-.19"/>
+    <path class="st0" d="M66.38,113.36c2.08-.14,4.54-.31,7.3-.48"/>
+    <path class="st1" d="M76.11,112.73c29.74-1.78,88.19-4.04,91.34,5.41,4.24,12.71-136.38,8.75-144,43.34-6.37,28.9,38.72,45.82,53.71,50.6"/>
+    <path class="st2" d="M79.5,212.8c1.53.46,2.4.69,2.4.69"/>
+  </g>
+</svg>
