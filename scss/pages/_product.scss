@@ -1,0 +1,394 @@
+@use "../utils/variables";
+@use "../base/typography";
+@use "../base/base";
+@use "../base/fonts";
+@use "../components/buttons";
+
+.product {
+    &__container {
+        max-width: 70rem;
+        margin: 0 auto;
+        padding: 6rem 1.25rem 1.25rem 1.25rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+        @media screen and (min-width: 50.25rem) {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: auto auto;
+        }
+    }
+
+    &__image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    @media screen and (min-width: 50.25rem) {
+        grid-column: 1/4;
+        gap: 1rem;
+    }
+}
+
+    &__image-main {
+        cursor: pointer;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: variables.$shadow; 
+        aspect-ratio: 1/1;
+
+        &:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.05);
+        }
+    }
+
+    &__thumbnails-viewport {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__thumbnails {
+        display: grid;
+        grid-template-columns: repeat(6, calc((100% - 1.5rem) / 4));
+        gap: 0.5rem;
+        transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        @media screen and (min-width: 48rem) {
+            grid-template-columns: repeat(6, calc((100% - 3rem) / 4));
+            gap: 1rem;
+        }
+    }
+
+    &__thumbnail {
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1/1;
+        box-shadow: variables.$shadow;
+
+        &:hover {
+            border-color: variables.$color-primary;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        &.active {
+            border-color: variables.$color-primary;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    }
+
+    &__thumb-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        width: 2rem;
+        height: 2rem;
+        background-color: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(4px);
+        border: 1.5px solid variables.$color-text;
+        color: variables.$color-text;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+        &:hover {
+            background: variables.$color-primary;
+            border-color: variables.$color-primary;
+            color: #fff;
+        }
+
+        &:disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        &--left  { left: 0; }
+        &--right { right: 0; }
+
+        @media screen and (min-width: 50.25rem) {
+            width: 2.25rem;
+            height: 2.25rem;
+        }
+    }
+
+    &__text-container {
+        @media screen and (min-width: 50.25rem) {
+            grid-column: -1/-3;
+            grid-row: 1; 
+        }
+    }
+
+    &__heading {
+        margin-bottom: 1rem;
+    }
+
+    &__price {
+        font-weight: 500;
+        font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
+        margin: 0 0 3rem 0;
+    }
+
+    &__subheading {
+        font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
+        margin-bottom: 0;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 2rem;
+    }
+
+    &__buy {
+        @include buttons.btn;
+        text-decoration: none;
+        margin: 0;
+        background-color: variables.$color-primary;
+        color: white;
+    }
+
+    &__buy:hover {
+        @include buttons.btn_hover;
+        background-color: variables.$color-hover;
+        color: white;
+    }
+
+    &__buy:active,
+    &__buy:focus {
+        @include buttons.btn_active;
+        background-color: variables.$color-active;
+        color: white;
+    }
+
+    &__link--back {
+        @include buttons.btn;
+    }
+
+    &__link--back:hover {
+        @include buttons.btn_hover;
+    }
+
+    &__link:active,
+    &__link:focus {
+        @include buttons.btn_active;
+    }
+}
+
+// box
+.box {
+    margin-bottom: 3rem;
+
+    &__heading {
+        font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
+        margin-top: 3rem;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        gap: 1.25rem;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &__description {
+        margin: 0;
+    }
+}
+
+
+
+// lightbox
+.lightbox {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+        display: flex;
+    }
+
+    &__content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__image {
+        max-width: 100%;
+        max-height: 90vh;
+        object-fit: contain;
+        width: auto;
+        height: auto;
+        border: 2px solid white;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+
+    &__close {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 3.125rem;
+        height: 3.125rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: .625rem;
+        border-radius: 50%;
+        transition: color 0.3s ease;
+        z-index: 1001;
+
+        @media screen and (max-width: 48rem) {
+            top: .625rem;
+            right: .625rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.25rem;
+        }
+
+        &:hover {
+            color: #ccc;
+        }
+    }
+
+    &__nav {
+        position: absolute;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: .625rem;
+        border-radius: 50%;
+        transition: color 0.3s ease;
+        z-index: 1001;
+        top: 50%;
+        transform: translateY((-50%));
+        width: 3.125rem;
+        height: 3.125rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: 48rem) {
+            width: 2.5rem;
+            height: 2.5rem;
+            font-size: 1.25rem;
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        &--prev {
+            left: 1.25rem;
+
+            @media screen and (max-width: 48rem) {
+                left: .625rem;
+            }
+        }
+
+        &--next {
+            right: 1.25rem;
+
+            @media screen and (max-width: 48rem) {
+                right: .625rem;
+            }
+        }
+    }
+}
+
+// quantity
+.quantity {
+    &__wrapper {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid variables.$color-primary;
+      border-radius: .3125rem;
+      overflow: hidden;
+      font-family: variables.$font-sans;
+    }
+
+    &__btn {
+      border: none;
+      padding: .625rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 400;
+      color: variables.$color-primary;
+      background-color: white;
+    }
+
+    &__btn:hover {
+      background: white;
+    }
+
+    &__btn:disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+
+    &__value {
+        font-family: variables.$font-sans;
+        font-weight: 400;
+        font-style: normal;
+        color: variables.$color-primary;
+        padding: 10px 20px;
+        font-size: 1rem;
+        min-width: 2.5rem;
+        text-align: center;
+        border-left: 1px solid variables.$color-primary;
+        border-right: 1px solid variables.$color-primary;
+    }
+}

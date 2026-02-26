@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/herna/" class="header__nav-link">Herna</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/herna/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/herna/psi/" class="header__nav-link">Psi</a></li>
+                            <li class="header__nav-item"><a href="/herna/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/herna/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/herna/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header__nav-item"><a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a></li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+        </div>
+</header>
+
+ <main>
+
+    
+<section class="product">
+    <div class="product__container">
+        <!-- Gallery -->
+        <div class="product__image-container">
+            <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
+                <img src="/images/fotky/Ptaci/large/ptaci_1_large_800.webp"
+                    srcset="
+                            /images/fotky/Ptaci/small/ptaci_1_small_400.webp 400w,
+                            /images/fotky/Ptaci/medium/ptaci_1_medium_650.webp 650w,
+                            /images/fotky/Ptaci/large/ptaci_1_large_800.webp 800w,
+                            /images/fotky/Ptaci/xl/ptaci_1_xl_1000.webp 1000w"
+                    data-full="/images/fotky/Ptaci/xl/ptaci_1_xl_1000.webp"
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    alt="Pexeso Ptáci kartička s plameňákem"
+                    class="product__image"
+                    id="mainImg"
+                    loading="eager"
+                    fetchpriority="high"
+                    width="800"
+                    height="800">
+            </div>
+            <!-- thumbnails -->
+            <div class="product__thumbnails-carousel">
+                <div class="product__thumbnails-viewport">
+                    <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)" aria-label="Předchozí">‹</button>
+                    <!-- thumbnail 0 -->
+                    <div class="product__thumbnails" id="thumbTrack">
+                        <div class="product__thumbnail active" onclick="changeImage(0)">
+                            <img src="/images/fotky/Ptaci/large/ptaci_1_large_800.webp"
+                                srcset="
+                                        /images/fotky/Ptaci/small/ptaci_1_small_400.webp 400w,
+                                        /images/fotky/Ptaci/medium/ptaci_1_medium_650.webp 650w,
+                                        /images/fotky/Ptaci/large/ptaci_1_large_800.webp 800w,
+                                        /images/fotky/Ptaci/xl/ptaci_1_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Ptaci/xl/ptaci_1_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Ptáci kartička s plameňákem"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 1 -->
+                        <div class="product__thumbnail" onclick="changeImage(1)">
+                            <img src="/images/fotky/Ptaci/large/ptaci_2_large_800.webp"
+                                srcset="
+                                        /images/fotky/Ptaci/small/ptaci_2_small_400.webp 400w,
+                                        /images/fotky/Ptaci/medium/ptaci_2_medium_650.webp 650w,
+                                        /images/fotky/Ptaci/large/ptaci_2_large_800.webp 800w,
+                                        /images/fotky/Ptaci/xl/ptaci_2_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Ptaci/xl/ptaci_2_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Ptáci poskládané do mřížky"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 2 -->
+                        <div class="product__thumbnail" onclick="changeImage(2)">
+                            <img src="/images/fotky/Ptaci/large/ptaci_3_large_800.webp"
+                                srcset="
+                                        /images/fotky/Ptaci/small/ptaci_3_small_400.webp 400w,
+                                        /images/fotky/Ptaci/medium/ptaci_3_medium_650.webp 650w,
+                                        /images/fotky/Ptaci/large/ptaci_3_large_800.webp 800w,
+                                        /images/fotky/Ptaci/xl/ptaci_3_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Ptaci/xl/ptaci_3_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Ptáci - celá hromádka kartiček"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 3 -->
+                        <div class="product__thumbnail" onclick="changeImage(3)">
+                            <img src="/images/fotky/Ptaci/large/ptaci_4_large_800.webp"
+                                srcset="
+                                        /images/fotky/Ptaci/small/ptaci_4_small_400.webp 400w,
+                                        /images/fotky/Ptaci/medium/ptaci_4_medium_650.webp 650w,
+                                        /images/fotky/Ptaci/large/ptaci_4_large_800.webp 800w,
+                                        /images/fotky/Ptaci/xl/ptaci_4_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Ptaci/xl/ptaci_4_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Ptáci čtyři kartičky s ptáky"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 4 -->
+                        <div class="product__thumbnail" onclick="changeImage(4)">
+                            <img src="/images/fotky/Ptaci/large/ptaci_5_large_800.webp"
+                                srcset="
+                                        /images/fotky/Ptaci/small/ptaci_5_small_400.webp 400w,
+                                        /images/fotky/Ptaci/medium/ptaci_5_medium_650.webp 650w,
+                                        /images/fotky/Ptaci/large/ptaci_5_large_800.webp 800w,
+                                        /images/fotky/Ptaci/xl/ptaci_5_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Ptaci/xl/ptaci_5_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Ptáci celý arch"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 5 -->
+                        <div class="product__thumbnail" onclick="changeImage(5)">
+                            <img src="/images/fotky/Ptaci/large/ptaci_6_large_800.webp"
+                                srcset="
+                                        /images/fotky/Ptaci/small/ptaci_6_small_400.webp 400w,
+                                        /images/fotky/Ptaci/medium/ptaci_6_medium_650.webp 650w,
+                                        /images/fotky/Ptaci/large/ptaci_6_large_800.webp 800w,
+                                        /images/fotky/Ptaci/xl/ptaci_6_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Ptaci/xl/ptaci_6_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Ptáci poskládané do mřížky"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                    </div>
+                    <button class="product__thumb-arrow product__thumb-arrow--right" id="thumbArrowRight" onclick="slideThumbs(+1)" aria-label="Další">›</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- text container -->
+          <div class="product__text-container">
+            <h1 class="product__heading"><span class="product__heading--italic">Ptáci</span></h1>
+            <div class="product__price">165 Kč</div>
+            <h2 class="product__subheading">Vzhůru do korun stromů a&nbsp;k&nbsp;dalekým břehům</h2>
+            <p class="product__text">Tato sada pexesa vám představí 32&nbsp;dvojic exotických ptáků. Čistý styl vektorových ilustrací klade důraz na zobrazení charakteristických znaků každého z&nbsp;nich. Je to příležitost, jak společně s&nbsp;dětmi objevovat ptačí říši, trénovat soustředění a&nbsp;nechat se vést křídly fantazie.</p>
+            
+            <div class="box">
+                <h3 class="box__heading">Radost pro oči i hmat</h3>
+                <!-- box 1 -->
+                <div class="box__item">
+                    <img src="/images/icons/paper.svg" 
+                        alt="Ikona papíru" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h4 class="box__title">Prémiový papír Olin</h4>
+                        <p class="box__description">Nenatíraný papír s&nbsp;přirozenou strukturou eukalyptových vláken, jež je radost držet v&nbsp;ruce.</p>
+                    </div>
+                </div>
+                <!-- box 2 -->
+                <div class="box__item">
+                    <img src="/images/icons/eko.svg" 
+                        alt="Ikona ekologického papíru" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h4 class="box__title">S úctou k přírodě</h4>
+                        <p class="box__description">Použitý papír má certifikaci FSC®, která zaručuje udržitelný a&nbsp;zodpovědný původ dřeva.</p>
+                    </div>
+                </div>
+                <!-- box 3 -->
+                <div class="box__item">
+                    <img src="/images/icons/pairs.svg" 
+                        alt="Ikona kartiček" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h4 class="box__title">32 dvojic kartiček</h4>
+                        <p class="box__description">Tři archy formátu A4 s&nbsp;jasně vyznačenými okraji pro snadné stříhání na jednotlivé kartičky.</p>
+                    </div>
+                </div>
+                <!-- box 4 -->
+                <div class="box__item">
+                    <img src="/images/icons/box.svg" 
+                        alt="Ikona krabičky" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h4 class="box__title">Krabička v balení</h4>
+                        <p class="box__description">Součástí sady je i&nbsp;skládací krabička, aby se vám po rozstříhání žádná kartička nezatoulala.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- buttons -->
+             <div class="product__buttons">
+                <!-- quantity -->
+                <div class="quantity__wrapper">
+                    <button class="quantity__btn" id="btn-minus" onclick="changeQty(-1)">−</button>
+                    <span class="quantity__value" id="qty-display">1</span>
+                    <button class="quantity__btn" id="btn-plus" onclick="changeQty(1)">+</button>
+                </div>
+                <!-- btn -->
+                <button class="product__buy" id="btnBuy">Koupit</button>
+             </div>
+          </div>
+    </div>
+</section>
+
+<script src="/js/product.js"></script>
+
+</main>
+
+ <!-- footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </div>
+
+            <div class="footer__section footer__section-about">
+                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
+            </div>
+
+            <div class="footer__section footer__section_contact">
+                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
+                <address class="footer__contact">
+                    <span id="email-footer"></span><br>
+                </address>
+                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </div>
+
+            <div class="footer__section footer__nav">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a class="footer__legal" href="/kontakt/zasady/">Zásady ochrany osobních údajů</a>
+            <a class="footer__legal" href="/kontakt/zasady/">Obchodní podmínky</a>
+            </div>
+
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
