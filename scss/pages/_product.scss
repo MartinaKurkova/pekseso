@@ -11,11 +11,12 @@
         padding: 6rem 1.25rem 1.25rem 1.25rem;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 1.5rem;
 
-        @media screen and (min-width: 50.25rem) {
+        @media screen and (min-width: 58rem) {
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto auto;
+            gap: 3rem;
         }
     }
 
@@ -136,14 +137,14 @@
         &--left  { left: 0; }
         &--right { right: 0; }
 
-        @media screen and (min-width: 50.25rem) {
+        @media screen and (min-width: 48rem) {
             width: 2.25rem;
             height: 2.25rem;
         }
     }
 
     &__text-container {
-        @media screen and (min-width: 50.25rem) {
+        @media screen and (min-width: 48rem) {
             grid-column: 2/3;
             grid-row: 1; 
         }
@@ -156,12 +157,18 @@
     &__price {
         font-weight: 500;
         font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
-        margin: 0 0 3rem 0;
+        margin: 0;
+
+        @media screen and (min-width: 48rem) {
+            grid-column: 2/3;
+            grid-row: 1; 
+            margin: 0 0 0.5rem 0;
+        }
     }
 
     &__subheading {
         font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
-        margin-bottom: 0;
+        margin: 1rem 0 0 0;
     }
 
     &__try {
