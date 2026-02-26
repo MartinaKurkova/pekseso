@@ -5,6 +5,10 @@
 
 // --- SPOLEČNÉ STYLY (Desktop i mobil) ---
 .header {
+    &__navigation {
+        margin-left: auto;  
+    }
+
     &__nav-list {
         display: flex;
         margin: 0;
@@ -63,15 +67,12 @@
         position: relative;
     }
     
-    // Barva odkazů v submenu
     .header__nav-list-second .header__nav-link {
         color: variables.$color-primary;
     }
 
     .header__nav-list-second .header__nav-item {
-        
         &:hover {
-            background-color: variables.$color-hover;
             border-bottom: 1px solid variables.$color-primary;
             background-color: white;
         }
@@ -87,6 +88,7 @@
     .header {
         &__menu-toggle {
             display: flex;
+            margin-left: auto;  // ← hamburger se přisune doprava
             background: none;
             border: none;
             cursor: pointer;
@@ -100,7 +102,6 @@
             position: relative;
         }
 
-        // Hamburger ikona
         &__hamburger-line,
         &__hamburger-line::before,
         &__hamburger-line::after {
@@ -140,7 +141,6 @@
             }
         }
 
-        // Aktivní stav hamburgeru
         &__menu-toggle.is-active {
             .header__hamburger-line {
                 transform: rotate(45deg);
@@ -160,7 +160,6 @@
             }
         }
 
-        // animace plochy
         &__navigation {
             position: fixed;
             top: 0;
@@ -169,6 +168,7 @@
             left: 0;
             pointer-events: none; 
             z-index: 999;
+            margin-left: 0;
         }
 
         &__nav-overlay,
@@ -197,7 +197,6 @@
             transition-delay: 0s; 
         }
 
-        // stav otevřeno
         &__navigation.is-open {
             pointer-events: all;
 
@@ -212,7 +211,6 @@
             }
         }
 
-        // Úprava odkazů v mobilním menu
         &__nav-item {
             margin-bottom: 1rem;
         }
@@ -230,7 +228,6 @@
             }
         }
         
-        // SUBMENU NA MOBILU
         &__nav-list-second {
             position: static;
             display: none;
@@ -243,7 +240,6 @@
             display: block;
         }
         
-        // Šipka indikující submenu
         &__nav-item:has(.header__nav-list-second) > &__nav-link::after {
             content: " ▼";
             font-size: 0.5rem;

@@ -13,10 +13,8 @@
     z-index: 999;
     box-shadow: variables.$shadow;
 
-
     &__container {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         max-width: 70rem;    
         margin: 0 auto;     
@@ -40,11 +38,34 @@
         font-weight: 200;
         font-style: normal;
     }
+
     &__logo-title {
         margin: 0;
     }
 
+    // basket
+    &__basket {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        background-color: variables.$color-primary;
+        border: none;
+        margin-left: 1.5rem;
+    }
 
+    &__basket-icon {
+        display: block;
+    }
+
+    &__basket-amount {
+        color: white;
+        font-family: variables.$font-sans;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1rem;
+    }
 }
 
 @keyframes cursor {
