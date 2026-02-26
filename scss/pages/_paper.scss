@@ -31,18 +31,6 @@
         }
     }
 
-    &__sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-    }
-
     &__grid-card {
         cursor: pointer;
         transition: transform 0.2s;
@@ -54,11 +42,10 @@
         transform: translateY(-4px);
     }
 
-    &__link::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
+    &__link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
     }
 
     &__image {
@@ -94,7 +81,6 @@
         @include buttons.btn;
         background-color: variables.$color-secondary;
     }
-
 }
 
 .info {

@@ -11,22 +11,22 @@
         padding: 6rem 1.25rem 1.25rem 1.25rem;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
 
         @media screen and (min-width: 50.25rem) {
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto auto;
         }
     }
 
     &__image-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    
-    @media screen and (min-width: 50.25rem) {
-        grid-column: 1/4;
-        gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        
+        @media screen and (min-width: 50.25rem) {
+            grid-column: 1/2;
+            gap: 1rem;
     }
 }
 
@@ -40,7 +40,7 @@
         aspect-ratio: 1/1;
 
         &:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: variables.$shadow;
         }
         
         img {
@@ -86,7 +86,7 @@
 
         &:hover {
             border-color: variables.$color-primary;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: variables.$shadow
         }
 
         &.active {
@@ -108,10 +108,10 @@
         z-index: 2;
         width: 2rem;
         height: 2rem;
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(0,0,0,0.3);
         backdrop-filter: blur(4px);
-        border: 1.5px solid variables.$color-text;
-        color: variables.$color-text;
+        border: 1.5px solid white;
+        color: white;
         border-radius: 50%;
         cursor: pointer;
         font-size: 0.9rem;
@@ -142,7 +142,7 @@
 
     &__text-container {
         @media screen and (min-width: 50.25rem) {
-            grid-column: -1/-3;
+            grid-column: 2/3;
             grid-row: 1; 
         }
     }
@@ -162,49 +162,53 @@
         margin-bottom: 0;
     }
 
+    &__try {
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
+        color: variables.$color-text;
+        font-weight: 500;
+        display: flex;
+        gap: 1rem;
+    }
+
     &__buttons {
+        margin-top: 3rem;
         display: flex;
         gap: 2rem;
     }
 
-    &__buy {
+    &__btn-buy {
         @include buttons.btn;
-        text-decoration: none;
-        margin: 0;
         background-color: variables.$color-primary;
         color: white;
+        padding: .75rem 2rem;
     }
 
-    &__buy:hover {
+    &__btn-buy:hover {
         @include buttons.btn_hover;
         background-color: variables.$color-hover;
         color: white;
+        padding: .75rem 2rem;
     }
 
-    &__buy:active,
-    &__buy:focus {
+    &__btn-buy:active,
+    &__btn-buy:focus {
         @include buttons.btn_active;
         background-color: variables.$color-active;
         color: white;
+        padding: .75rem 2rem;
     }
 
-    &__link--back {
+    &__btn-back {
         @include buttons.btn;
-    }
+        border: 1px solid variables.$color-primary;
 
-    &__link--back:hover {
-        @include buttons.btn_hover;
-    }
-
-    &__link:active,
-    &__link:focus {
-        @include buttons.btn_active;
     }
 }
 
 // box
 .box {
-    margin-bottom: 3rem;
+    margin: 1rem 0 2rem 0;
 
     &__heading {
         font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);

@@ -920,17 +920,6 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.shop__sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
 .shop__grid-card {
   cursor: pointer;
   transition: transform 0.2s;
@@ -940,11 +929,10 @@ ul {
 .shop__grid-card:hover {
   transform: translateY(-4px);
 }
-.shop__link::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+.shop__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 .shop__image {
   display: block;
@@ -2005,11 +1993,11 @@ ul {
   padding: 6rem 1.25rem 1.25rem 1.25rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 3rem;
 }
 @media screen and (min-width: 50.25rem) {
   .product__container {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto auto;
   }
 }
@@ -2020,7 +2008,7 @@ ul {
 }
 @media screen and (min-width: 50.25rem) {
   .product__image-container {
-    grid-column: 1/4;
+    grid-column: 1/2;
     gap: 1rem;
   }
 }
@@ -2034,7 +2022,7 @@ ul {
   aspect-ratio: 1/1;
 }
 .product__image-main:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 .product__image-main img {
   width: 100%;
@@ -2076,7 +2064,7 @@ ul {
 }
 .product__thumbnail:hover {
   border-color: #540D6E;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
 .product__thumbnail.active {
   border-color: #540D6E;
@@ -2095,10 +2083,10 @@ ul {
   z-index: 2;
   width: 2rem;
   height: 2rem;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
-  border: 1.5px solid #0D0D0D;
-  color: #0D0D0D;
+  border: 1.5px solid white;
+  color: white;
   border-radius: 50%;
   cursor: pointer;
   font-size: 0.9rem;
@@ -2130,7 +2118,7 @@ ul {
 }
 @media screen and (min-width: 50.25rem) {
   .product__text-container {
-    grid-column: -1/-3;
+    grid-column: 2/3;
     grid-row: 1;
   }
 }
@@ -2146,11 +2134,20 @@ ul {
   font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
   margin-bottom: 0;
 }
+.product__try {
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 0.2em;
+  color: #0D0D0D;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+}
 .product__buttons {
+  margin-top: 3rem;
   display: flex;
   gap: 2rem;
 }
-.product__buy {
+.product__btn-buy {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3125rem;
@@ -2163,12 +2160,11 @@ ul {
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
-  margin: 0;
   background-color: #540D6E;
   color: white;
+  padding: 0.75rem 2rem;
 }
-.product__buy:hover {
+.product__btn-buy:hover {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3125rem;
@@ -2181,8 +2177,9 @@ ul {
   font-weight: 600;
   background-color: #2c033b;
   color: white;
+  padding: 0.75rem 2rem;
 }
-.product__buy:active, .product__buy:focus {
+.product__btn-buy:active, .product__btn-buy:focus {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3125rem;
@@ -2191,8 +2188,9 @@ ul {
   font-weight: 600;
   background-color: #8127a2;
   color: white;
+  padding: 0.75rem 2rem;
 }
-.product__link--back {
+.product__btn-back {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3125rem;
@@ -2205,30 +2203,11 @@ ul {
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.product__link--back:hover {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.3125rem;
-  border: none;
-  cursor: pointer;
-  transform: translateY(-4px);
-  transition: all ease-in 1s;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-  text-decoration: none;
-  font-weight: 600;
-}
-.product__link:active, .product__link:focus {
-  display: inline-block;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.3125rem;
-  transform: translateY(3px);
-  text-decoration: none;
-  font-weight: 600;
+  border: 1px solid #540D6E;
 }
 
 .box {
-  margin-bottom: 3rem;
+  margin: 1rem 0 2rem 0;
 }
 .box__heading {
   font-size: clamp(1rem, 1rem + 0.5vw, 1.3rem);

@@ -1,0 +1,170 @@
+---
+layout: layout.njk
+title: "Pekseso"
+description: ""
+
+# SEO & Social
+metaTitle: ""
+ogDescription: ""
+ogImage: 
+ogType: website
+twitterCard: summary_large_image 
+---
+
+<section class="product">
+    <div class="product__container">
+        <!-- Gallery -->
+        <div class="product__image-container">
+            <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
+                <img src="/images/fotky/Les/large/les_1_large_800.webp"
+                    srcset="
+                            /images/fotky/Les/small/les_1_small_400.webp 400w,
+                            /images/fotky/Les/medium/les_1_medium_650.webp 650w,
+                            /images/fotky/Les/large/les_1_large_800.webp,
+                            /images/fotky/Les/xl/les_1_xl_1000.webp 1000w"
+                    data-full="/images/fotky/Les/xl/les_1_xl_1000.webp"
+                    sizes="(max-width: 768px) 100vw, 66vw"
+                    alt="Pexeso Lesní zvířata kartička s lasičkou"
+                    class="product__image"
+                    id="mainImg"
+                    loading="eager"
+                    fetchpriority="high"
+                    width="800"
+                    height="800">
+            </div>
+            <!-- thumbnails -->
+            <div class="product__thumbnails-carousel">
+                <div class="product__thumbnails-viewport">
+                    <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)" aria-label="Předchozí">‹</button>
+                    <!-- thumbnail 0 -->
+                    <div class="product__thumbnails" id="thumbTrack">
+                        <div class="product__thumbnail active" onclick="changeImage(0)">
+                            <img src="/images/fotky/Les/large/les_1_large_800.webp"
+                                srcset="
+                                        /images/fotky/Les/small/les_1_small_400.webp 400w,
+                                        /images/fotky/Les/medium/les_1_medium_650.webp 650w,
+                                        /images/fotky/Les/large/les_1_large_800.webp,
+                                        /images/fotky/Les/xl/les_1_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Les/xl/les_1_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Lesní zvířata kartička s lasičkou"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 1 -->
+                        <div class="product__thumbnail" onclick="changeImage(1)">
+                            <img src="/images/fotky/Les/large/les_2_large_800.webp"
+                                srcset="
+                                        /images/fotky/Les/small/les_2_small_400.webp 400w,
+                                        /images/fotky/Les/medium/les_2_medium_650.webp 650w,
+                                        /images/fotky/Les/large/les_2_large_800.webp,
+                                        /images/fotky/Les/xl/les_2_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Les/xl/les_2_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Lesní zvířata poskládané do mřížky"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 2 -->
+                        <div class="product__thumbnail" onclick="changeImage(2)">
+                            <img src="/images/fotky/Les/large/les_3_large_800.webp"
+                                srcset="
+                                        /images/fotky/Les/small/les_3_small_400.webp 400w,
+                                        /images/fotky/Les/medium/les_3_medium_650.webp 650w,
+                                        /images/fotky/Les/large/les_3_large_800.webp,
+                                        /images/fotky/Les/xl/les_3_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Les/xl/les_3_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Lesní zvířata celá hromádka kartiček"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 3 -->
+                        <div class="product__thumbnail" onclick="changeImage(3)">
+                            <img src="/images/fotky/Les/large/les_4_large_800.webp"
+                                srcset="
+                                        /images/fotky/Les/small/les_4_small_400.webp 400w,
+                                        /images/fotky/Les/medium/les_4_medium_650.webp 650w,
+                                        /images/fotky/Les/large/les_4_large_800.webp,
+                                        /images/fotky/Les/xl/les_4_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Les/xl/les_4_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Lesní zvířata čtyři kartičky s ptáky"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 4 -->
+                        <div class="product__thumbnail" onclick="changeImage(4)">
+                            <img src="/images/fotky/Les/large/les_5_large_800.webp"
+                                srcset="
+                                        /images/fotky/Les/small/les_5_small_400.webp 400w,
+                                        /images/fotky/Les/medium/les_5_medium_650.webp 650w,
+                                        /images/fotky/Les/large/les_5_large_800.webp,
+                                        /images/fotky/Les/xl/les_5_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Les/xl/les_5_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Lesní zvířata celý arch"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                        <!-- thumbnail 5 -->
+                        <div class="product__thumbnail" onclick="changeImage(5)">
+                            <img src="/images/fotky/Les/large/les_6_large_800.webp"
+                                srcset="
+                                        /images/fotky/Les/small/les_6_small_400.webp 400w,
+                                        /images/fotky/Les/medium/les_6_medium_650.webp 650w,
+                                        /images/fotky/Les/large/les_6_large_800.webp,
+                                        /images/fotky/Les/xl/les_6_xl_1000.webp 1000w"
+                                data-full="/images/fotky/Les/xl/les_6_xl_1000.webp"
+                                sizes="(max-width: 804px) 25vw, 150px"
+                                alt="Pexeso Lesní zvířata poskládané do mřížky"
+                                class="product_thumbnail-image"
+                                loading="lazy" 
+                                width="400" 
+                                height="400">
+                        </div>
+                    </div>
+                    <button class="product__thumb-arrow product__thumb-arrow--right" id="thumbArrowRight" onclick="slideThumbs(+1)" aria-label="Další">›</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- text container -->
+          <div class="product__text-container">
+            <h1 class="product__heading"><span class="product__heading--italic">Lesní</span> zvířata</h1>
+            <div class="product__price" aria-label="Cena: 165 Kč">165 Kč</div>
+            <p class="product__subheading">Pozvěte přírodu ke stolu</p>
+            <p class="product__text">Tato autorská sada vás provede lesním tichem, ve kterém ožívá 32&nbsp;dvojic zvířat – od ostražité lišky a&nbsp;vznešené srnky až po pestrobarevného bažanta. Vektorové ilustrace v sobě spojují moderní čistotu s hravým detailem a&nbsp;dělají z&nbsp;každého hledání dvojic malé lesní dobrodružství. Je to příležitost, jak se na chvíli zastavit a&nbsp;společně s&nbsp;dětmi poznávat obyvatele našich lesů.</p>
+            
+            <!-- box -->
+            {% include "box.njk" %}
+
+            <!-- try -->
+             <a href="/herna/les/" class="product__try">Vyzkoušejte si pexeso hned teď! &#8594;</a>
+            <!-- buttons -->
+             <div class="product__buttons">
+                <!-- quantity -->
+                <div class="quantity__wrapper">
+                    <button class="quantity__btn" id="btn-minus" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+                    <span class="quantity__value" id="qty-display" aria-live="polite" aria-atomic="true">1</span>
+                    <button class="quantity__btn" id="btn-plus" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+                </div>
+                <!-- btn -->
+                <button class="product__btn-buy" id="btnBuy">Koupit</button>
+                <a href="/papirova_pexesa/" class="product__btn-back">Zpět do obchodu</a>
+             </div>
+          </div>
+    </div>
+</section>
+
+<script src="/js/product.js"></script>
