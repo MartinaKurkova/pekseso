@@ -34,12 +34,42 @@
     &__grid-card {
         cursor: pointer;
         transition: transform 0.2s;
-        border: 1px solid variables.$color-primary;
+        box-shadow: variables.$shadow;
         border-radius: .3125rem;
     }
 
     &__grid-card:hover {
         transform: translateY(-4px);
+    }
+
+    &__grid-card--les {
+        @media screen and (max-width: 48rem) {
+            order: 1;
+        }
+    }
+
+    &__grid-card--zelenina {
+        @media screen and (max-width: 48rem) {
+            order: 2;
+        }
+    }
+
+    &__grid-card--vanoce {
+        @media screen and (max-width: 48rem) {
+            order: 3;
+        }
+    }
+
+    &__grid-card--ptaci {
+        @media screen and (max-width: 48rem) {
+            order: 4;
+        }
+    }
+
+    &__grid-card--psi {
+        @media screen and (max-width: 48rem) {
+            order: 5;
+        }
     }
 
     &__link {

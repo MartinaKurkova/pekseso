@@ -161,10 +161,48 @@ twitterCard: summary_large_image
                 </div>
                 <!-- btn -->
                 <button class="product__btn-buy" id="btnBuy">Koupit</button>
-                <a href="/papirova_pexesa/" class="product__btn-back">Zpět do obchodu</a>
              </div>
           </div>
     </div>
 </section>
 
+<!-- aside -->
+<div id="cart__overlay" class="cart__overlay"></div>
+
+<aside id="cart__panel" class="cart__panel">
+  <div class="cart__header">
+    <h2 class="cart__heading">Váš košík</h2>
+    <button id="close__cart" class="cart__close-btn">&times;</button>
+  </div>
+
+  <div class="cart__content">
+    <div class="cart__item">
+      <img src="/images/fotky/Les/medium/les_1_medium_650.webp" 
+            alt="Pexeso Lesní zvířata čtyři kartičky s lesními zvířaty"
+            class="cart__image"
+            loading="lazy" 
+            width="650" 
+            height="650">
+      <div class="cart__details">
+        <h3 class="cart__subheading">Lesní zvířata</h3>
+        <p class="cart__price">165 Kč</p>
+      </div>
+      <div class="cart__quantity-wrapper">
+            <button class="cart__quantity-btn" id="btn-minus-aside" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+            <span class="cart__quantity-value" id="qty-display-aside" aria-live="polite" aria-atomic="true">1</span>
+            <button class="cart__quantity-btn" id="btn-plus-aside" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <div class="cart__total">
+      <p class="cart__total-price">Celkem 165 Kč</p>
+    </div>
+    <button class="cart__checkout-btn">Pokračovat k platbě</button>
+    <p class="cart__shipping-info">Doprava se vypočítá v dalším kroku.</p>
+  </div>
+</aside>
+
 <script src="/js/product.js"></script>
+<script src="/js/aside_cart_panel.js"></script>
