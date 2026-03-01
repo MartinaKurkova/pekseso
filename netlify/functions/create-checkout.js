@@ -1,4 +1,5 @@
-const stripe = require('stripe')('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');
+// Místo přímého klíče použijeme "proměnnou prostředí"
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
     if (event.httpMethod !== 'POST') {
