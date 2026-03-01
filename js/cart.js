@@ -65,13 +65,13 @@ function updateCartUI() {
                     <div class="cart__details">
                         <h3 class="cart__subheading">${item.name}</h3>
                         <p class="cart__price">${item.price} Kč</p>
+                        <div class="cart__quantity-wrapper">
+                            <button class="cart__quantity-btn" onclick="changeCartQty(${index}, -1)">−</button>
+                            <span class="cart__quantity-value">${item.quantity}</span>
+                            <button class="cart__quantity-btn" onclick="changeCartQty(${index}, 1)">+</button>
+                        </div>
                     </div>
-                    <div class="cart__quantity-wrapper">
-                        <button class="cart__quantity-btn" onclick="changeCartQty(${index}, -1)">−</button>
-                        <span class="cart__quantity-value">${item.quantity}</span>
-                        <button class="cart__quantity-btn" onclick="changeCartQty(${index}, 1)">+</button>
-                    </div>
-                    <button class="cart__item-remove" onclick="removeFromCart(${index})" style="background:none; border:none; cursor:pointer; font-size: 20px; margin-left: 10px;">&times;</button>
+                    <button class="cart__item-remove" onclick="removeFromCart(${index})" aria-label="Odebrat položku">&times;</button>
                 </div>
             `;
         });

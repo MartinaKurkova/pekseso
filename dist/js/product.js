@@ -142,7 +142,7 @@
 
     document.getElementById('btnBuy')?.addEventListener('click', function() {
         const product = {
-            id: this.dataset.id, // Zde musí být price_... ze Stripe
+            id: this.dataset.id, 
             name: this.dataset.name,
             price: parseInt(this.dataset.price),
             image: this.dataset.image,
@@ -160,6 +160,19 @@
             console.error("Chyba: cart.js není načten!");
         }
     });
+
+    // --- TOAST NOTIFIKACE ---
+    window.added = function() {
+        const toast = document.getElementById('toast');
+        if (toast) {
+            toast.classList.add('show');
+            
+            // Po 3 vteřinách ho schováme
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    };
 
     // --- INICIALIZACE ---
 
