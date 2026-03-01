@@ -73,143 +73,84 @@
 
  <main>
 
-    
-<section class="product">
+    <section class="product">
     <div class="product__container">
-        <!-- Gallery -->
         <div class="product__image-container">
             <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
                 <img src="/images/fotky/Vanoce/large/vanoce_1_large_800.webp"
-                    srcset="
-                            /images/fotky/Vanoce/small/vanoce_1_small_400.webp 400w,
+                    srcset="/images/fotky/Vanoce/small/vanoce_1_small_400.webp 400w,
                             /images/fotky/Vanoce/medium/vanoce_1_medium_650.webp 650w,
                             /images/fotky/Vanoce/large/vanoce_1_large_800.webp 800w,
                             /images/fotky/Vanoce/xl/vanoce_1_xl_1000.webp 1000w"
                     data-full="/images/fotky/Vanoce/xl/vanoce_1_xl_1000.webp"
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    alt="Pexeso Vánoce kartička s louskáčkem"
+                    alt="Pexeso Vánoce - hlavní náhled"
                     class="product__image"
                     id="mainImg"
                     loading="eager"
-                    fetchpriority="high"
-                    width="800"
-                    height="800">
+                    fetchpriority="high">
             </div>
-            <!-- thumbnails -->
+
             <div class="product__thumbnails-carousel">
                 <div class="product__thumbnails-viewport">
-                    <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)" aria-label="Předchozí">‹</button>
-                    <!-- thumbnail 0 -->
+                    <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)">‹</button>
                     <div class="product__thumbnails" id="thumbTrack">
+                        
                         <div class="product__thumbnail active" onclick="changeImage(0)">
-                            <img src="/images/fotky/Vanoce/large/vanoce_1_large_800.webp"
-                                srcset="
-                                        /images/fotky/Vanoce/small/vanoce_1_small_400.webp 400w,
-                                        /images/fotky/Vanoce/medium/vanoce_1_medium_650.webp 650w,
-                                        /images/fotky/Vanoce/large/vanoce_1_large_800.webp 800w,
-                                        /images/fotky/Vanoce/xl/vanoce_1_xl_1000.webp 1000w"
-                                data-full="/images/fotky/Vanoce/xl/vanoce_1_xl_1000.webp"
-                                sizes="(max-width: 804px) 25vw, 150px"
-                                alt="Pexeso Vánoce kartička s louskáčkem"
+                            <img src="/images/fotky/Vanoce/small/vanoce_1_small_400.webp"
+                                alt="Pexeso Vánoce - detail 1"
                                 class="product_thumbnail-image"
-                                loading="lazy" 
-                                width="400" 
-                                height="400">
+                                loading="lazy">
                         </div>
-                        <!-- thumbnail 1 -->
-                        <div class="product__thumbnail" onclick="changeImage(1)">
-                            <img src="/images/fotky/Vanoce/large/vanoce_2_large_800.webp"
-                                srcset="
-                                        /images/fotky/Vanoce/small/vanoce_2_small_400.webp 400w,
-                                        /images/fotky/Vanoce/medium/vanoce_2_medium_650.webp 650w,
-                                        /images/fotky/Vanoce/large/vanoce_2_large_800.webp 800w,
-                                        /images/fotky/Vanoce/xl/vanoce_2_xl_1000.webp 1000w"
-                                data-full="/images/fotky/Vanoce/xl/vanoce_2_xl_1000.webp"
-                                sizes="(max-width: 804px) 25vw, 150px"
-                                alt="Pexeso Vánoce poskládané do mřížky"
+                        
+                        <div class="product__thumbnail " onclick="changeImage(1)">
+                            <img src="/images/fotky/Vanoce/small/vanoce_2_small_400.webp"
+                                alt="Pexeso Vánoce - detail 2"
                                 class="product_thumbnail-image"
-                                loading="lazy" 
-                                width="400" 
-                                height="400">
+                                loading="lazy">
                         </div>
-                        <!-- thumbnail 2 -->
-                        <div class="product__thumbnail" onclick="changeImage(2)">
-                            <img src="/images/fotky/Vanoce/large/vanoce_3_large_800.webp"
-                                srcset="
-                                        /images/fotky/Vanoce/small/vanoce_3_small_400.webp 400w,
-                                        /images/fotky/Vanoce/medium/vanoce_3_medium_650.webp 650w,
-                                        /images/fotky/Vanoce/large/vanoce_3_large_800.webp 800w,
-                                        /images/fotky/Vanoce/xl/vanoce_3_xl_1000.webp 1000w"
-                                data-full="/images/fotky/Vanoce/xl/vanoce_3_xl_1000.webp"
-                                sizes="(max-width: 804px) 25vw, 150px"
-                                alt="Pexeso Vánoce - celá hromádka kartiček"
+                        
+                        <div class="product__thumbnail " onclick="changeImage(2)">
+                            <img src="/images/fotky/Vanoce/small/vanoce_3_small_400.webp"
+                                alt="Pexeso Vánoce - detail 3"
                                 class="product_thumbnail-image"
-                                loading="lazy" 
-                                width="400" 
-                                height="400">
+                                loading="lazy">
                         </div>
-                        <!-- thumbnail 3 -->
-                        <div class="product__thumbnail" onclick="changeImage(3)">
-                            <img ssrc="/images/fotky/Vanoce/large/vanoce_4_large_800.webp"
-                                srcset="
-                                        /images/fotky/Vanoce/small/vanoce_4_small_400.webp 400w,
-                                        /images/fotky/Vanoce/medium/vanoce_4_medium_650.webp 650w,
-                                        /images/fotky/Vanoce/large/vanoce_4_large_800.webp 800w,
-                                        /images/fotky/Vanoce/xl/vanoce_4_xl_1000.webp 1000w"
-                                data-full="/images/fotky/Vanoce/xl/vanoce_4_xl_1000.webp"
-                                sizes="(max-width: 804px) 25vw, 150px"
-                                alt="Pexeso Vánoce čtyři kartičky"
+                        
+                        <div class="product__thumbnail " onclick="changeImage(3)">
+                            <img src="/images/fotky/Vanoce/small/vanoce_4_small_400.webp"
+                                alt="Pexeso Vánoce - detail 4"
                                 class="product_thumbnail-image"
-                                loading="lazy" 
-                                width="400" 
-                                height="400">
+                                loading="lazy">
                         </div>
-                        <!-- thumbnail 4 -->
-                        <div class="product__thumbnail" onclick="changeImage(4)">
-                            <img src="/images/fotky/Vanoce/large/vanoce_5_large_800.webp"
-                                srcset="
-                                        /images/fotky/Vanoce/small/vanoce_5_small_400.webp 400w,
-                                        /images/fotky/Vanoce/medium/vanoce_5_medium_650.webp 650w,
-                                        /images/fotky/Vanoce/large/vanoce_5_large_800.webp 800w,
-                                        /images/fotky/Vanoce/xl/vanoce_5_xl_1000.webp 1000w"
-                                data-full="/images/fotky/Vanoce/xl/vanoce_5_xl_1000.webp"
-                                sizes="(max-width: 804px) 25vw, 150px"
-                                alt="Pexeso Vánoce celý arch"
+                        
+                        <div class="product__thumbnail " onclick="changeImage(4)">
+                            <img src="/images/fotky/Vanoce/small/vanoce_5_small_400.webp"
+                                alt="Pexeso Vánoce - detail 5"
                                 class="product_thumbnail-image"
-                                loading="lazy" 
-                                width="400" 
-                                height="400">
+                                loading="lazy">
                         </div>
-                        <!-- thumbnail 5 -->
-                        <div class="product__thumbnail" onclick="changeImage(5)">
-                            <img src="/images/fotky/Vanoce/large/vanoce_6_large_800.webp"
-                                srcset="
-                                        /images/fotky/Vanoce/small/vanoce_6_small_400.webp 400w,
-                                        /images/fotky/Vanoce/medium/vanoce_6_medium_650.webp 650w,
-                                        /images/fotky/Vanoce/large/vanoce_6_large_800.webp 800w,
-                                        /images/fotky/Vanoce/xl/vanoce_6_xl_1000.webp 1000w"
-                                data-full="/images/fotky/Vanoce/xl/vanoce_6_xl_1000.webp"
-                                sizes="(max-width: 804px) 25vw, 150px"
-                                alt="Pexeso Vánoce celý arch"
+                        
+                        <div class="product__thumbnail " onclick="changeImage(5)">
+                            <img src="/images/fotky/Vanoce/small/vanoce_6_small_400.webp"
+                                alt="Pexeso Vánoce - detail 6"
                                 class="product_thumbnail-image"
-                                loading="lazy" 
-                                width="400" 
-                                height="400">
+                                loading="lazy">
                         </div>
+                        
                     </div>
-                    <button class="product__thumb-arrow product__thumb-arrow--right" id="thumbArrowRight" onclick="slideThumbs(+1)" aria-label="Další">›</button>
+                    <button class="product__thumb-arrow product__thumb-arrow--right" id="thumbArrowRight" onclick="slideThumbs(+1)">›</button>
                 </div>
             </div>
         </div>
 
-         <!-- text container -->
-          <div class="product__text-container">
+        <div class="product__text-container">
             <h1 class="product__heading"><span class="product__heading--italic">Vánoce</span></h1>
-            <div class="product__price" aria-label="Cena: 165 Kč">165 Kč</div>
-            <p class="product__subheading">Užijte&nbsp;si kouzlo společných chvil</p>
-            <p class="product__text">Vraťte se k dětské radosti z&nbsp;čekání na Ježíška. Tato sváteční sada pexesa v&nbsp;sobě ukrývá 32&nbsp;dvojic ilustrací, které k&nbsp;české zimě a&nbsp;tradicím neodmyslitelně patří – od nazdobeného stromečku a&nbsp;voňavých perníčků až po veselé sněhuláky a&nbsp;slaměné ozdoby. Jemný autorský styl vnáší do společných chvil u&nbsp;stolu hřejivou atmosféru a&nbsp;klid. Je to víc než jen hra, je to způsob, jak zpomalit, navodit sváteční náladu a&nbsp;užít si společné soustředění v&nbsp;čase, kdy se venku snáší tma a&nbsp;doma se rozsvěcejí světýlka.</p>
+            <div class="product__price" aria-label="Cena: 15 Kč">15 Kč</div>
+            <p class="product__subheading">Užijte&amp;nbsp;si kouzlo společných chvil</p>
+            <p class="product__text"><p>Vraťte se k dětské radosti z čekání na Ježíška. Tato sváteční sada pexesa v sobě ukrývá 32 dvojic ilustrací, které k české zimě a tradicím neodmyslitelně patří – od nazdobeného stromečku a voňavých perníčků až po veselé sněhuláky a slaměné ozdoby. Jemný autorský styl vnáší do společných chvil u stolu hřejivou atmosféru a klid. Je to víc než jen hra, je to způsob, jak zpomalit, navodit sváteční náladu a užít si společné soustředění v čase, kdy se venku snáší tma a doma se rozsvěcejí světýlka.</p>
+</p>
             
-            <!-- box -->
             <div class="box">
                 <h2 class="box__heading">Radost pro oči i hmat</h2>
                 <!-- box 1 -->
@@ -262,24 +203,27 @@
                 </div>
             </div>
 
-            <!-- try -->
-             <a href="/herna/vanoce/" class="product__try">Vyzkoušejte si pexeso hned teď! &#8594;</a>
-            <!-- buttons -->
-             <div class="product__buttons">
-                <!-- quantity -->
+            <a href="/herna/vanoce/" class="product__try">Vyzkoušejte si pexeso hned teď! &#8594;</a>
+            
+            <div class="product__buttons">
                 <div class="quantity__wrapper">
-                    <button class="quantity__btn" id="btn-minus" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
-                    <span class="quantity__value" id="qty-display" aria-live="polite" aria-atomic="true">1</span>
-                    <button class="quantity__btn" id="btn-plus" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+                    <button class="quantity__btn" id="btn-minus" onclick="changeQty(-1)">−</button>
+                    <span class="quantity__value" id="qty-display">1</span>
+                    <button class="quantity__btn" id="btn-plus" onclick="changeQty(1)">+</button>
                 </div>
-                <!-- btn -->
-                <button class="product__btn-buy" id="btnBuy">Koupit</button>
-             </div>
-          </div>
+                <button class="product__btn-buy add-to-cart-btn" 
+                        id="btnBuy"
+                        data-id="price_1T6GSdJdC0N7uBdkUpRvp9aU"
+                        data-name="Vánoce"
+                        data-price="15"
+                        data-image="/images/fotky/Vanoce/small/vanoce_1_small_400.webp">
+                    Koupit
+                </button>
+            </div>
+        </div>
     </div>
 </section>
 
-<script src="/js/product.js"></script>
 
 </main>
 
@@ -316,10 +260,10 @@
   <div class="cart__footer">
     <h2 class="cart__subheading--footer">Shrnutí objednávky</h2>
     <div class="cart__total">
-      <p class="cart__total-price">Celkem <span class="cart__total-price--number">165</span> Kč</p>
+      <p class="cart__total-price">Celková cena: <span class="cart__total-price--number">165</span> Kč</p>
     </div>
     <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
-    <button class="cart__checkout-btn">Pokračovat k platbě</button>
+    <button class="cart__checkout-btn">Vybrat způsob doručení</button>
   </div>
 </aside>
 

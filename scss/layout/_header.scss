@@ -243,10 +243,14 @@
         @include buttons.btn;
         background-color: variables.$color-primary;
         color: white;
+        width: 100%;
     }
 
     &__footer {
         margin-top: 2rem;
+        padding: 1.25rem;
+        border: 1px solid variables.$color-secondary;
+        border-radius: .3125rem;
     }
 
     &__subheading--footer {

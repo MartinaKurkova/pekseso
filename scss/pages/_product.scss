@@ -420,39 +420,3 @@
         border-right: 1px solid variables.$color-primary;
     }
 }
-
-
-// checkout
-.checkout__container {
-    display: flex;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 40px auto;
-}
-.checkout__form { flex: 2; }
-.checkout__summary { 
-    flex: 1; 
-    background: #f9f9f9; 
-    padding: 20px; 
-    border-radius: 8px; 
-}
-.form-group { margin-bottom: 15px; }
-.form-group label { display: block; margin-bottom: 5px; }
-.form-group input { width: 100%; padding: 8px; border: 1px solid #ccc; }
-.form-row { display: flex; gap: 10px; }
-.shipping-card { 
-    display: flex; 
-    padding: 10px; 
-    border: 1px solid #ddd; 
-    margin-bottom: 10px; 
-    cursor: pointer; 
-}
-.checkout__submit-btn {
-    background: #000;
-    color: #fff;
-    padding: 15px 30px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1.1rem;
-}

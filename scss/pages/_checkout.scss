@@ -1,0 +1,152 @@
+// checkout
+@use "../utils/variables";
+@use "../base/typography";
+@use "../base/base";
+@use "../base/fonts";
+@use "../components/buttons";
+
+.checkout {
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3fr 2fr);
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "heading heading"
+        "form summary";
+        gap: 1.25rem;
+
+        @media screen and (max-width: 48rem) {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: 
+            "heading"
+            "form"
+            "summary";
+        }
+    }
+
+    &__heading {
+        margin-top: 3rem;
+        grid-area: heading;
+    }
+
+    // form
+    &__form-container {
+        grid-area: form;
+    }
+
+    &__section {
+        border: 2px solid variables.$color-secondary;
+        border-radius: .3125rem;
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    &__form-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        display: block;
+        margin: 0.5rem 0 0.2rem 0;
+        font-weight: 500;
+    }
+
+    &__label--textarea {
+        margin-top: 0.8rem;
+    }
+
+    &__input,
+    &__textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid variables.$color-bg;
+        border-radius: .3125rem;
+        border: 1px solid white;
+        font-family: inherit;
+        margin-bottom: 0.5rem;
+        background-color: variables.$color-bg-light;
+    }
+
+    &__shipping-options,
+    &__payment-options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__radio {
+        font-weight: 600;
+        font-style: normal;
+        font-family: variables.$font-sans;
+    }
+
+    // summary
+    &__summary {
+        grid-area: summary;
+        padding: 2rem;
+        background-color: variables.$color-secondary;
+        border-radius: .3125rem;
+        height: fit-content;
+    }
+
+    &__subheading {
+        font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
+    }
+
+    &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+    }
+
+    &__total {
+        padding: 10px;
+        background-color: white;
+        border-radius: .3125rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__total-price span,
+    &__total-price {
+        font-weight: 600;
+        font-style: normal;
+        font-family: variables.$font-sans;
+        font-size: 1.1rem;
+    }
+
+    &__submit-btn {
+        @include buttons.btn;
+        background-color: variables.$color-primary;
+        color: white;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+}
+
+// shipping
+.shipping-card__name,
+.payment-card__name {
+    font-weight: 600;
+    font-style: normal;
+    font-family: variables.$font-sans;
+    font-size: 1rem;
+}
+
+.shipping-card__price,
+.payment-card__price {
+    font-weight: 300;
+    font-style: normal;
+    font-family: variables.$font-sans;
+    font-size: 1rem;
+}
+
+
+
+.checkout-item,
+#checkout__summary-shipping-payment {
+    padding: 10px;
+    background-color: white;
+    border-radius: .3125rem;
+    margin-bottom: 0.5rem;
+}
