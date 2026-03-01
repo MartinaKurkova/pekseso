@@ -2,6 +2,7 @@
 @use "../base/typography";
 @use "../base/base";
 @use "../base/fonts";
+@use "../components/buttons";
 
 /* header */
 .header{
@@ -19,6 +20,7 @@
         max-width: 70rem;    
         margin: 0 auto;     
         padding: 0.5rem 1.25rem;
+        position: relative;
     }
 
     &__logo-link {
@@ -71,4 +73,201 @@
 @keyframes cursor {
     from, to { border-color: transparent; }
     50% { border-color: white; }
+}
+
+
+
+// toast
+.toast {
+    visibility: hidden;
+    min-width: 200px;
+    background-color: variables.$color-secondary;
+    color: variables.$color-text;
+    text-align: center;
+    border-radius: .3125rem;
+    padding: 0.75rem 1rem;
+    position: absolute;
+    z-index: 1001;
+    top: calc(100% + 0.5rem); 
+    right: 0;                  
+    transform: none;           
+ 
+
+    &.show {
+        visibility: visible;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s forwards;
+    }
+}
+
+// toast animation
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeout {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+
+// aside cart panel
+.cart {
+    &__panel {
+    position: fixed;
+    top: 0;
+    right: -25rem; 
+    width: 25rem;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: variables.$shadow;
+    padding: 3rem 2rem;
+
+        @media screen and (max-width: 40rem) {
+            width: 80%
+        }
+    }
+
+    &__panel.is-open {
+        right: 0; 
+    }
+
+    &__overlay.is-active {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 3.125rem;
+        height: 3.125rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        color: variables.$color-primary;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: .625rem;
+        border-radius: 50%;
+        transition: color 0.3s ease;
+        z-index: 1001;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;  
+        justify-content: start;
+        gap: 1.25rem;
+        border: 1px solid variables.$color-secondary;
+        border-radius: .3125rem;
+        padding: 1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    &__image {
+        display: block;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;     
+    }
+
+    &__details {
+        flex: 1;                  
+        min-width: 0;           
+    }
+
+    &__subheading {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0;
+        white-space: normal;   
+        overflow: visible;    
+        text-overflow: unset;   
+        word-break: break-word;  
+    }
+
+    &__price {
+        margin-top: .25rem;
+        margin-bottom: 0;
+    }
+
+    &__total {
+        font-weight: 600;
+    }
+
+    &__total-price--number {
+        font-family: variables.$font-sans;
+        font-style: normal;
+        font-weight: 600;
+    }
+
+    &__checkout-btn {
+        @include buttons.btn;
+        background-color: variables.$color-primary;
+        color: white;
+    }
+
+    &__footer {
+        margin-top: 2rem;
+    }
+
+    &__subheading--footer {
+        font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
+    }
+
+    // quantity
+    &__quantity-wrapper {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid variables.$color-primary;
+        border-radius: .3125rem;
+        overflow: hidden;
+        font-family: variables.$font-sans;
+        flex-shrink: 0;           
+        margin-left: auto;    
+    }
+
+    &__quantity-btn {
+      border: none;
+      padding: 10px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 400;
+      color: variables.$color-primary;
+      background-color: white;
+    }
+
+    &__quantity-btn:hover {
+      background: white;
+    }
+
+    &__quantity-btn:disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+
+    &__quantity-value {
+        font-family: variables.$font-sans;
+        font-weight: 400;
+        font-style: normal;
+        color: variables.$color-primary;
+        padding: 10px;
+        font-size: 0.8rem;
+        min-width: 2.5rem;
+        text-align: center;
+        border-left: 1px solid variables.$color-primary;
+        border-right: 1px solid variables.$color-primary;
+    }
 }

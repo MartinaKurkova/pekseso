@@ -7,6 +7,7 @@
     <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <header class="header" role="banner">
@@ -61,15 +62,14 @@
                 <span class="header__menu-text">Menu</span>
             </button>
             <button class="header__basket" aria-label="Košík, 0 položek" id="cart-btn">
-                <img src="/images/icons/kosik_white.svg" 
-                    alt="" 
-                    class="header__basket-icon"
-                    width="20"
-                    height="20">
+                <img src="/images/icons/kosik_white.svg" alt="" class="header__basket-icon" width="20" height="20">
                 <span class="header__basket-amount" aria-live="polite">0</span>
             </button>
+            <!-- toast -->
+                <div class="toast" id="toast">Pexeso bylo přidáno do košíku</div>
         </div>
 </header>
+
 
  <main>
 
@@ -476,6 +476,46 @@
 
 </main>
 
+<!-- aside -->
+<div id="cart__overlay" class="cart__overlay"></div>
+
+<aside id="cart__panel" class="cart__panel">
+  <div class="cart__header">
+    <h2 class="cart__heading">Váš košík</h2>
+    <button id="close__cart" class="cart__close-btn">&times;</button>
+  </div>
+
+  <div class="cart__content">
+    <div class="cart__item">
+      <img src="/images/fotky/Les/small/les_1_small_400.webp" 
+            alt="Pexeso Lesní zvířata čtyři kartičky s lesními zvířaty"
+            class="cart__image"
+            loading="lazy" 
+            width="400" 
+            height="400">
+      <div class="cart__details">
+        <h3 class="cart__subheading">Lesní zvířata</h3>
+        <p class="cart__price">165 Kč</p>
+      </div>
+       <div class="cart__quantity-wrapper">
+            <button class="cart__quantity-btn" id="btn-minus-aside" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+            <span class="cart__quantity-value" id="qty-display-aside" aria-live="polite" aria-atomic="true">1</span>
+            <button class="cart__quantity-btn" id="btn-plus-aside" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <h2 class="cart__subheading--footer">Shrnutí objednávky</h2>
+    <div class="cart__total">
+      <p class="cart__total-price">Celkem <span class="cart__total-price--number">165</span> Kč</p>
+    </div>
+    <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
+    <button class="cart__checkout-btn">Pokračovat k platbě</button>
+  </div>
+</aside>
+
+
  <!-- footer -->
     <footer class="footer" role="contentinfo">
         <div class="footer__container container">
@@ -519,6 +559,9 @@
     </footer>
 
     <script src="/js/script.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="/js/aside_cart_panel.js"></script>
 
 </body>
 </html>

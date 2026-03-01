@@ -1,0 +1,67 @@
+---
+layout: layout.njk
+---
+<section class="product">
+    <div class="product__container">
+        <div class="product__image-container">
+            <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
+                <img src="/images/fotky/{{ folder }}/large/{{ folder.toLowerCase() }}_1_large_800.webp"
+                    srcset="/images/fotky/{{ folder }}/small/{{ folder.toLowerCase() }}_1_small_400.webp 400w,
+                            /images/fotky/{{ folder }}/medium/{{ folder.toLowerCase() }}_1_medium_650.webp 650w,
+                            /images/fotky/{{ folder }}/large/{{ folder.toLowerCase() }}_1_large_800.webp 800w,
+                            /images/fotky/{{ folder }}/xl/{{ folder.toLowerCase() }}_1_xl_1000.webp 1000w"
+                    data-full="/images/fotky/{{ folder }}/xl/{{ folder.toLowerCase() }}_1_xl_1000.webp"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    alt="Pexeso {{ title }} - hlavní náhled"
+                    class="product__image"
+                    id="mainImg"
+                    loading="eager"
+                    fetchpriority="high">
+            </div>
+
+            <div class="product__thumbnails-carousel">
+                <div class="product__thumbnails-viewport">
+                    <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)">‹</button>
+                    <div class="product__thumbnails" id="thumbTrack">
+                        {% for i in range(1, 7) %}
+                        <div class="product__thumbnail {% if i == 1 %}active{% endif %}" onclick="changeImage({{ i - 1 }})">
+                            <img src="/images/fotky/{{ folder }}/small/{{ folder.toLowerCase() }}_{{ i }}_small_400.webp"
+                                alt="Pexeso {{ title }} - detail {{ i }}"
+                                class="product_thumbnail-image"
+                                loading="lazy">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="product__thumb-arrow product__thumb-arrow--right" id="thumbArrowRight" onclick="slideThumbs(+1)">›</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product__text-container">
+            <h1 class="product__heading"><span class="product__heading--italic">{{ title }}</span></h1>
+            <div class="product__price" aria-label="Cena: {{ price }} Kč">{{ price }} Kč</div>
+            <p class="product__subheading">{{ subheading }}</p>
+            <p class="product__text">{{ content | safe }}</p>
+            
+            {% include "box.njk" %}
+
+            <a href="/herna/{{ folder.toLowerCase() }}/" class="product__try">Vyzkoušejte si pexeso hned teď! &#8594;</a>
+            
+            <div class="product__buttons">
+                <div class="quantity__wrapper">
+                    <button class="quantity__btn" id="btn-minus" onclick="changeQty(-1)">−</button>
+                    <span class="quantity__value" id="qty-display">1</span>
+                    <button class="quantity__btn" id="btn-plus" onclick="changeQty(1)">+</button>
+                </div>
+                <button class="product__btn-buy add-to-cart-btn" 
+                        id="btnBuy"
+                        data-id="{{ stripe_id }}"
+                        data-name="{{ title }}"
+                        data-price="{{ price }}"
+                        data-image="/images/fotky/{{ folder }}/small/{{ folder.toLowerCase() }}_1_small_400.webp">
+                    Koupit
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

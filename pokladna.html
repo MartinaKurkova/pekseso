@@ -1,0 +1,118 @@
+---
+layout: layout.njk
+title: "Doprava a platba"
+---
+
+<div class="checkout">
+  <h1 class="checkout__heading">Doprava a platba</h1>
+
+  <div class="checkout__container">
+    <form id="checkout-form" class="checkout__form" data-netlify="true" name="objednavka">
+      
+      <section class="checkout__section">
+        <h2 class="checkout__subheading">1. Kontaktní údaje</h2>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="vas@email.cz">
+        </div>
+      </section>
+
+      <section class="checkout__section">
+        <h2 class="checkout__subheading">2. Dodací adresa</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">Jméno</label>
+            <input type="text" id="first_name" name="first_name" required>
+          </div>
+          <div class="form-group">
+            <label for="last_name">Příjmení</label>
+            <input type="text" id="last_name" name="last_name" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="street">Ulice a č.p.</label>
+          <input type="text" id="street" name="street" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">Město</label>
+            <input type="text" id="city" name="city" required>
+          </div>
+          <div class="form-group">
+            <label for="zip">PSČ</label>
+            <input type="text" id="zip" name="zip" required>
+          </div>
+        </div>
+      </section>
+
+      <!-- shipping -->
+      <section class="checkout__section">
+        <h2 class="checkout__subheading">3. Doprava</h2>
+        <div class="shipping-options">
+          <label class="shipping-card">
+            <input type="radio" name="shipping_rate" value="shr_1T6BpcJdC0N7uBdkHIPwzJUj" id="delivery-pickup">
+            <span class="shipping-card__info">
+              <span class="shipping-card__name">Zásilkovna: Na výdejní místo – </span>
+              <span class="shipping-card__price">75 Kč</span>
+              
+              <div id="zasilkovna-selector" style="display: none; margin-top: 10px;">
+                <button type="button" id="zasilkovna-btn" class="btn btn--small">Vybrat pobočku</button>
+                <p id="selected-branch" style="margin-top: 5px; font-weight: bold; color: #e63946;"></p>
+                <input type="hidden" id="zasilkovna-id" name="zasilkovna_id">
+                <input type="hidden" id="zasilkovna-name" name="zasilkovna_name">
+              </div>
+            </span>
+          </label>
+
+          <label class="shipping-card">
+            <input type="radio" name="shipping_rate" value="shr_1T6BqAJdC0N7uBdkVBnfRr7E" id="delivery-home" checked>
+            <span class="shipping-card__info">
+              <span class="shipping-card__name">Zásilkovna: K vám domů – </span>
+              <span class="shipping-card__price">99 Kč</span>
+            </span>
+          </label>
+          <label class="shipping-card">
+            <input type="radio" name="shipping_rate" value="shr_1T6CKnJdC0N7uBdkFiXUdiFe" id="delivery-personaly">
+            <span class="shipping-card__info">
+              <span class="shipping-card__name">Osobní odběr v Sadské – </span>
+              <span class="shipping-card__price">Zdarma</span>
+            </span>
+          </label>
+        </div>
+      </section>
+
+      <!-- payment -->
+      <section class="checkout__section">
+      <h2 class="checkout__subheading">4. Platba</h2>
+      <div class="payment-options">
+        <label class="payment-card">
+          <input type="radio" name="payment_method" value="card" checked>
+          <span>Platba kartou online</span>
+        </label>
+        <label class="payment-card">
+          <input type="radio" name="payment_method" value="transfer">
+          <span>Bankovní převod</span>
+        </label>
+        <label class="payment-card" id="payment-cash-option" style="display: none;">
+          <input type="radio" name="payment_method" value="cash">
+          <span>Hotově při převzetí</span>
+        </label>
+      </div>
+    </section>
+
+      <button type="submit" class="checkout__submit-btn">Přejít k platbě</button>
+    </form>
+
+    <aside class="checkout__summary">
+      <h2 class="checkout__subheading">Shrnutí objednávky</h2>
+      <div id="checkout-summary-items">
+        </div>
+      <div class="checkout__total">
+        <p>Celkem: <span id="checkout-total-price">0</span> Kč</p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script src="https://widget.packeta.com/v6/www/js/library.js"></script>
+<script src="/js/checkout.js"></script>
