@@ -77,30 +77,31 @@
 <div class="checkout__wrapper">
   <div class="checkout__container container">
     <h1 class="checkout__heading">Doprava a platba</h1>
-    <!-- Doprava a platba -->
-     <div class="checkout__form-container">
+    
+    <div class="checkout__form-container">
         <form 
           id="checkout-form" 
           class="checkout__form" 
           data-netlify="true" 
           name="objednavka">
+          
           <input type="hidden" name="access_key" value="3db3cb84-5195-40ac-aa7a-1bbaa0a8990a">
+          <input type="hidden" name="from_name" value="E-shop Pexeso">
+          <input type="hidden" name="subject" value="Nová objednávka z webu">
+          <input type="hidden" name="template" value="table">
         
         <section class="checkout__section">
           <h2 class="checkout__subheading">1. Kontaktní údaje</h2>
           <div class="checkout__form-group">
             <label for="email" class="checkout__label">E-mail</label>
-            <input type="email" class="checkout__input" id="email" name="email" required placeholder="vas@email.cz">
+            <input type="email" class="checkout__input" id="email" name="email" required placeholder="vas@email-.cz">
+            <div id="email-error" class="checkout__error-msg" style="color: #e63946; font-size: 0.8em; margin-top: 5px; display: none;"></div>
           </div>
+
           <div class="checkout__form-group">
-            <label for="phone" class="checkout__label">Telefon (pro dopravce)</label>
-            <input 
-              type="tel" 
-              class="checkout__input" 
-              id="phone" 
-              name="phone" 
-              required 
-              placeholder="+420 123 456 789">
+            <label for="phone" class="checkout__label">Telefon</label>
+            <input type="tel" class="checkout__input" id="phone" name="phone" required placeholder="+420 123 456 789">
+            <div id="phone-error" class="checkout__error-msg" style="color: #e63946; font-size: 0.8em; margin-top: 5px; display: none;"></div>
           </div>
         </section>
 
@@ -127,12 +128,11 @@
             </div>
             <div class="checkout__form-group">
               <label for="zip" class="checkout__label">PSČ</label>
-              <input type="text" class="checkout__input" id="zip" name="zip" required placeholder="Vaše poštovní směrovací číslo">
+              <input type="text" class="checkout__input" id="zip" name="zip" required placeholder="12345">
             </div>
           </div>
         </section>
 
-        <!-- shipping -->
         <section class="checkout__section">
           <h2 class="checkout__subheading">3. Doprava</h2>
           <div class="checkout__shipping-options">
@@ -168,7 +168,6 @@
           </div>
         </section>
 
-        <!-- payment -->
         <section class="checkout__section">
         <h2 class="checkout__subheading">4. Platba</h2>
         <div class="checkout__payment-options">
@@ -192,8 +191,7 @@
       </form>
      </div>
 
-     <!-- Shrnutí -->
-    <section class="checkout__summary">
+     <section class="checkout__summary">
       <h2 class="checkout__subheading">Shrnutí objednávky</h2>
       
       <h3 class="checkout__title">Objednaná pexesa</h3>
@@ -206,18 +204,17 @@
       <div class="checkout__total">
         <p class="checkout__total-price">Celkem: <span id="checkout-total-price">0</span> Kč</p>
       </div>
-      <!-- GDPR -->
-        <!-- checkbox -->
-          <div class="contact-form__field">
-              <input 
-                type="checkbox" 
-                id="checkbox" 
-                class="contact-form__checkbox"
-                name="checkbox"
-                form="checkout-form"  required />
-              <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/kontakt/obchodni-podminky/" class="contact-form__GDPR">Obchodními podmínkami.</a> *</label>
-              <div id="checkbox-error" class="contact-form__error" role="alert"></div>
-          </div>
+
+      <div class="contact-form__field">
+          <input 
+            type="checkbox" 
+            id="checkbox" 
+            class="contact-form__checkbox"
+            name="checkbox"
+            form="checkout-form"  
+            required />
+          <label for="checkbox">Souhlasím s <a href="/kontakt/obchodni-podminky/" target="_blank" class="contact-form__GDPR">obchodními podmínkami.</a> *</label>
+      </div>
       
       <button type="submit" form="checkout-form" class="checkout__submit-btn btn">
         Odeslat objednávku
@@ -228,7 +225,6 @@
 
 <script src="https://widget.packeta.com/v6/www/js/library.js"></script>
 <script src="/js/checkout.js"></script>
-
 
 </main>
 
@@ -269,6 +265,7 @@
     </div>
     <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
     <button class="cart__checkout-btn">Vybrat způsob doručení</button>
+    <a href="/papirova_pexesa/" class="cart__back-link">Pokračovat v nákupu</a>
   </div>
 </aside>
 

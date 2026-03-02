@@ -244,6 +244,24 @@
         background-color: variables.$color-primary;
         color: white;
         width: 100%;
+        font-size: 0.9rem;
+        padding: .9rem 1.25rem;
+    }
+
+    &__back-link {
+        @include buttons.btn;
+        background-color: white;
+        border: 1px solid variables.$color-primary;
+        color: variables.$color-primary;
+        font-size: 0.9rem;
+        width: 100%;
+        margin-top: 1rem;
+        padding: .75rem 1.25rem;
+
+        &:hover {
+            color: variables.$color-text;
+            border: 1px solid variables.$color-text;
+        }
     }
 
     &__footer {

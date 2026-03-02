@@ -137,7 +137,7 @@
         const btnMinus = document.getElementById('btn-minus');
         const btnPlus = document.getElementById('btn-plus');
         if (btnMinus) btnMinus.disabled = quantity <= 1;
-        if (btnPlus) btnPlus.disabled = quantity >= 20;
+        if (btnPlus) btnPlus.disabled = quantity >= 10;
     }
 
     document.getElementById('btnBuy')?.addEventListener('click', function() {

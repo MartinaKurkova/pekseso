@@ -355,6 +355,33 @@ ul {
   background-color: #540D6E;
   color: white;
   width: 100%;
+  font-size: 0.9rem;
+  padding: 0.9rem 1.25rem;
+}
+.cart__back-link {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3125rem;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  border: 1px solid #540D6E;
+  color: #540D6E;
+  font-size: 0.9rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+}
+.cart__back-link:hover {
+  color: #0D0D0D;
+  border: 1px solid #0D0D0D;
 }
 .cart__footer {
   margin-top: 2rem;
@@ -2418,6 +2445,18 @@ ul {
     grid-row: 1;
   }
 }
+.product__back-link {
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 0.2em;
+  color: #0D0D0D;
+  font-weight: 500;
+  display: flex;
+  gap: 1rem;
+  transition: color 0.2s;
+}
+.product__back-link:hover {
+  color: #540D6E;
+}
 .product__heading {
   margin-bottom: 1rem;
 }
@@ -2444,6 +2483,11 @@ ul {
   font-weight: 500;
   display: flex;
   gap: 1rem;
+  transition: color 0.2s;
+  margin-bottom: 1rem;
+}
+.product__try:hover {
+  color: #540D6E;
 }
 .product__buttons {
   margin-top: 3rem;
@@ -2700,7 +2744,7 @@ ul {
 
 .checkout__container {
   display: grid;
-  grid-template-columns: repeat(3fr 2fr);
+  grid-template-columns: 3fr 2fr;
   grid-template-rows: auto;
   grid-template-areas: "heading heading" "form summary";
   gap: 1.25rem;
@@ -2745,6 +2789,11 @@ ul {
   border: 1px solid white;
   font-family: inherit;
   margin-bottom: 0.5rem;
+  background-color: #f1eaf3;
+}
+.checkout__input:focus, .checkout__textarea:focus {
+  outline: none;
+  border: 1px solid #540D6E;
   background-color: #f1eaf3;
 }
 .checkout__shipping-options, .checkout__payment-options {

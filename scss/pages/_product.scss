@@ -150,6 +150,20 @@
         }
     }
 
+    &__back-link {
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
+        color: variables.$color-text;
+        font-weight: 500;
+        display: flex;
+        gap: 1rem;
+        transition: color 0.2s;
+
+        &:hover {
+            color: variables.$color-primary;
+        }
+    }
+
     &__heading {
         margin-bottom: 1rem;
     }
@@ -178,6 +192,12 @@
         font-weight: 500;
         display: flex;
         gap: 1rem;
+        transition: color 0.2s;
+        margin-bottom: 1rem;
+
+        &:hover {
+            color: variables.$color-primary;
+        }
     }
 
     &__buttons {
