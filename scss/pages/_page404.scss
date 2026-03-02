@@ -1,0 +1,53 @@
+@use "../utils/variables";
+@use "../base/typography";
+@use "../base/base";
+@use "../base/fonts";
+@use "../components/buttons";
+
+.error {
+    background-color: variables.$color-bg;
+
+    &__container {
+        padding-top: 5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    &__heading {
+        font-weight: 300;
+    }
+
+    &__perex {
+        @media screen and (min-width: 48rem) {
+            max-width: 70%;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1.25rem;
+        margin-top: 2rem;
+
+         @media screen and (max-width: 37.5rem) {
+            flex-direction: column;
+        }
+    }
+
+    &__link {
+        @include buttons.btn;
+    }
+
+    &__link--primary {
+        background-color: variables.$color-primary;
+        color: white;
+    }
+
+    &__link--secondary {
+        background-color: variables.$color-secondary;
+        color: variables.$color-text;
+    }
+}

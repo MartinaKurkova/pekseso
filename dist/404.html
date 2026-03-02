@@ -74,45 +74,16 @@
  <main>
 
     
-<section class="thanks"> 
-<div class="thanks__container container">
-  <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme</span> za vaši objednávku!</h1>
-  <p class="thanks__perex perex">Potvrzení s detaily vám pošleme na e-mail.</p>
-
-  <div id="transfer-instructions" class="thanks__instructions">
-    <h2 class="thanks__subheading">Podklady pro platbu</h2>
-    <p class="thanks__text">Částka k úhradě: <strong id="pay-amount"></strong> Kč</p>
-    <p class="thanks__text">Číslo účtu: <strong>1300712012/3030</strong></p>
-    <p class="thanks__text thanks__text--vs">Variabilní symbol: <strong id="pay-vs" ></strong></p>
-    <hr>
-    <p class="thanks__text">Objednávku odešleme ihned po připsání platby na účet.</p>
-  </div>
-
-  <div id="cash-instructions" class="thanks__cash-instructions">
-    <h2 class="thanks__subheading">Osobní odběr</h2>
-    <p class="thanks__text">Zvolili jste platbu hotově při převzetí v <strong>Sadské</strong>.</p>
-    <p class="thanks__text">Počkejte prosím na <strong>SMS nebo e-mail</strong>, ve kterém se domluvíme na čase předání.</p>
-  </div>
-
-    <a href="/" class="thanks__back">Zpět na úvodní stránku</a>
-</div>
+<section class="error">
+    <div class="error__container container">
+        <h1 class="error__heading"><span class="error__heading--italic">Ups!</span> Tahle kartička tu není.</h1>
+        <p class="error__perex perex">Omlouváme se, ale stránka neexistuje. Možná jsme ji při míchání balíčku někam zašantročili.</p>
+        <div class="error__buttons">
+            <a href="/papirova_pexesa/" class="error__link error__link--primary">Prohlédnout si pexesa</a>
+            <a href="/" class="error__link error__link--secondary">Zpět na úvodní stránku</a>
+        </div>
+    </div>
 </section>
-
-<script>
-  const urlParams = new URLSearchParams(window.location.search);
-  const vs = urlParams.get('vs');
-  const amount = urlParams.get('amount');
-  const method = urlParams.get('method');
-
-  if (method === 'transfer' && vs && amount) {
-    document.getElementById('transfer-instructions').style.display = 'block';
-    document.getElementById('pay-vs').innerText = vs;
-    document.getElementById('pay-amount').innerText = amount;
-  } 
-  else if (method === 'cash') {
-    document.getElementById('cash-instructions').style.display = 'block';
-  }
-</script>
 
 </main>
 

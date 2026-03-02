@@ -2874,4 +2874,107 @@ ul {
   background-color: white;
   border-radius: 0.3125rem;
   margin-bottom: 0.5rem;
+}
+
+.thanks {
+  background-color: #FFD23F;
+}
+.thanks__container {
+  padding-top: 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.thanks__heading {
+  font-weight: 300;
+}
+.thanks__instructions, .thanks__cash-instructions {
+  display: none;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 0.3125rem;
+  border: 1px solid #FFD23F;
+  margin: 2rem auto;
+  max-width: 31.25rem;
+  text-align: left;
+}
+.thanks__subheading {
+  margin-top: 0;
+}
+.thanks__back {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3125rem;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #540D6E;
+  color: white;
+  margin-top: 1rem;
+  padding: 0.75rem 1.25rem;
+}
+.thanks__back:hover {
+  color: #0D0D0D;
+  border: 1px solid #0D0D0D;
+}
+
+.error {
+  background-color: #D3BDD8;
+}
+.error__container {
+  padding-top: 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.error__heading {
+  font-weight: 300;
+}
+@media screen and (min-width: 48rem) {
+  .error__perex {
+    max-width: 70%;
+  }
+}
+.error__buttons {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 37.5rem) {
+  .error__buttons {
+    flex-direction: column;
+  }
+}
+.error__link {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3125rem;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.error__link--primary {
+  background-color: #540D6E;
+  color: white;
+}
+.error__link--secondary {
+  background-color: #FFD23F;
+  color: #0D0D0D;
 }/*# sourceMappingURL=style.css.map */
