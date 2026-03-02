@@ -1,7 +1,7 @@
 ---
 layout: product-layout.njk
 title: "Zelenina"
-price: 15
+price: 165
 subheading: "Sklidťe radost přímo ze stolu"
 folder: "Zelenina"
 stripe_id: "price_1T6GWzJdC0N7uBdkUyuI0myz" 

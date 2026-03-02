@@ -1,7 +1,7 @@
 ---
 layout: product-layout.njk
 title: "Vánoce"
-price: 15
+price: 165
 subheading: "Užijte&nbsp;si kouzlo společných chvil"
 folder: "Vanoce"
 stripe_id: "price_1T6GSdJdC0N7uBdkUpRvp9aU" 

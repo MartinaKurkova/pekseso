@@ -1,7 +1,7 @@
 ---
 layout: product-layout.njk
 title: "Lesní zvířata"
-price: 15
+price: 165
 subheading: "Pozvěte přírodu ke stolu"
 folder: "Les"
 stripe_id: "price_1T6Cd3JdC0N7uBdk4Eskh2tZ" 
