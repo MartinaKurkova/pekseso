@@ -13,27 +13,30 @@ title: "Doprava a platba"
     <div class="withdrawal__container container">
         <div class="withdrawal-form__container" id="contact-form">
             <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
-            <!-- hidden inputs -->
+                <!-- hidden inputs -->
                 <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
-                <input type="hidden" name="_email.from" value="Kontaktní formulář">
-                <input type="hidden" name="_email.subject" value="Nová zpráva z kontaktního formuláře">
-                <input type="checkbox" name="botcheck" class="withdrawal-form__checkbox" style="display: none;">
+                <input type="hidden" name="_email.from" value="Formulář objednávky">
+                <input type="hidden" name="_email.subject" value="Nová zpráva k objednávce">
+
+                <!-- Honeypot ochrana proti botům (nahradí Web3Forms botcheck až přejdeš na PHP) -->
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
                 <fieldset class="withdrawal-form__fieldset">
 
                     <h2 class="withdrawal-form__legend">On-line formulář</h2>
 
                     <!-- number -->
                     <div class="withdrawal-form__field">
-                        <label for="cislo" class="withdrawal-form__label">
+                        <label for="number" class="withdrawal-form__label">
                             Číslo objednávky <span aria-hidden="true">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            inputmode="numeric" 
-                            class="withdrawal-form__input" 
-                            name="number" 
-                            id="number" 
-                            placeholder="Číslo vaší objednávky" 
+                        <input
+                            type="text"
+                            inputmode="numeric"
+                            class="withdrawal-form__input"
+                            name="number"
+                            id="number"
+                            placeholder="Číslo vaší objednávky"
                             required>
                         <div id="number-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                     </div>
@@ -43,27 +46,27 @@ title: "Doprava a platba"
                         <label for="jmeno" class="withdrawal-form__label">
                             Jméno a příjmení <span aria-hidden="true">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            class="withdrawal-form__input" 
-                            name="name" 
-                            id="jmeno" 
-                            placeholder="Kdo mi píše?" 
+                        <input
+                            type="text"
+                            class="withdrawal-form__input"
+                            name="name"
+                            id="jmeno"
+                            placeholder="Kdo mi píše?"
                             required>
                         <div id="jmeno-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                     </div>
 
-                <!-- email -->
+                    <!-- email -->
                     <div class="withdrawal-form__field">
                         <label for="email" class="withdrawal-form__label">
                             E-mail <span aria-hidden="true">*</span>
                         </label>
-                        <input 
-                            type="email" 
-                            class="withdrawal-form__input" 
-                            name="email" 
-                            id="email" 
-                            placeholder="Kam vám mám odepsat?" 
+                        <input
+                            type="email"
+                            class="withdrawal-form__input"
+                            name="email"
+                            id="email"
+                            placeholder="Kam vám mám odepsat?"
                             required>
                         <div id="email-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                     </div>
@@ -71,14 +74,14 @@ title: "Doprava a platba"
                     <!-- phone -->
                     <div class="withdrawal-form__field">
                         <label for="phone" class="withdrawal-form__label">
-                            Telefonní číslo <span aria-hidden="true"></span>
+                            Telefonní číslo
                         </label>
-                        <input 
-                            type="number" 
-                            class="withdrawal-form__input" 
-                            name="phone" 
-                            id="phone" 
-                            placeholder="Kam vám mohu případně zavolat?" >
+                        <input
+                            type="tel"
+                            class="withdrawal-form__input"
+                            name="phone"
+                            id="phone"
+                            placeholder="Kam vám mohu případně zavolat?">
                         <div id="phone-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                     </div>
 
@@ -87,20 +90,22 @@ title: "Doprava a platba"
                         <label for="account" class="withdrawal-form__label">
                             Číslo účtu (pro vrácení peněz) <span aria-hidden="true">*</span>
                         </label>
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             inputmode="numeric"
-                            class="withdrawal-form__input" 
-                            name="account" 
-                            id="account" 
-                            placeholder="Kam vám mám vrátit peníze?" 
+                            class="withdrawal-form__input"
+                            name="account"
+                            id="account"
+                            placeholder="Kam vám mám vrátit peníze?"
                             required>
                         <div id="account-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                     </div>
 
                     <!-- reason -->
                     <div class="withdrawal-form__field">
-                        <label for="reason" class="withdrawal-form__label">Co budeme řešit? (Vyberte z možností)<span aria-hidden="true">*</span></label>
+                        <label for="reason" class="withdrawal-form__label">
+                            Co budeme řešit? (Vyberte z možností) <span aria-hidden="true">*</span>
+                        </label>
                         <select name="reason" id="reason" class="withdrawal-form__input" required>
                             <option value="odstoupeni">Vrácení zboží (do 14 dnů)</option>
                             <option value="reklamace">Reklamace (vada na zboží)</option>
@@ -111,13 +116,12 @@ title: "Doprava a platba"
                     <!-- subject -->
                     <div class="withdrawal-form__field">
                         <label for="subject" class="withdrawal-form__label">Předmět zprávy</label>
-                        <input 
-                            type="text" 
-                            class="withdrawal-form__input" 
-                            name="subject" 
-                            id="subject" 
-                            placeholder="Stručně mi napište, s čím se ozýváte"
-                            aria-describedby="subject-help">
+                        <input
+                            type="text"
+                            class="withdrawal-form__input"
+                            name="subject"
+                            id="subject"
+                            placeholder="Stručně mi napište, s čím se ozýváte">
                     </div>
 
                     <!-- message -->
@@ -125,38 +129,39 @@ title: "Doprava a platba"
                         <label for="message" class="withdrawal-form__label withdrawal-form__label--textarea">
                             Vaše zpráva <span aria-hidden="true">*</span>
                         </label>
-                        <textarea 
-                            name="message" 
-                            class="withdrawal-form__textarea" 
-                            id="message" 
-                            placeholder="Tady začíná váš příběh…" 
-                            rows="15" 
+                        <textarea
+                            name="message"
+                            class="withdrawal-form__textarea"
+                            id="message"
+                            placeholder="Tady začíná váš příběh…"
+                            rows="15"
                             required></textarea>
-                            <div id="message-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                        <div id="message-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                     </div>
 
                     <!-- photo -->
-                     <div class="withdrawal-form__field withdrawal-form__field--photo">
+                    <div class="withdrawal-form__field withdrawal-form__field--photo">
                         <label for="attachment" class="withdrawal-form__label">
                             Fotka zboží (nepovinné)
                         </label>
-                        <input 
-                            type="file" 
-                            name="attachment" 
-                            id="attachment" 
-                            class="withdrawal-form__input withdrawal-form__input--photo" 
+                        <input
+                            type="file"
+                            name="attachment"
+                            id="attachment"
+                            class="withdrawal-form__input withdrawal-form__input--photo"
                             accept="image/*">
+                        <div id="attachment-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                         <small class="withdrawal-form__note">Pomůže mi to rychleji pochopit, co je v nepořádku.</small>
                     </div>
 
                     <!-- checkbox -->
                     <div class="withdrawal-form__field withdrawal-form__field--checkbox">
-                        <input 
-                            type="checkbox" 
-                            id="checkbox" 
+                        <input
+                            type="checkbox"
+                            id="checkbox"
                             class="withdrawal-form__checkbox"
                             name="checkbox"
-                            required />
+                            required>
                         <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/GDPR/" class="withdrawal-form__GDPR">Zásadami ochrany osobních údajů.</a> *</label>
                         <div id="checkbox-error" class="withdrawal-form__error" role="alert"></div>
                     </div>
@@ -171,8 +176,10 @@ title: "Doprava a platba"
                     </button>
 
                     <div id="form-status" class="withdrawal-form__status" role="status" aria-live="polite"></div>
+
                 </fieldset>
             </form>
+
         </div>
 
         <!-- paper -->
@@ -207,3 +214,5 @@ title: "Doprava a platba"
             </div>
     </div>
 </section>
+
+<script src="/js/withdrawal-form-validation.js"></script>

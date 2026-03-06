@@ -90,44 +90,87 @@
 
     
 <section class="thanks"> 
-<div class="thanks__container container">
-  <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme</span> za vaši objednávku!</h1>
-  <p class="thanks__perex perex">Potvrzení s detaily vám pošleme na e-mail.</p>
+  <div class="thanks__container container">
 
-  <div id="transfer-instructions" class="thanks__instructions">
-    <h2 class="thanks__subheading">Podklady pro platbu</h2>
-    <p class="thanks__text">Částka k úhradě: <strong id="pay-amount"></strong> Kč</p>
-    <p class="thanks__text">Číslo účtu: <strong>1300712012/3030</strong></p>
-    <p class="thanks__text thanks__text--vs">Variabilní symbol: <strong id="pay-vs" ></strong></p>
-    <hr>
-    <p class="thanks__text">Objednávku odešleme ihned po připsání platby na účet.</p>
+    <!-- ===================== KOŠÍK: převod ===================== -->
+    <div id="thanks-transfer" class="thanks__block" style="display:none">
+      <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme</span> za vaši objednávku!</h1>
+      <p class="thanks__perex perex">Potvrzení s detaily vám pošleme na e-mail.</p>
+      <div class="thanks__instructions">
+        <h2 class="thanks__subheading">Podklady pro platbu</h2>
+        <p class="thanks__text">Částka k úhradě: <strong id="pay-amount"></strong> Kč</p>
+        <p class="thanks__text">Číslo účtu: <strong>1300712012/3030</strong></p>
+        <p class="thanks__text thanks__text--vs">Variabilní symbol: <strong id="pay-vs"></strong></p>
+        <hr>
+        <p class="thanks__text">Objednávku odešleme ihned po připsání platby na účet.</p>
+      </div>
+      <a href="/" class="thanks__btn btn">Zpět na úvodní stránku</a>
+    </div>
+
+    <!-- ===================== KOŠÍK: hotově ===================== -->
+    <div id="thanks-cash" class="thanks__block" style="display:none">
+      <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme</span> za vaši objednávku!</h1>
+      <p class="thanks__perex perex">Potvrzení s detaily vám pošleme na e-mail.</p>
+      <div class="thanks__instructions">
+        <h2 class="thanks__subheading">Osobní odběr</h2>
+        <p class="thanks__text">Zvolili jste platbu hotově při převzetí v <strong>Sadské</strong>.</p>
+        <p class="thanks__text">Počkejte prosím na <strong>SMS nebo e-mail</strong>, ve kterém se domluvíme na čase předání.</p>
+      </div>
+      <a href="/" class="thanks__btn btn">Zpět na úvodní stránku</a>
+    </div>
+
+    <!-- ===================== KONTAKTNÍ FORMULÁŘ ===================== -->
+    <div id="thanks-contact" class="thanks__block" style="display:none">
+      <h1 class="thanks__heading"><span class="thanks__heading--italic">Máme shodu!</span> Vaše zpráva dorazila.</h1>
+      <p class="thanks__perex perex">Děkujeme, že jste se ozvali. Vaše řádky jsme úspěšně „otočili" a už na nich pracujeme.</p>
+      <p class="thanks__text">Odpověď vám pošleme co nevidět, aby vaše pexeso (nebo dotaz) nezůstalo dlouho bez páru.</p>
+      <a href="/papirova_pexesa/" class="thanks__btn btn">Prohlédnout si pexesa</a>
+    </div>
+
+    <!-- ===================== WITHDRAWAL FORMULÁŘ ===================== -->
+    <div id="thanks-withdrawal" class="thanks__block" style="display:none">
+      <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme,</span> váš požadavek jsme přijali.</h1>
+      <p class="thanks__perex perex">Právě jsme obdrželi vaše vyplněné údaje k objednávce č. <strong id="withdrawal-order-number"></strong>. Náš tým (tedy já) se na to hned podívá.</p>
+      <p class="thanks__text">Standardně odpovídám do 1–2 pracovních dnů. Sledujte prosím svou e-mailovou schránku, kam vám pošleme potvrzení a další instrukce, jak postupovat.</p>
+      <a href="/papirova_pexesa/" class="thanks__btn btn">Zpět do obchodu</a>
+    </div>
+
   </div>
-
-  <div id="cash-instructions" class="thanks__cash-instructions">
-    <h2 class="thanks__subheading">Osobní odběr</h2>
-    <p class="thanks__text">Zvolili jste platbu hotově při převzetí v <strong>Sadské</strong>.</p>
-    <p class="thanks__text">Počkejte prosím na <strong>SMS nebo e-mail</strong>, ve kterém se domluvíme na čase předání.</p>
-  </div>
-
-    <a href="/" class="thanks__back">Zpět na úvodní stránku</a>
-</div>
 </section>
 
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const vs = urlParams.get('vs');
-  const amount = urlParams.get('amount');
-  const method = urlParams.get('method');
+  const form     = urlParams.get('form');
+  const vs       = urlParams.get('vs');
+  const amount   = urlParams.get('amount');
+  const method   = urlParams.get('method');
+  const order    = urlParams.get('order');
 
+  // Košík – zpětná kompatibilita s původní URL strukturou
   if (method === 'transfer' && vs && amount) {
-    document.getElementById('transfer-instructions').style.display = 'block';
+    document.getElementById('thanks-transfer').style.display = 'block';
     document.getElementById('pay-vs').innerText = vs;
     document.getElementById('pay-amount').innerText = amount;
-  } 
-  else if (method === 'cash') {
-    document.getElementById('cash-instructions').style.display = 'block';
+  } else if (method === 'cash') {
+    document.getElementById('thanks-cash').style.display = 'block';
+
+  // Kontaktní formulář
+  } else if (form === 'contact') {
+    document.getElementById('thanks-contact').style.display = 'block';
+
+  // Withdrawal formulář
+  } else if (form === 'withdrawal') {
+    document.getElementById('thanks-withdrawal').style.display = 'block';
+    if (order) {
+      document.getElementById('withdrawal-order-number').innerText = order;
+    } else {
+      // Pokud číslo objednávky chybí, skryjeme větu s ním
+      document.getElementById('withdrawal-order-number').closest('p').style.display = 'none';
+    }
   }
 </script>
+
+<script src="/js/withdrawal-redirect.js"></script>
 
 </main>
 

@@ -26,11 +26,15 @@ twitterCard: summary_large_image
     <div class="contact__container container">
         <div class="contact__form-container" id="contact-form">
             <form action="https://api.web3forms.com/submit" method="POST" novalidate>
-            <!-- hidden inputs -->
+                <!-- hidden inputs -->
                 <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
                 <input type="hidden" name="_email.from" value="Kontaktní formulář">
                 <input type="hidden" name="_email.subject" value="Nová zpráva z kontaktního formuláře">
-                <input type="checkbox" name="botcheck" class="contact-form__checkbox" style="display: none;">
+                <input type="hidden" name="_redirect" value="/dekujeme?form=contact">
+
+                <!-- Honeypot ochrana proti botům -->
+                <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
                 <fieldset class="contact-form__fieldset">
                     <h2 class="contact-form__legend">Kontaktujte mě</h2>
 
@@ -39,27 +43,27 @@ twitterCard: summary_large_image
                         <label for="jmeno" class="contact-form__label">
                             Jméno a příjmení <span aria-hidden="true">*</span>
                         </label>
-                        <input 
-                            type="text" 
-                            class="contact-form__input" 
-                            name="name" 
-                            id="jmeno" 
-                            placeholder="Kdo mi píše?" 
+                        <input
+                            type="text"
+                            class="contact-form__input"
+                            name="name"
+                            id="jmeno"
+                            placeholder="Kdo mi píše?"
                             required>
                         <div id="jmeno-error" class="contact-form__error" role="alert" aria-live="polite"></div>
                     </div>
 
-                <!-- email -->
+                    <!-- email -->
                     <div class="contact-form__field">
                         <label for="email" class="contact-form__label">
                             E-mail <span aria-hidden="true">*</span>
                         </label>
-                        <input 
-                            type="email" 
-                            class="contact-form__input" 
-                            name="email" 
-                            id="email" 
-                            placeholder="Kam vám mám odepsat?" 
+                        <input
+                            type="email"
+                            class="contact-form__input"
+                            name="email"
+                            id="email"
+                            placeholder="Kam vám mám odepsat?"
                             required>
                         <div id="email-error" class="contact-form__error" role="alert" aria-live="polite"></div>
                     </div>
@@ -67,13 +71,14 @@ twitterCard: summary_large_image
                     <!-- subject -->
                     <div class="contact-form__field">
                         <label for="subject" class="contact-form__label">Předmět zprávy</label>
-                        <input 
-                            type="text" 
-                            class="contact-form__input" 
-                            name="subject" 
-                            id="subject" 
+                        <input
+                            type="text"
+                            class="contact-form__input"
+                            name="subject"
+                            id="subject"
                             placeholder="Stručně mi napište, s čím se ozýváte"
                             aria-describedby="subject-help">
+                        <small id="subject-help" class="contact-form__note">Nepovinné pole.</small>
                     </div>
 
                     <!-- message -->
@@ -81,24 +86,24 @@ twitterCard: summary_large_image
                         <label for="message" class="contact-form__label contact-form__label--textarea">
                             Vaše zpráva <span aria-hidden="true">*</span>
                         </label>
-                        <textarea 
-                            name="message" 
-                            class="contact-form__textarea" 
-                            id="message" 
-                            placeholder="Tady začíná váš příběh…" 
-                            rows="15" 
+                        <textarea
+                            name="message"
+                            class="contact-form__textarea"
+                            id="message"
+                            placeholder="Tady začíná váš příběh…"
+                            rows="15"
                             required></textarea>
-                            <div id="message-error" class="contact-form__error" role="alert" aria-live="polite"></div>
+                        <div id="message-error" class="contact-form__error" role="alert" aria-live="polite"></div>
                     </div>
 
                     <!-- checkbox -->
                     <div class="contact-form__field">
-                        <input 
-                            type="checkbox" 
-                            id="checkbox" 
+                        <input
+                            type="checkbox"
+                            id="checkbox"
                             class="contact-form__checkbox"
                             name="checkbox"
-                            required />
+                            required>
                         <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/kontakt/zasady/" class="contact-form__GDPR">Zásadami ochrany osobních údajů.</a> *</label>
                         <div id="checkbox-error" class="contact-form__error" role="alert"></div>
                     </div>
@@ -113,6 +118,7 @@ twitterCard: summary_large_image
                     </button>
 
                     <div id="form-status" class="contact-form__status" role="status" aria-live="polite"></div>
+
                 </fieldset>
             </form>
         </div>
@@ -302,5 +308,7 @@ twitterCard: summary_large_image
 </section>
 </div>
 
- <script src="/js/form.js"></script>
+ <script src="/js/contact-form-validation.js"></script>
+ <script src="/js/withdrawal-redirect.js"></script>
  <script src="/js/faq.js"></script>
+ 

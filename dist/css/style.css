@@ -2805,6 +2805,16 @@ ul {
   font-style: normal;
   font-family: "Work Sans", sans-serif;
 }
+.checkout__form-group {
+  display: flex;
+  flex-direction: column;
+}
+.checkout__form-group--checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
 .checkout__summary {
   grid-area: summary;
   padding: 2rem;
@@ -2874,6 +2884,20 @@ ul {
   background-color: white;
   border-radius: 0.3125rem;
   margin-bottom: 0.5rem;
+}
+
+.checkout__section--shipping {
+  display: none;
+}
+.checkout__section--shipping.is-visible {
+  display: block;
+}
+
+.checkout__error-msg {
+  display: none;
+}
+.checkout__error-msg:not(:empty) {
+  display: block;
 }
 
 .thanks {

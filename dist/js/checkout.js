@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (cart.length === 0) {
-        window.location.href = '/'; 
+        window.location.href = '/';
         return;
     }
 
@@ -91,8 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedPayment) {
             const paymentLabel = selectedPayment.closest('.payment-card').querySelector('.payment-card__name').innerText;
             shippingPaymentHtml += `<div style="font-size: 0.9em; color: #555;"><strong>Platba:</strong> ${paymentLabel} (0 Kč)</div>`;
-            
-            // SJEDNOCENÝ TEXT TLAČÍTKA PRO VŠECHNY PLATBY
+
             if (submitBtn) {
                 submitBtn.innerText = 'Objednávka zavazující k platbě';
             }
@@ -136,7 +135,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 5. ODESLÁNÍ FORMULÁŘE ---
+    // --- 5. DODACÍ ADRESA TOGGLE ---
+    const shippingCheckbox = document.getElementById('shipping-different');
+    const shippingSection  = document.getElementById('shipping-section');
+    const shippingInputs   = shippingSection ? shippingSection.querySelectorAll('input') : [];
+
+    function toggleShipping() {
+        const isVisible = shippingCheckbox.checked;
+        shippingSection.classList.toggle('is-visible', isVisible);
+        shippingSection.setAttribute('aria-hidden', String(!isVisible));
+
+        shippingInputs.forEach(input => {
+            if (isVisible) {
+                input.setAttribute('required', '');
+            } else {
+                input.removeAttribute('required');
+                input.value = '';
+            }
+        });
+    }
+
+    if (shippingCheckbox) {
+        shippingCheckbox.addEventListener('change', toggleShipping);
+        toggleShipping();
+    }
+
+    // --- 6. ODESLÁNÍ FORMULÁŘE ---
     document.getElementById('checkout-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         clearErrors();
@@ -145,7 +169,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = Object.fromEntries(formData.entries());
         let hasError = false;
 
-        // Validace
+        // Validace fakturační adresy (vždy povinná)
+        if (!data.billing_first_name) { showError('billing_first_name', 'billing_first_name-error', 'Vyplňte jméno.'); hasError = true; }
+        if (!data.billing_last_name)  { showError('billing_last_name', 'billing_last_name-error', 'Vyplňte příjmení.'); hasError = true; }
+        if (!data.billing_street)     { showError('billing_street', 'billing_street-error', 'Vyplňte ulici a číslo popisné.'); hasError = true; }
+        if (!data.billing_city)       { showError('billing_city', 'billing_city-error', 'Vyplňte město.'); hasError = true; }
+        if (!data.billing_zip)        { showError('billing_zip', 'billing_zip-error', 'Vyplňte PSČ.'); hasError = true; }
+
+        // Validace dodací adresy (pouze pokud se liší)
+        const isShippingDifferent = shippingCheckbox && shippingCheckbox.checked;
+        if (isShippingDifferent) {
+            if (!data.first_name) { showError('first_name', 'first_name-error', 'Vyplňte jméno.'); hasError = true; }
+            if (!data.last_name)  { showError('last_name', 'last_name-error', 'Vyplňte příjmení.'); hasError = true; }
+            if (!data.street)     { showError('street', 'street-error', 'Vyplňte ulici a číslo popisné.'); hasError = true; }
+            if (!data.city)       { showError('city', 'city-error', 'Vyplňte město.'); hasError = true; }
+            if (!data.zip)        { showError('zip', 'zip-error', 'Vyplňte PSČ.'); hasError = true; }
+        }
+
+        // Validace kontaktních údajů
         const phoneClean = data.phone.replace(/\s/g, '');
         if (phoneClean.length < 9) {
             showError('phone', 'phone-error', 'Zadejte prosím aspoň 9 číslic.');
@@ -156,8 +197,17 @@ document.addEventListener('DOMContentLoaded', () => {
             showError('email', 'email-error', 'Zadejte platný e-mail (např. jmeno@seznam.cz).');
             hasError = true;
         }
+
+        // Validace Zásilkovny
         if (pickupRadio && pickupRadio.checked && !data.zasilkovna_id) {
             alert("Prosím, vyberte pobočku Zásilkovny.");
+            hasError = true;
+        }
+
+        // Validace souhlasu s obchodními podmínkami
+        const checkbox = document.getElementById('checkbox');
+        if (!checkbox || !checkbox.checked) {
+            showError('checkbox', 'checkbox-error', 'Pro dokončení objednávky musíte souhlasit s obchodními podmínkami.');
             hasError = true;
         }
 
@@ -165,10 +215,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Variabilní symbol
         const teď = new Date();
-        const vs = teď.getFullYear().toString().slice(-2) + 
-                   (teď.getMonth() + 1).toString().padStart(2, '0') + 
-                   teď.getDate().toString().padStart(2, '0') + 
-                   teď.getHours().toString().padStart(2, '0') + 
+        const vs = teď.getFullYear().toString().slice(-2) +
+                   (teď.getMonth() + 1).toString().padStart(2, '0') +
+                   teď.getDate().toString().padStart(2, '0') +
+                   teď.getHours().toString().padStart(2, '0') +
                    teď.getMinutes().toString().padStart(2, '0');
 
         const dopravaPreklad = {
@@ -198,9 +248,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         items: cart.map(i => ({ price: i.id, quantity: i.quantity })),
                         customer: data,
                         shipping_rate: data.shipping_rate,
-                        metadata: { 
-                            vs: vs, 
-                            pobocka: pickupRadio.checked ? data.zasilkovna_name : (personalRadio.checked ? 'Osobni odber' : 'Adresa') 
+                        metadata: {
+                            vs: vs,
+                            pobocka: pickupRadio.checked ? data.zasilkovna_name : (personalRadio.checked ? 'Osobni odber' : 'Adresa')
                         }
                     })
                 });
