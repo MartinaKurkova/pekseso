@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Standardní favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <!-- Apple Touch Icon (pro iOS) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <!-- Barva dlaždice pro Windows -->
+    <meta name="msapplication-TileColor" content="#800080">
+    <meta name="theme-color" content="#800080">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+            
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/herna/" class="header__nav-link">Herna</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/herna/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/herna/psi/" class="header__nav-link">Psi</a></li>
+                            <li class="header__nav-item"><a href="/herna/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/herna/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/herna/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/papirova_pexesa/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <!-- <li class="header__nav-item"><a href="/papirova_pexesa/psi/" class="header__nav-link">Psi</a></li> -->
+                            <li class="header__nav-item"><a href="/papirova_pexesa/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/papirova_pexesa/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/papirova_pexesa/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+            <button class="header__basket" aria-label="Košík, 0 položek" id="cart-btn">
+                <img src="/images/icons/kosik_white.svg" alt="" class="header__basket-icon" width="20" height="20">
+                <span class="header__basket-amount" aria-live="polite">0</span>
+            </button>
+            <!-- toast -->
+                <div class="toast" id="toast">Pexeso bylo přidáno do košíku</div>
+        </div>
+</header>
+
+
+ <main>
+
+    <section class="hero-with">
+    <div class="hero-with__container container">
+        <h1 class="hero-with__heading">Vrácení a reklamace</h1>
+    </div>
+</section>
+
+<!-- forms -->
+<section class="withdrawal">
+    <div class="withdrawal__container container">
+        <div class="withdrawal-form__container" id="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
+            <!-- hidden inputs -->
+                <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
+                <input type="hidden" name="_email.from" value="Kontaktní formulář">
+                <input type="hidden" name="_email.subject" value="Nová zpráva z kontaktního formuláře">
+                <input type="checkbox" name="botcheck" class="withdrawal-form__checkbox" style="display: none;">
+                <fieldset class="withdrawal-form__fieldset">
+
+                    <h2 class="withdrawal-form__legend">On-line formulář</h2>
+
+                    <!-- number -->
+                    <div class="withdrawal-form__field">
+                        <label for="cislo" class="withdrawal-form__label">
+                            Číslo objednávky <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            inputmode="numeric" 
+                            class="withdrawal-form__input" 
+                            name="number" 
+                            id="number" 
+                            placeholder="Číslo vaší objednávky" 
+                            required>
+                        <div id="number-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- name -->
+                    <div class="withdrawal-form__field">
+                        <label for="jmeno" class="withdrawal-form__label">
+                            Jméno a příjmení <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="withdrawal-form__input" 
+                            name="name" 
+                            id="jmeno" 
+                            placeholder="Kdo mi píše?" 
+                            required>
+                        <div id="jmeno-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                <!-- email -->
+                    <div class="withdrawal-form__field">
+                        <label for="email" class="withdrawal-form__label">
+                            E-mail <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            class="withdrawal-form__input" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Kam vám mám odepsat?" 
+                            required>
+                        <div id="email-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- phone -->
+                    <div class="withdrawal-form__field">
+                        <label for="phone" class="withdrawal-form__label">
+                            Telefonní číslo <span aria-hidden="true"></span>
+                        </label>
+                        <input 
+                            type="number" 
+                            class="withdrawal-form__input" 
+                            name="phone" 
+                            id="phone" 
+                            placeholder="Kam vám mohu případně zavolat?" >
+                        <div id="phone-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- account -->
+                    <div class="withdrawal-form__field">
+                        <label for="account" class="withdrawal-form__label">
+                            Číslo účtu (pro vrácení peněz) <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            inputmode="numeric"
+                            class="withdrawal-form__input" 
+                            name="account" 
+                            id="account" 
+                            placeholder="Kam vám mám vrátit peníze?" 
+                            required>
+                        <div id="account-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- reason -->
+                    <div class="withdrawal-form__field">
+                        <label for="reason" class="withdrawal-form__label">Co budeme řešit? (Vyberte z možností)<span aria-hidden="true">*</span></label>
+                        <select name="reason" id="reason" class="withdrawal-form__input" required>
+                            <option value="odstoupeni">Vrácení zboží (do 14 dnů)</option>
+                            <option value="reklamace">Reklamace (vada na zboží)</option>
+                            <option value="jine">Jiný dotaz k objednávce</option>
+                        </select>
+                    </div>
+
+                    <!-- subject -->
+                    <div class="withdrawal-form__field">
+                        <label for="subject" class="withdrawal-form__label">Předmět zprávy</label>
+                        <input 
+                            type="text" 
+                            class="withdrawal-form__input" 
+                            name="subject" 
+                            id="subject" 
+                            placeholder="Stručně mi napište, s čím se ozýváte"
+                            aria-describedby="subject-help">
+                    </div>
+
+                    <!-- message -->
+                    <div class="withdrawal-form__field">
+                        <label for="message" class="withdrawal-form__label withdrawal-form__label--textarea">
+                            Vaše zpráva <span aria-hidden="true">*</span>
+                        </label>
+                        <textarea 
+                            name="message" 
+                            class="withdrawal-form__textarea" 
+                            id="message" 
+                            placeholder="Tady začíná váš příběh…" 
+                            rows="15" 
+                            required></textarea>
+                            <div id="message-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- photo -->
+                     <div class="withdrawal-form__field">
+                        <label for="attachment" class="withdrawal-form__label">
+                            Fotka zboží (nepovinné)
+                        </label>
+                        <input 
+                            type="file" 
+                            name="attachment" 
+                            id="attachment" 
+                            class="withdrawal-form__input" 
+                            accept="image/*">
+                        <small class="withdrawal-form__note">Pomůže mi to rychleji pochopit, co je v nepořádku.</small>
+                    </div>
+
+                    <!-- checkbox -->
+                    <div class="withdrawal-form__field withdrawal-form__field--checkbox">
+                        <input 
+                            type="checkbox" 
+                            id="checkbox" 
+                            class="withdrawal-form__checkbox"
+                            name="checkbox"
+                            required />
+                        <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/GDPR/" class="withdrawal-form__GDPR">Zásadami ochrany osobních údajů.</a> *</label>
+                        <div id="checkbox-error" class="withdrawal-form__error" role="alert"></div>
+                    </div>
+
+                    <div class="withdrawal-form__required">
+                        <p class="withdrawal-form__note">* Povinné položky</p>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="withdrawal-form__button">
+                        Odeslat zprávu
+                    </button>
+
+                    <div id="form-status" class="withdrawal-form__status" role="status" aria-live="polite"></div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- paper -->
+             <div class="download">
+                <h2 class="download__heading">Formulář ke stažení</h2>
+                <p>Pokud preferujete klasickou cestu, můžete si stáhnout náš vzorový formulář, vyplnit jej a zaslat nám jej e-mailem nebo přiložit vytištěný do balíčku se zbožím.</p>
+                
+                <ul class="download__links">
+                    <li class="download__item">
+                        <a href="/assets/Pekseso_formular.pdf" target="_blank" class="download__link">
+                            <img src="/images/icons/pdf.svg" 
+                                alt="" 
+                                aria-hidden="true"
+                                class="download__icon"
+                                width="80"
+                                height="80">
+                            <span class="download__link--italic">Vzorový formulář v PDF</span>
+                        </a>
+                    </li>
+                    <li class="download__item">
+                        <a href="/assets/Pekseso_formular.docx" class="download__link">
+                            <img src="/images/icons/doc.svg" 
+                                alt="" 
+                                aria-hidden="true"
+                                class="download__icon"
+                                width="80"
+                                height="80">
+                            <span class="download__link--italic">Vzorový formulář ve Wordu</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</section>
+
+</main>
+
+<!-- aside -->
+<div id="cart__overlay" class="cart__overlay"></div>
+
+<aside id="cart__panel" class="cart__panel">
+  <div class="cart__header">
+    <h2 class="cart__heading">Váš košík</h2>
+    <button id="close__cart" class="cart__close-btn">&times;</button>
+  </div>
+
+  <div class="cart__content">
+    <div class="cart__item">
+        <img src="/images/fotky/Les/small/les_1_small_400.webp" 
+            alt="Pexeso Lesní zvířata čtyři kartičky s lesními zvířaty"
+            class="cart__image"
+            loading="lazy" 
+            width="400" 
+            height="400">
+        <div class="cart__details">
+            <h3 class="cart__subheading">Lesní zvířata</h3>
+            <p class="cart__price">165 Kč</p>
+            <div class="cart__quantity-wrapper">
+                <button class="cart__quantity-btn" id="btn-minus-aside" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+                <span class="cart__quantity-value" id="qty-display-aside" aria-live="polite" aria-atomic="true">1</span>
+                <button class="cart__quantity-btn" id="btn-plus-aside" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+            </div>
+        </div>
+        <button class="cart__item-remove" aria-label="Odebrat položku">&times;</button>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <h2 class="cart__subheading--footer">Shrnutí objednávky</h2>
+    <div class="cart__total">
+      <p class="cart__total-price">Celková cena: <span class="cart__total-price--number">165</span> Kč</p>
+    </div>
+    <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
+    <button class="cart__checkout-btn">Vybrat způsob doručení</button>
+    <a href="/papirova_pexesa/" class="cart__back-link">Pokračovat v nákupu</a>
+  </div>
+</aside>
+
+
+ <!-- footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </div>
+
+            <div class="footer__section footer__section-about">
+                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
+            </div>
+
+            <div class="footer__section footer__section_contact">
+                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
+                <address class="footer__contact">
+                    <span id="email-footer"></span><br>
+                </address>
+                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </div>
+
+            <div class="footer__section footer__nav">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a class="footer__legal" href="/GDPR/">Zásady ochrany osobních údajů</a>
+            <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
+            <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy</a>
+            <a class="footer__legal" href="/papirova_pexesa/#transport">Doprava a platba</a>
+            </div>
+
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="/js/aside_cart_panel.js"></script>
+
+</body>
+</html>

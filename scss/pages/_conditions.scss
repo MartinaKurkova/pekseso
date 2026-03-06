@@ -39,6 +39,181 @@
     }
 }
 
+// withdrawal
+.hero-with {
+    background-color: variables.$color-secondary;
+
+    &__container {
+        margin-top: 3rem;
+    }
+
+
+}
+.withdrawal {
+    // background-color: variables.$color-secondary;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        grid-template-rows: auto;
+        gap: 2rem;
+    }
+}
+
+.withdrawal-form {
+    grid-column: 1/2;
+
+    &__legend {
+        font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+        margin-top: 0;
+    }
+
+    &__fieldset {
+        border: none;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (min-width: 50rem)  {
+            grid-column: 2/3;
+            grid-row: 1/3;
+        }
+    }
+
+    &__label {
+        display: block;
+        margin: 0.5rem 0 0.2rem 0;
+        font-weight: 500;
+    }
+
+    &__label--textarea {
+        margin-top: 0.8rem;
+    }
+
+    &__input,
+    &__textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: .3125rem;
+        border: 1px solid variables.$color-primary;
+        font-family: inherit;
+        margin-bottom: 0.5rem;
+    }
+
+    &__note {
+        margin-top: 1rem;
+    }
+
+    &__field--checkbox {
+        margin-top: 1rem;
+    }
+
+    &__GDPR {
+        color: variables.$color-text;
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
+        margin-top: 2rem;
+    }
+
+    &__note {
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+
+    &__input:focus,
+    &__textarea:focus,
+    &__button:focus {
+        outline: 2px solid variables.$color-outline;
+    }
+
+    &__button {
+        @include buttons.btn;
+        margin-bottom: 3rem;
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+        font-size: 1rem;
+        background-color: variables.$color-primary;
+        color: white;
+    }
+
+    &__button-cta:hover {
+        @include buttons.btn_hover;
+        margin-bottom: 3rem;
+    }
+
+    &__button-cta:focus-visible {
+        @include buttons.btn_focus_visible;
+        margin-bottom: 3rem;
+    }
+
+    &__button-cta:active,
+    &__button-cta:focus {
+        @include buttons.btn_active;
+        margin-bottom: 3rem;
+    }
+
+    // errors
+    &__input.is-invalid,
+    &__textarea.is-invalid,
+    &__checkbox.is-invalid {
+        border: 2px solid variables.$color-secondary !important; 
+        background-color: #fff8f8; 
+    }
+
+    &__input.is-invalid:focus,
+    &__textarea.is-invalid:focus {
+        outline-color: variables.$color-secondary;
+        box-shadow: 0 0 5px rgba(217, 48, 37, 0.3);
+    }
+
+    &__error {
+        color: variables.$color-secondary;
+        font-size: 0.85rem;
+        margin: 0 0 0.8rem 0;
+        font-weight: 500;
+    }
+}
+
+.download {
+    grid-column: 2/3;
+    background-color: variables.$color-bg;
+    padding: 1.25rem;
+    border-radius: 5px;
+    height: fit-content;
+
+    &__heading {
+        font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+    }
+
+    &__link--italic{
+        font-family: variables.$font-sans;
+        font-weight: 400;
+        font-style: normal;
+        margin-top: 0.5rem;
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: inherit; /* Přebírá barvu textu z tvého formuláře */
+        transition: opacity 0.2s ease;
+        margin-bottom: 1rem;
+    }
+
+    &__link:hover {
+        opacity: 0.7;
+    }
+
+    &__icon {
+        display: block;
+        width: 80px;
+        height: auto;
+        flex-shrink: 0; 
+    }
+}
+
 // GDPR
 .privacy {
     &__title {

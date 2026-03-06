@@ -1,0 +1,209 @@
+---
+layout: layout.njk
+title: "Doprava a platba"
+---
+<section class="hero-with">
+    <div class="hero-with__container container">
+        <h1 class="hero-with__heading">Vrácení a reklamace</h1>
+    </div>
+</section>
+
+<!-- forms -->
+<section class="withdrawal">
+    <div class="withdrawal__container container">
+        <div class="withdrawal-form__container" id="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
+            <!-- hidden inputs -->
+                <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
+                <input type="hidden" name="_email.from" value="Kontaktní formulář">
+                <input type="hidden" name="_email.subject" value="Nová zpráva z kontaktního formuláře">
+                <input type="checkbox" name="botcheck" class="withdrawal-form__checkbox" style="display: none;">
+                <fieldset class="withdrawal-form__fieldset">
+
+                    <h2 class="withdrawal-form__legend">On-line formulář</h2>
+
+                    <!-- number -->
+                    <div class="withdrawal-form__field">
+                        <label for="cislo" class="withdrawal-form__label">
+                            Číslo objednávky <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            inputmode="numeric" 
+                            class="withdrawal-form__input" 
+                            name="number" 
+                            id="number" 
+                            placeholder="Číslo vaší objednávky" 
+                            required>
+                        <div id="number-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- name -->
+                    <div class="withdrawal-form__field">
+                        <label for="jmeno" class="withdrawal-form__label">
+                            Jméno a příjmení <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            class="withdrawal-form__input" 
+                            name="name" 
+                            id="jmeno" 
+                            placeholder="Kdo mi píše?" 
+                            required>
+                        <div id="jmeno-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                <!-- email -->
+                    <div class="withdrawal-form__field">
+                        <label for="email" class="withdrawal-form__label">
+                            E-mail <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="email" 
+                            class="withdrawal-form__input" 
+                            name="email" 
+                            id="email" 
+                            placeholder="Kam vám mám odepsat?" 
+                            required>
+                        <div id="email-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- phone -->
+                    <div class="withdrawal-form__field">
+                        <label for="phone" class="withdrawal-form__label">
+                            Telefonní číslo <span aria-hidden="true"></span>
+                        </label>
+                        <input 
+                            type="number" 
+                            class="withdrawal-form__input" 
+                            name="phone" 
+                            id="phone" 
+                            placeholder="Kam vám mohu případně zavolat?" >
+                        <div id="phone-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- account -->
+                    <div class="withdrawal-form__field">
+                        <label for="account" class="withdrawal-form__label">
+                            Číslo účtu (pro vrácení peněz) <span aria-hidden="true">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            inputmode="numeric"
+                            class="withdrawal-form__input" 
+                            name="account" 
+                            id="account" 
+                            placeholder="Kam vám mám vrátit peníze?" 
+                            required>
+                        <div id="account-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- reason -->
+                    <div class="withdrawal-form__field">
+                        <label for="reason" class="withdrawal-form__label">Co budeme řešit? (Vyberte z možností)<span aria-hidden="true">*</span></label>
+                        <select name="reason" id="reason" class="withdrawal-form__input" required>
+                            <option value="odstoupeni">Vrácení zboží (do 14 dnů)</option>
+                            <option value="reklamace">Reklamace (vada na zboží)</option>
+                            <option value="jine">Jiný dotaz k objednávce</option>
+                        </select>
+                    </div>
+
+                    <!-- subject -->
+                    <div class="withdrawal-form__field">
+                        <label for="subject" class="withdrawal-form__label">Předmět zprávy</label>
+                        <input 
+                            type="text" 
+                            class="withdrawal-form__input" 
+                            name="subject" 
+                            id="subject" 
+                            placeholder="Stručně mi napište, s čím se ozýváte"
+                            aria-describedby="subject-help">
+                    </div>
+
+                    <!-- message -->
+                    <div class="withdrawal-form__field">
+                        <label for="message" class="withdrawal-form__label withdrawal-form__label--textarea">
+                            Vaše zpráva <span aria-hidden="true">*</span>
+                        </label>
+                        <textarea 
+                            name="message" 
+                            class="withdrawal-form__textarea" 
+                            id="message" 
+                            placeholder="Tady začíná váš příběh…" 
+                            rows="15" 
+                            required></textarea>
+                            <div id="message-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
+                    </div>
+
+                    <!-- photo -->
+                     <div class="withdrawal-form__field">
+                        <label for="attachment" class="withdrawal-form__label">
+                            Fotka zboží (nepovinné)
+                        </label>
+                        <input 
+                            type="file" 
+                            name="attachment" 
+                            id="attachment" 
+                            class="withdrawal-form__input" 
+                            accept="image/*">
+                        <small class="withdrawal-form__note">Pomůže mi to rychleji pochopit, co je v nepořádku.</small>
+                    </div>
+
+                    <!-- checkbox -->
+                    <div class="withdrawal-form__field withdrawal-form__field--checkbox">
+                        <input 
+                            type="checkbox" 
+                            id="checkbox" 
+                            class="withdrawal-form__checkbox"
+                            name="checkbox"
+                            required />
+                        <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/GDPR/" class="withdrawal-form__GDPR">Zásadami ochrany osobních údajů.</a> *</label>
+                        <div id="checkbox-error" class="withdrawal-form__error" role="alert"></div>
+                    </div>
+
+                    <div class="withdrawal-form__required">
+                        <p class="withdrawal-form__note">* Povinné položky</p>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="withdrawal-form__button">
+                        Odeslat zprávu
+                    </button>
+
+                    <div id="form-status" class="withdrawal-form__status" role="status" aria-live="polite"></div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- paper -->
+             <div class="download">
+                <h2 class="download__heading">Formulář ke stažení</h2>
+                <p>Pokud preferujete klasickou cestu, můžete si stáhnout náš vzorový formulář, vyplnit jej a zaslat nám jej e-mailem nebo přiložit vytištěný do balíčku se zbožím.</p>
+                
+                <ul class="download__links">
+                    <li class="download__item">
+                        <a href="/assets/Pekseso_formular.pdf" target="_blank" class="download__link">
+                            <img src="/images/icons/pdf.svg" 
+                                alt="" 
+                                aria-hidden="true"
+                                class="download__icon"
+                                width="80"
+                                height="80">
+                            <span class="download__link--italic">Vzorový formulář v PDF</span>
+                        </a>
+                    </li>
+                    <li class="download__item">
+                        <a href="/assets/Pekseso_formular.docx" class="download__link">
+                            <img src="/images/icons/doc.svg" 
+                                alt="" 
+                                aria-hidden="true"
+                                class="download__icon"
+                                width="80"
+                                height="80">
+                            <span class="download__link--italic">Vzorový formulář ve Wordu</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    </div>
+</section>
