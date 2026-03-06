@@ -56,7 +56,11 @@
         display: grid;
         grid-template-columns: 3fr 1fr;
         grid-template-rows: auto;
-        gap: 2rem;
+        gap: 1.25rem;
+
+        @media screen and (max-width: 48rem) {
+            grid-template-columns: 1fr;
+        }
     }
 }
 
@@ -125,6 +129,22 @@
         outline: 2px solid variables.$color-outline;
     }
 
+    &__field--photo {
+        padding: 0;
+    }
+
+
+    &__input--photo::file-selector-button {
+        background-color: variables.$color-secondary; 
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        margin-right: 1rem;
+        transition: background-color 0.2s;
+    }
+
     &__button {
         @include buttons.btn;
         margin-bottom: 3rem;
@@ -176,13 +196,28 @@
 
 .download {
     grid-column: 2/3;
-    background-color: variables.$color-bg;
-    padding: 1.25rem;
-    border-radius: 5px;
-    height: fit-content;
+    border-left: 1px solid variables.$color-primary;
+    padding-left: 1.25rem;
+
+    @media screen and (max-width: 48rem) {
+        grid-column: 1/2;
+        grid-row: 2/3;
+        border-left: none;
+        padding-left: 0;
+    }
 
     &__heading {
         font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+    }
+
+    &__links {
+        @media screen and (max-width: 48rem) {
+            display: flex;
+            flex-direction: row;
+            gap: 1.25rem;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     &__link--italic{
@@ -197,9 +232,10 @@
         flex-direction: column;
         align-items: center;
         text-decoration: none;
-        color: inherit; /* Přebírá barvu textu z tvého formuláře */
+        color: inherit; 
         transition: opacity 0.2s ease;
         margin-bottom: 1rem;
+        text-align: center;
     }
 
     &__link:hover {
