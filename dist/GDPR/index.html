@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+            
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/herna/" class="header__nav-link">Herna</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/herna/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/herna/psi/" class="header__nav-link">Psi</a></li>
+                            <li class="header__nav-item"><a href="/herna/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/herna/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/herna/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/papirova_pexesa/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <!-- <li class="header__nav-item"><a href="/papirova_pexesa/psi/" class="header__nav-link">Psi</a></li> -->
+                            <li class="header__nav-item"><a href="/papirova_pexesa/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/papirova_pexesa/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/papirova_pexesa/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+            <button class="header__basket" aria-label="Košík, 0 položek" id="cart-btn">
+                <img src="/images/icons/kosik_white.svg" alt="" class="header__basket-icon" width="20" height="20">
+                <span class="header__basket-amount" aria-live="polite">0</span>
+            </button>
+            <!-- toast -->
+                <div class="toast" id="toast">Pexeso bylo přidáno do košíku</div>
+        </div>
+</header>
+
+
+ <main>
+
+    
+<div class="privacy">
+    <div class="privacy__container container">
+        <h1 class="privacy__title">Zásady ochrany osobních údajů (GDPR)</h1>
+        <!-- 1 -->
+        <section class="privacy__section">
+            <h2 class="privacy__section-heading">1. Základní ustanovení</h2>
+
+            <div class="privacy__article">
+            <p class="privacy__article-body">Správcem osobních údajů podle čl. 4 bodu 7 nařízení Evropského parlamentu a Rady (EU) 2016/679 (dále jen: „GDPR") je <strong>MgA. Martina Kurková Nožičková</strong>, IČ: 04088140, se sídlem Riegrova 624, 289 12 Sadská (dále jen: „správce").</p>
+            <ul class="privacy__list">
+                <li class="privacy__list-item">E-mail: ahoj@pekseso.cz</li>
+                <li class="privacy__list-item">Telefon: +420 605 034 317</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="privacy__section">
+            <h2 class="privacy__section-heading">2. Jaké údaje zpracovávám a proč? (Zákonný důvod a účel)</h2>
+
+            <div class="privacy__article">
+            <p class="privacy__article-body">Osobní údaje zpracovávám pouze v nezbytném rozsahu. Pro každý účel mám jasný zákonný důvod podle Článku 6 GDPR:</p>
+            <ol class="privacy__ordered-list">
+                <li class="privacy__ordered-list-item">
+                <strong>Plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR):</strong>
+                <ul class="privacy__list">
+                    <li class="privacy__list-item">Údaje: Jméno, příjmení, e-mail, telefon, poštovní adresa.</li>
+                    <li class="privacy__list-item">Účel: Vyřízení vaší objednávky, doručení objednaného zboží a komunikace s vámi.</li>
+                </ul>
+                </li>
+                <li class="privacy__ordered-list-item">
+                <strong>Plnění právní povinnosti (čl. 6 odst. 1 písm. c) GDPR):</strong>
+                <ul class="privacy__list">
+                    <li class="privacy__list-item">Údaje: Fakturační údaje.</li>
+                    <li class="privacy__list-item">Účel: Vedení účetnictví a plnění daňových povinností (archivace faktur).</li>
+                </ul>
+                </li>
+                <li class="privacy__ordered-list-item">
+                <strong>Oprávněný zájem (čl. 6 odst. 1 písm. f) GDPR):</strong>
+                <ul class="privacy__list">
+                    <li class="privacy__list-item">Údaje: E-mailová adresa.</li>
+                    <li class="privacy__list-item">Účel: Zasílání novinek a nabídek stávajícím zákazníkům (přímý marketing). Z odběru se můžete kdykoliv odhlásit.</li>
+                </ul>
+                </li>
+                <li class="privacy__ordered-list-item">
+                <strong>Váš souhlas (čl. 6 odst. 1 písm. a) GDPR):</strong>
+                <ul class="privacy__list">
+                    <li class="privacy__list-item">Účel: Analýza návštěvnosti pomocí Google Analytics 4 a případné zasílání newsletteru (pokud k němu nejste přihlášeni nákupem). Souhlas udělujete v cookie liště a můžete jej kdykoliv vzít zpět.</li>
+                </ul>
+                </li>
+            </ol>
+            <p class="privacy__article-body">Web používá soubory cookies pro zajištění správného fungování stránek a analýzu návštěvnosti. Podrobnosti o jejich použití najdete v samostatném dokumentu Zásady používání cookies.</p>
+            </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="privacy__section">
+            <h2 class="privacy__section-heading">3. Kdo mi se zpracováním pomáhá? (Příjemci údajů)</h2>
+
+            <div class="privacy__article">
+            <p class="privacy__article-body">Vaše data neprodávám. Pro zajištění chodu e-shopu ale využívám tyto partnery:</p>
+            <ul class="privacy__list">
+                <li class="privacy__list-item"><strong>WebSupport:</strong> (Webhosting a e-mailové služby).</li>
+                <li class="privacy__list-item"><strong>Web3Forms:</strong> (Technické zajištění doručení formulářů z webu).</li>
+                <li class="privacy__list-item"><strong>Dopravci:</strong> (Zásilkovna, Balíkovna), aby věděli, kam balíček dovézt.</li>
+                <li class="privacy__list-item"><strong>Platební brána:</strong> (Stripe), pro bezpečné zpracování plateb.</li>
+                <li class="privacy__list-item"><strong>Google:</strong> (Google Analytics 4), pro anonymizovanou analýzu návštěvnosti.</li>
+            </ul>
+            </div>
+
+            <div class="privacy__article">
+            <h3 class="privacy__article-heading">3.1 Předávání údajů mimo EU</h3>
+            <p class="privacy__article-body">Někteří zpracovatelé (např. Google nebo Stripe) mohou předávat osobní údaje do třetích zemí mimo Evropskou unii, zejména do USA. V takových případech dochází k předávání na základě rozhodnutí o odpovídající ochraně nebo standardních smluvních doložek podle čl. 46 GDPR.</p>
+            </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="privacy__section">
+            <h2 class="privacy__section-heading">4. Doba uchování údajů</h2>
+
+            <div class="privacy__article">
+            <p class="privacy__article-body">Vaše údaje neuchovávám věčně:</p>
+            <ul class="privacy__list">
+                <li class="privacy__list-item">Pro účely účetnictví a plnění daňových povinností: 10 let (podle zákona o účetnictví a zákona o DPH).</li>
+                <li class="privacy__list-item">Pro účely plnění smlouvy: Po dobu nezbytnou k vyřízení objednávky a trvání záruky.</li>
+                <li class="privacy__list-item">Pro účely marketingu: Do odvolání souhlasu nebo maximálně 3 roky od posledního nákupu.</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="privacy__section">
+            <h2 class="privacy__section-heading">5. Vaše práva</h2>
+
+            <div class="privacy__article">
+            <p class="privacy__article-body">Podle GDPR máte tato práva:</p>
+            <ul class="privacy__list">
+                <li class="privacy__list-item">Právo na přístup k vašim údajům a informaci, jak s nimi pracuji.</li>
+                <li class="privacy__list-item">Právo na opravu nepřesných údajů.</li>
+                <li class="privacy__list-item">Právo na výmaz („být zapomenut"), pokud již údaje nejsou potřeba pro zákonné účely.</li>
+                <li class="privacy__list-item">Právo na omezení zpracování.</li>
+                <li class="privacy__list-item">Právo vznést námitku proti zpracování (zejména u marketingu).</li>
+                <li class="privacy__list-item">Právo podat stížnost u Úřadu pro ochranu osobních údajů (www.uoou.cz).</li>
+            </ul>
+            <p class="privacy__article-body">Správce neprovádí automatizované rozhodování ani profilování ve smyslu čl. 22 GDPR.</p>
+            </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="privacy__section">
+            <h2 class="privacy__section-heading">6. Zabezpečení dat</h2>
+
+            <div class="privacy__article">
+            <p class="privacy__article-body">Prohlašuji, že jsem přijala vhodná technická a organizační opatření (zabezpečený hosting, šifrovaný přenos dat HTTPS), aby vaše údaje byly v bezpečí. K údajům mám přístup pouze já (správce) a moji prověření smluvní partneři.</p>
+            </div>
+        </section>
+            <p class="privacy__footer-effectivity">Tato verze Zásad ochrany osobních údajů nabývá účinnosti dne 1. 4. 2026.</p>
+    </div>
+</div>
+
+</main>
+
+<!-- aside -->
+<div id="cart__overlay" class="cart__overlay"></div>
+
+<aside id="cart__panel" class="cart__panel">
+  <div class="cart__header">
+    <h2 class="cart__heading">Váš košík</h2>
+    <button id="close__cart" class="cart__close-btn">&times;</button>
+  </div>
+
+  <div class="cart__content">
+    <div class="cart__item">
+        <img src="/images/fotky/Les/small/les_1_small_400.webp" 
+            alt="Pexeso Lesní zvířata čtyři kartičky s lesními zvířaty"
+            class="cart__image"
+            loading="lazy" 
+            width="400" 
+            height="400">
+        <div class="cart__details">
+            <h3 class="cart__subheading">Lesní zvířata</h3>
+            <p class="cart__price">165 Kč</p>
+            <div class="cart__quantity-wrapper">
+                <button class="cart__quantity-btn" id="btn-minus-aside" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+                <span class="cart__quantity-value" id="qty-display-aside" aria-live="polite" aria-atomic="true">1</span>
+                <button class="cart__quantity-btn" id="btn-plus-aside" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+            </div>
+        </div>
+        <button class="cart__item-remove" aria-label="Odebrat položku">&times;</button>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <h2 class="cart__subheading--footer">Shrnutí objednávky</h2>
+    <div class="cart__total">
+      <p class="cart__total-price">Celková cena: <span class="cart__total-price--number">165</span> Kč</p>
+    </div>
+    <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
+    <button class="cart__checkout-btn">Vybrat způsob doručení</button>
+    <a href="/papirova_pexesa/" class="cart__back-link">Pokračovat v nákupu</a>
+  </div>
+</aside>
+
+
+ <!-- footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </div>
+
+            <div class="footer__section footer__section-about">
+                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
+            </div>
+
+            <div class="footer__section footer__section_contact">
+                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
+                <address class="footer__contact">
+                    <span id="email-footer"></span><br>
+                </address>
+                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </div>
+
+            <div class="footer__section footer__nav">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a class="footer__legal" href="/kontakt/zasady/">Zásady ochrany osobních údajů</a>
+            <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
+            <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy</a>
+            <a class="footer__legal" href="/doprava-platba/">Doprava a platba</a>
+            </div>
+
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="/js/aside_cart_panel.js"></script>
+
+</body>
+</html>

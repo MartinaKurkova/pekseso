@@ -1,0 +1,76 @@
+@use "../utils/variables";
+@use "../base/typography";
+@use "../base/base";
+@use "../base/fonts";
+@use "../components/buttons";
+
+.conditions {
+    &__title {
+        font-size: clamp(1.5rem, calc(1.5rem + 2vw), 2.9rem);
+        margin-top: 3rem;
+    }
+
+    &__section-heading {
+        font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
+        font-family: variables.$font-serif;
+        font-weight: 800;
+        margin: 2rem 0 0 0;
+        color: variables.$color-primary;
+    }
+
+    &__article-heading {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    &__list {
+        margin: 0;
+        list-style-type: disc;
+        padding-left: 1rem;
+    }
+
+    &__list-item {
+        padding-left: 0.5rem;
+    }
+
+    &__article-body {
+        margin-top: 0;
+    }
+}
+
+// GDPR
+.privacy {
+    &__title {
+        font-size: clamp(1.5rem, calc(1.5rem + 2vw), 2.9rem);
+        margin-top: 3rem;
+    }
+
+    &__section-heading {
+        font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
+        font-family: variables.$font-serif;
+        font-weight: 800;
+        margin: 2rem 0 0 0;
+        color: variables.$color-primary;
+    }
+
+    &__article-heading {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    &__list {
+        margin: 0;
+        list-style-type: disc;
+        padding-left: 1rem;
+    }
+
+    &__list-item {
+        padding-left: 0.5rem;
+    }
+
+    &__article-body {
+        margin-top: 0;
+    }
+}

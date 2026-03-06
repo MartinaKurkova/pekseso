@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+            
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/herna/" class="header__nav-link">Herna</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/herna/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/herna/psi/" class="header__nav-link">Psi</a></li>
+                            <li class="header__nav-item"><a href="/herna/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/herna/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/herna/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/papirova_pexesa/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <!-- <li class="header__nav-item"><a href="/papirova_pexesa/psi/" class="header__nav-link">Psi</a></li> -->
+                            <li class="header__nav-item"><a href="/papirova_pexesa/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/papirova_pexesa/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/papirova_pexesa/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+            <button class="header__basket" aria-label="Košík, 0 položek" id="cart-btn">
+                <img src="/images/icons/kosik_white.svg" alt="" class="header__basket-icon" width="20" height="20">
+                <span class="header__basket-amount" aria-live="polite">0</span>
+            </button>
+            <!-- toast -->
+                <div class="toast" id="toast">Pexeso bylo přidáno do košíku</div>
+        </div>
+</header>
+
+
+ <main>
+
+    
+<article class="conditions">
+    <div class="conditions__container container">
+        <h1 class="conditions__title">Obchodní podmínky e-shopu pekseso.cz</h1>
+
+        <!-- 1 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">1. Úvodní ustanovení a kdo je kdo</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">1.1 Vítejte</h3>
+                <p class="conditions__article-body">Vítejte v e-shopu <strong>pekseso.cz</strong>. Tyto obchodní podmínky (dále jen <strong>„podmínky"</strong>) upravují naše vzájemná práva a povinnosti, které vznikají při nákupu našich pexes.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">1.2 Kdo je prodávající?</h3>
+                <p class="conditions__article-body">Jsem <strong>MgA. Martina Kurková Nožičková</strong>, se sídlem Riegrova 624, 289 12 Sadská.</p>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item">IČ: 04088140</li>
+                    <li class="conditions__list-item">Nejsem plátce DPH</li>
+                    <li class="conditions__list-item">Zapsaná v živnostenském rejstříku vedeném u Městského úřadu v Nymburce.</li>
+                    <li class="conditions__list-item">E-mail: ahoj@pekseso.cz</li>
+                    <li class="conditions__list-item">Telefon: +420 605 034 317</li>
+                </ul>
+                <p class="conditions__article-body">(Dále jen „prodávající" nebo prostě „my").</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">1.3 Kdo je kupující?</h3>
+                <p class="conditions__article-body">Tyto podmínky jsou napsané pro vás – naše zákazníky, kteří pexesa nakupujete jako spotřebitelé (tedy pro radost sobě nebo blízkým, nikoliv v rámci svého podnikání). Pokud byste chtěli nakoupit pexesa pro svou firmu ve velkém, ozvěte se nám prosím individuálně, domluvíme se na jiném režimu.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">1.4 Smlouva a jazyk</h3>
+                <p class="conditions__article-body">Kupní smlouvu spolu uzavíráme v českém jazyce a řídí se českým právem (zejména občanským zákoníkem, podle jehož pravidel jsou vydány i tyto podmínky). Odesláním objednávky potvrzujete, že jste se s nimi seznámili – jsou totiž nedílnou součástí naší společné dohody. Uzavřená kupní smlouva je archivována v elektronické podobě a není veřejně přístupná.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">1.5 Změny podmínek</h3>
+                <p class="conditions__article-body">Svět se mění a naše podmínky občas také. Aktuální znění vždy najdete na našem webu s datem účinnosti. Pro vaši objednávku je ale vždy rozhodující to znění, které bylo na webu v momentě, kdy jste klikli na tlačítko „Objednávka zavazující k platbě".</p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">2. Jak u nás nakoupíte (objednávka a platba)</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.1 Pexesa na webu</h3>
+                <p class="conditions__article-body">Všechna pexesa vystavená na pekseso.cz jsou prezentována pro vaši informaci. I když se snažíme, aby bylo vše aktuální, vystavení zboží na webu není právně závaznou nabídkou k uzavření smlouvy – tou je až vaše odeslaná objednávka.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.2 Cena pexesa</h3>
+                <p class="conditions__article-body">Ceny jsou konečné (nejsem plátce DPH) a platí po dobu, kdy je u zboží vidíte. K ceně pexesa je potřeba připočítat náklady na dopravu a balné, které si vyberete v košíku. Celkovou částku, kterou zaplatíte, uvidíte vždy jasně předtím, než objednávku odešlete.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.3 Jak probíhá objednávka?</h3>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item">Vyberete si pexeso a kliknete na tlačítko Koupit.</li>
+                    <li class="conditions__list-item">Vyplníte své údaje (jméno, adresu, e-mail a telefon), abychom věděli, kam pexeso poslat. Registrace u nás není nutná.</li>
+                    <li class="conditions__list-item">Před odesláním si můžete vše v košíku zkontrolovat a opravit případné překlepy.</li>
+                    <li class="conditions__list-item">Objednávku odešlete kliknutím na tlačítko <strong>Objednávka zavazující k platbě</strong>. Tím nám dáváte závazný návrh, že si pexeso chcete koupit.</li>
+                </ul>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.4 Potvrzení přijetí (automat)</h3>
+                <p class="conditions__article-body">Jakmile kliknete na tlačítko, dorazí vám automatický e-mail, že jsme vaši objednávku obdrželi. <strong>Pozor, toto ještě není uzavření smlouvy</strong>, jen potvrzení, že o vás víme.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.5 Kdy je ruka v rukávě?</h3>
+                <p class="conditions__article-body">Kupní smlouva je mezi námi uzavřena až ve chvíli, kdy vám pošleme <strong>druhý e-mail s potvrzením objednávky</strong>. Od té chvíle je objednávka závazná pro obě strany.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.6 Chybička se vloudí</h3>
+                <p class="conditions__article-body">Pokud by se na webu objevila zjevně nesmyslná cena (např. pexeso za 1 Kč) v důsledku technické chyby, nejsme povinni vám zboží za tuto cenu dodat, a to ani v případě, že vám systém poslal automatické potvrzení. V takovém případě vám hned zavoláme nebo napíšeme a domluvíme se na dalším postupu.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.7 Komunikace na dálku</h3>
+                <p class="conditions__article-body">Náklady na použití komunikačních prostředků na dálku (např. internetové připojení nebo telefonní hovory) si hradíte sami podle tarifu svého poskytovatele. Tyto náklady se nijak neliší od běžné sazby.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">2.8 Kde tyto podmínky platí?</h3>
+                <p class="conditions__article-body">Tyto obchodní podmínky se vztahují výhradně na nákupy uskutečněné prostřednictvím internetového obchodu <strong>pekseso.cz</strong>.</p>
+            </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">3. Cena, platba a doprava</h2>
+
+            <div class="conditions__article">
+            <h3 class="conditions__article-heading">3.1 Cena zboží</h3>
+            <p class="conditions__article-body">Všechny ceny na e-shopu jsou konečné. Nejsem plátce DPH. V ceně není zahrnuto poštovné, které si vyberete v košíku podle svých preferencí.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">3.2 Jak mi můžete zaplatit?</h3>
+                <p class="conditions__article-body">Nabízím tyto cesty:</p>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item"><strong>On-line kartou:</strong> Rychle a bezpečně přes bránu Stripe.</li>
+                    <li class="conditions__list-item"><strong>Bankovním převodem:</strong> Na můj účet č. <strong>1300712012/3030</strong> (Air Bank). Jako variabilní symbol prosím použijte číslo objednávky.</li>
+                    <li class="conditions__list-item"><strong>V hotovosti:</strong> Pouze při osobním převzetí v mém ateliéru.</li>
+                </ul>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">3.3 Splatnost</h3>
+                <p class="conditions__article-body">Pokud si vyberete kartu nebo převod, prosím o zaplacení do 5 pracovních dnů. Pokud v této lhůtě platba nedorazí, budeme to muset brát tak, že jste si nákup rozmysleli, a objednávku stornujeme (aby pexeso zbytečně neleželo v rezervaci pro někoho jiného). Při osobním odběru můžete zaplatit až na místě.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">3.4 Doprava a převzetí</h3>
+                <p class="conditions__article-body">Pexesa posílám přes <strong>Zásilkovnu</strong> nebo <strong>Balíkovnu</strong>. Aktuální ceny dopravy a seznam odběrných míst najdete v patičce webu pod odkazem Doprava a platbu. Můžete se také zastavit osobně v mém ateliéru na adrese Riegrova 624, 289 12 Sadská (jen se prosím domluvíme na čase předem).</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">3.5 Kdy je pexeso vaše?</h3>
+                <p class="conditions__article-body">Vlastníkem pexesa se stáváte ve chvíli, kdy zaplatíte celou kupní cenu a balíček si převezmete.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">3.6 Doklad o nákupu</h3>
+                <p class="conditions__article-body">Fakturu (daňový doklad) vám vystavím po zaplacení a pošlu vám ji e-mailem, abychom šetřili papír. Pokud byste ji přesto chtěli mít v balíčku vytištěnou, napište mi to prosím do poznámky.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">3.7 Převzetí zboží a co když to nevyjde?</h3>
+                <p class="conditions__article-body">Prosím, pexeso si při převzetí prohlédněte. Pokud by byl balíček viditelně poškozený, raději ho od dopravce nepřebírejte a dejte mi hned vědět.</p>
+                <p class="conditions__article-body">Pokud si balíček v úložní lhůtě nepřevezmete a zásilka se vrátí zpět, vyhrazuji si právo odstoupit od kupní smlouvy. V takovém případě vám vrátím zaplacenou částku sníženou o náklady, které mi vznikly s dopravou a vrácením zásilky.</p>
+            </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">4. Dodání pexesa a převzetí</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">4.1 Cena dopravy</h3>
+                <p class="conditions__article-body">Přesnou cenu za doručení uvidíte vždy v košíku ještě předtím, než objednávku dokončíte. Odvíjí se od toho, zda zvolíte Zásilkovnu, Balíkovnu nebo osobní odběr. Aktuální přehled možností a cen najdete také v patičce webu pod odkazem Doprava a platba.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">4.2 Jak rychle pexeso odešlu?</h3>
+                <p class="conditions__article-body">Pexesa, která jsou skladem, předávám dopravci obvykle <strong>do 2 pracovních dnů</strong> od chvíle, kdy mi dorazí platba na účet (nebo od potvrzení objednávky u platby kartou). Pokud by se u konkrétního kousku (např. u dotisku) lhůta lišila, dám vám o tom vědět přímo u popisu produktu.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">4.3 Způsoby doručení</h3>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item"><strong>Zásilkovna a Balíkovna (výdejní místa):</strong> Balíček si vyzvednete na vámi zvoleném místě. O tom, že je pexeso připravené, vás bude informovat přímo dopravce (SMS/e-mail).</li>
+                    <li class="conditions__list-item"><strong>Zásilkovna domů (doručení na adresu):</strong> Kurýr vám pexeso přiveze až ke dveřím na adresu, kterou uvedete v objednávce.</li>
+                    <li class="conditions__list-item"><strong>Osobní odběr:</strong> Na pexeso se můžete těšit v mém ateliéru na adrese Riegrova 624, 289 12 Sadská. Jakmile bude pexeso nachystané, ozvu se vám (e-mailem nebo telefonicky) a domluvíme si přesný čas setkání. Pokud byste mě při cestě nemohli najít nebo se cokoli změnilo, neváhejte mi zavolat na číslo <strong>+420 605 034 317</strong>. Prosím o vyzvednutí do 10 dnů od mé výzvy. Osobní odběr je samozřejmě zdarma.</li>
+                </ul>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">4.4 Kontrola balíčku.</h3>
+                <p class="conditions__article-body">Prosím, pexeso si při převzetí od kurýra nebo na výdejním místě hned prohlédněte. Pokud je obal viditelně poškozený, balíček nepřebírejte a sepište s dopravcem protokol o poškození. Pokud by pexeso uvnitř bylo v nepořádku, i když obal vypadal zdravě, dejte mi vědět co nejdříve.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">4.5 Co když se balíček vrátí?</h3>
+                <p class="conditions__article-body">Pokud si balíček nevyzvednete (v úložné lhůtě nebo po pokusech o doručení na adresu) a on se mi vrátí zpět, budu to považovat za vaše odstoupení od smlouvy. V takovém případě vám vrátím peníze za pexeso, ale odečtu si z nich náklady, které mi vznikly s dopravou balíčku zpět ke mně. Pro opětovné zaslání vás poprosím o novou úhradu poštovného.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">4.6 Vlastnictví</h3>
+                <p class="conditions__article-body">Nebezpečí škody na zboží na vás přechází v momentě, kdy balíček převezmete. Plným vlastníkem pexesa se stáváte ve chvíli, kdy je zaplacené a převzaté.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">4.7 Co když pexeso nedorazí nebo se cestou ztratí?</h3>
+                <p class="conditions__article-body">Pokud by se stalo, že se balíček u dopravce zatoulá nebo jeho doručení trvá neúměrně dlouho (více než 10 pracovních dnů od odeslání), dejte mi prosím vědět. Situaci s dopravcem prověřím.</p>
+                <p class="conditions__article-body">V případě potvrzené ztráty balíčku dopravcem se domluvíme – buď vám pošlu pexeso nové, nebo vám obratem vrátím celou zaplacenou částku.</p>
+                <p class="conditions__article-body">Pokud by se doručení zpozdilo natolik, že už o pexeso nemáte zájem, můžete od smlouvy odstoupit ještě před jeho převzetím. V takovém případě vám peníze vrátím, jakmile se mi balíček od dopravce vrátí zpět.</p>
+            </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">5. Když si to rozmyslíte (odstoupení od smlouvy)</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">5.1 Právo na vrácení</h3>
+                <p class="conditions__article-body">Jako spotřebitel máte podle zákona právo si nákup rozmyslet a od smlouvy odstoupit bez udání důvodu, a to do 14 dnů od chvíle, kdy pexeso převezmete. Pokud vám objednávka dorazí ve více balíčcích, lhůta běží až od převzetí toho posledního. Chci, aby vám pexesa dělala radost, takže pokud to prostě „není ono", není to žádný problém.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">5.2 Kdy od smlouvy odstoupit nelze?</h3>
+                <p class="conditions__article-body">Zákon pamatuje na situace, kdy zboží vrátit nejde. U nás by se vás to týkalo v případě, že pro vás vyrábím <strong>pexeso na zakázku</strong>. Takové pexeso už nemohu nabídnout nikomu dalšímu, proto ho není možné vrátit.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">5.3 Jak na to? Jednoduše a on-line</h3>
+                <p class="conditions__article-body">Chci, aby pro vás bylo vrácení stejně snadné jako nákup. Odstoupit můžete:</p>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item"><strong>Přes on-line formulář:</strong> Najdete ho v patičce pod odkazem Odstoupení od smlouvy. Stačí ho vyplnit a odeslat – je to nejrychlejší cesta.</li>
+                    <li class="conditions__list-item"><strong>E-mailem:</strong> Napište mi na ahoj@pekseso.cz, že pexeso vracíte (uveďte prosím i číslo objednávky).</li>
+                    <li class="conditions__list-item"><strong>Poštou:</strong> Pokud dáváte přednost papíru, pošlete mi oznámení na adresu Martina Kurková Nožičková, Riegrova 624, 289 12 Sadská.</li>
+                </ul>
+                <p class="conditions__article-body">Přijetí odstoupení vám obratem potvrdím, ať máte klid.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">5.4 Vrácení pexesa a náklady</h3>
+                <p class="conditions__article-body">Pexeso mi prosím zašlete zpět do 14 dnů od chvíle, kdy jste mi dali vědět o odstoupení. Adresa pro vrácení je stejná jako moje sídlo v Sadské. V tomto případě jdou náklady na dopravu pexesa zpět ke mně za vámi. Balíčky zaslané na dobírku bohužel nemohu převzít.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">5.5 V jakém stavu pexeso vrátit?</h3>
+                <p class="conditions__article-body">Pexeso prosím vraťte kompletní, nepoškozené a čisté. Můžete si ho prohlédnout podobně, jako byste si ho listovali v obchodě. Pokud byste ale s pexesem nakládali více (bylo by ohýbané, špinavé, nekompletní nebo rozstříhané), odpovídáte mi za snížení jeho hodnoty a já si tuto škodu odečtu z vracené částky.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">5.6 Vrácení peněz</h3>
+                <p class="conditions__article-body">Peníze vám vrátím do 14 dnů od chvíle, kdy mi dáte o vrácení vědět. Vrátím vám cenu pexesa i náklady na nejlevnější dopravu, kterou jsem pro doručení k vám nabízela. S platbou mohu počkat do chvíle, než pexeso dorazí zpět ke mně nebo než mi prokážete, že už je na cestě. Peněžní prostředky vám vrátím stejným způsobem, jakým jsem je od vás přijala (tedy např. zpět na kartu nebo na účet, ze kterého přišly), pokud se výslovně nedomluvíme jinak.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">5.7 Odstoupení z mé strany</h3>
+                <p class="conditions__article-body">I já můžu od smlouvy výjimečně odstoupit, dokud pexeso nepřevezmete – například pokud se pexeso vyprodá, přestane se tisknout nebo došlo k technické chybě v ceně. V takovém případě vám hned napíšu a všechny peníze obratem vrátím stejnou cestou, jakou přišly.</p>
+            </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">6. Reklamace a reklamační řád (když s pexesem není něco v pořádku)</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">6.1 Za co ručím?</h3>
+                <p class="conditions__article-body">Jako prodávající vám odpovídám za to, že pexeso při převzetí nemá vady. Zejména odpovídám za to, že pexeso má vlastnosti, které jsme si ujednali (archy jsou kompletní, barvy odpovídají, tisk je čistý), hodí se k hraní a vyhovuje požadavkům právních předpisů.</p>
+                </div>
+
+                <div class="conditions__article">
+                <h3 class="conditions__article-heading">6.2 Důležitá lhůta jeden rok</h3>
+                <p class="conditions__article-body">Pokud se u pexesa objeví vada v průběhu prvního roku od převzetí, má se za to, že pexeso bylo vadné už při převzetí (pokud neprokážu opak). Celkově u mě můžete vady reklamovat po dobu dvou let od nákupu.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">6.3 Jak reklamaci nahlásit?</h3>
+                <p class="conditions__article-body">Pokud objevíte chybu (např. chybějící arch nebo vadu tisku), dejte mi vědět na <strong>ahoj@pekseso.cz</strong>.</p>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item"><strong>Doklad o nákupu:</strong> Pro urychlení prosím uveďte číslo objednávky nebo přiložte fakturu.</li>
+                    <li class="conditions__list-item"><strong>Fotka pomůže:</strong> Často díky ní vyřešíme problém na dálku bez nutnosti pexeso hned posílat.</li>
+                    <li class="conditions__list-item"><strong>Potvrzení:</strong> Po nahlášení reklamace vám pošle písemné potvrzení o tom, kdy jste ji uplatnili, co je jejím obsahem a jaký způsob vyřízení preferujete.</li>
+                </ul>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">6.4 Co můžete žádat?</h3>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item"><strong>Výměnu za nový kus:</strong> Pokud je pexeso (arch) poškozené, špatně vytištěné nebo nekompletní, ráda vám ho vyměním za nové. (Pokud by však výměna celého archu byla kvůli drobnosti zbytečně nákladná a šlo by to vyřešit jinak k vaší spokojenosti, domluvíme se individuálně).</li>
+                    <li class="conditions__list-item"><strong>Slevu nebo vrácení peněz:</strong> Pokud vadu nemohu odstranit (např. už pexeso nemám skladem a dotisk není v plánu), nebo se stejná vada objeví opakovaně, můžete chtít přiměřenou slevu nebo od smlouvy úplně odstoupit.</li>
+                </ul>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">6.5 Vyřízení reklamace</h3>
+                <p class="conditions__article-body">Na vyřízení mám <strong>30 dnů</strong> od chvíle, kdy mi reklamaci uplatníte (případně doručíte pexeso k posouzení). O výsledku a ukončení reklamace vás vyrozumím e-mailem a vystavím vám potvrzení o datu a způsobu vyřízení, případně o důvodech zamítnutí.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">6.6 Náklady na dopravu</h3>
+                <p class="conditions__article-body">Pokud bude vaše reklamace oprávněná, proplatím vám i poštovné za zaslání pexesa zpět ke mně. V takovém případě mi prosím pošlete potvrzení o podání a ceně zásilky.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">6.7 Kdy reklamovat nelze?</h3>
+                <p class="conditions__article-body">Reklamovat nelze vady vzniklé běžným opotřebením nebo vaší vinou (rozmočení, ztráta kartičky po rozstříhání). Jelikož pexesa dodávám v arších, neodpovídám za vady vzniklé vaším následným stříháním či řezáním.</p>
+            </div>
+        </section>
+
+        <!-- 7 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">7. Jak řešíme případné neshody (mimosoudní řešení sporů)</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">7.1 Vždy se snažím o domluvu</h3>
+                <p class="conditions__article-body">Pokud byste měli pocit, že něco neproběhlo v pořádku, napište mi prosím jako první na <strong>ahoj@pekseso.cz</strong>. Věřím, že u pexesa se dá na všem lidsky domluvit. Pokud bychom se ale přece jen neshodli, řeší se spory u českých soudů.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">7.2 Pomoc od ČOI</h3>
+                <p class="conditions__article-body">Máte-li status spotřebitele, máte podle zákona o ochraně spotřebitele právo na tzv. mimosoudní řešení spotřebitelského sporu. Tímto smírčím orgánem je Česká obchodní inspekce (ČOI).</p>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item"><strong>Adresa:</strong> Štěpánská 567/15, 120 00 Praha 2.</li>
+                    <li class="conditions__list-item"><strong>Web:</strong> www.coi.cz</li>
+                    <li class="conditions__list-item"><strong>Informace o postupu:</strong> Podrobnosti o tom, jak podat návrh na zahájení sporu, najdete přímo na webu ČOI v sekci pro spotřebitele: coi.cz/informace-o-adr/.</li>
+                </ul>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">7.3 On-line řešení (ODR)</h3>
+                <p class="conditions__article-body">Pro řešení sporů on-line můžete využít také evropskou platformu, která se nachází na adrese: ec.europa.eu/consumers/odr. To se hodí zejména tehdy, pokud spolu obchodujeme na dálku přes internet.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">7.4 Evropské spotřebitelské centrum (ESC)</h3>
+                <p class="conditions__article-body">Pokud byste nakupovali z jiného státu EU, než je Česká republika, může vám s mimosoudním řešením sporu pomoci <strong>Evropské spotřebitelské centrum Česká republika</strong>.</p>
+                <ul class="conditions__list">
+                    <li class="conditions__list-item"><strong>Adresa:</strong> Štěpánská 567/15, 120 00 Praha 2.</li>
+                    <li class="conditions__list-item"><strong>Web:</strong> evropskyspotrebitel.cz</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 8 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">8. Speciální ustanovení pro pexesa na zakázku</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">8.1 Pexeso s ilustrací na přání</h3>
+                <p class="conditions__article-body">Pokud si u mě objednáte pexeso, které pro vás budu individuálně ilustrovat (např. podle vašeho popisu či zadání), berete na vědomí, že se jedná o zboží vyrobené na míru. Z tohoto důvodu není možné od smlouvy do 14 dnů odstoupit.</p>
+                <p class="conditions__article-body">Kupující odpovídá za to, že podklady nebo zadání poskytnuté pro vytvoření pexesa neporušují práva třetích osob (např. autorská práva).</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">8.2 Proces tvorby</h3>
+                <p class="conditions__article-body">U pexes na zakázku vám před tiskem zašlu náhled k odsouhlasení. Po vašem potvrzení náhledu už není možné provádět další změny a pexeso putuje do tisku.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">8.3 Autorská práva k zakázce</h3>
+                <p class="conditions__article-body">I u pexesa, které ilustruji přímo pro vás, zůstávám autorem ilustrací já. Pexeso je určeno pro vaše osobní užití. Pokud byste chtěli mé ilustrace použít k jiným účelům (např. na web vaší firmy nebo jako logo), musíme se domluvit na licenci v samostatné smlouvě.</p>
+            </div>
+        </section>
+
+        <!-- 9 -->
+        <section class="conditions__section">
+            <h2 class="conditions__section-heading">9. Závěrečná ustanovení</h2>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">9.1 Rozhodné právo</h3>
+                <p class="conditions__article-body">Všechny naše vztahy se řídí českým právem. To platí i v případě, že byste u mě nakupovali ze zahraničí – český občanský zákoník je základem naší smlouvy. Tím samozřejmě nejsou dotčena vaše práva jako spotřebitelů vyplývající z evropských nařízení.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">9.2 Vyšší moc</h3>
+                <p class="conditions__article-body">Svět je někdy nevyzpytatelný. Pokud by došlo k výpadku internetu, technické poruše e-shopu nebo zásahu vyšší moci, nemohu nést odpovědnost za dočasnou nemožnost u nás nakoupit. V takovém případě mi stačí napsat e-mail a vše vyřešíme osobně.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">9.3 Přednost smlouvy</h3>
+                <p class="conditions__article-body">Pokud si spolu v e-mailu nebo osobně domluvíme podmínky, které se od těchto OP liší, má naše individuální dohoda (smlouva) vždy přednost.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">9.4 Změny podmínek</h3>
+                <p class="conditions__article-body">Tyto podmínky mohu v budoucnu měnit nebo doplňovat. Pro vás je ale vždy závazné to znění, které bylo na webu v den, kdy jste odeslali svou objednávku. Archivační kopie starších verzí mám u sebe a na požádání vám je mohu zaslat.</p>
+            </div>
+
+            <div class="conditions__article">
+                <h3 class="conditions__article-heading">9.5 Účinnost</h3>
+                <p class="conditions__article-body">Tyto obchodní podmínky nabývají účinnosti dne 1. 4. 2026.</p>
+            </div>
+        </section>
+    </div>
+</article>
+
+</main>
+
+<!-- aside -->
+<div id="cart__overlay" class="cart__overlay"></div>
+
+<aside id="cart__panel" class="cart__panel">
+  <div class="cart__header">
+    <h2 class="cart__heading">Váš košík</h2>
+    <button id="close__cart" class="cart__close-btn">&times;</button>
+  </div>
+
+  <div class="cart__content">
+    <div class="cart__item">
+        <img src="/images/fotky/Les/small/les_1_small_400.webp" 
+            alt="Pexeso Lesní zvířata čtyři kartičky s lesními zvířaty"
+            class="cart__image"
+            loading="lazy" 
+            width="400" 
+            height="400">
+        <div class="cart__details">
+            <h3 class="cart__subheading">Lesní zvířata</h3>
+            <p class="cart__price">165 Kč</p>
+            <div class="cart__quantity-wrapper">
+                <button class="cart__quantity-btn" id="btn-minus-aside" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+                <span class="cart__quantity-value" id="qty-display-aside" aria-live="polite" aria-atomic="true">1</span>
+                <button class="cart__quantity-btn" id="btn-plus-aside" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+            </div>
+        </div>
+        <button class="cart__item-remove" aria-label="Odebrat položku">&times;</button>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <h2 class="cart__subheading--footer">Shrnutí objednávky</h2>
+    <div class="cart__total">
+      <p class="cart__total-price">Celková cena: <span class="cart__total-price--number">165</span> Kč</p>
+    </div>
+    <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
+    <button class="cart__checkout-btn">Vybrat způsob doručení</button>
+    <a href="/papirova_pexesa/" class="cart__back-link">Pokračovat v nákupu</a>
+  </div>
+</aside>
+
+
+ <!-- footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <div class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </div>
+
+            <div class="footer__section footer__section-about">
+                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
+            </div>
+
+            <div class="footer__section footer__section_contact">
+                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
+                <address class="footer__contact">
+                    <span id="email-footer"></span><br>
+                </address>
+                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </div>
+
+            <div class="footer__section footer__nav">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            <a class="footer__legal" href="/kontakt/zasady/">Zásady ochrany osobních údajů</a>
+            <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
+            <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy</a>
+            <a class="footer__legal" href="/doprava-platba/">Doprava a platba</a>
+            </div>
+
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script src="/js/cart.js"></script>
+    <script src="/js/product.js"></script>
+    <script src="/js/aside_cart_panel.js"></script>
+
+</body>
+</html>

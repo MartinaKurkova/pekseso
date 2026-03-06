@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[id$="-error"]').forEach(div => div.style.display = 'none');
     };
 
-    // Mazání chyb při psaní (v reálném čase)
+    // Mazání chyb při psaní v reálném čase
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
 
@@ -91,8 +91,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedPayment) {
             const paymentLabel = selectedPayment.closest('.payment-card').querySelector('.payment-card__name').innerText;
             shippingPaymentHtml += `<div style="font-size: 0.9em; color: #555;"><strong>Platba:</strong> ${paymentLabel} (0 Kč)</div>`;
+            
+            // SJEDNOCENÝ TEXT TLAČÍTKA PRO VŠECHNY PLATBY
             if (submitBtn) {
-                submitBtn.innerText = selectedPayment.value === 'card' ? 'Zaplatit kartou' : 'Potvrdit objednávku';
+                submitBtn.innerText = 'Objednávka zavazující k platbě';
             }
         }
 
@@ -100,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         totalPriceElement.innerText = itemsTotal + shippingTotal;
     };
 
-    // --- 3. LOGIKA DOPRAVY ---
+    // --- 3. LOGIKA DOPRAVY A PLATBY ---
     const handleLogicChange = () => {
         if (zasilkovnaSelector) zasilkovnaSelector.style.display = (pickupRadio && pickupRadio.checked) ? 'block' : 'none';
         if (personalRadio && personalRadio.checked) {
@@ -143,19 +145,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = Object.fromEntries(formData.entries());
         let hasError = false;
 
-        // Validace telefonu
+        // Validace
         const phoneClean = data.phone.replace(/\s/g, '');
         if (phoneClean.length < 9) {
             showError('phone', 'phone-error', 'Zadejte prosím aspoň 9 číslic.');
             hasError = true;
         }
-        // Validace e-mailu
         const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
         if (!emailRegex.test(data.email)) {
             showError('email', 'email-error', 'Zadejte platný e-mail (např. jmeno@seznam.cz).');
             hasError = true;
         }
-        // Validace Zásilkovny
         if (pickupRadio && pickupRadio.checked && !data.zasilkovna_id) {
             alert("Prosím, vyberte pobočku Zásilkovny.");
             hasError = true;
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (hasError) return;
 
-        // Příprava Variabilního symbolu
+        // Variabilní symbol
         const teď = new Date();
         const vs = teď.getFullYear().toString().slice(-2) + 
                    (teď.getMonth() + 1).toString().padStart(2, '0') + 
@@ -171,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
                    teď.getHours().toString().padStart(2, '0') + 
                    teď.getMinutes().toString().padStart(2, '0');
 
-        // Překlady pro e-mail (bez diakritiky)
         const dopravaPreklad = {
             "shr_1T6BpcJdC0N7uBdkHIPwzJUj": "Zasilkovna - Vydejni misto",
             "shr_1T6BqAJdC0N7uBdkVBnfRr7E": "Zasilkovna - Domu",
@@ -190,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('Celkova_cena', totalPriceElement.innerText + ' Kč');
         formData.append('metadata_ignore', 'shipping_rate,payment_method,zasilkovna_id,checkbox,template');
 
-        // Rozcestník plateb
         if (data.payment_method === 'card') {
             try {
                 const response = await fetch('/.netlify/functions/create-checkout', {

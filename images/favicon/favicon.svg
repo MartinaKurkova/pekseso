@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 350 350">
+  <!-- Generator: Adobe Illustrator 30.2.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #540d6e;
+      }
+
+      .st1 {
+        fill: #ffd23f;
+      }
+
+      .st2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect class="st0" x=".05" y="0" width="350" height="350" rx="38.73" ry="38.73"/>
+  <g>
+    <path class="st1" d="M114.77,81.94h-38.49v186.11h38.49v34.45H33.73V47.49h81.04v34.45Z"/>
+    <path class="st1" d="M235.32,268.06h38.5V81.94h-38.5v-34.45h81.04v255.01h-81.04v-34.45Z"/>
+  </g>
+  <rect class="st2" x="114.77" y="114.73" width="120.55" height="120.55"/>
+</svg>
