@@ -10,7 +10,7 @@ if (withdrawalForm) {
     const isValid = validateAll();
 
     if (isValid) {
-      this.submit();
+      HTMLFormElement.prototype.submit.call(this);
     }
   });
 
@@ -72,16 +72,6 @@ function validateAll() {
   if (!message.value.trim()) {
     showError('message-error', 'Napište nám zprávu.');
     valid = false;
-  }
-
-  // Fotka – limit 10 MB (pokud přiložena)
-  const attachment = document.getElementById('attachment');
-  if (attachment.files.length > 0) {
-    const maxSize = 10 * 1024 * 1024; // 10 MB v bytech
-    if (attachment.files[0].size > maxSize) {
-      showError('attachment-error', 'Fotka je příliš velká. Maximální velikost je 10 MB.');
-      valid = false;
-    }
   }
 
   // GDPR checkbox

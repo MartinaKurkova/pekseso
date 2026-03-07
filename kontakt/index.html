@@ -25,12 +25,7 @@ twitterCard: summary_large_image
  <section class="contact">
     <div class="contact__container container">
         <div class="contact__form-container" id="contact-form">
-            <form action="https://api.web3forms.com/submit" method="POST" novalidate>
-                <!-- hidden inputs -->
-                <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
-                <input type="hidden" name="_email.from" value="Kontaktní formulář">
-                <input type="hidden" name="_email.subject" value="Nová zpráva z kontaktního formuláře">
-                <input type="hidden" name="_redirect" value="https://pekseso-web.netlify.app/dekujeme/?form=contact">
+            <form action="/.netlify/functions/contact" method="POST" novalidate>
 
                 <!-- Honeypot ochrana proti botům -->
                 <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
@@ -104,7 +99,7 @@ twitterCard: summary_large_image
                             class="contact-form__checkbox"
                             name="checkbox"
                             required>
-                        <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/kontakt/zasady/" class="contact-form__GDPR">Zásadami ochrany osobních údajů.</a> *</label>
+                        <label for="checkbox">Odesláním formuláře souhlasíte se <a href="/GDPR/" class="contact-form__GDPR">Zásadami ochrany osobních údajů.</a> *</label>
                         <div id="checkbox-error" class="contact-form__error" role="alert"></div>
                     </div>
 

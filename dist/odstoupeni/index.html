@@ -98,12 +98,7 @@
 <section class="withdrawal">
     <div class="withdrawal__container container">
         <div class="withdrawal-form__container" id="contact-form">
-            <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
-                <!-- hidden inputs -->
-                <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
-                <input type="hidden" name="_email.from" value="Formulář objednávky">
-                <input type="hidden" name="_email.subject" value="Nová zpráva k objednávce">
-                <input type="hidden" name="_redirect" value="https://pekseso-web.netlify.app/dekujeme/?form=withdrawal">
+            <form action="/.netlify/functions/withdrawal" method="POST" novalidate>
 
                 <!-- Honeypot ochrana proti botům (nahradí Web3Forms botcheck až přejdeš na PHP) -->
                 <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
@@ -227,7 +222,7 @@
                     </div>
 
                     <!-- photo -->
-                    <div class="withdrawal-form__field withdrawal-form__field--photo">
+                    <!-- <div class="withdrawal-form__field withdrawal-form__field--photo">
                         <label for="attachment" class="withdrawal-form__label">
                             Fotka zboží (nepovinné)
                         </label>
@@ -239,7 +234,7 @@
                             accept="image/*">
                         <div id="attachment-error" class="withdrawal-form__error" role="alert" aria-live="polite"></div>
                         <small class="withdrawal-form__note">Pomůže mi to rychleji pochopit, co je v nepořádku.</small>
-                    </div>
+                    </div> -->
 
                     <!-- checkbox -->
                     <div class="withdrawal-form__field withdrawal-form__field--checkbox">
@@ -303,7 +298,6 @@
 </section>
 
 <script src="/js/withdrawal-form-validation.js"></script>
-<script src="/js/withdrawal-redirect.js"></script>
 
 
 </main>

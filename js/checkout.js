@@ -221,24 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
                    teď.getHours().toString().padStart(2, '0') +
                    teď.getMinutes().toString().padStart(2, '0');
 
-        const dopravaPreklad = {
-            "shr_1T6BpcJdC0N7uBdkHIPwzJUj": "Zasilkovna - Vydejni misto",
-            "shr_1T6BqAJdC0N7uBdkVBnfRr7E": "Zasilkovna - Domu",
-            "shr_1T6CKnJdC0N7uBdkFiXUdiFe": "Osobni odber Sadska"
-        };
-        const platbaPreklad = {
-            "card": "Platebni karta online",
-            "transfer": "Bankovni prevod",
-            "cash": "Hotove pri prevzeti"
-        };
-
-        formData.append('Variabilni_symbol', vs);
-        formData.append('Zpusob_dopravy', dopravaPreklad[data.shipping_rate] || data.shipping_rate);
-        formData.append('Zpusob_platby', platbaPreklad[data.payment_method] || data.payment_method);
-        formData.append('Obsah_objednavky', cart.map(i => `${i.name} (${i.quantity}x)`).join(', '));
-        formData.append('Celkova_cena', totalPriceElement.innerText + ' Kč');
-        formData.append('metadata_ignore', 'shipping_rate,payment_method,zasilkovna_id,checkbox,template');
-
         if (data.payment_method === 'card') {
             try {
                 const response = await fetch('/.netlify/functions/create-checkout', {
@@ -259,13 +241,36 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch (err) { alert("Chyba při startu platby kartou."); }
         } else {
             try {
-                const response = await fetch('https://api.web3forms.com/submit', {
+                const response = await fetch('/.netlify/functions/order', {
                     method: 'POST',
-                    body: formData
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: data.email,
+                        phone: data.phone,
+                        billing_first_name: data.billing_first_name,
+                        billing_last_name: data.billing_last_name,
+                        billing_street: data.billing_street,
+                        billing_city: data.billing_city,
+                        billing_zip: data.billing_zip,
+                        first_name: data.first_name,
+                        last_name: data.last_name,
+                        street: data.street,
+                        city: data.city,
+                        zip: data.zip,
+                        shipping_different: isShippingDifferent,
+                        shipping_rate: data.shipping_rate,
+                        payment_method: data.payment_method,
+                        zasilkovna_name: data.zasilkovna_name,
+                        note: data.note,
+                        cart: cart,
+                        vs: vs,
+                        totalPrice: totalPriceElement.innerText,
+                    })
                 });
-                if (response.ok) {
-                    window.location.href = `/dekujeme/?vs=${vs}&amount=${totalPriceElement.innerText}&method=${data.payment_method}`;
+                const resData = await response.json();
+                if (resData.success) {
                     localStorage.removeItem('pekseso_cart');
+                    window.location.href = `/dekujeme/?vs=${vs}&amount=${totalPriceElement.innerText}&method=${data.payment_method}`;
                 } else { alert("Chyba při odesílání objednávky."); }
             } catch (err) { alert("Server neodpovídá."); }
         }
