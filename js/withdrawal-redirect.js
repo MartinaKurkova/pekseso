@@ -14,7 +14,7 @@ if (withdrawalForm) {
     // nebo ho integruj přímo do stávajícího submit handleru (viz níže).
 
     const orderNumber = document.getElementById('number')?.value.trim();
-    const redirectUrl = '/dekujeme/?form=withdrawal' + (orderNumber ? '&order=' + encodeURIComponent(orderNumber) : '');
+    const redirectUrl = 'https://pekseso-web.netlify.app/dekujeme/?form=withdrawal' + (orderNumber ? '&order=' + encodeURIComponent(orderNumber) : '');
 
     // Změň action formuláře těsně před odesláním
     // (Web3Forms action zůstane, přesměrování řídí Web3Forms přes _redirect)

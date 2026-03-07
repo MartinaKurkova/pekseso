@@ -17,6 +17,7 @@ title: "Doprava a platba"
                 <input type="hidden" name="access_key" value="224e6b87-7393-4341-aec3-7caa72ba8c52">
                 <input type="hidden" name="_email.from" value="Formulář objednávky">
                 <input type="hidden" name="_email.subject" value="Nová zpráva k objednávce">
+                <input type="hidden" name="_redirect" value="https://pekseso-web.netlify.app/dekujeme/?form=withdrawal">
 
                 <!-- Honeypot ochrana proti botům (nahradí Web3Forms botcheck až přejdeš na PHP) -->
                 <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
@@ -216,3 +217,4 @@ title: "Doprava a platba"
 </section>
 
 <script src="/js/withdrawal-form-validation.js"></script>
+<script src="/js/withdrawal-redirect.js"></script>
