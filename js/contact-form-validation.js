@@ -10,7 +10,7 @@ if (contactForm) {
     const isValid = validateAll();
 
     if (isValid) {
-      this.submit();
+      HTMLFormElement.prototype.submit.call(this);
     }
   });
 
