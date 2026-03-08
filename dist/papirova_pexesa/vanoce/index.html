@@ -97,6 +97,7 @@
     <section class="product">
     <div class="product__container">
         <div class="product__image-container">
+            
             <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
                 <img src="/images/fotky/Vanoce/large/vanoce_1_large_800.webp"
                     srcset="/images/fotky/Vanoce/small/vanoce_1_small_400.webp 400w,
@@ -117,46 +118,53 @@
                     <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)">‹</button>
                     <div class="product__thumbnails" id="thumbTrack">
                         
+                        
                         <div class="product__thumbnail active" onclick="changeImage(0)">
                             <img src="/images/fotky/Vanoce/small/vanoce_1_small_400.webp"
-                                alt="Pexeso Vánoce - detail 1"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Vanoce/xl/vanoce_1_xl_1000.webp"
+                                 alt="Pexeso Vánoce - detail 1"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(1)">
                             <img src="/images/fotky/Vanoce/small/vanoce_2_small_400.webp"
-                                alt="Pexeso Vánoce - detail 2"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Vanoce/xl/vanoce_2_xl_1000.webp"
+                                 alt="Pexeso Vánoce - detail 2"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(2)">
                             <img src="/images/fotky/Vanoce/small/vanoce_3_small_400.webp"
-                                alt="Pexeso Vánoce - detail 3"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Vanoce/xl/vanoce_3_xl_1000.webp"
+                                 alt="Pexeso Vánoce - detail 3"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(3)">
                             <img src="/images/fotky/Vanoce/small/vanoce_4_small_400.webp"
-                                alt="Pexeso Vánoce - detail 4"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Vanoce/xl/vanoce_4_xl_1000.webp"
+                                 alt="Pexeso Vánoce - detail 4"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(4)">
                             <img src="/images/fotky/Vanoce/small/vanoce_5_small_400.webp"
-                                alt="Pexeso Vánoce - detail 5"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Vanoce/xl/vanoce_5_xl_1000.webp"
+                                 alt="Pexeso Vánoce - detail 5"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(5)">
                             <img src="/images/fotky/Vanoce/small/vanoce_6_small_400.webp"
-                                alt="Pexeso Vánoce - detail 6"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Vanoce/xl/vanoce_6_xl_1000.webp"
+                                 alt="Pexeso Vánoce - detail 6"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                     </div>
@@ -169,8 +177,8 @@
             <h1 class="product__heading"><span class="product__heading--italic">Vánoce</span></h1>
             <div class="product__price" aria-label="Cena: 165 Kč">165 Kč</div>
             <p class="product__subheading">Užijte&amp;nbsp;si kouzlo společných chvil</p>
-            <p class="product__text"><p>Vraťte se k dětské radosti z čekání na Ježíška. Tato sváteční sada pexesa v sobě ukrývá 32 dvojic ilustrací, které k české zimě a tradicím neodmyslitelně patří – od nazdobeného stromečku a voňavých perníčků až po veselé sněhuláky a slaměné ozdoby. Jemný autorský styl vnáší do společných chvil u stolu hřejivou atmosféru a klid. Je to víc než jen hra, je to způsob, jak zpomalit, navodit sváteční náladu a užít si společné soustředění v čase, kdy se venku snáší tma a doma se rozsvěcejí světýlka.</p>
-</p>
+            <div class="product__text"><p>Vraťte se k dětské radosti z čekání na Ježíška. Tato sváteční sada pexesa v sobě ukrývá 32 dvojic ilustrací, které k české zimě a tradicím neodmyslitelně patří – od nazdobeného stromečku a voňavých perníčků až po veselé sněhuláky a slaměné ozdoby. Jemný autorský styl vnáší do společných chvil u stolu hřejivou atmosféru a klid. Je to víc než jen hra, je to způsob, jak zpomalit, navodit sváteční náladu a užít si společné soustředění v čase, kdy se venku snáší tma a doma se rozsvěcejí světýlka.</p>
+</div>
             
             <div class="box">
                 <h2 class="box__heading">Radost pro oči i hmat</h2>
@@ -246,6 +254,7 @@
     </div>
 </section>
 
+<script src="/js/product.js"></script>
 
 </main>
 

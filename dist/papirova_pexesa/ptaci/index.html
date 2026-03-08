@@ -97,6 +97,7 @@
     <section class="product">
     <div class="product__container">
         <div class="product__image-container">
+            
             <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
                 <img src="/images/fotky/Ptaci/large/ptaci_1_large_800.webp"
                     srcset="/images/fotky/Ptaci/small/ptaci_1_small_400.webp 400w,
@@ -117,46 +118,53 @@
                     <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)">‹</button>
                     <div class="product__thumbnails" id="thumbTrack">
                         
+                        
                         <div class="product__thumbnail active" onclick="changeImage(0)">
                             <img src="/images/fotky/Ptaci/small/ptaci_1_small_400.webp"
-                                alt="Pexeso Ptáci - detail 1"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Ptaci/xl/ptaci_1_xl_1000.webp"
+                                 alt="Pexeso Ptáci - detail 1"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(1)">
                             <img src="/images/fotky/Ptaci/small/ptaci_2_small_400.webp"
-                                alt="Pexeso Ptáci - detail 2"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Ptaci/xl/ptaci_2_xl_1000.webp"
+                                 alt="Pexeso Ptáci - detail 2"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(2)">
                             <img src="/images/fotky/Ptaci/small/ptaci_3_small_400.webp"
-                                alt="Pexeso Ptáci - detail 3"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Ptaci/xl/ptaci_3_xl_1000.webp"
+                                 alt="Pexeso Ptáci - detail 3"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(3)">
                             <img src="/images/fotky/Ptaci/small/ptaci_4_small_400.webp"
-                                alt="Pexeso Ptáci - detail 4"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Ptaci/xl/ptaci_4_xl_1000.webp"
+                                 alt="Pexeso Ptáci - detail 4"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(4)">
                             <img src="/images/fotky/Ptaci/small/ptaci_5_small_400.webp"
-                                alt="Pexeso Ptáci - detail 5"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Ptaci/xl/ptaci_5_xl_1000.webp"
+                                 alt="Pexeso Ptáci - detail 5"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                         <div class="product__thumbnail " onclick="changeImage(5)">
                             <img src="/images/fotky/Ptaci/small/ptaci_6_small_400.webp"
-                                alt="Pexeso Ptáci - detail 6"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/Ptaci/xl/ptaci_6_xl_1000.webp"
+                                 alt="Pexeso Ptáci - detail 6"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         
                     </div>
@@ -169,8 +177,8 @@
             <h1 class="product__heading"><span class="product__heading--italic">Ptáci</span></h1>
             <div class="product__price" aria-label="Cena: 165 Kč">165 Kč</div>
             <p class="product__subheading">Vzhůru do korun stromů a k dalekým břehům</p>
-            <p class="product__text"><p>Tato sada pexesa vám představí 32 dvojic exotických ptáků. Čistý styl vektorových ilustrací klade důraz na zobrazení charakteristických znaků každého z nich. Je to příležitost, jak společně s dětmi objevovat ptačí říši, trénovat soustředění a nechat se vést křídly fantazie.</p>
-</p>
+            <div class="product__text"><p>Tato sada pexesa vám představí 32 dvojic exotických ptáků. Čistý styl vektorových ilustrací klade důraz na zobrazení charakteristických znaků každého z nich. Je to příležitost, jak společně s dětmi objevovat ptačí říši, trénovat soustředění a nechat se vést křídly fantazie.</p>
+</div>
             
             <div class="box">
                 <h2 class="box__heading">Radost pro oči i hmat</h2>
@@ -246,6 +254,7 @@
     </div>
 </section>
 
+<script src="/js/product.js"></script>
 
 </main>
 

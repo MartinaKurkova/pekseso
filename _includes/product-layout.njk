@@ -4,6 +4,7 @@ layout: layout.njk
 <section class="product">
     <div class="product__container">
         <div class="product__image-container">
+            {# Hlavní obrázek - při kliknutí otevírá lightbox s aktuálním indexem #}
             <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
                 <img src="/images/fotky/{{ folder }}/large/{{ folder.toLowerCase() }}_1_large_800.webp"
                     srcset="/images/fotky/{{ folder }}/small/{{ folder.toLowerCase() }}_1_small_400.webp 400w,
@@ -23,12 +24,14 @@ layout: layout.njk
                 <div class="product__thumbnails-viewport">
                     <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)">‹</button>
                     <div class="product__thumbnails" id="thumbTrack">
+                        {# Generujeme 6 náhledů s cestami k XL verzím v data-full #}
                         {% for i in range(1, 7) %}
                         <div class="product__thumbnail {% if i == 1 %}active{% endif %}" onclick="changeImage({{ i - 1 }})">
                             <img src="/images/fotky/{{ folder }}/small/{{ folder.toLowerCase() }}_{{ i }}_small_400.webp"
-                                alt="Pexeso {{ title }} - detail {{ i }}"
-                                class="product_thumbnail-image"
-                                loading="lazy">
+                                 data-full="/images/fotky/{{ folder }}/xl/{{ folder.toLowerCase() }}_{{ i }}_xl_1000.webp"
+                                 alt="Pexeso {{ title }} - detail {{ i }}"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
                         </div>
                         {% endfor %}
                     </div>
@@ -41,7 +44,7 @@ layout: layout.njk
             <h1 class="product__heading"><span class="product__heading--italic">{{ title }}</span></h1>
             <div class="product__price" aria-label="Cena: {{ price }} Kč">{{ price }} Kč</div>
             <p class="product__subheading">{{ subheading }}</p>
-            <p class="product__text">{{ content | safe }}</p>
+            <div class="product__text">{{ content | safe }}</div>
             
             {% include "box.njk" %}
 
@@ -66,3 +69,5 @@ layout: layout.njk
         </div>
     </div>
 </section>
+
+<script src="/js/product.js"></script>
