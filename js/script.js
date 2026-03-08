@@ -42,10 +42,20 @@ itemsWithSubmenu.forEach(item => {
     const link = item.querySelector(".header__nav-link");
     
     link.addEventListener("click", (e) => {
-        // Jen na mobilu
+        // Jen na mobilu (pod 768px)
         if (window.innerWidth <= 768) {
-            e.preventDefault(); // Zabránit navigaci na desktop
-            item.classList.toggle("header__nav-item--open");
+            // Pokud menu ještě NENÍ otevřené, zabráníme odchodu na stránku a jen ho otevřeme
+            if (!item.classList.contains("header__nav-item--open")) {
+                e.preventDefault(); 
+                
+                // Zavřeme ostatní případně otevřená podmenu (harmonika efekt)
+                itemsWithSubmenu.forEach(other => {
+                    if (other !== item) other.classList.remove("header__nav-item--open");
+                });
+                
+                item.classList.add("header__nav-item--open");
+            } 
+            // Pokud už otevřené JE, e.preventDefault() se neprovede a odkaz normálně zafunguje
         }
     });
 });
