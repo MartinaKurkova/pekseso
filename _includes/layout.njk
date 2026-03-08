@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="cs"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>{{ title or "Pexesa, která potěší" }}</title>
+    <meta name="description" content="{{ description }}">
+
+    <meta property="og:title" content="{{ metaTitle or title }}">
+    <meta property="og:description" content="{{ ogDescription or description }}">
+    <meta property="og:image" content="{{ ogImage or '/images/og-default.jpg' }}">
+    <meta property="og:type" content="{{ ogType or 'website' }}">
+    <meta property="og:url" content="https://pekseso.cz{{ page.url }}">
+
+    <meta name="twitter:card" content="{{ twitterCard or 'summary_large_image' }}">
+
     <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
-    <!-- Standardní favicon -->
+    
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="shortcut icon" href="/favicon.ico">
 
-    <!-- Apple Touch Icon (pro iOS) -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <!-- Barva dlaždice pro Windows -->
-    <meta name="msapplication-TileColor" content="#800080">
-    <meta name="theme-color" content="#800080">
-
+    
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" href="/css/style.css">
+    
+    {% if page.url == '/pokladna/' %}
     <script src="https://js.stripe.com/v3/"></script>
+    {% endif %}
 </head>
 <body>
     <header class="header" role="banner">
