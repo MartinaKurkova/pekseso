@@ -93,10 +93,15 @@ exports.handler = async (event) => {
     await transporter.sendMail({
       from: `"Pekseso" <${process.env.MAIL_USER}>`,
       to: email,
-      subject: `Zpráva o přijetí objednávky – VS ${vs}`,
-      html: emailWrap('Máme zprávu o vaší objednávce', `
-        <p style="font-family:Arial,sans-serif;">Dobrý den <strong>${billing_first_name}</strong>,</p>
-        <p style="font-family:Arial,sans-serif;">tento e-mail je potvrzením o tom, že vaše objednávka byla doručena do mého systému. Nyní ji jdu zkontrolovat a brzy vám pošlu potvrzení o jejím přijetí.</p>
+      subject: `Potvrzení o doručení objednávky – VS ${vs}`,
+      html: emailWrap('Vaše objednávka dorazila do ateliéru', `
+        <p style="font-family:Arial,sans-serif;">Ahoj <strong>${billing_first_name}</strong>,</p>
+        <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">díky za objednávku! Právě přistála u mě v systému a já mám radost, že vás moje ilustrace zaujaly.</p>
+        <p style="font-family:Arial,sans-serif;"><strong>Co se děje teď?</strong></p>
+        <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">Teď musím v ateliéru všechno zkontrolovat – jestli mám pexesa skladem a zda v objednávce nezařádil nějaký technický šotek. Tohle je tedy zatím jen potvrzení, že o vás vím a vaše údaje dorazily v pořádku.</p>
+        <p style="font-family:Arial,sans-serif;"><strong>Kdy uzavřeme smlouvu?</strong></p>
+        <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">Jakmile vše prověřím, pošlu vám druhý e-mail s finálním potvrzením. Teprve tímto druhým e-mailem spolu oficiálně uzavřeme kupní smlouvu a já balíček vypravím na cestu k vám.</p>
+        <p style="font-family:Arial,sans-serif;">Ozvu se vám co nejdříve s finálním potvrzením!</p>
 
         ${isTransfer ? `
         <div style="background:#fff9e6;border-left:4px solid #FFD23F;padding:16px 20px;margin:20px 0;font-family:Arial,sans-serif;">

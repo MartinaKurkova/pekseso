@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 283.46 283.46">
+  <!-- Generator: Adobe Illustrator 30.2.1, SVG Export Plug-In . SVG Version: 2.1.1 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #4f266a;
+      }
+
+      .st1 {
+        fill: #ffd23f;
+      }
+
+      .st2 {
+        fill: none;
+        stroke: #4f266a;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 5px;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="st2" d="M262.54,119.84c-10.38-57.42-60.62-100.99-121.03-100.99S34.29,59.47,21.67,113.98"/>
+    <polygon class="st0" points="5 90.61 9.87 88.03 22.56 112.02 45.57 97.61 48.49 102.29 20.47 119.83 5 90.61"/>
+  </g>
+  <g>
+    <path class="st2" d="M20.47,163.87c10.38,57.42,60.62,100.99,121.03,100.99s107.21-40.62,119.83-95.14"/>
+    <polygon class="st0" points="278 193.09 273.13 195.67 260.45 171.68 237.44 186.09 234.53 181.41 262.54 163.87 278 193.09"/>
+  </g>
+  <rect class="st1" x="72.5" y="74.27" width="136.81" height="136.81"/>
+  <rect class="st2" x="86.97" y="88.03" width="107.63" height="107.63"/>
+</svg>

@@ -1231,6 +1231,36 @@ ul {
   color: #0D0D0D;
 }
 
+.rules__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 1.25rem;
+}
+@media screen and (max-width: 36rem) {
+  .rules__container {
+    grid-template-columns: 1fr;
+  }
+}
+.rules__title {
+  grid-column: 1/-1;
+  text-align: center;
+}
+.rules__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: last baseline;
+}
+.rules__heading {
+  text-align: center;
+  font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
+  font-weight: 600;
+}
+.rules__description {
+  text-align: center;
+}
+
 .paper {
   background-color: #D3BDD8;
   background: url(/images/bg2.svg) top left no-repeat;
