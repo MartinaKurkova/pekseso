@@ -25,8 +25,8 @@
 
     &__logo-link {
         font-optical-sizing: auto;
-        font-weight: 200;
-        color: white;
+        font-weight: 600;
+        color: variables.$color-secondary;
         text-decoration: none;
         font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
         display: inline-block;
@@ -35,9 +35,9 @@
     }
 
     &__logo-color {
-        color: variables.$color-secondary;
+        color: white;
         font-family: variables.$font-sans;
-        font-weight: 200;
+        font-weight: 600;
         font-style: normal;
     }
 

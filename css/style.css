@@ -144,8 +144,8 @@ ul {
 }
 .header__logo-link {
   font-optical-sizing: auto;
-  font-weight: 200;
-  color: white;
+  font-weight: 600;
+  color: #FFD23F;
   text-decoration: none;
   font-size: clamp(1.2rem, 1.2rem + 1.1vw, 1.9rem);
   display: inline-block;
@@ -153,9 +153,9 @@ ul {
   letter-spacing: 0.1rem;
 }
 .header__logo-color {
-  color: #FFD23F;
+  color: white;
   font-family: "Work Sans", sans-serif;
-  font-weight: 200;
+  font-weight: 600;
   font-style: normal;
 }
 .header__logo-title {
