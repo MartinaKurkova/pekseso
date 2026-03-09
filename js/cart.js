@@ -12,15 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (cartBtn && cartPanel) {
         cartBtn.addEventListener('click', () => {
-            cartPanel.classList.add('is-active');
+            cartPanel.classList.add('is-open');
             if (overlay) overlay.classList.add('is-active');
         });
     }
 
     if (closeBtn && cartPanel) {
         closeBtn.addEventListener('click', () => {
-            cartPanel.classList.remove('is-active');
+            cartPanel.classList.remove('is-open');
             if (overlay) overlay.classList.remove('is-active');
+        });
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', () => {
+            cartPanel.classList.remove('is-open');
+            overlay.classList.remove('is-active');
         });
     }
 });
@@ -35,17 +42,17 @@ function addToCart(product) {
     saveAndRefresh();
 }
 
-// 2. AKTUALIZACE PANELU (Tady jsou tvoje správné třídy)
+// 2. AKTUALIZACE PANELU
 function updateCartUI() {
     const cartBadge = document.querySelector('.header__basket-amount');
-    const cartContent = document.querySelector('.cart__content'); // Opraveno na tvou třídu
-    const totalPriceElement = document.querySelector('.cart__total-price--number'); // Tady přepíšeme jen to číslo
+    const cartContent = document.querySelector('.cart__content');
+    const totalPriceElement = document.querySelector('.cart__total-price--number');
 
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     if (cartBadge) cartBadge.innerText = totalItems;
 
     if (cartContent) {
-        cartContent.innerHTML = ''; // Smažeme ten statický testovací obsah
+        cartContent.innerHTML = '';
 
         if (cart.length === 0) {
             cartContent.innerHTML = '<p style="padding: 20px; text-align: center;">V košíku zatím nic není.</p>';
@@ -58,7 +65,6 @@ function updateCartUI() {
         cart.forEach((item, index) => {
             total += item.price * item.quantity;
 
-            // Používám přesně tvoji HTML strukturu pro položku
             cartContent.innerHTML += `
                 <div class="cart__item">
                     <img src="${item.image}" alt="${item.name}" class="cart__image" width="400" height="400">
@@ -99,12 +105,12 @@ function saveAndRefresh() {
     updateCartUI();
 }
 
-
-// klíč ze Stripe (začíná na pk_live_ nebo pk_test_)
-const stripe = Stripe('pk_live_51T69CrJdC0N7uBdkPuW65kJsVcNnlUZs0J4OKMxZuE7nd7xpXO7sJyqdVWVlnNYHlzWLHl0YhSf8eVyGBC3Nssb9006jgrPdYK');
+// klíč ze Stripe
+if (typeof Stripe !== 'undefined') {
+    const stripe = Stripe('pk_live_51T69CrJdC0N7uBdkPuW65kJsVcNnlUZs0J4OKMxZuE7nd7xpXO7sJyqdVWVlnNYHlzWLHl0YhSf8eVyGBC3Nssb9006jgrPdYK');
+}
 
 document.querySelector('.cart__checkout-btn')?.addEventListener('click', () => {
     if (cart.length === 0) return alert("Košík je prázdný!");
-    // Přesměruje na naši novou stránku
     window.location.href = '/pokladna/';
 });

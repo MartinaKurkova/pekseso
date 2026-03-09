@@ -137,6 +137,18 @@
         right: 0; 
     }
 
+    &__overlay {
+        pointer-events: none;
+        
+        &.is-active {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+            pointer-events: auto;
+        }
+    }
+
     &__overlay.is-active {
         position: fixed;
         inset: 0;

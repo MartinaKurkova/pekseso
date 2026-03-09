@@ -248,6 +248,16 @@ ul {
 .cart__panel.is-open {
   right: 0;
 }
+.cart__overlay {
+  pointer-events: none;
+}
+.cart__overlay.is-active {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  pointer-events: auto;
+}
 .cart__overlay.is-active {
   position: fixed;
   inset: 0;
@@ -2940,6 +2950,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 80vh;
 }
 .thanks__heading {
   font-weight: 300;
@@ -2978,6 +2989,22 @@ ul {
 .thanks__back:hover {
   color: #0D0D0D;
   border: 1px solid #0D0D0D;
+}
+.thanks__btn {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.3125rem;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #540D6E;
+  color: white;
 }
 
 .error {

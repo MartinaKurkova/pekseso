@@ -193,6 +193,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        min-height: 80vh;
     }
 
     &__heading {
@@ -226,5 +227,11 @@
             color: variables.$color-text;
             border: 1px solid variables.$color-text;
         }
+    }
+
+    &__btn {
+        @include buttons.btn;
+        background-color: variables.$color-primary;
+        color: white;
     }
 }

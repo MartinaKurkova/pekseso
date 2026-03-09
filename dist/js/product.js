@@ -1,6 +1,5 @@
 {
-    // Používáme let/const uvnitř bloku pro čistý scope
-    window.currentImageIndex = 0; // Musí být globální pro onclick v HTML
+    window.currentImageIndex = 0;
     let images = [];
     const VISIBLE = 4;
     let thumbOffset = 0;
@@ -9,14 +8,12 @@
     // --- GALERIE ---
 
     function initGallery() {
-        images = []; 
-        // Načteme XL cesty ze všech náhledů do pole pro lightbox
+        images = [];
         const thumbnails = document.querySelectorAll('.product__thumbnail img');
         thumbnails.forEach((thumb) => {
             const fullSrc = thumb.getAttribute('data-full');
             if (fullSrc) images.push(fullSrc);
         });
-        
         updateCarousel();
     }
 
@@ -24,17 +21,15 @@
         window.currentImageIndex = index;
         const mainImg = document.getElementById('mainImg');
         const thumbnails = document.querySelectorAll('.product__thumbnail img');
-        
+
         if (mainImg && thumbnails[index]) {
             const thumbImg = thumbnails[index];
-            // Aktualizace hlavního náhledu
             mainImg.src = thumbImg.src;
-            mainImg.srcset = ""; // Resetujeme srcset, aby prohlížeč vynutil nový src
+            mainImg.srcset = "";
             mainImg.setAttribute('data-full', thumbImg.getAttribute('data-full'));
             mainImg.alt = thumbImg.alt;
         }
-        
-        // Přepnutí aktivní třídy u náhledů
+
         const thumbnailContainers = document.querySelectorAll('.product__thumbnail');
         thumbnailContainers.forEach((thumb, i) => {
             thumb.classList.toggle('active', i === index);
@@ -91,7 +86,6 @@
         const lightbox = document.createElement('div');
         lightbox.id = 'productLightbox';
         lightbox.className = 'lightbox';
-        // Zavření při kliknutí na pozadí
         lightbox.onclick = function(e) {
             if (e.target === lightbox) window.closeLightbox();
         };
@@ -121,39 +115,18 @@
         if (lightboxImg) lightboxImg.src = images[window.currentImageIndex];
     }
 
-    // --- QUANTITY & BUY ---
+    // --- QUANTITY ---
 
     window.changeQty = function(delta) {
         quantity = Math.min(10, Math.max(1, quantity + delta));
         const display = document.getElementById('qty-display');
         if (display) display.textContent = quantity;
-        
+
         const btnMinus = document.getElementById('btn-minus');
         if (btnMinus) btnMinus.disabled = quantity <= 1;
     }
 
-    // Inicializace nákupního tlačítka
-    const buyBtn = document.getElementById('btnBuy');
-    if (buyBtn) {
-        buyBtn.addEventListener('click', function() {
-            const product = {
-                id: this.dataset.id, 
-                name: this.dataset.name,
-                price: parseInt(this.dataset.price),
-                image: this.dataset.image,
-                quantity: quantity
-            };
-
-            if (typeof addToCart === 'function') {
-                addToCart(product);
-                window.added(); 
-                quantity = 1;
-                window.changeQty(0);
-            } else {
-                console.error("cart.js není načten!");
-            }
-        });
-    }
+    // --- TOAST ---
 
     window.added = function() {
         const toast = document.getElementById('toast');
@@ -165,9 +138,35 @@
 
     // --- INICIALIZACE ---
 
-    document.addEventListener('DOMContentLoaded', initGallery);
+    document.addEventListener('DOMContentLoaded', () => {
+        initGallery();
+
+        // Tlačítko přidat do košíku
+        const buyBtn = document.getElementById('btnBuy');
+        if (buyBtn) {
+            buyBtn.addEventListener('click', function() {
+                const product = {
+                    id: this.dataset.id,
+                    name: this.dataset.name,
+                    price: parseInt(this.dataset.price),
+                    image: this.dataset.image,
+                    quantity: quantity
+                };
+
+                if (typeof addToCart === 'function') {
+                    addToCart(product);
+                    window.added();
+                    quantity = 1;
+                    window.changeQty(0);
+                } else {
+                    console.error("cart.js není načten!");
+                }
+            });
+        }
+    });
+
     window.addEventListener('resize', updateCarousel);
-    
+
     document.addEventListener('keydown', (e) => {
         const lightbox = document.getElementById('productLightbox');
         if (lightbox && lightbox.classList.contains('active')) {
