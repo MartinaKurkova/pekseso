@@ -93,10 +93,10 @@ exports.handler = async (event) => {
     await transporter.sendMail({
       from: `"Pekseso" <${process.env.MAIL_USER}>`,
       to: email,
-      subject: `Potvrzení objednávky – VS ${vs}`,
-      html: emailWrap('Děkujeme za vaši objednávku!', `
+      subject: `Zpráva o přijetí objednávky – VS ${vs}`,
+      html: emailWrap('Máme zprávu o vaší objednávce', `
         <p style="font-family:Arial,sans-serif;">Dobrý den <strong>${billing_first_name}</strong>,</p>
-        <p style="font-family:Arial,sans-serif;">vaši objednávku jsme přijali a brzy se vám ozveme.</p>
+        <p style="font-family:Arial,sans-serif;">tento e-mail je potvrzením o tom, že vaše objednávka byla doručena do mého systému. Nyní ji jdu zkontrolovat a brzy vám pošlu potvrzení o jejím přijetí.</p>
 
         ${isTransfer ? `
         <div style="background:#fff9e6;border-left:4px solid #FFD23F;padding:16px 20px;margin:20px 0;font-family:Arial,sans-serif;">
