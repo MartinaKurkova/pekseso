@@ -30,7 +30,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
-    <--! cookies lišta -->
+    <!-- cookies lišta -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -152,27 +152,34 @@
  <!-- footer -->
     <footer class="footer" role="contentinfo">
         <div class="footer__container container">
-            <div class="footer__section footer__section-logo">
+            <section class="footer__section footer__section-logo">
                 <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
-            </div>
-
-            <div class="footer__section footer__section-about">
-                <p class="footer__text">Autorské pexeso, které propojuje hru s radostí z ilustrace. Vyrobeno s láskou k papíru i kódu.</p>
+            </section>
+            <!-- about -->
+            <div class=" footer__section footer__section-about">
+                <p class="footer__claim">Najdi ten správný pár</p>
+                <p class="footer__text">Autorské pexeso plné ilustrací. Stačí jedno otočení a společná hra začíná.</p>
                 <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
             </div>
-
-            <div class="footer__section footer__section_contact">
-                <h3 class="footer__subheading footer__heading_contact">Máte dotaz? Napište mi</h3>
-                <address class="footer__contact">
-                    <span id="email-footer"></span><br>
-                </address>
-                <p class="footer__credit footer__text">Mé portfolio najdete na webu 
-                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
-                </p>
+            <!-- menu -->
+            <div class="footer__section footer__section-menu">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                    <h3 class="footer__subheading">Menu</h3>
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
             </div>
-
-            <div class="footer__social">
-                <p class="footer__credit footer__text">Sledujte nás na Instagramu</p>
+            <!-- contact -->
+            <section class="footer__section footer__section_contact">
+                <h3 class="footer__subheading">Buďme v kontaktu</h3>
+                <address class="footer__contact">Máte dotaz? Napište mi na
+                    <span class="footer__email" id="email-footer"></span><br>
+                </address>
+                <p class="footer__social footer__text">Sledujte PE[KS]ESO na Instagramu</p>
                 <a href="https://www.instagram.com/pekseso.cz/" 
                         class="footer__social-link" 
                         target="_blank" 
@@ -185,25 +192,20 @@
                                     width="28"
                                     height="28">pekseso.cz
                         </a>
-                </div>
-
-            <div class="footer__section footer__nav">
-                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
-                <ul class="footer_nav-list">
-                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
-                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
-                    <li class="footer__nav-item"><a href="/papirova_pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
-                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
-                </ul>
-            </nav>
-            <a class="footer__legal" href="/GDPR/">Zásady ochrany osobních údajů</a>
-            <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
-            <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy</a>
-            <a class="footer__legal" href="/papirova_pexesa/#transport">Doprava a platba</a>
-            <a class="footer__legal" href="/zasady-cookies/">Zásady používání souborů cookies</a>
-            <a class="footer__legal" href="#" data-cc="show-preferencesModal">Nastavení cookies</a>
-            </div>
-
+                <p class="footer__credit footer__text">Moji další tvorbu najdete na 
+                    <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
+                </p>
+            </section>
+            <!-- important -->
+            <section class="footer__section footer__section-important">
+                <h3 class="footer__subheading">Důležité informace</h3>
+                <a class="footer__legal" href="/GDPR/">Zásady ochrany osobních údajů</a>
+                <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
+                <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy</a>
+                <a class="footer__legal" href="/papirova_pexesa/#transport">Doprava a platba</a>
+                <a class="footer__legal" href="/zasady-cookies/">Zásady používání souborů cookies</a>
+                <a class="footer__legal" href="#" data-cc="show-preferencesModal">Nastavení cookies</a>
+            </section>
             
             <div class="footer__section footer__section_info">
                 <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
@@ -216,7 +218,7 @@
     <script src="/js/product.js"></script>
     <script src="/js/aside_cart_panel.js"></script>
 
-    <--! cookies lišta -->
+    <!-- cookies lišta -->
     <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js"></script>
 
     <script type="text/plain" data-category="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-MXSR773H36"></script>
