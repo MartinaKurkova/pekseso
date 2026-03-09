@@ -3,20 +3,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>{{ title or "Pexesa, která potěší" }}</title>
-    <meta name="description" content="{{ description }}">
+    <title>Zásady cookies | Pekseso</title>
+    <meta name="description" content="">
 
-    <meta property="og:title" content="{{ metaTitle or title }}">
-    <meta property="og:description" content="{{ ogDescription or description }}">
-    <meta property="og:image" content="{{ ogImage or '/images/og-default.jpg' }}">
-    <meta property="og:type" content="{{ ogType or 'website' }}">
-    <meta property="og:url" content="https://pekseso.cz{{ page.url }}">
+    <meta property="og:title" content="Zásady cookies | Pekseso">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="/images/og-default.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pekseso.cz/zasady-cookies/">
 
-    <meta name="twitter:card" content="{{ twitterCard or 'summary_large_image' }}">
+    <meta name="twitter:card" content="summary_large_image">
 
-    {% if robots %}
-        <meta name="robots" content="{{ robots }}">
-    {% endif %}
+    
+        <meta name="robots" content="noindex, nofollow">
+    
 
     <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -35,9 +35,7 @@
 
     <link rel="stylesheet" href="/css/style.css">
     
-    {% if page.url == '/pokladna/' %}
-    <script src="https://js.stripe.com/v3/"></script>
-    {% endif %}
+    
 </head>
 <body>
     <header class="header" role="banner">
@@ -103,7 +101,117 @@
 
  <main>
 
-    {{ content | safe}}
+    
+<article class="cookies">
+    <div class="cookies__container container">
+        <h1 class="cookies__title">Zásady používání souborů cookies</h1>
+        <p class="cookies__intro">Aby pro vás bylo prohlížení mého webu příjemné a vše fungovalo tak, jak má, používám malé soubory zvané cookies. Pomáhají mi zajistit správné fungování webu a také pochopit, co vás na stránkách zajímá.</p>
+
+        <!-- 1 -->
+        <section class="cookies__section">
+            <h2 class="cookies__section-heading">1. Kdo web provozuje</h2>
+
+            <div class="cookies__article">
+            <p class="cookies__article-body">Provozovatelem webu pekseso.cz a správcem osobních údajů je:</p>
+            <p class="cookies__article-body"><strong>MgA. Martina Kurková Nožičková</strong><br>
+            IČ: 04088140<br>
+            Riegrova 624<br>
+            289 12 Sadská</p>
+            <p class="cookies__article-body">E-mail: ahoj@pekseso.cz<br>
+            Telefon: +420 605 034 317</p>
+            </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="cookies__section">
+            <h2 class="cookies__section-heading">2. Co jsou cookies</h2>
+
+            <div class="cookies__article">
+            <p class="cookies__article-body">Cookies jsou malé textové soubory, které si web ukládá do vašeho prohlížeče. Díky nim si může web zapamatovat například obsah vašeho košíku nebo vaše nastavení.</p>
+            <p class="cookies__article-body">Některé cookies jsou pouze dočasné a zmizí po zavření prohlížeče. Jiné zůstávají uložené delší dobu, aby vás web při další návštěvě poznal.</p>
+            </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="cookies__section">
+            <h2 class="cookies__section-heading">3. Jaké cookies používám</h2>
+
+            <div class="cookies__article">
+            <p class="cookies__article-body">Na webu používám tyto typy cookies:</p>
+            </div>
+
+            <div class="cookies__article">
+            <h3 class="cookies__article-heading">Nezbytné (technické)</h3>
+            <p class="cookies__article-body">Tyto cookies jsou nutné pro správné fungování webu. Umožňují například:</p>
+            <ul class="cookies__list">
+                <li class="cookies__list-item">fungování nákupního košíku</li>
+                <li class="cookies__list-item">zabezpečení webu</li>
+                <li class="cookies__list-item">základní technický provoz stránky</li>
+            </ul>
+            <p class="cookies__article-body">Bez těchto cookies by web nemohl správně fungovat, proto k jejich použití není potřeba váš souhlas.</p>
+            </div>
+
+            <div class="cookies__article">
+            <h3 class="cookies__article-heading">Analytické (statistické)</h3>
+            <p class="cookies__article-body">Tyto cookies mi pomáhají pochopit, jak návštěvníci web používají – například které stránky jsou nejnavštěvovanější nebo odkud lidé přicházejí.</p>
+            <p class="cookies__article-body">Používám k tomu nástroj Google Analytics 4.</p>
+            <p class="cookies__article-body">Analytické cookies ukládám pouze na základě vašeho souhlasu, který můžete kdykoliv změnit nebo odvolat v nastavení cookies.</p>
+            </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="cookies__section">
+            <h2 class="cookies__section-heading">4. Nástroje třetích stran</h2>
+
+            <div class="cookies__article">
+            <p class="cookies__article-body">Na webu využívám služby některých partnerů, kteří mohou ukládat své cookies:</p>
+            </div>
+
+            <div class="cookies__article">
+            <h3 class="cookies__article-heading">Google Analytics 4</h3>
+            <p class="cookies__article-body">Slouží k anonymizované analýze návštěvnosti webu. Pomáhá mi pochopit, jak lidé web používají a co mohu zlepšit.</p>
+            <p class="cookies__article-body">Data jsou zpracována v agregované nebo pseudonymizované podobě. Google může údaje zpracovávat i mimo Evropskou unii, zejména v USA, a to v souladu s právními mechanismy ochrany osobních údajů podle GDPR.</p>
+            </div>
+
+            <div class="cookies__article">
+            <h3 class="cookies__article-heading">Platební brána Stripe</h3>
+            <p class="cookies__article-body">Při online platbě mohou být použity technické cookies potřebné pro bezpečné zpracování platby.</p>
+            </div>
+
+            <div class="cookies__article">
+            <h3 class="cookies__article-heading">Dopravci (např. Zásilkovna, Balíkovna)</h3>
+            <p class="cookies__article-body">Při výběru dopravy mohou být použity technické cookies potřebné pro správné fungování výběru výdejního místa.</p>
+            </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="cookies__section">
+            <h2 class="cookies__section-heading">5. Jak dlouho cookies uchovávám</h2>
+
+            <div class="cookies__article">
+            <p class="cookies__article-body">Různé cookies mají různou dobu uložení:</p>
+            <ul class="cookies__list">
+                <li class="cookies__list-item">technické cookies jsou obvykle uchovávány pouze po dobu relace nebo po dobu nezbytnou pro fungování webu</li>
+                <li class="cookies__list-item">analytické cookies mohou být uloženy maximálně po dobu několika měsíců (dle nastavení nástroje Google Analytics)</li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="cookies__section">
+            <h2 class="cookies__section-heading">6. Jak můžete cookies nastavit nebo vypnout</h2>
+
+            <div class="cookies__article">
+            <p class="cookies__article-body">Používání analytických cookies můžete kdykoliv změnit v nastavení cookies na tomto webu.</p>
+            <p class="cookies__article-body">Většina internetových prohlížečů také umožňuje cookies spravovat nebo zcela zakázat v jejich nastavení (např. Chrome, Firefox, Safari nebo Edge).</p>
+            <p class="cookies__article-body">Pokud však cookies zcela zakážete, některé části webu nemusí fungovat správně.</p>
+            </div>
+        </section>
+
+        <p class="cookies__article-body">Tyto zásady používání cookies jsou účinné od 1. 4. 2026.</p>
+
+    </div>
+</article>
 
 </main>
 

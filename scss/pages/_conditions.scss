@@ -285,3 +285,73 @@
         margin-top: 0;
     }
 }
+
+// Cookies
+// GDPR
+.cookies {
+    &__title {
+        font-size: clamp(1.5rem, calc(1.5rem + 2vw), 2.9rem);
+        margin-top: 3rem;
+    }
+
+    &__section-heading {
+        font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
+        font-family: variables.$font-serif;
+        font-weight: 800;
+        margin: 2rem 0 0 0;
+        color: variables.$color-primary;
+    }
+
+    &__article-heading {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    &__list {
+        margin: 0;
+        list-style-type: disc;
+        padding-left: 1rem;
+    }
+
+    &__list-item {
+        padding-left: 0.5rem;
+    }
+
+    &__article-body {
+        margin-top: 0;
+    }
+}
+
+// cookies lišta
+#cc-main {
+    --cc-bg: white;           /* Pozadí lišty */
+    --cc-text: #0D0D0D;       /* Obecná barva textu */
+    
+    /* 1. Tlačítko: Povolit vše (Primary) */
+    --cc-btn-primary-bg: #540D6E;
+    --cc-btn-primary-color: white; 
+    
+    /* 2. Tlačítko: Jen nezbytné (Secondary) */
+    --cc-btn-secondary-bg: #540D6E;
+    --cc-btn-secondary-color: white; 
+    
+    /* 3. Tlačítko: Nastavit individuálně (Tertiary) */
+    --cc-btn-tertiary-bg: #540D6E; 
+    --cc-btn-tertiary-color: white;
+    
+    /* Font */
+    --cc-font-family: inherit; 
+    
+    /* Zaoblení rohů */
+    --cc-modal-border-radius: 5px;
+    --cc-btn-border-radius: 5px;
+}
+
+/* Hover stavy pro všechna tlačítka */
+#cc-main .cm__btn--primary:hover,
+#cc-main .cm__btn--secondary:hover,
+#cc-main .cm__btn--tertiary:hover {
+    background-color: #2c033b; 
+    color: white;
+}

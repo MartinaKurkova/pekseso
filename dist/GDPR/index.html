@@ -3,16 +3,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Pekseso</title>
-    <meta name="description" content="">
+    <title>Ochrana osobních údajů | PE[KS]ESO</title>
+    <meta name="description" content="Informace o tom, jak nakládám s vašimi údaji při objednávce pexesa.">
 
-    <meta property="og:title" content="Pekseso">
-    <meta property="og:description" content="">
+    <meta property="og:title" content="Ochrana osobních údajů | PE[KS]ESO">
+    <meta property="og:description" content="Informace o tom, jak nakládám s vašimi údaji při objednávce pexesa.">
     <meta property="og:image" content="/images/og-default.jpg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pekseso.cz/GDPR/">
 
     <meta name="twitter:card" content="summary_large_image">
+
+    
+        <meta name="robots" content="noindex, nofollow">
+    
 
     <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -25,6 +29,9 @@
     
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
+
+    <--! cookies lišta -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
 
     <link rel="stylesheet" href="/css/style.css">
     
@@ -281,6 +288,22 @@
                 </p>
             </div>
 
+            <div class="footer__social">
+                <p class="footer__credit footer__text">Sledujte nás na Instagramu</p>
+                <a href="https://www.instagram.com/pekseso.cz/" 
+                        class="footer__social-link" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="Instagram profil pekseso.cz">
+                            <img src="/images/logo/instragram_white.svg" 
+                                    alt="logo Instagram" 
+                                    class="footer__social-icon--img"
+                                    aria-hidden="true"
+                                    width="28"
+                                    height="28">pekseso.cz
+                        </a>
+                </div>
+
             <div class="footer__section footer__nav">
                 <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
                 <ul class="footer_nav-list">
@@ -294,6 +317,8 @@
             <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
             <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy</a>
             <a class="footer__legal" href="/papirova_pexesa/#transport">Doprava a platba</a>
+            <a class="footer__legal" href="/zasady-cookies/">Zásady používání souborů cookies</a>
+            <a class="footer__legal" href="#" data-cc="show-preferencesModal">Nastavení cookies</a>
             </div>
 
             
@@ -307,6 +332,71 @@
     <script src="/js/cart.js"></script>
     <script src="/js/product.js"></script>
     <script src="/js/aside_cart_panel.js"></script>
+
+    <--! cookies lišta -->
+    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js"></script>
+
+    <script type="text/plain" data-category="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-MXSR773H36"></script>
+    <script type="text/plain" data-category="analytics">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MXSR773H36');
+    </script>
+
+    <script>
+        CookieConsent.run({
+            guiOptions: {
+                consentModal: {
+                    layout: 'cloud',
+                    position: 'bottom center',
+                    equalWeightButtons: true,
+                    flipButtons: false
+                }
+            },
+            categories: {
+                necessary: { enabled: true },
+                analytics: { }
+            },
+            language: {
+                default: 'cs',
+                translations: {
+                    cs: {
+                        consentModal: {
+                            title: 'I pexeso má svá pravidla (a my cookies)',
+                            description: 'Aby u nás všechno fungovalo, jak má – od nákupního košíku až po měření návštěvnosti – používáme malé soubory cookies. Ty nezbytné používáme hned, o těch ostatních můžete rozhodnout vy.',
+                            acceptAllBtn: 'Povolit vše',
+                            acceptNecessaryBtn: 'Jen nezbytné',
+                            showPreferencesBtn: 'Nastavit individuálně',
+                            footer: `
+                                <a href="/GDPR/">Zásady ochrany osobních údajů</a>
+                                <a href="/zasady-cookies/">Zásady cookies</a>
+                            `
+                        },
+                        preferencesModal: {
+                            title: 'Nastavení cookies',
+                            acceptAllBtn: 'Povolit vše',
+                            acceptNecessaryBtn: 'Jen nezbytné',
+                            savePreferencesBtn: 'Uložit nastavení',
+                            closeIconLabel: 'Zavřít',
+                            sections: [
+                                {
+                                    title: 'Nezbytné cookies',
+                                    description: 'Tyto cookies jsou potřeba pro správné fungování webu a košíku.',
+                                    linkedCategory: 'necessary'
+                                },
+                                {
+                                    title: 'Analytické cookies',
+                                    description: 'Pomáhají mi pochopit, co vás na webu baví, abych ho mohla vylepšovat.',
+                                    linkedCategory: 'analytics'
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
