@@ -12,7 +12,8 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         grid-template-rows: auto;
-        gap: 1.25rem;
+        column-gap: 4rem;
+        row-gap: 2rem;
 
         @media screen and (max-width: 48rem) {
             grid-template-columns: 1fr;
@@ -20,6 +21,7 @@
     }
 
     &__heading {
+        margin-bottom: 3rem;
         grid-column: 1/3;
         grid-row: 1/2;
 
@@ -29,12 +31,11 @@
     }
 
     &__subheading {
-        font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
+        font-size: 1.5rem;
         margin: 2rem 0 0 0;
     }
 
     &__subheading:first-of-type {
-        font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
         margin: 0;
     }
 
@@ -45,13 +46,28 @@
     &__text-container {
         grid-column: 1/2;
         grid-row: 2/3;
+        display: flex;
+        flex-direction: column;
     }
+
+    &__image {
+        display: block;
+        width: 50%;
+        height: auto;
+        border-radius: .3125rem;
+        align-self: self-end;
+    }
+
+    &__image:first-of-type,
+    &__image:last-of-type {
+        align-self: self-start;
+    } 
 
     &__image-container {
         grid-column: 2/3;
         grid-row: 2/3;
-        border-left: 1px solid variables.$color-primary;
-        padding-left: 1.25rem;
+        border-left: 2px solid variables.$color-secondary;
+        padding-left: 4rem;
 
         @media screen and (max-width: 48rem) {
             grid-column: 1/2;
@@ -59,10 +75,17 @@
         }
     }
 
-    &__image {
+    &__photo {
         display: block;
         width: 100%;
         height: auto;
         border-radius: .3125rem;
+        margin-bottom: 1rem;
+    }
+
+    &__link {
+        color: variables.$color-text;
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
     }
 }

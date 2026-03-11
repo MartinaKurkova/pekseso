@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="checkout-item" style="display: flex; align-items: center; gap: 15px; margin-bottom: 12px;">
                     <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;">
                     <div style="flex-grow: 1;">
-                        <div style="font-weight: bold; font-size: 0.95em;">${item.name}</div>
-                        <div style="font-size: 0.85em; color: #666;">${item.quantity}x - ${item.price * item.quantity} Kč</div>
+                        <div style="font-weight: bold; font-size: 1rem;">${item.name}</div>
+                        <div style="font-size: 1rem; color: #0D0D0D;">${item.quantity}x - ${item.price * item.quantity} Kč</div>
                     </div>
                 </div>`;
         }).join('');
@@ -85,12 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedShipping) {
             shippingTotal = shippingPrices[selectedShipping.value] || 0;
             const shippingName = selectedShipping.closest('.shipping-card').querySelector('.shipping-card__name').innerText;
-            shippingPaymentHtml += `<div style="font-size: 0.9em; margin-bottom: 4px;"><strong>Doprava:</strong> ${shippingName} (${shippingTotal} Kč)</div>`;
+            shippingPaymentHtml += `<div style="font-size: 1rem; margin-bottom: 4px;"><strong>Doprava:</strong> ${shippingName} (${shippingTotal} Kč)</div>`;
         }
 
         if (selectedPayment) {
             const paymentLabel = selectedPayment.closest('.payment-card').querySelector('.payment-card__name').innerText;
-            shippingPaymentHtml += `<div style="font-size: 0.9em; color: #555;"><strong>Platba:</strong> ${paymentLabel} (0 Kč)</div>`;
+            shippingPaymentHtml += `<div style="font-size: 1rem; color: #0D0D0D;"><strong>Platba:</strong> ${paymentLabel} (0 Kč)</div>`;
 
             if (submitBtn) {
                 submitBtn.innerText = 'Objednávka zavazující k platbě';
