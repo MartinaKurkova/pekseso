@@ -1471,6 +1471,11 @@ ul {
   margin: 0 auto;
   padding: 7rem 1.25rem 5rem 1.25rem;
 }
+@media screen and (max-width: 36rem) {
+  .paper__container {
+    padding: 5rem 1.25rem 3rem 1.25rem;
+  }
+}
 
 .shop__container {
   margin: 0 auto;
@@ -1484,6 +1489,13 @@ ul {
 @media screen and (max-width: 48rem) {
   .shop__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media screen and (max-width: 23.125rem) {
+  .shop__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 }
 .shop__grid-card {
@@ -1495,27 +1507,27 @@ ul {
 .shop__grid-card:hover {
   transform: translateY(-4px);
 }
-@media screen and (max-width: 48rem) {
+@media screen and (min-width: 23.125rem) and (max-width: 48rem) {
   .shop__grid-card--les {
     order: 1;
   }
 }
-@media screen and (max-width: 48rem) {
+@media screen and (min-width: 23.125rem) and (max-width: 48rem) {
   .shop__grid-card--zelenina {
     order: 2;
   }
 }
-@media screen and (max-width: 48rem) {
+@media screen and (min-width: 23.125rem) and (max-width: 48rem) {
   .shop__grid-card--vanoce {
     order: 3;
   }
 }
-@media screen and (max-width: 48rem) {
+@media screen and (min-width: 23.125rem) and (max-width: 48rem) {
   .shop__grid-card--ptaci {
     order: 4;
   }
 }
-@media screen and (max-width: 48rem) {
+@media screen and (min-width: 23.125rem) and (max-width: 48rem) {
   .shop__grid-card--psi {
     order: 5;
   }
@@ -1574,7 +1586,8 @@ ul {
   }
 }
 .shop__btn {
-  background-color: #FFD23F;
+  background-color: #540D6E;
+  color: white;
 }
 
 .info {
@@ -1636,6 +1649,11 @@ ul {
   grid-template-rows: auto;
   gap: 1.25rem;
 }
+@media screen and (max-width: 48rem) {
+  .transport__boxes {
+    grid-template-columns: 1fr;
+  }
+}
 .transport__box {
   display: flex;
   flex-direction: column;
@@ -1652,10 +1670,6 @@ ul {
 .transport__description {
   text-align: center;
   margin: 0;
-}
-
-.paper-questions {
-  grid-area: faq;
 }
 
 .paper-faq__container {
@@ -1736,6 +1750,12 @@ ul {
 }
 .paper-faq__question.active .paper-faq__toggle {
   background-color: #FFD23F;
+}
+@media screen and (max-width: 22.5rem) {
+  .paper-faq__image {
+    width: 20%;
+    height: auto;
+  }
 }
 
 .contact__wrapper {

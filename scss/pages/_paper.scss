@@ -12,6 +12,10 @@
     &__container {
         margin: 0 auto;
         padding: 7rem 1.25rem 5rem 1.25rem;
+
+        @media screen and (max-width: 36rem) {
+            padding: 5rem 1.25rem 3rem 1.25rem;
+        }
     }
 }
 
@@ -28,6 +32,12 @@
 
         @media screen and (max-width: 48rem) {
             grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media screen and (max-width: 23.125rem) {
+            grid-template-columns: 1fr;
+            gap: .75rem;
         }
     }
 
@@ -43,31 +53,31 @@
     }
 
     &__grid-card--les {
-        @media screen and (max-width: 48rem) {
+        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
             order: 1;
         }
     }
 
     &__grid-card--zelenina {
-        @media screen and (max-width: 48rem) {
+        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
             order: 2;
         }
     }
 
     &__grid-card--vanoce {
-        @media screen and (max-width: 48rem) {
+        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
             order: 3;
         }
     }
 
     &__grid-card--ptaci {
-        @media screen and (max-width: 48rem) {
+        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
             order: 4;
         }
     }
 
     &__grid-card--psi {
-        @media screen and (max-width: 48rem) {
+        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
             order: 5;
         }
     }
@@ -109,7 +119,8 @@
 
     &__btn {
         @include buttons.btn;
-        background-color: variables.$color-secondary;
+        background-color: variables.$color-primary;
+        color: white;
     }
 }
 
@@ -181,9 +192,9 @@
         grid-template-rows: auto;
         gap: 1.25rem;
 
-        // @media screen and (max-width: 48rem) {
-        //     grid-template-columns: 1fr;
-        // }
+        @media screen and (max-width: 48rem) {
+            grid-template-columns: 1fr;
+        }
     }
 
     &__box {
@@ -209,21 +220,6 @@
 }
 
 // faq
-.paper-questions {
-     grid-area: faq;
-
-    //  &__container {
-    //     display: grid;
-    //     grid-template-columns: 2fr 1fr;
-    //     gap: 1.25rem;
-    //     padding: 2rem 1.25rem 0 1.25rem;
-
-    //     @media screen and (max-width: 43.75rem) {
-    //         grid-template-columns: 1fr;
-    //         grid-template-rows: auto;
-    //     }
-    //  }
-}
 .paper-faq {
     &__container {
         padding-bottom: 2rem;
@@ -316,5 +312,12 @@
 
     &__question.active &__toggle {
         background-color: variables.$color-secondary;
+    }
+
+    &__image {
+        @media screen and (max-width: 22.5rem) {
+            width: 20%;
+            height: auto;
+        }
     }
 }
