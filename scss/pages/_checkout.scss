@@ -131,16 +131,67 @@
         font-size: 1.1rem;
     }
 
+    &__link {
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
+        color: variables.$color-primary
+    }
+
     &__submit-btn {
         @include buttons.btn;
         background-color: variables.$color-primary;
         color: white;
         width: 100%;
         margin-top: 1.5rem;
+        font-size: 1rem;
+        padding: 1.25rem;
+    }
+
+    &__submit-btn:hover {
+        @include buttons.btn_hover;
+        background-color: variables.$color-hover;
+        color: white;
+        width: 100%;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        padding: 1.25rem;
+    }
+
+    &__submit-btn:focus,
+    &__submit-btn:active {
+        @include buttons.btn_focus_visible;
+        background-color: variables.$color-active;
+        color: white;
+        width: 100%;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        padding: 1.25rem;
     }
 }
 
 // shipping
+.payment-card,
+.shipping-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid variables.$color-bg;
+    border-radius: .3125rem;
+    font-family: inherit;
+    margin-bottom: 0.5rem;
+    background-color: variables.$color-bg-light;
+}
+
+.payment-card__left,
+.shipping-card__left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
 .shipping-card__name,
 .payment-card__name {
     font-weight: 600;
@@ -149,31 +200,23 @@
     font-size: 1rem;
 }
 
-.payment-card,
-.shipping-card {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid variables.$color-bg;
-    border-radius: .3125rem;
-    font-family: inherit;
-    margin-bottom: 0.5rem;
-    background-color: variables.$color-bg-light;
-    margin-bottom: 0.5rem;
-}
-
 .shipping-card__price,
 .payment-card__price {
     font-size: 1rem;
     font-weight: 600;
     font-style: normal;
     font-family: variables.$font-sans;
-    float: right;
 }
 
 .payment-card__icon,
 .shipping-card__icon {
-    vertical-align: text-bottom;
+    vertical-align: middle;
     padding-right: 0.2rem;
+}
+
+.payment-card__icons {
+    display: flex;
+    align-items: center;
 }
 
 .checkout-item,
@@ -210,7 +253,6 @@ input[type="checkbox"] {
     @include buttons.btn;
     background-color: variables.$color-secondary;
 }
-
 
 // thanks
 .thanks {

@@ -1,3 +1,21 @@
+// Mazání chyb v reálném čase
+document.querySelectorAll('.withdrawal-form__input, .withdrawal-form__textarea').forEach(input => {
+    input.addEventListener('input', () => {
+        const err = document.getElementById(`${input.id}-error`);
+        if (err) err.textContent = '';
+    });
+});
+
+const gdprCheckbox = document.getElementById('checkbox');
+if (gdprCheckbox) {
+    gdprCheckbox.addEventListener('change', () => {
+        const err = document.getElementById('checkbox-error');
+        if (err) err.textContent = '';
+    });
+}
+
+
+
 const withdrawalForm = document.querySelector('.withdrawal-form__fieldset')?.closest('form');
 
 if (withdrawalForm) {

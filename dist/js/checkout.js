@@ -41,21 +41,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[id$="-error"]').forEach(div => div.style.display = 'none');
     };
 
-    // Mazání chyb při psaní v reálném čase
-    const emailInput = document.getElementById('email');
-    const phoneInput = document.getElementById('phone');
-
-    if (emailInput) {
-        emailInput.addEventListener('input', () => {
-            emailInput.style.borderColor = '';
-            const err = document.getElementById('email-error');
+    // Mazání chyb při psaní v reálném čase — všechna pole najednou
+    document.querySelectorAll('.checkout__input').forEach(input => {
+        input.addEventListener('input', () => {
+            input.style.borderColor = '';
+            const err = document.getElementById(`${input.id}-error`);
             if (err) err.style.display = 'none';
         });
-    }
-    if (phoneInput) {
-        phoneInput.addEventListener('input', () => {
-            phoneInput.style.borderColor = '';
-            const err = document.getElementById('phone-error');
+    });
+
+    // Mazání chyby u checkboxu souhlasu
+    const consentCheckbox = document.getElementById('checkbox');
+    if (consentCheckbox) {
+        consentCheckbox.addEventListener('change', () => {
+            const err = document.getElementById('checkbox-error');
             if (err) err.style.display = 'none';
         });
     }
@@ -105,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleLogicChange = () => {
         if (zasilkovnaSelector) zasilkovnaSelector.style.display = (pickupRadio && pickupRadio.checked) ? 'block' : 'none';
         if (personalRadio && personalRadio.checked) {
-            cashOption.style.display = 'block';
+            cashOption.style.display = 'flex';
         } else {
             if (cashOption) cashOption.style.display = 'none';
             const checkedPayment = document.querySelector('input[name="payment_method"]:checked');
