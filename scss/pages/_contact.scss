@@ -53,7 +53,7 @@
         @include buttons.btn;
         background-color: variables.$color-primary;
         color: white;
-        margin: 2rem 0;
+        margin: 2rem 0 0 0;
     }
 }
 
@@ -166,23 +166,42 @@
         animation: fadeInUp 0.8s ease-out forwards;
         animation-delay: 0.6s;
         opacity: 0;
-        font-size: 1rem;
+        background-color: variables.$color-primary;
+        color: white;
+
+        @media screen and (max-width: 43.75rem) {
+            margin-bottom: 1rem;
+        }
     }
 
-    &__button-cta:hover {
+    &__button:hover {
         @include buttons.btn_hover;
         margin-bottom: 3rem;
+        background-color: variables.$color-hover;
+        color: white;
+
+        @media screen and (max-width: 43.75rem) {
+            margin-bottom: 1rem;
+        }
     }
 
-    &__button-cta:focus-visible {
+    &__button:focus-visible {
         @include buttons.btn_focus_visible;
         margin-bottom: 3rem;
+
+        @media screen and (max-width: 43.75rem) {
+            margin-bottom: 1rem;
+        }
     }
 
-    &__button-cta:active,
-    &__button-cta:focus {
+    &__button:active,
+    &__button:focus {
         @include buttons.btn_active;
         margin-bottom: 3rem;
+
+        @media screen and (max-width: 43.75rem) {
+            margin-bottom: 1rem;
+        }
     }
 
     // errors
@@ -200,10 +219,10 @@
     }
 
     &__error {
-        color: variables.$color-secondary;
+        color: variables.$color-text;
         font-size: 0.85rem;
         margin: 0 0 0.8rem 0;
-        font-weight: 500;
+        font-weight: 400;
     }
 }
 
@@ -218,6 +237,10 @@
     &__subheading {
         margin-top: 2rem;
         font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+
+        @media screen and (max-width: 43.75rem) {
+            margin-top: 0;
+        }
     }
 
     &__address, 
@@ -225,7 +248,7 @@
         font-style: normal;
         margin: 0;
         font-family: variables.$font-sans;
-        font-weight: 200;
+        font-weight: 400;
         font-size: 1rem;
     }
 
@@ -233,7 +256,7 @@
         color: variables.$color-text;
         text-decoration: none;
         font-family: variables.$font-sans;
-        font-weight: 200;
+        font-weight: 400;
         font-style: normal;
         font-size: 1rem;
     }
@@ -290,23 +313,10 @@
 }
 
 // faq
-.questions {
+.faq {
      grid-area: faq;
 
      &__container {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 3rem;
-        padding: 2rem 1.25rem 0 1.25rem;
-
-        @media screen and (max-width: 43.75rem) {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto;
-        }
-     }
-}
-.faq {
-    &__container {
         padding-bottom: 2rem;
     }    
 
@@ -400,7 +410,9 @@
         width: 100%;
         height: auto;
     }
+
 }
+
 
 // zasady
 .gdpr-hero {

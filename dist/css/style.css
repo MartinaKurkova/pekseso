@@ -1826,7 +1826,7 @@ ul {
 .contact-hero__button {
   background-color: #540D6E;
   color: white;
-  margin: 2rem 0;
+  margin: 2rem 0 0 0;
 }
 
 .contact {
@@ -1950,9 +1950,15 @@ ul {
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.6s;
   opacity: 0;
-  font-size: 1rem;
+  background-color: #540D6E;
+  color: white;
 }
-.contact-form__button-cta:hover {
+@media screen and (max-width: 43.75rem) {
+  .contact-form__button {
+    margin-bottom: 1rem;
+  }
+}
+.contact-form__button:hover {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3125rem;
@@ -1966,37 +1972,49 @@ ul {
   font-size: 1rem;
 }
 @media screen and (max-width: 48rem) {
-  .contact-form__button-cta:hover {
+  .contact-form__button:hover {
     font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 36rem) {
-  .contact-form__button-cta:hover {
+  .contact-form__button:hover {
     font-size: 0.8rem;
   }
 }
-.contact-form__button-cta:hover {
+.contact-form__button:hover {
   margin-bottom: 3rem;
+  background-color: #2c033b;
+  color: white;
 }
-.contact-form__button-cta:focus-visible {
+@media screen and (max-width: 43.75rem) {
+  .contact-form__button:hover {
+    margin-bottom: 1rem;
+  }
+}
+.contact-form__button:focus-visible {
   outline: 3px solid #a834d2;
   outline-offset: 3px;
   font-size: 1rem;
 }
 @media screen and (max-width: 48rem) {
-  .contact-form__button-cta:focus-visible {
+  .contact-form__button:focus-visible {
     font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 36rem) {
-  .contact-form__button-cta:focus-visible {
+  .contact-form__button:focus-visible {
     font-size: 0.8rem;
   }
 }
-.contact-form__button-cta:focus-visible {
+.contact-form__button:focus-visible {
   margin-bottom: 3rem;
 }
-.contact-form__button-cta:active, .contact-form__button-cta:focus {
+@media screen and (max-width: 43.75rem) {
+  .contact-form__button:focus-visible {
+    margin-bottom: 1rem;
+  }
+}
+.contact-form__button:active, .contact-form__button:focus {
   display: inline-block;
   padding: 0.75rem 1.25rem;
   border-radius: 0.3125rem;
@@ -2006,17 +2024,22 @@ ul {
   font-size: 1rem;
 }
 @media screen and (max-width: 48rem) {
-  .contact-form__button-cta:active, .contact-form__button-cta:focus {
+  .contact-form__button:active, .contact-form__button:focus {
     font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 36rem) {
-  .contact-form__button-cta:active, .contact-form__button-cta:focus {
+  .contact-form__button:active, .contact-form__button:focus {
     font-size: 0.8rem;
   }
 }
-.contact-form__button-cta:active, .contact-form__button-cta:focus {
+.contact-form__button:active, .contact-form__button:focus {
   margin-bottom: 3rem;
+}
+@media screen and (max-width: 43.75rem) {
+  .contact-form__button:active, .contact-form__button:focus {
+    margin-bottom: 1rem;
+  }
 }
 .contact-form__input.is-invalid, .contact-form__textarea.is-invalid, .contact-form__checkbox.is-invalid {
   border: 2px solid #FFD23F !important;
@@ -2027,10 +2050,10 @@ ul {
   box-shadow: 0 0 5px rgba(217, 48, 37, 0.3);
 }
 .contact-form__error {
-  color: #FFD23F;
+  color: #0D0D0D;
   font-size: 0.85rem;
   margin: 0 0 0.8rem 0;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 #checkbox-error {
@@ -2042,18 +2065,23 @@ ul {
   margin-top: 2rem;
   font-size: clamp(1.35rem, 1.35rem + 1.5vw, 2.2rem);
 }
+@media screen and (max-width: 43.75rem) {
+  .contact__subheading {
+    margin-top: 0;
+  }
+}
 .contact__address, .contact__address-name {
   font-style: normal;
   margin: 0;
   font-family: "Work Sans", sans-serif;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 1rem;
 }
 .contact__address-link {
   color: #0D0D0D;
   text-decoration: none;
   font-family: "Work Sans", sans-serif;
-  font-weight: 200;
+  font-weight: 400;
   font-style: normal;
   font-size: 1rem;
 }
@@ -2099,22 +2127,9 @@ ul {
   outline-offset: 2px;
 }
 
-.questions {
+.faq {
   grid-area: faq;
 }
-.questions__container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  padding: 2rem 1.25rem 0 1.25rem;
-}
-@media screen and (max-width: 43.75rem) {
-  .questions__container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-}
-
 .faq__container {
   padding-bottom: 2rem;
 }
