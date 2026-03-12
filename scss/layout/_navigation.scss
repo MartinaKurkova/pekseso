@@ -3,7 +3,7 @@
 @use "../base/base";
 @use "../base/fonts";
 
-// --- SPOLEČNÉ STYLY (Desktop i mobil) ---
+// společné styly
 .header {
     &__navigation {
         margin-left: auto;  
@@ -46,8 +46,8 @@
     }
 }
 
-// --- DESKTOP SUBMENU ---
-@media screen and (min-width: 48.0625rem) {
+// desktop
+@media screen and (min-width: 53.8125rem) {
     .header__nav-list-second {
         display: none;
         position: absolute;
@@ -83,12 +83,12 @@
     }
 }
 
-// --- MOBIL ---
-@media screen and (max-width: 48rem) {
+// mobil
+@media screen and (max-width: 53.75rem) {
     .header {
         &__menu-toggle {
             display: flex;
-            margin-left: auto;  // ← hamburger se přisune doprava
+            margin-left: auto; 
             background: none;
             border: none;
             cursor: pointer;
@@ -132,7 +132,7 @@
         &__menu-text {
             color: white;
             font-family: variables.$font-sans;
-            font-weight: 200;
+            font-weight: 400;
             text-transform: uppercase;
             font-style: normal;
 
@@ -157,6 +157,33 @@
             }
             .header__menu-text { 
                 color: variables.$color-primary; 
+            }
+        }
+
+        &__basket {
+            position: relative;
+            z-index: 1000;
+            transition: background-color 0s 0.15s;
+
+            &-icon--dark {
+                display: none;
+            }
+
+            &.is-active {
+                background-color: white;
+                transition-delay: 0s;
+
+                .header__basket-icon--light { 
+                    display: none; 
+                }
+
+                .header__basket-icon--dark { 
+                    display: block; 
+                }
+
+                .header__basket-amount { 
+                    color: variables.$color-primary; 
+                }
             }
         }
 

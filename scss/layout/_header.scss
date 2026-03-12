@@ -114,23 +114,23 @@
 // aside cart panel
 .cart {
     &__panel {
-    position: fixed;
-    top: 0;
-    right: -25rem; 
-    width: 25rem;
-    height: 100%;
-    background: white;
-    z-index: 1000;
-    transition: right 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: variables.$shadow;
-    padding: 3rem 2rem;
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 25rem;
+        height: 100%;
+        background: white;
+        z-index: 1000;
+        transition: right 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: variables.$shadow;
+        padding: 3rem 2rem;
 
-        @media screen and (max-width: 40rem) {
-            width: 80%
-        }
+            @media screen and (max-width: 40rem) {
+                width: 80%
+            }
     }
 
     &__panel.is-open {

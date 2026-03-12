@@ -179,13 +179,7 @@
         }
     }
 
-    &__image {
-        width: 100%;
-        height: auto;
-        display: block;
-        background-color: white;
-        box-shadow: variables.$shadow;
-
+    &__link {
         @media screen and (max-width: 48rem) {
             grid-column: span 2;
         }
@@ -193,6 +187,14 @@
         @media screen and (max-width: 36rem) {
             grid-column: span 2;
         }
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        display: block;
+        background-color: white;
+        box-shadow: variables.$shadow;
     }
 }
 

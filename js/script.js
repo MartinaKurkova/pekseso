@@ -1,5 +1,6 @@
 const hamburgerBtn = document.querySelector(".header__menu-toggle");
 const navigation = document.querySelector(".header__navigation");
+const basket = document.querySelector(".header__basket");
 const body = document.body;
 
 function toggleMenu() {
@@ -15,6 +16,7 @@ function toggleMenu() {
 function openMenu() {
     hamburgerBtn.classList.add("is-active");
     navigation.classList.add("is-open");
+    basket.classList.add("is-active");
     hamburgerBtn.setAttribute("aria-expanded", "true");
     hamburgerBtn.setAttribute("aria-label", "Zavřít navigaci");
     body.classList.add("no-scroll");
@@ -23,11 +25,11 @@ function openMenu() {
 function closeMenu() {
     hamburgerBtn.classList.remove("is-active");
     navigation.classList.remove("is-open");
+    basket.classList.remove("is-active");
     hamburgerBtn.setAttribute("aria-expanded", "false");
     hamburgerBtn.setAttribute("aria-label", "Otevřít navigaci");
     body.classList.remove("no-scroll");
     
-    // Zavřít všechna submenu při zavření hlavního menu
     const openSubmenus = document.querySelectorAll(".header__nav-item--open");
     openSubmenus.forEach(item => item.classList.remove("header__nav-item--open"));
 }
