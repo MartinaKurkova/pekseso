@@ -1650,11 +1650,11 @@ ul {
 }
 .transport__boxes {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1.25rem;
 }
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 40rem) {
   .transport__boxes {
     grid-template-columns: 1fr;
   }
@@ -3041,6 +3041,7 @@ ul {
 }
 .product__subheading {
   font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
+  font-weight: 300;
   margin: 1rem 0 0 0;
 }
 .product__try {

@@ -15,7 +15,7 @@
         fill: none;
         stroke: #fff;
         stroke-linejoin: round;
-        stroke-width: 8px;
+        stroke-width: 5px;
       }
     </style>
   </defs>
