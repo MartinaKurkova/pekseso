@@ -13,30 +13,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(1.8rem, calc(1.8rem + 2.6vw), 4rem);
+  font-size: clamp(2.16rem, calc(2.16rem + 2.6vw), 4rem);
   margin-top: 0;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: clamp(1.5rem, calc(1.5rem + 2vw), 2.9rem);
+  font-size: clamp(1.8rem, calc(1.8rem + 2vw), 2.9rem);
   margin-top: 0;
 }
 
 h3 {
-  font-size: clamp(1.35rem, calc(1.35rem + 1.5vw), 2.2rem);
+  font-size: clamp(1.62rem, calc(1.62rem + 1.5vw), 2.2rem);
 }
 
 h4 {
-  font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
+  font-size: clamp(1.44rem, calc(1.44rem + 1.1vw), 1.9rem);
 }
 
 h5 {
-  font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
+  font-size: clamp(1.32rem, calc(1.32rem + 0.8vw), 1.5rem);
 }
 
 h6 {
-  font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
+  font-size: clamp(1.2rem, calc(1.2rem + 0.5vw), 1.3rem);
 }
 
 span {

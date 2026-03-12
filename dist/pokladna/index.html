@@ -229,9 +229,12 @@
             <label class="shipping-card">
               <input type="radio" class="checkout__radio" name="shipping_rate" value="shr_1T6BpcJdC0N7uBdkHIPwzJUj" id="delivery-pickup">
               <span class="shipping-card__info">
-                <span class="shipping-card__name">Zásilkovna: Na výdejní místo – </span>
+                <span class="shipping-card__name">Zásilkovna: Na výdejní místo </span>
+                <img src="/images/icons/zasilkovna_Ikona_kruh.svg" 
+                  alt="Zásilkovna" 
+                  class="shipping-card__icon" 
+                  height="25">
                 <span class="shipping-card__price">75 Kč</span>
-                <img src="/images/icons/zasilkovna_Ikona.svg" alt="Zásilkovna" class="shipping-card__icon" height="30">
                 <div id="zasilkovna-selector" style="display: none; margin-top: 10px;">
                   <button type="button" id="zasilkovna-btn" class="btn btn--small">Vybrat pobočku</button>
                   <p id="selected-branch" style="margin-top: 5px; font-weight: bold; color: #e63946;"></p>
@@ -244,16 +247,19 @@
             <label class="shipping-card">
               <input type="radio" name="shipping_rate" value="shr_1T6BqAJdC0N7uBdkVBnfRr7E" id="delivery-home" checked>
               <span class="shipping-card__info">
-                <span class="shipping-card__name">Zásilkovna: K vám domů – </span>
-                <span class="shipping-card__price">99 Kč</span>
-                <img src="/images/icons/zasilkovna_Ikona.svg" alt="Zásilkovna" class="shipping-card__icon" height="30">
+                <span class="shipping-card__name">Zásilkovna: K vám domů </span>
+                <img src="/images/icons/zasilkovna_Ikona_kruh.svg" 
+                  alt="Zásilkovna" 
+                  class="shipping-card__icon" 
+                  height="25">
+                  <span class="shipping-card__price">99 Kč</span>
               </span>
             </label>
 
             <label class="shipping-card">
               <input type="radio" name="shipping_rate" value="shr_1T6CKnJdC0N7uBdkFiXUdiFe" id="delivery-personaly">
               <span class="shipping-card__info">
-                <span class="shipping-card__name">Osobní odběr v Sadské – </span>
+                <span class="shipping-card__name">Osobní odběr v Sadské </span>
                 <span class="shipping-card__price">Zdarma</span>
                 <img src="/images/icons/home.svg" alt="" class="shipping-card__icon" aria-hidden="true" height="30">
               </span>
@@ -271,13 +277,25 @@
             <label class="payment-card">
               <input type="radio" name="payment_method" value="card" checked>
               <span class="payment-card__info">
-                <span class="payment-card__name">Platba kartou online – </span>
-                <span class="payment-card__price">Zdarma</span>
+                <span class="payment-card__name">Platba kartou online </span>
                 <span class="payment-card__icons">
-                  <img src="/images/icons/visa.svg" alt="Visa" class="payment-card__icon" height="30">
-                  <img src="/images/icons/mastercard.svg" alt="Mastercard" class="payment-card__icon" height="30">
-                  <img src="/images/icons/gpay.svg" alt="Google Pay" class="payment-card__icon" height="30">
-                  <img src="/images/icons/apple.svg" alt="Apple Pay" class="payment-card__icon" height="30">
+                  <img src="/images/icons/visa.svg" 
+                    alt="Visa" 
+                    class="payment-card__icon" 
+                    height="20">
+                  <img src="/images/icons/mastercard.svg" 
+                    alt="Mastercard" 
+                    class="payment-card__icon" 
+                    height="20">
+                  <img src="/images/icons/gpay.svg" 
+                    alt="Google Pay" 
+                    class="payment-card__icon" 
+                    height="20">
+                  <img src="/images/icons/apple.svg" 
+                    alt="Apple Pay" 
+                    class="payment-card__icon" 
+                    height="20">
+                  <span class="payment-card__price">Zdarma</span>
                 </span>
               </span>
             </label>
@@ -285,18 +303,25 @@
             <label class="payment-card">
               <input type="radio" name="payment_method" value="transfer">
               <span class="payment-card__info">
-                <span class="payment-card__name">Bankovní převod – </span>
+                <span class="payment-card__name">Bankovní převod </span>
+                <img src="/images/icons/bank.svg" 
+                  alt="" 
+                  class="payment-card__icon" 
+                  aria-hidden="true" 
+                  height="30">
                 <span class="payment-card__price">Zdarma</span>
-                <img src="/images/icons/bank-01.svg" alt="" class="payment-card__icon" aria-hidden="true" height="30">
               </span>
             </label>
 
             <label class="payment-card" id="payment-cash-option" style="display: none;">
               <input type="radio" name="payment_method" value="cash">
               <span class="payment-card__info">
-                <span class="payment-card__name">Hotově při převzetí – </span>
+                <span class="payment-card__name">Hotově při převzetí </span>
+                <img src="/images/icons/hotove_poz.svg" 
+                  alt="" class="payment-card__icon" 
+                  aria-hidden="true" 
+                  height="30">
                 <span class="payment-card__price">Zdarma</span>
-                <img src="/images/icons/hotove_poz.svg" alt="" class="payment-card__icon" aria-hidden="true" height="30">
               </span>
             </label>
 

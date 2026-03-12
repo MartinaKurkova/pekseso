@@ -7,14 +7,22 @@
     display: inline-block;
     padding: .75rem 1.25rem;
     border-radius: .3125rem;
-    font-weight: 400;
+    font-weight: 600;
     text-decoration: none;
     text-align: center;
     width: fit-content;
-    text-transform: uppercase;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    @media screen and (max-width: 48rem) {
+        font-size: .9rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+        font-size: .8rem;
+    }
 }
 
 @mixin btn_hover {
@@ -27,12 +35,30 @@
     transition: all ease-in 1s;
     box-shadow: variables.$shadow;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 800;
+    font-size: 1rem;
+
+    @media screen and (max-width: 48rem) {
+        font-size: .9rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+        font-size: .8rem;
+    }
 }
 
 @mixin btn_focus_visible {
     outline: 3px solid variables.$color-outline;
     outline-offset: 3px;
+    font-size: 1rem;
+
+    @media screen and (max-width: 48rem) {
+        font-size: .9rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+        font-size: .8rem;
+    }
 }
 
 @mixin btn_active {
@@ -42,4 +68,13 @@
     transform: translateY(3px);
     text-decoration: none;
     font-weight: 600;
+    font-size: 1rem;
+
+    @media screen and (max-width: 48rem) {
+        font-size: .9rem;
+    }
+
+    @media screen and (max-width: 36rem) {
+        font-size: .8rem;
+    }
 }

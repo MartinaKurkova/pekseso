@@ -62,7 +62,6 @@
         padding: 0.75rem;
         border: 1px solid variables.$color-bg;
         border-radius: .3125rem;
-        border: 1px solid white;
         font-family: inherit;
         margin-bottom: 0.5rem;
         background-color: variables.$color-bg-light;
@@ -150,15 +149,32 @@
     font-size: 1rem;
 }
 
-.shipping-card__price,
-.payment-card__price {
-    font-weight: 300;
-    font-style: normal;
-    font-family: variables.$font-sans;
-    font-size: 1rem;
+.payment-card,
+.shipping-card {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid variables.$color-bg;
+    border-radius: .3125rem;
+    font-family: inherit;
+    margin-bottom: 0.5rem;
+    background-color: variables.$color-bg-light;
+    margin-bottom: 0.5rem;
 }
 
+.shipping-card__price,
+.payment-card__price {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    font-family: variables.$font-sans;
+    float: right;
+}
 
+.payment-card__icon,
+.shipping-card__icon {
+    vertical-align: text-bottom;
+    padding-right: 0.2rem;
+}
 
 .checkout-item,
 #checkout__summary-shipping-payment {
@@ -179,6 +195,20 @@
 .checkout__error-msg {
   display: none;
   &:not(:empty) { display: block; }
+}
+
+// radio button, checkbox
+input[type="radio"] {
+  accent-color: variables.$color-primary; 
+}
+
+input[type="checkbox"] {
+  accent-color: variables.$color-primary; 
+}
+
+.btn--small {
+    @include buttons.btn;
+    background-color: variables.$color-secondary;
 }
 
 
