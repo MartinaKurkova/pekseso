@@ -282,6 +282,11 @@ ul {
   transition: color 0.3s ease;
   z-index: 1001;
 }
+.cart__content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
 .cart__item {
   display: flex;
   flex-direction: row;

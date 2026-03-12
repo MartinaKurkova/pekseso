@@ -175,6 +175,12 @@
         z-index: 1001;
     }
 
+    &__content {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 0.5rem; // aby scrollbar nepřekrýval obsah
+    }
+
     &__item {
         display: flex;
         flex-direction: row;
