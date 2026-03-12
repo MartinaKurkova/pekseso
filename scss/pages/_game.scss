@@ -154,7 +154,7 @@
         &:hover {
             @include buttons.btn_hover;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: variables.$shadow;
         }
         
         &:active {
@@ -173,7 +173,7 @@
             background-color: variables.$color-primary;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: variables.$shadow;
         }
         
         &:active {
@@ -227,6 +227,7 @@
     &__modal-text {
         font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
         margin: 0 0 2rem 0;
+        font-weight: 300;
     }
 
     &__modal-stats {
@@ -245,13 +246,18 @@
     }
 
     &__modal-stat-label {
-        font-size: 0.9rem;
+        font-size: 1rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        font-family: variables.$font-sans;
+        font-style: normal;
     }
 
     &__modal-stat-value {
         font-size: 2rem;
+        font-family: variables.$font-sans;
+        font-style: normal;
+        font-weight: 300;
     }
 
     &__modal-buttons {
@@ -269,18 +275,49 @@
             background-color: variables.$color-primary;
             color: white;
             border: none;
+
+            &:hover {
+                @include buttons.btn_hover;
+                transform: translateY(-2px);
+                box-shadow: variables.$shadow;
+            }
+            
+            &:active {
+                transform: translateY(0);
+            }
         }
 
         &--primary2 {
             background-color: variables.$color-secondary;
             color: variables.$color-text;
             border: none;
+
+            &:hover {
+                @include buttons.btn_hover;
+                transform: translateY(-2px);
+                box-shadow: variables.$shadow;
+            }
+            
+            &:active {
+                transform: translateY(0);
+            }
         }
         
         &--secondary {
             background-color: white;
             color: variables.$color-text;
             border: 1px solid variables.$color-primary;
+
+            &:hover {
+                background-color: variables.$color-primary;
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: variables.$shadow;
+            }
+            
+            &:active {
+                transform: translateY(0);
+            }
         }
     }
 }
