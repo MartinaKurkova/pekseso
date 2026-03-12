@@ -503,6 +503,9 @@ ul {
 .header__menu-toggle {
   display: none;
 }
+.header__basket-icon--dark {
+  display: none;
+}
 
 @media screen and (min-width: 53.8125rem) {
   .header__nav-list-second {
@@ -1435,7 +1438,7 @@ ul {
   gap: 1.25rem;
   border-top: 2px solid #FFD23F;
 }
-@media screen and (max-width: 36rem) {
+@media screen and (max-width: 42rem) {
   .rules__container {
     grid-template-columns: 1fr;
   }

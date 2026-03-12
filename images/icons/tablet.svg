@@ -16,11 +16,11 @@
       }
     </style>
   </defs>
-  <rect class="st0" x="81.15" y="69.25" width="59.09" height="59.09"/>
-  <rect class="st0" x="146.76" y="69.25" width="59.09" height="59.09"/>
-  <rect class="st0" x="81.15" y="134.39" width="59.09" height="59.09"/>
-  <rect class="st0" x="146.76" y="134.39" width="59.09" height="59.09"/>
-  <rect class="st1" x="50" y="24.07" width="187" height="235.32" rx="14.22" ry="14.22"/>
-  <rect class="st1" x="65.86" y="39.72" width="155.27" height="183.28"/>
-  <circle class="st1" cx="143.5" cy="241" r="11.25"/>
+  <rect class="st0" x="70.85" y="57.22" width="68.3" height="68.3"/>
+  <rect class="st0" x="146.69" y="57.22" width="68.3" height="68.3"/>
+  <rect class="st0" x="70.85" y="132.52" width="68.3" height="68.3"/>
+  <rect class="st0" x="146.69" y="132.52" width="68.3" height="68.3"/>
+  <rect class="st1" x="34.85" y="5" width="216.15" height="272.01" rx="14.22" ry="14.22"/>
+  <rect class="st1" x="53.18" y="23.09" width="179.48" height="211.85"/>
+  <circle class="st1" cx="142.92" cy="255.75" r="13"/>
 </svg>
