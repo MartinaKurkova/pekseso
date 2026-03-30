@@ -98,8 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (balikovnaSelector) {
             if (balikovnaRadio && balikovnaRadio.checked) {
                 balikovnaSelector.style.display = 'block';
-                if (!balikovnaIframe.src) {
+                
+                // OPRAVA: Kontrolujeme, zda src obsahuje doménu pošty
+                // Pokud ne, nebo je tam jen prázdný řetězec/aktuální URL, vložíme mapu
+                if (!balikovnaIframe.src.includes("cpost.cz")) {
                     balikovnaIframe.src = "https://b2c.cpost.cz/locations/?type=BALIKOVNY";
+                    console.log("Mapa Balíkovny se právě načítá do iframe...");
                 }
             } else {
                 balikovnaSelector.style.display = 'none';
