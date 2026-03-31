@@ -167,39 +167,42 @@
   const amount    = urlParams.get('amount');
   const method    = urlParams.get('method');
   const order     = urlParams.get('order');
-  const sessionId = urlParams.get('session_id'); // Načtení session ze Stripe
+  const sessionId = urlParams.get('session_id');
 
-  // Pomocná funkce pro vymazání košíku
+  // Klíč košíku musí být stejný jako v checkout.js
+  const CART_KEY = 'pekseso_cart';
+
   function clearCart() {
-    localStorage.removeItem('cart'); // Smaže data
-    // Pokud existuje funkce pro update ikonky košíku v cart.js, zavoláme ji
+    localStorage.removeItem(CART_KEY);
+    localStorage.removeItem('cart'); // Pro jistotu
+    
+    // Aktualizace ikonky košíku, pokud je funkce dostupná
     if (typeof updateCartCount === 'function') {
       updateCartCount();
     }
+    console.log('Košík byl vymazán.');
   }
 
-  // 1. Košík - Karta (Stripe)
+  // Okamžité vymazání, pokud přicházíme z úspěšné objednávky
+  if (sessionId || method) {
+    clearCart();
+  }
+
+  // Zobrazení správného bloku
   if (sessionId) {
     document.getElementById('thanks-stripe').style.display = 'block';
-    clearCart();
   } 
-  // 2. Košík - Převod
   else if (method === 'transfer' && vs && amount) {
     document.getElementById('thanks-transfer').style.display = 'block';
     document.getElementById('pay-vs').innerText = vs;
     document.getElementById('pay-amount').innerText = amount;
-    clearCart();
   } 
-  // 3. Košík - Hotovost
   else if (method === 'cash') {
     document.getElementById('thanks-cash').style.display = 'block';
-    clearCart();
   }
-  // 4. Kontaktní formulář
   else if (form === 'contact') {
     document.getElementById('thanks-contact').style.display = 'block';
   }
-  // 5. Withdrawal formulář
   else if (form === 'withdrawal') {
     document.getElementById('thanks-withdrawal').style.display = 'block';
     if (order) {
