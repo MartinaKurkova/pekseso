@@ -229,16 +229,29 @@
             <!-- zasilkovna pobočka -->
             <label class="shipping-card">
               <input type="radio" class="checkout__radio" name="shipping_rate" value="shr_1T6BpcJdC0N7uBdkHIPwzJUj" id="delivery-pickup">
-              <span class="shipping-card__left">
-                <img src="/images/icons/zasilkovna_Ikona_kruh.svg" alt="Zásilkovna" class="shipping-card__icon" height="25">
-                <span class="shipping-card__name">Zásilkovna: Výdejní místo</span>
-              </span>
-              <span class="shipping-card__price">75 Kč</span>
-              <div id="zasilkovna-selector" style="display: none; margin-top: 10px;">
-                <button type="button" id="zasilkovna-btn" class="btn btn--small">Vybrat pobočku</button>
-                <p id="selected-branch" style="margin-top: 5px; font-weight: bold; color: #e63946;"></p>
-                <input type="hidden" id="zasilkovna-id" name="zasilkovna_id">
-                <input type="hidden" id="zasilkovna-name" name="zasilkovna_name">
+              
+              <div class="shipping-card__content">
+                <div class="shipping-card__main-row">
+                  <span class="shipping-card__left">
+                    <img src="/images/icons/zasilkovna_Ikona_kruh.svg" alt="Zásilkovna" class="shipping-card__icon" height="25">
+                    <span class="shipping-card__name">Zásilkovna: Výdejní místo</span>
+                  </span>
+                  <span class="shipping-card__price">75 Kč</span>
+                </div>
+
+                <div id="zasilkovna-selector" class="shipping-selector">
+                  <button type="button" id="zasilkovna-btn" class="btn btn--small">
+                    Vybrat pobočku
+                  </button>
+                  
+                  <div id="zasilkovna-info-box" class="selected-point-box" style="display: none;">
+                    <span class="selected-point-label">Vybrané místo:</span>
+                    <span id="selected-branch" class="selected-point-name"></span>
+                  </div>
+
+                  <input type="hidden" id="zasilkovna-id" name="zasilkovna_id">
+                  <input type="hidden" id="zasilkovna-name" name="zasilkovna_name">
+                </div>
               </div>
             </label>
             <!-- zasilkovna domu -->
@@ -253,22 +266,39 @@
             <!-- balikovna -->
             <label class="shipping-card">
               <input type="radio" class="checkout__radio" name="shipping_rate" value="shr_1TGh3LJdC0N7uBdkLyfGt4eu" id="delivery-balikovna">
-              <span class="shipping-card__left">
-                <img src="/images/icons/Balikovna_E-shopy_RGB.svg" alt="Balíkovna" class="shipping-card__icon" height="25">
-                <span class="shipping-card__name">Balíkovna: Výdejní místo / BOX</span>
-              </span>
-              <span class="shipping-card__price">75 Kč</span>
               
-              <div id="balikovna-selector" style="display: none; margin-top: 15px;">
-                <div id="balikovna-wrapper" style="width: 100%; height: 500px; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-                  <iframe id="balikovna-iframe" src="" allow="geolocation" style="width: 100%; height: 100%; border: none;"></iframe>
+              <div class="shipping-card__content">
+                <div class="shipping-card__main-row">
+                  <span class="shipping-card__left">
+                    <img src="/images/icons/Balikovna_E-shopy_RGB.svg" alt="Balíkovna" class="shipping-card__icon" height="25">
+                    <span class="shipping-card__name">Balíkovna: Výdejní místo</span>
+                  </span>
+                  <span class="shipping-card__price">75 Kč</span>
                 </div>
-                
-                <p id="selected-balikovna-info" style="margin-top: 10px; font-weight: bold; color: #e63946;"></p>
-                
-                <input type="hidden" id="balikovna-id" name="balikovna_id">
-                <input type="hidden" id="balikovna-name" name="balikovna_name">
+
+                <div id="balikovna-selector" class="shipping-selector">
+                    <button type="button" id="balikovna-open-btn" class="btn btn--small">
+                        Vybrat pobočku
+                    </button>
+                    
+                    <div id="balikovna-info-box" class="selected-point-box" style="display: none;">
+                        <span class="selected-point-label">Vybrané místo:</span>
+                        <span id="selected-balikovna-info" class="selected-point-name"></span>
+                    </div>
+
+                    <input type="hidden" id="balikovna-id" name="balikovna_id">
+                    <input type="hidden" id="balikovna-name" name="balikovna_name">
+                </div>
               </div>
+            </label>
+            <!-- balikovna domu -->
+             <label class="shipping-card">
+              <input type="radio" class="checkout__radio" name="shipping_rate" value="shr_ID_BALIKOVNA_ADRESA" id="delivery-address-balikovna">
+              <span class="shipping-card__left">
+                <img src="/images/icons/Balikovna_E-shopy_RGB.svg" alt="Balíkovna na adresu" class="shipping-card__icon" height="25">
+                <span class="shipping-card__name">Balíkovna: Na adresu</span>
+              </span>
+              <span class="shipping-card__price">109 Kč</span>
             </label>
 
             <label class="shipping-card">
@@ -376,6 +406,14 @@
     </section>
 
   </div>
+</div>
+
+<!-- modal balíkovna -->
+ <div id="balikovna-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); align-items:center; justify-content:center;">
+    <div style="background-color:#fff; width:90%; max-width:800px; height:80vh; border-radius:8px; position:relative; display:flex; flex-direction:column;">
+        <button type="button" id="close-balikovna" style="position:absolute; right:10px; top:10px; z-index:1000; cursor:pointer; background:#fff; border:1px solid #ccc; border-radius:50%; width:30px; height:30px;">&times;</button>
+        <iframe id="balikovna-iframe" src="" allow="geolocation" style="width:100%; height:100%; border:none; border-radius:8px;"></iframe>
+    </div>
 </div>
 
 <script src="https://widget.packeta.com/v6/www/js/library.js"></script>

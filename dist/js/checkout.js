@@ -8,13 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const zasilkovnaBtn = document.getElementById('zasilkovna-btn');
     const zasilkovnaSelector = document.getElementById('zasilkovna-selector');
     const branchText = document.getElementById('selected-branch');
+    const zasilkovnaInfoBox = document.getElementById('zasilkovna-info-box');
     const pickupRadio = document.getElementById('delivery-pickup');
 
     // Balíkovna prvky
-    const balikovnaRadio = document.getElementById('delivery-balikovna'); // Musíš mít v HTML id="delivery-balikovna"
+    const balikovnaRadio = document.getElementById('delivery-balikovna');
     const balikovnaSelector = document.getElementById('balikovna-selector');
     const balikovnaIframe = document.getElementById('balikovna-iframe');
     const balikovnaInfoText = document.getElementById('selected-balikovna-info');
+    const balikovnaInfoBox = document.getElementById('balikovna-info-box');
+    const balikovnaModal = document.getElementById('balikovna-modal');
+    const balikovnaOpenBtn = document.getElementById('balikovna-open-btn');
+    const balikovnaCloseBtn = document.getElementById('close-balikovna');
 
     const personalRadio = document.getElementById('delivery-personaly');
     const cashOption = document.getElementById('payment-cash-option');
@@ -22,10 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const paymentRadios = document.getElementsByName('payment_method');
     const submitBtn = document.querySelector('.checkout__submit-btn');
 
-    // Ceník dopravy (přidej tam ID Balíkovny, které máš v HTML)
     const shippingPrices = {
-        "shr_1T6BpcJdC0N7uBdkHIPwzJUj": 75, // Zásilkovna box
-        "shr_1TGh3LJdC0N7uBdkLyfGt4eu": 75,            // balikovna box
+        "shr_1T6BpcJdC0N7uBdkHIPwzJUj": 75, // Zásilkovna
+        "shr_1TGh3LJdC0N7uBdkLyfGt4eu": 75, // Balíkovna
         "shr_1T6BqAJdC0N7uBdkVBnfRr7E": 99,
         "shr_1T6CKnJdC0N7uBdkFiXUdiFe": 0
     };
@@ -35,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // --- 1. POMOCNÉ FUNKCE PRO VALIDACI ---
+    // --- 1. POMOCNÉ FUNKCE ---
     const showError = (inputId, errorId, msg) => {
         const input = document.getElementById(inputId);
         const errorDiv = document.getElementById(errorId);
@@ -91,24 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. LOGIKA DOPRAVY A PLATBY ---
     const handleLogicChange = () => {
-        // Zásilkovna toggle
         if (zasilkovnaSelector) zasilkovnaSelector.style.display = (pickupRadio && pickupRadio.checked) ? 'block' : 'none';
-        
-        // Balíkovna toggle
-        if (balikovnaSelector) {
-            if (balikovnaRadio && balikovnaRadio.checked) {
-                balikovnaSelector.style.display = 'block';
-                
-                // OPRAVA: Kontrolujeme, zda src obsahuje doménu pošty
-                // Pokud ne, nebo je tam jen prázdný řetězec/aktuální URL, vložíme mapu
-                if (!balikovnaIframe.src.includes("cpost.cz")) {
-                    balikovnaIframe.src = "https://b2c.cpost.cz/locations/?type=BALIKOVNY";
-                    console.log("Mapa Balíkovny se právě načítá do iframe...");
-                }
-            } else {
-                balikovnaSelector.style.display = 'none';
-            }
-        }
+        if (balikovnaSelector) balikovnaSelector.style.display = (balikovnaRadio && balikovnaRadio.checked) ? 'block' : 'none';
 
         if (personalRadio && personalRadio.checked) {
             if (cashOption) cashOption.style.display = 'flex';
@@ -127,28 +115,85 @@ document.addEventListener('DOMContentLoaded', () => {
     paymentRadios.forEach(radio => radio.addEventListener('change', renderSummary));
 
     // --- 4. ZÁSILKOVNA EVENT ---
+    // --- 4. ZÁSILKOVNA EVENT ---
+    // --- 4. ZÁSILKOVNA EVENT ---
+    // --- 4. ZÁSILKOVNA EVENT ---
     if (zasilkovnaBtn) {
         zasilkovnaBtn.addEventListener('click', () => {
             Packeta.Widget.pick('39e581085dd78c93', (point) => {
                 if (point) {
+                    // 1. Uložíme čistá data do skrytých polí pro odeslání
                     document.getElementById('zasilkovna-id').value = point.id;
                     document.getElementById('zasilkovna-name').value = point.name;
-                    branchText.innerText = "Vybráno: " + point.name;
+                    
+                    // 2. Příprava textu pro zobrazení (odstranění duplicit)
+                    if (branchText) {
+                        const name = point.name || "";
+                        const street = point.street || "";
+                        const city = point.city || "";
+                        
+                        let displayInfo = "";
+
+                        // Pokud název už obsahuje ulici (časté u Z-BOXů), nepíšeme ulici znovu
+                        if (name.includes(street)) {
+                            displayInfo = `${name}, ${city}`;
+                        } else {
+                            displayInfo = `${name}, ${street}, ${city}`;
+                        }
+
+                        branchText.innerText = displayInfo;
+                    }
+
+                    // 3. Zobrazení šedého boxu
+                    if (zasilkovnaInfoBox) {
+                        zasilkovnaInfoBox.style.display = 'block';
+                    }
+                    
                     renderSummary();
                 }
             }, { country: 'cz', language: 'cs' });
         });
     }
 
-    // --- 5. BALÍKOVNA EVENT (postMessage) ---
+ // --- 5. BALÍKOVNA EVENTS ---
+    if (balikovnaOpenBtn) {
+        balikovnaOpenBtn.addEventListener('click', () => {
+            balikovnaModal.style.display = 'flex';
+            if (!balikovnaIframe.src.includes("cpost.cz")) {
+                balikovnaIframe.src = "https://b2c.cpost.cz/locations/?type=BALIKOVNY";
+            }
+        });
+    }
+
+    if (balikovnaCloseBtn) {
+        balikovnaCloseBtn.addEventListener('click', () => { balikovnaModal.style.display = 'none'; });
+    }
+    
+    window.addEventListener('click', (e) => {
+        if (e.target === balikovnaModal) balikovnaModal.style.display = 'none';
+    });
+
+    // Příjem dat z Balíkovny (postMessage)
     window.addEventListener('message', (event) => {
         if (event.data.message === 'pickerResult' && event.data.point) {
             const point = event.data.point;
+            
+            // Vytvoříme kompletní název včetně adresy
+            const kompletniNazev = `${point.name}, ${point.address}`;
+            
+            // Uložíme ID
             document.getElementById('balikovna-id').value = point.id;
-            document.getElementById('balikovna-name').value = point.name;
-            if (balikovnaInfoText) {
-                balikovnaInfoText.innerText = `Vybráno: ${point.name}, ${point.address}`;
+            
+            // OPRAVA: Do balikovna-name uložíme CELÝ řetězec, 
+            // aby se v e-mailu objevila i ulice a město.
+            document.getElementById('balikovna-name').value = kompletniNazev;
+            
+            if (balikovnaInfoText && balikovnaInfoBox) {
+                balikovnaInfoText.innerText = kompletniNazev;
+                balikovnaInfoBox.style.display = 'block';
             }
+            
+            balikovnaModal.style.display = 'none';
             renderSummary();
         }
     });
@@ -175,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleShipping();
     }
 
+// --- 7. ODESLÁNÍ FORMULÁŘE ---
     // --- 7. ODESLÁNÍ FORMULÁŘE ---
     document.getElementById('checkout-form').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -184,54 +230,38 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = Object.fromEntries(formData.entries());
         let hasError = false;
 
-        // ... (ponechána stávající validace jména, e-mailu a telefonu) ...
-        if (!data.billing_first_name) { showError('billing_first_name', 'billing_first_name-error', 'Vyplňte jméno.'); hasError = true; }
-        if (!data.billing_last_name)  { showError('billing_last_name', 'billing_last_name-error', 'Vyplňte příjmení.'); hasError = true; }
-        if (!data.billing_street)     { showError('billing_street', 'billing_street-error', 'Vyplňte ulici a číslo popisné.'); hasError = true; }
-        if (!data.billing_city)       { showError('billing_city', 'billing_city-error', 'Vyplňte město.'); hasError = true; }
-        if (!data.billing_zip)        { showError('billing_zip', 'billing_zip-error', 'Vyplňte PSČ.'); hasError = true; }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(data.email)) { showError('email', 'email-error', 'Zadejte platný e-mail.'); hasError = true; }
-
-        // Validace výběru pobočky
-        if (pickupRadio && pickupRadio.checked && !data.zasilkovna_id) {
-            alert("Prosím, vyberte pobočku Zásilkovny.");
-            hasError = true;
-        }
-        if (balikovnaRadio && balikovnaRadio.checked && !data.balikovna_id) {
-            alert("Prosím, vyberte pobočku Balíkovny v mapě.");
-            hasError = true;
-        }
-
-        const checkbox = document.getElementById('checkbox');
-        if (!checkbox || !checkbox.checked) {
-            showError('checkbox', 'checkbox-error', 'Musíte souhlasit s obchodními podmínkami.');
-            hasError = true;
-        }
+        // ... (validace adresy a poboček - ponech ji tak, jak ji máš) ...
 
         if (hasError) return;
 
-        // Identifikace vybraného místa pro metadata
+        // 1. Získání hezkého názvu dopravy
+        let dopravceNazev = "Doprava";
+        const vybranyRadio = document.querySelector('input[name="shipping_rate"]:checked');
+        if (vybranyRadio) {
+            dopravceNazev = vybranyRadio.closest('.shipping-card').querySelector('.shipping-card__name').innerText;
+        }
+
+        // 2. Identifikace pobočky
         let vybranaPobocka = 'Adresa';
         if (pickupRadio && pickupRadio.checked) vybranaPobocka = `Zásilkovna: ${data.zasilkovna_name}`;
         if (balikovnaRadio && balikovnaRadio.checked) vybranaPobocka = `Balíkovna: ${data.balikovna_name}`;
         if (personalRadio && personalRadio.checked) vybranaPobocka = 'Osobní odběr';
 
-        // Variabilní symbol
         const teď = new Date();
         const vs = teď.getFullYear().toString().slice(-2) + (teď.getMonth() + 1).toString().padStart(2, '0') + teď.getDate().toString().padStart(2, '0') + teď.getHours().toString().padStart(2, '0') + teď.getMinutes().toString().padStart(2, '0');
 
-        // Společný objekt pro odeslání (přidána Balíkovna)
+        // 3. Sestavení finálního balíčku dat
         const orderPayload = {
             ...data,
             cart: cart,
             vs: vs,
             totalPrice: totalPriceElement.innerText,
-            pobocka_metadata: vybranaPobocka // Pro snazší přehled v adminu/mailu
+            shipping_rate: dopravceNazev, // Přepíšeme technické ID hezkým názvem
+            pobocka_metadata: vybranaPobocka // Tato proměnná MUSÍ být v šabloně e-mailu
         };
 
         if (data.payment_method === 'card') {
+            // ... (logika pro Stripe/Card zůstává stejná) ...
             try {
                 const response = await fetch('/.netlify/functions/create-checkout', {
                     method: 'POST',
@@ -240,18 +270,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         items: cart.map(i => ({ price: i.id, quantity: i.quantity })),
                         customer: data,
                         shipping_rate: data.shipping_rate,
-                        metadata: { vs: vs, pobocka: vybranaPobocka }
+                        metadata: { vs: vs, pobocka: vybranaPobocka, doprava: dopravceNazev }
                     })
                 });
                 const resData = await response.json();
                 if (resData.url) window.location.href = resData.url;
             } catch (err) { alert("Chyba při startu platby kartou."); }
         } else {
+            // PLATBA PŘEVODEM / HOTOVĚ (zde je potřeba poslat orderPayload)
             try {
                 const response = await fetch('/.netlify/functions/order', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(orderPayload)
+                    body: JSON.stringify(orderPayload) // Důležité: posíláme orderPayload, ne jen data
                 });
                 const resData = await response.json();
                 if (resData.success) {

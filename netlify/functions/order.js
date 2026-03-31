@@ -1,4 +1,3 @@
-// netlify/functions/order.js
 const nodemailer = require('nodemailer');
 const { emailWrap, dataTable, itemsTable } = require('./_emailTemplate');
 
@@ -12,8 +11,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// DOPLNĚNO: Přidáno ID Balíkovny do převodníku
 const dopravaPreklad = {
   "shr_1T6BpcJdC0N7uBdkHIPwzJUj": "Zásilkovna – Výdejní místo",
+  "shr_1TGh3LJdC0N7uBdkLyfGt4eu": "Balíkovna – Výdejní místo / BOX",
   "shr_1T6BqAJdC0N7uBdkVBnfRr7E": "Zásilkovna – K vám domů",
   "shr_1T6CKnJdC0N7uBdkFiXUdiFe": "Osobní odběr v Sadské",
 };
@@ -48,6 +49,7 @@ exports.handler = async (event) => {
     shipping_different,
     shipping_rate, payment_method,
     zasilkovna_name,
+    pobocka_metadata, // PŘIDÁNO: Nová proměnná z frontend JS
     note,
     cart, vs, totalPrice,
   } = body;
@@ -61,9 +63,15 @@ exports.handler = async (event) => {
     ? `${first_name} ${last_name}, ${street}, ${zip} ${city}`
     : billingAddress;
 
-  const shippingLabel = dopravaPreklad[shipping_rate] || shipping_rate;
+  // Prioritu má název dopravy poslaný z frontendu, pokud není, použije se překlad podle ID
+  const shippingLabel = body.shipping_rate_name || dopravaPreklad[shipping_rate] || shipping_rate;
   const paymentLabel  = platbaPreklad[payment_method] || payment_method;
   const isTransfer    = payment_method === 'transfer';
+
+  // OPRAVA LOGIKY VÝPISU POBOČKY:
+  // Pokud máme pobocka_metadata (z našeho nového JS), použijeme je. 
+  // Pokud ne a je to starší verze Zásilkovny, zkusíme zasilkovna_name.
+  const infoOPobocce = pobocka_metadata || zasilkovna_name || null;
 
   const adminRows = [
     ['Variabilní symbol', `<strong>${vs}</strong>`],
@@ -72,13 +80,14 @@ exports.handler = async (event) => {
     ['Fakturační adresa', billingAddress],
     ['Dodací adresa', shippingAddress],
     ['Doprava', shippingLabel],
-    ...(shipping_rate === 'shr_1T6BpcJdC0N7uBdkHIPwzJUj' ? [['Pobočka Zásilkovny', zasilkovna_name || '–']] : []),
+    // Zobrazí řádek s pobočkou pouze pokud nějaká existuje (Zásilkovna nebo Balíkovna)
+    ...(infoOPobocce ? [['Místo vyzvednutí', infoOPobocce]] : []),
     ['Platba', paymentLabel],
     ['Poznámka', note || '–'],
   ];
 
   try {
-    // Email adminovi
+    // Email adminovi (vám)
     await transporter.sendMail({
       from: `"Pekseso web" <${process.env.MAIL_USER}>`,
       to: process.env.ADMIN_EMAIL,
@@ -97,12 +106,7 @@ exports.handler = async (event) => {
       html: emailWrap('Vaše objednávka dorazila do ateliéru', `
         <p style="font-family:Arial,sans-serif;">Ahoj <strong>${billing_first_name}</strong>,</p>
         <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">díky za objednávku! Právě přistála u mě v systému a já mám radost, že vás moje ilustrace zaujaly.</p>
-        <p style="font-family:Arial,sans-serif;"><strong>Co se děje teď?</strong></p>
-        <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">Teď musím v ateliéru všechno zkontrolovat – jestli mám pexesa skladem a zda v objednávce nezařádil nějaký technický šotek. Tohle je tedy zatím jen potvrzení, že o vás vím a vaše údaje dorazily v pořádku.</p>
-        <p style="font-family:Arial,sans-serif;"><strong>Kdy uzavřeme smlouvu?</strong></p>
-        <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">Jakmile vše prověřím, pošlu vám druhý e-mail s finálním potvrzením. Teprve tímto druhým e-mailem spolu oficiálně uzavřeme kupní smlouvu a já balíček vypravím na cestu k vám.</p>
-        <p style="font-family:Arial,sans-serif;">Ozvu se vám co nejdříve s finálním potvrzením!</p>
-
+        
         ${isTransfer ? `
         <div style="background:#fff9e6;border-left:4px solid #FFD23F;padding:16px 20px;margin:20px 0;font-family:Arial,sans-serif;">
           <strong>Podklady pro platbu</strong><br><br>
@@ -117,8 +121,12 @@ exports.handler = async (event) => {
 
         ${itemsTable(cart, totalPrice)}
 
-        <p style="font-family:Arial,sans-serif;font-size:14px;color:#555;">Doprava: ${shippingLabel}</p>
-        <p style="font-family:Arial,sans-serif;">S pozdravem,<br>Martina – Pekseso</p>
+        <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 10px;">
+            <p style="font-family:Arial,sans-serif;font-size:14px;color:#555;margin:0;"><strong>Doprava:</strong> ${shippingLabel}</p>
+            ${infoOPobocce ? `<p style="font-family:Arial,sans-serif;font-size:14px;color:#555;margin:0;"><strong>Místo:</strong> ${infoOPobocce}</p>` : ''}
+        </div>
+        
+        <p style="font-family:Arial,sans-serif; margin-top: 20px;">S pozdravem,<br>Martina – Pekseso</p>
       `),
     });
 
@@ -126,6 +134,6 @@ exports.handler = async (event) => {
 
   } catch (err) {
     console.error('Mail error:', err);
-    return { statusCode: 500, body: JSON.stringify({ error: 'Chyba při odesílání emailu.' }) };
+    return { statusCode: 500, body: JSON.stringify({ error: 'Chybí povinné údaje.' }) };
   }
 };

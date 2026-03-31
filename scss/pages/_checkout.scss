@@ -184,6 +184,29 @@
     background-color: variables.$color-bg-light;
 }
 
+.shipping-card {
+    flex-wrap: wrap; 
+    align-items: flex-start; 
+    cursor: pointer;
+
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.5rem;
+    }
+
+    &__main-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+
+
 .payment-card__left,
 .shipping-card__left {
     display: flex;
@@ -238,6 +261,37 @@
 .checkout__error-msg {
   display: none;
   &:not(:empty) { display: block; }
+}
+
+// Stylování selektoru pobočky (Balíkovna i Zásilkovna)
+.shipping-selector {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+
+    .btn--small {
+        width: auto;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+// Box s informací o vybrané pobočce
+.selected-point-box {
+    margin-top: 0.75rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: .3125rem;
+    border: none;
+}
+
+.selected-point-label,
+.selected-point-name {
+    display: block;
+    font-weight: 300;
+    font-style: normal;
+    color: variables.$color-text;
+    font-family: variables.$font-sans;
 }
 
 // radio button, checkbox

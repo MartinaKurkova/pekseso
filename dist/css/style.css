@@ -3575,6 +3575,24 @@ strong {
   background-color: #f1eaf3;
 }
 
+.shipping-card {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  cursor: pointer;
+}
+.shipping-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.5rem;
+}
+.shipping-card__main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .payment-card__left,
 .shipping-card__left {
   display: flex;
@@ -3630,6 +3648,34 @@ strong {
 }
 .checkout__error-msg:not(:empty) {
   display: block;
+}
+
+.shipping-selector {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+.shipping-selector .btn--small {
+  width: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.selected-point-box {
+  margin-top: 0.75rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.3125rem;
+  border: none;
+}
+
+.selected-point-label,
+.selected-point-name {
+  display: block;
+  font-weight: 300;
+  font-style: normal;
+  color: #0D0D0D;
+  font-family: "Work Sans", sans-serif;
 }
 
 input[type=radio] {
