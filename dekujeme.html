@@ -7,7 +7,17 @@ robots: "noindex, nofollow"
 <section class="thanks"> 
   <div class="thanks__container container">
 
-    <!-- ===================== KOŠÍK: převod ===================== -->
+    <div id="thanks-stripe" class="thanks__block" style="display:none">
+      <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme</span> za vaši objednávku!</h1>
+      <p class="thanks__perex perex">Platba kartou proběhla úspěšně. Potvrzení vám právě letí na e-mail.</p>
+      <div class="thanks__instructions">
+        <h2 class="thanks__subheading">Platba přijata</h2>
+        <p class="thanks__text">Vaši objednávku jsme v pořádku přijali a začínáme ji připravovat.</p>
+        <p class="thanks__text">Brzy se vám ozveme s informacemi o odeslání balíčku.</p>
+      </div>
+      <a href="/" class="thanks__btn btn">Zpět na úvodní stránku</a>
+    </div>
+
     <div id="thanks-transfer" class="thanks__block" style="display:none">
       <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme</span> za vaši objednávku!</h1>
       <p class="thanks__perex perex">Potvrzení s detaily vám pošleme na e-mail.</p>
@@ -22,7 +32,6 @@ robots: "noindex, nofollow"
       <a href="/" class="thanks__btn btn">Zpět na úvodní stránku</a>
     </div>
 
-    <!-- ===================== KOŠÍK: hotově ===================== -->
     <div id="thanks-cash" class="thanks__block" style="display:none">
       <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme</span> za vaši objednávku!</h1>
       <p class="thanks__perex perex">Potvrzení s detaily vám pošleme na e-mail.</p>
@@ -34,7 +43,6 @@ robots: "noindex, nofollow"
       <a href="/" class="thanks__btn btn">Zpět na úvodní stránku</a>
     </div>
 
-    <!-- ===================== KONTAKTNÍ FORMULÁŘ ===================== -->
     <div id="thanks-contact" class="thanks__block" style="display:none">
       <h1 class="thanks__heading"><span class="thanks__heading--italic">Máme shodu!</span> Vaše zpráva dorazila.</h1>
       <p class="thanks__perex perex">Děkujeme, že jste se ozvali. Vaše řádky jsme úspěšně „otočili" a už na nich pracujeme.</p>
@@ -42,7 +50,6 @@ robots: "noindex, nofollow"
       <a href="/papirova_pexesa/" class="thanks__btn btn">Prohlédnout si pexesa</a>
     </div>
 
-    <!-- ===================== WITHDRAWAL FORMULÁŘ ===================== -->
     <div id="thanks-withdrawal" class="thanks__block" style="display:none">
       <h1 class="thanks__heading"><span class="thanks__heading--italic">Děkujeme,</span> váš požadavek jsme přijali.</h1>
       <p class="thanks__perex perex">Právě jsme obdrželi vaše vyplněné údaje k objednávce č. <strong id="withdrawal-order-number"></strong>. Náš tým (tedy já) se na to hned podívá.</p>
@@ -55,31 +62,49 @@ robots: "noindex, nofollow"
 
 <script>
   const urlParams = new URLSearchParams(window.location.search);
-  const form     = urlParams.get('form');
-  const vs       = urlParams.get('vs');
-  const amount   = urlParams.get('amount');
-  const method   = urlParams.get('method');
-  const order    = urlParams.get('order');
+  const form      = urlParams.get('form');
+  const vs        = urlParams.get('vs');
+  const amount    = urlParams.get('amount');
+  const method    = urlParams.get('method');
+  const order     = urlParams.get('order');
+  const sessionId = urlParams.get('session_id'); // Načtení session ze Stripe
 
-  // Košík – zpětná kompatibilita s původní URL strukturou
-  if (method === 'transfer' && vs && amount) {
+  // Pomocná funkce pro vymazání košíku
+  function clearCart() {
+    localStorage.removeItem('cart'); // Smaže data
+    // Pokud existuje funkce pro update ikonky košíku v cart.js, zavoláme ji
+    if (typeof updateCartCount === 'function') {
+      updateCartCount();
+    }
+  }
+
+  // 1. Košík - Karta (Stripe)
+  if (sessionId) {
+    document.getElementById('thanks-stripe').style.display = 'block';
+    clearCart();
+  } 
+  // 2. Košík - Převod
+  else if (method === 'transfer' && vs && amount) {
     document.getElementById('thanks-transfer').style.display = 'block';
     document.getElementById('pay-vs').innerText = vs;
     document.getElementById('pay-amount').innerText = amount;
-  } else if (method === 'cash') {
+    clearCart();
+  } 
+  // 3. Košík - Hotovost
+  else if (method === 'cash') {
     document.getElementById('thanks-cash').style.display = 'block';
-
-  // Kontaktní formulář
-  } else if (form === 'contact') {
+    clearCart();
+  }
+  // 4. Kontaktní formulář
+  else if (form === 'contact') {
     document.getElementById('thanks-contact').style.display = 'block';
-
-  // Withdrawal formulář
-  } else if (form === 'withdrawal') {
+  }
+  // 5. Withdrawal formulář
+  else if (form === 'withdrawal') {
     document.getElementById('thanks-withdrawal').style.display = 'block';
     if (order) {
       document.getElementById('withdrawal-order-number').innerText = order;
     } else {
-      // Pokud číslo objednávky chybí, skryjeme větu s ním
       document.getElementById('withdrawal-order-number').closest('p').style.display = 'none';
     }
   }
