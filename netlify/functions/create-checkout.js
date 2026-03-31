@@ -1,4 +1,3 @@
-// Místo přímého klíče použijeme "proměnnou prostředí"
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.handler = async (event) => {
@@ -7,30 +6,35 @@ exports.handler = async (event) => {
     }
 
     try {
-        // 1. Získání dat z těla požadavku (včetně dopravy a zákazníka)
-        const { items, customer, shipping_rate } = JSON.parse(event.body);
+        // Přidali jsme 'metadata', která posíláme z frontendu (VS, pobočka atd.)
+        const { items, customer, shipping_rate, metadata } = JSON.parse(event.body);
 
-        // 2. Vytvoření Checkout Session
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
-            // Předvyplníme e-mail, který zákazník zadal v pokladně
             customer_email: customer ? customer.email : undefined,
             line_items: items.map(item => ({
                 price: item.price,
                 quantity: item.quantity,
             })),
             mode: 'payment',
-            // 3. Přidání vybrané dopravy
             shipping_options: [
                 {
-                    shipping_rate: shipping_rate, // ID začínající na shr_...
+                    shipping_rate: shipping_rate,
                 },
             ],
-            // Pokud chceš, aby Stripe posbíral i fakturační adresu sám pro jistotu:
-            billing_address_collection: 'auto',
+            // DŮLEŽITÉ: Tady předáváme info o pobočce a VS do Stripe, 
+            // aby si je mohl přečíst webhook a poslat je v e-mailu.
+            metadata: {
+                vs: metadata.vs,
+                pobocka: metadata.pobocka,
+                doprava: metadata.doprava,
+                email: customer.email,
+                phone: customer.phone,
+                billing_name: `${customer.billing_first_name} ${customer.billing_last_name}`
+            },
             
-            // Adresy pro návrat (localhost:8888 je port pro Netlify Dev)
-            success_url: `${process.env.URL || 'http://localhost:8888'}/dekujeme/`,
+            // ÚPRAVA: Přidáme do URL session_id, aby děkovná stránka věděla, že má smazat košík
+            success_url: `${process.env.URL || 'http://localhost:8888'}/dekujeme/?session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${process.env.URL || 'http://localhost:8888'}/pokladna/`,
         });
 
