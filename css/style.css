@@ -54,10 +54,13 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.45;
   color: #0D0D0D;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -4265,6 +4268,7 @@ input[type=checkbox] {
 .story__subheading {
   font-size: 1.5rem;
   margin: 2rem 0 0 0;
+  font-weight: 600;
 }
 .story__subheading:first-of-type {
   margin: 0;
