@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="cs"> <head>
+<html lang="cs">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -18,8 +19,10 @@
         <meta name="robots" content="noindex, nofollow">
     
 
-    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
     
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -30,9 +33,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- cookies lišta -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css">
-
+    <link rel="stylesheet" href="/css/cookieconsent.css">
     <link rel="stylesheet" href="/css/style.css">
     
     
@@ -68,7 +69,6 @@
                         <a href="/papirova_pexesa/" class="header__nav-link">Papírová pexesa</a>
                         <ul class="header__nav-list-second">
                             <li class="header__nav-item"><a href="/papirova_pexesa/les/" class="header__nav-link">Lesní zvířata</a></li>
-                            <!-- <li class="header__nav-item"><a href="/papirova_pexesa/psi/" class="header__nav-link">Psi</a></li> -->
                             <li class="header__nav-item"><a href="/papirova_pexesa/ptaci/" class="header__nav-link">Ptáci</a></li>
                             <li class="header__nav-item"><a href="/papirova_pexesa/vanoce/" class="header__nav-link">Vánoce</a></li>
                             <li class="header__nav-item"><a href="/papirova_pexesa/zelenina/" class="header__nav-link">Zelenina</a></li>
@@ -95,14 +95,11 @@
                 <img src="/images/icons/kosik.svg" alt="" class="header__basket-icon header__basket-icon--dark" width="20" height="20">
                 <span class="header__basket-amount" aria-live="polite">0</span>
             </button>
-            <!-- toast -->
                 <div class="toast" id="toast">Pexeso bylo přidáno do košíku</div>
         </div>
 </header>
 
-
  <main>
-
     
 <section class="thanks"> 
   <div class="thanks__container container">
@@ -214,10 +211,8 @@
 </script>
 
 <script src="/js/withdrawal-redirect.js"></script>
-
 </main>
 
-<!-- aside -->
 <div id="cart__overlay" class="cart__overlay"></div>
 
 <aside id="cart__panel" class="cart__panel">
@@ -258,20 +253,16 @@
   </div>
 </aside>
 
-
- <!-- footer -->
     <footer class="footer" role="contentinfo">
         <div class="footer__container container">
             <section class="footer__section footer__section-logo">
                 <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
             </section>
-            <!-- about -->
             <div class=" footer__section footer__section-about">
                 <p class="footer__claim">Najdi ten správný pár</p>
                 <p class="footer__text">Autorské pexeso plné ilustrací. Stačí jedno otočení a společná hra začíná.</p>
                 <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové</p>
             </div>
-            <!-- contact -->
             <section class="footer__section footer__section_contact">
                 <h3 class="footer__subheading">Buďme v kontaktu</h3>
                 <address class="footer__contact">Máte dotaz? Napište mi na
@@ -294,7 +285,6 @@
                     <a href="www.martinakurkova.cz" class="footer__credit-link">www.martinakurkova.cz</a>
                 </p>
             </section>
-            <!-- important -->
             <section class="footer__section footer__section-important">
                 <h3 class="footer__subheading">Důležité informace</h3>
                 <a class="footer__legal" href="/GDPR/">Zásady ochrany osobních údajů</a>
@@ -304,7 +294,6 @@
                 <a class="footer__legal" href="/zasady-cookies/">Zásady používání souborů cookies</a>
                 <a class="footer__legal" href="#" data-cc="show-preferencesModal">Nastavení cookies</a>
             </section>
-            <!-- menu -->
             <div class="footer__section footer__section-menu">
                 <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
                     <h3 class="footer__subheading">Menu</h3>
@@ -324,12 +313,11 @@
         </div>
     </footer>
 
-    <script src="/js/script.js"></script>
-    <script src="/js/cart.js"></script>
-    <script src="/js/aside_cart_panel.js"></script>
+    <script src="/js/script.js" defer></script>
+    <script src="/js/cart.js" defer></script>
+    <script src="/js/aside_cart_panel.js" defer></script>
 
-    <!-- cookies lišta -->
-    <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js"></script>
+    <script src="/js/cookieconsent.umd.js" defer></script>
 
     <script type="text/plain" data-category="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-MXSR773H36"></script>
     <script type="text/plain" data-category="analytics">
@@ -340,56 +328,59 @@
     </script>
 
     <script>
-        CookieConsent.run({
-            guiOptions: {
-                consentModal: {
-                    layout: 'cloud',
-                    position: 'bottom center',
-                    equalWeightButtons: true,
-                    flipButtons: false
-                }
-            },
-            categories: {
-                necessary: { enabled: true },
-                analytics: { }
-            },
-            language: {
-                default: 'cs',
-                translations: {
-                    cs: {
-                        consentModal: {
-                            title: 'I pexeso má svá pravidla (a my cookies)',
-                            description: 'Aby u nás všechno fungovalo, jak má – od nákupního košíku až po měření návštěvnosti – používáme malé soubory cookies. Ty nezbytné používáme hned, o těch ostatních můžete rozhodnout vy.',
-                            acceptAllBtn: 'Povolit vše',
-                            acceptNecessaryBtn: 'Jen nezbytné',
-                            showPreferencesBtn: 'Nastavit individuálně',
-                            footer: `
-                                <a href="/GDPR/">Zásady ochrany osobních údajů</a>
-                                <a href="/zasady-cookies/">Zásady cookies</a>
-                            `
-                        },
-                        preferencesModal: {
-                            title: 'Nastavení cookies',
-                            acceptAllBtn: 'Povolit vše',
-                            acceptNecessaryBtn: 'Jen nezbytné',
-                            savePreferencesBtn: 'Uložit nastavení',
-                            closeIconLabel: 'Zavřít',
-                            sections: [
-                                {
-                                    title: 'Nezbytné cookies',
-                                    description: 'Tyto cookies jsou potřeba pro správné fungování webu a košíku.',
-                                    linkedCategory: 'necessary'
-                                },
-                                {
-                                    title: 'Analytické cookies',
-                                    description: 'Pomáhají mi pochopit, co vás na webu baví, abych ho mohla vylepšovat.',
-                                    linkedCategory: 'analytics'
-                                }
-                            ]
+        // Spuštění konfigurace cookies až po úplném načtení stránky (kvůli defer atributům)
+        window.addEventListener('load', function() {
+            CookieConsent.run({
+                guiOptions: {
+                    consentModal: {
+                        layout: 'cloud',
+                        position: 'bottom center',
+                        equalWeightButtons: true,
+                        flipButtons: false
+                    }
+                },
+                categories: {
+                    necessary: { enabled: true },
+                    analytics: { }
+                },
+                language: {
+                    default: 'cs',
+                    translations: {
+                        cs: {
+                            consentModal: {
+                                title: 'I pexeso má svá pravidla (a my cookies)',
+                                description: 'Aby u nás všechno fungovalo, jak má – od nákupního košíku až po měření návštěvnosti – používáme malé soubory cookies. Ty nezbytné používáme hned, o těch ostatních můžete rozhodnout vy.',
+                                acceptAllBtn: 'Povolit vše',
+                                acceptNecessaryBtn: 'Jen nezbytné',
+                                showPreferencesBtn: 'Nastavit individuálně',
+                                footer: `
+                                    <a href="/GDPR/">Zásady ochrany osobních údajů</a>
+                                    <a href="/zasady-cookies/">Zásady cookies</a>
+                                `
+                            },
+                            preferencesModal: {
+                                title: 'Nastavení cookies',
+                                acceptAllBtn: 'Povolit vše',
+                                acceptNecessaryBtn: 'Jen nezbytné',
+                                savePreferencesBtn: 'Uložit nastavení',
+                                closeIconLabel: 'Zavřít',
+                                sections: [
+                                    {
+                                        title: 'Nezbytné cookies',
+                                        description: 'Tyto cookies jsou potřeba pro správné fungování webu a košíku.',
+                                        linkedCategory: 'necessary'
+                                    },
+                                    {
+                                        title: 'Analytické cookies',
+                                        description: 'Pomáhají mi pochopit, co vás na webu baví, abych ho mohla vylepšovat.',
+                                        linkedCategory: 'analytics'
+                                    }
+                                ]
+                            }
                         }
                     }
                 }
-            }
+            });
         });
     </script>
 

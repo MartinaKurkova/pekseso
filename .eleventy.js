@@ -1,23 +1,25 @@
 module.exports = function(eleventyConfig) {
-  // Zkopírovat obrázky
+  // --- STATICKÉ SOUBORY (Passthrough Copy) ---
+
+  // Obrázky, CSS a JS (zde se po nahrání objeví i cookieconsent.css/js)
   eleventyConfig.addPassthroughCopy("images");
-
-  // Zkopírovat CSS
   eleventyConfig.addPassthroughCopy("css");
-
-  // Zkopírovat JS
   eleventyConfig.addPassthroughCopy("js");
 
-  //fonty
+  // Fonty a ostatní assets 
   eleventyConfig.addPassthroughCopy("assets");
 
-  // Zkopírovat favicony
+  // Favicony (hvězdička pokryje favicon.ico, favicon-32x32.png atd.)
   eleventyConfig.addPassthroughCopy("favicon*");
+  eleventyConfig.addPassthroughCopy("apple-icon*"); // Přidáno pro kompletní ikony
 
-  // Kolekce všech projektů (HTML i NJK) ze složky portfolio
+  // --- KOLEKCE ---
+  
   eleventyConfig.addCollection("projects", (collectionApi) => {
     return collectionApi.getFilteredByGlob("./portfolio/*.{html,njk}");
   });
+
+  // --- NASTAVENÍ ADRESÁŘŮ ---
 
   return {
     templateFormats: ["njk", "html", "md"],
@@ -27,9 +29,8 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: ".",         
       includes: "_includes",
-      output: "dist",
+      output: "dist", // Výsledný web se sestaví sem
     },
   };
 };
-
 
