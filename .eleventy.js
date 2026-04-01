@@ -1,7 +1,7 @@
 module.exports = function(eleventyConfig) {
   // --- STATICKÉ SOUBORY (Passthrough Copy) ---
 
-  // Obrázky, CSS a JS (zde se po nahrání objeví i cookieconsent.css/js)
+  // Obrázky, CSS a JS (i cookieconsent.css/js)
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
@@ -11,7 +11,7 @@ module.exports = function(eleventyConfig) {
 
   // Favicony (hvězdička pokryje favicon.ico, favicon-32x32.png atd.)
   eleventyConfig.addPassthroughCopy("favicon*");
-  eleventyConfig.addPassthroughCopy("apple-icon*"); // Přidáno pro kompletní ikony
+  eleventyConfig.addPassthroughCopy("apple-icon*"); 
 
   // --- KOLEKCE ---
   
@@ -29,7 +29,7 @@ module.exports = function(eleventyConfig) {
     dir: {
       input: ".",         
       includes: "_includes",
-      output: "dist", // Výsledný web se sestaví sem
+      output: "dist", 
     },
   };
 };
