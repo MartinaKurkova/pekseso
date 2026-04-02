@@ -13,6 +13,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon*");
   eleventyConfig.addPassthroughCopy("apple-icon*"); 
 
+  // --- SITEMAP A ROBOTS ---
+  eleventyConfig.addPassthroughCopy("robots.txt");
+
   // --- KOLEKCE ---
   
   eleventyConfig.addCollection("projects", (collectionApi) => {
