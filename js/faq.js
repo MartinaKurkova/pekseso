@@ -1,4 +1,4 @@
-const toggles = document.querySelectorAll('.faq__toggle')
+const toggles = document.querySelectorAll(".faq__toggle");
 
 toggles.forEach(toggle => {
     toggle.addEventListener('click', () => {
@@ -7,7 +7,7 @@ toggles.forEach(toggle => {
 })
 
 // paper-faq
-const togglesPaper = document.querySelectorAll('.paper-faq__toggle')
+const togglesPaper = document.querySelectorAll(".paper-faq__toggle");
 
 togglesPaper.forEach(toggle => {
     toggle.addEventListener('click', () => {

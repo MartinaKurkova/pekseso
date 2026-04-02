@@ -14,4 +14,4 @@ ogImage: "/images/fotky/Ptaci/medium/ptaci_1_medium_650.webp"
 ogType: product
 ---
 
-Tato sada pexesa vám představí 32 dvojic exotických ptáků. Čistý styl vektorových ilustrací klade důraz na zobrazení charakteristických znaků každého z&nbspnich. Je to příležitost, jak společně s&nbspdětmi objevovat ptačí říši, trénovat soustředění a&nbspnechat se vést křídly fantazie.
+Tato sada pexesa vám představí 32 dvojic exotických ptáků. Čistý styl vektorových ilustrací klade důraz na zobrazení charakteristických znaků každého z&nbsp;nich. Je to příležitost, jak společně s&nbsp;dětmi objevovat ptačí říši, trénovat soustředění a&nbsp;nechat se vést křídly fantazie.

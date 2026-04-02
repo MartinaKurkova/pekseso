@@ -20,7 +20,7 @@
     <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-300.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/cookieconsent.css">
@@ -120,7 +120,7 @@
                 <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
 
                 <fieldset class="contact-form__fieldset">
-                    <h2 class="contact-form__legend">Kontaktujte mě</h2>
+                    <h2 class="contact-form__legend"><span>Kontaktujte</span> mě</h2>
 
                     <!-- name -->
                     <div class="contact-form__field">
@@ -210,7 +210,7 @@
         <!-- Contact informatiion -->
          <div class="contact__info-container">
             <div class="contact__info">
-            <h2 class="contact__subheading">Kontaktní údaje</h2>
+            <h2 class="contact__subheading">Kontaktní <span>údaje</span></h2>
             <address class="contact__address">
                 <p class="contact__address-name">MgA. Martina Kurková Nožičková</p>
                 <span id="email-display"></span><br>
@@ -255,7 +255,7 @@
  <section class="faq">
     <div class="faq__container container">
         <h2 class="faq__heading">Často kladené otázky<span class="faq__heading--italic"> (FAQ)</span></h2>
-        <div class="faq-boxes">
+        <div class="faq__boxes">
             <!-- question -->
              <div class="faq__question">
                 <img src="/images/icons/motives.svg" 
@@ -281,14 +281,14 @@
             </div>
             <!-- question -->
              <div class="faq__question">
-                <img src="/images/icons/envelope.svg" 
-                    alt="ikona obálky" 
+                <img src="/images/icons/pencil.svg" 
+                    alt="ikona tužky" 
                     class="faq__image"
                     width="70"
                     height="70">
                 <div class="faq__text-container">
-                    <h3 class="faq__title">Jak pexesa odesíláte a kdy dorazí?</h3>
-                 <p class="faq__text">Balíčky posílám nejčastěji přes Zásilkovnu. Většinou stíhám pexesa vypravit do 2–3 pracovních dnů, aby u vás byla co nejdříve.</p>
+                    <h3 class="faq__title">Plánujete v brzké době nové sady?</h3>
+                 <p class="faq__text">Rozhodně! Neustále skicuji nové motivy a pár sad mám již rozpracovaných. Pokud máte tip na téma, které vám u mě chybí, napište mi. Ráda se nechám inspirovat.</p>
                 </div>
                 <button class="faq__toggle">
                     <img src="/images/icons/chevron-down-solid.svg" 
@@ -312,6 +312,75 @@
                 <div class="faq__text-container">
                     <h3 class="faq__title">Kreslíte i pexesa na zakázku?</h3>
                  <p class="faq__text">Moc ráda! Pokud byste chtěli pexeso s vlastním motivem pro firmu, školu nebo jako speciální dárek, napište mi na e-mail. Společně něco vymyslíme.</p>
+                </div>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+            <!-- question -->
+             <div class="faq__question">
+                <img src="/images/icons/envelope.svg" 
+                    alt="ikona obálky" 
+                    class="faq__image"
+                    width="70"
+                    height="70">
+                <div class="faq__text-container">
+                    <h3 class="faq__title">Jak pexesa odesíláte a kdy dorazí?</h3>
+                 <p class="faq__text">Balíčky posílám přes Zásilkovnu a Balíkovnu – vybrat si můžete doručení do výdejního boxu i přímo na adresu. Většinou stíhám pexesa vypravit do 2 pracovních dnů. Pokud jste ze Sadské a okolí, ráda vám objednávku předám i osobně.</p>
+                </div>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+            <!-- question -->
+             <div class="faq__question">
+                <img src="/images/icons/card_poz1.svg" 
+                    alt="ikona platební karty" 
+                    class="faq__image"
+                    width="70"
+                    height="70">
+                <div class="faq__text-container">
+                    <h3 class="faq__title">Jaké platební metody nabízíte?</h3>
+                 <p class="faq__text">Objednávku můžete zaplatit online platební kartou přes bránu Stripe nebo klasickým bankovním převodem. Pokud si pexeso vyzvednete osobně v Sadské, ráda se s vámi domluvím i na platbě v hotovosti při převzetí.</p>
+                </div>
+                <button class="faq__toggle">
+                    <img src="/images/icons/chevron-down-solid.svg" 
+                        alt="šipka dolů" 
+                        class="faq__icon faq__chevron"
+                        width="20"
+                        height="20">
+                    <img src="/images/icons/times-solid.svg" 
+                        alt="křížek" class="faq__icon faq__times"
+                        width="20"
+                        height="20">
+                </button>
+            </div>
+            <!-- question -->
+             <div class="faq__question">
+                <img src="/images/icons/complaint.svg" 
+                    alt="ikona smutného smajlíka" 
+                    class="faq__image"
+                    width="70"
+                    height="70">
+                <div class="faq__text-container">
+                    <h3 class="faq__title">Co když pexeso dorazí poškozené?</h3>
+                 <p class="faq__text">I když balíčky balím velmi pečlivě, stát se může cokoliv. Pokud vám pexeso dorazí poškozené nebo nekompletní, dejte mi vědět přes <a href="/odstoupeni" class="faq__link">reklamační formulář</a> (nebo pošlete fotku na e-mail). Obratem vám pošlu novou sadu na své náklady, aby vám ze hry zůstala jen čistá radost.“</p>
                 </div>
                 <button class="faq__toggle">
                     <img src="/images/icons/chevron-down-solid.svg" 

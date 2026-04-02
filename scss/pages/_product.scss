@@ -26,11 +26,11 @@
         gap: 0.5rem;
         min-width: 0;
         
-        @media screen and (min-width: 50.25rem) {
-            grid-column: 1/2;
-            gap: 1rem;
+            @media screen and (min-width: 50.25rem) {
+                grid-column: 1/2;
+                gap: 1rem;
+        }
     }
-}
 
     &__image-main {
         cursor: pointer;
@@ -172,6 +172,7 @@
         font-weight: 500;
         font-size: clamp(1.2rem, calc(1.2rem + 1.1vw), 1.9rem);
         margin: 0;
+        color: variables.$color-primary;
 
         @media screen and (min-width: 48rem) {
             grid-column: 2/3;
@@ -182,8 +183,15 @@
 
     &__subheading {
         font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
-        font-weight: 300;
+        font-weight: 400;
         margin: 1rem 0 0 0;
+    }
+
+    &__text {
+        p {
+            margin-top: 0 !important;
+            margin-block-start: 0 !important; 
+        }
     }
 
     &__try {
@@ -258,6 +266,7 @@
     &__heading {
         font-size: clamp(1rem, calc(1rem + 0.5vw), 1.3rem);
         margin-top: 3rem;
+        font-weight: 400;
     }
 
     &__item {
@@ -277,7 +286,7 @@
 
     &__description {
         margin: 0;
-        font-weight: 300;
+        font-weight: 400;
     }
 }
 

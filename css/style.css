@@ -1048,6 +1048,7 @@ strong {
   flex-direction: column;
   align-items: center;
   justify-content: last baseline;
+  margin: 1rem 0;
 }
 .advantages__heading {
   text-align: center;
@@ -1056,6 +1057,7 @@ strong {
 }
 .advantages__description {
   text-align: center;
+  margin-bottom: 0;
 }
 
 .play {
@@ -1619,11 +1621,12 @@ strong {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 @media screen and (max-width: 48rem) {
   .info__container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
 }
 .info__heading {
@@ -1712,7 +1715,7 @@ strong {
   border: 1px solid #540D6E;
   border-radius: 0.3125rem;
   margin: 0;
-  padding: 30px;
+  padding: 1.875rem;
   position: relative;
   overflow: hidden;
   transition: 0.3s ease;
@@ -1727,6 +1730,9 @@ strong {
 .paper-faq__title {
   margin: 0 35px 0 0;
   font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
+}
+.active .paper-faq__title {
+  font-weight: 600;
 }
 .paper-faq__text {
   display: none;
@@ -2150,11 +2156,21 @@ strong {
 .faq__container {
   padding-bottom: 2rem;
 }
+.faq__boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 1.25rem;
+}
+@media screen and (max-width: 48rem) {
+  .faq__boxes {
+    grid-template-columns: 1fr;
+  }
+}
 .faq__question {
   border: 1px solid #540D6E;
   border-radius: 0.3125rem;
-  margin: 20px 0;
-  padding: 30px;
+  padding: 1.875rem;
   position: relative;
   overflow: hidden;
   transition: 0.3s ease;
@@ -2170,12 +2186,20 @@ strong {
   margin: 0 35px 0 0;
   font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
 }
+.active .faq__title {
+  font-weight: 600;
+}
 .faq__text {
   display: none;
   margin: 30px 0 0;
 }
 .faq__question.active .faq__text {
   display: block;
+}
+.faq__link {
+  color: #0D0D0D;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 0.2em;
 }
 .faq__toggle {
   background-color: transparent;
@@ -3048,6 +3072,7 @@ strong {
   font-weight: 500;
   font-size: clamp(1.2rem, 1.2rem + 1.1vw, 1.9rem);
   margin: 0;
+  color: #540D6E;
 }
 @media screen and (min-width: 48rem) {
   .product__price {
@@ -3058,8 +3083,12 @@ strong {
 }
 .product__subheading {
   font-size: clamp(1.1rem, 1.1rem + 0.8vw, 1.5rem);
-  font-weight: 300;
+  font-weight: 400;
   margin: 1rem 0 0 0;
+}
+.product__text p {
+  margin-top: 0 !important;
+  margin-block-start: 0 !important;
 }
 .product__try {
   text-decoration-thickness: 0.5px;
@@ -3209,6 +3238,7 @@ strong {
 .box__heading {
   font-size: clamp(1rem, 1rem + 0.5vw, 1.3rem);
   margin-top: 3rem;
+  font-weight: 400;
 }
 .box__item {
   display: flex;
@@ -3225,7 +3255,7 @@ strong {
 }
 .box__description {
   margin: 0;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .lightbox {
@@ -4268,7 +4298,7 @@ input[type=checkbox] {
 .story__subheading {
   font-size: 1.5rem;
   margin: 2rem 0 0 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 .story__subheading:first-of-type {
   margin: 0;

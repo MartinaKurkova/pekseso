@@ -318,13 +318,23 @@
 
      &__container {
         padding-bottom: 2rem;
-    }    
+    }
+    
+    &__boxes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 1.25rem;
+
+        @media screen and (max-width: 48rem) {
+            grid-template-columns: 1fr;
+        }
+    }
 
     &__question {
         border: 1px solid variables.$color-primary;
         border-radius: .3125rem;
-        margin: 20px 0;
-        padding: 30px;
+        padding: 1.875rem;
         position: relative;
         overflow: hidden;
         transition: 0.3s ease;
@@ -340,7 +350,11 @@
 
     &__title {
         margin: 0 35px 0 0;
-        font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);;
+        font-size: clamp(1.1rem, calc(1.1rem + 0.8vw), 1.5rem);
+
+        .active & {
+            font-weight: 600;
+        }
     }
 
     &__text {
@@ -350,6 +364,12 @@
 
     &__question.active .faq__text {
         display: block;
+    }
+
+    &__link {
+        color: variables.$color-text;
+        text-decoration-thickness: .5px;
+        text-underline-offset: 0.2em;
     }
 
     &__toggle {
