@@ -34,8 +34,8 @@ exports.handler = async (event) => {
             },
             
             // ÚPRAVA: Přidáme do URL session_id, aby děkovná stránka věděla, že má smazat košík
-            success_url: `${process.env.URL || 'http://localhost:8888'}/dekujeme/?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.URL || 'http://localhost:8888'}/pokladna/`,
+            success_url: `https://pekseso.cz/dekujeme/?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `https://pekseso.cz/pokladna/`,
         });
 
         return {
