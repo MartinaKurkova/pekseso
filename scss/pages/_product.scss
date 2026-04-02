@@ -235,26 +235,35 @@
         background-color: variables.$color-primary;
         color: white;
         padding: .75rem 2rem;
-    }
 
-    &__btn-buy:hover {
-        @include buttons.btn_hover;
-        background-color: variables.$color-hover;
-        color: white;
-        padding: .75rem 2rem;
-    }
+        &:hover {
+            background-color: variables.$color-hover;
+        }
 
-    &__btn-buy:active,
-    &__btn-buy:focus {
-        @include buttons.btn_active;
-        background-color: variables.$color-active;
-        color: white;
-        padding: .75rem 2rem;
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
+        }
     }
 
     &__btn-back {
         @include buttons.btn;
         border: 1px solid variables.$color-primary;
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
+        }
 
     }
 }

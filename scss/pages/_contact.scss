@@ -54,6 +54,18 @@
         background-color: variables.$color-primary;
         color: white;
         margin: 2rem 0 0 0;
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
+        }
     }
 }
 
@@ -172,35 +184,29 @@
         @media screen and (max-width: 43.75rem) {
             margin-bottom: 1rem;
         }
-    }
 
-    &__button:hover {
-        @include buttons.btn_hover;
-        margin-bottom: 3rem;
-        background-color: variables.$color-hover;
-        color: white;
+        &:hover {
+            background-color: variables.$color-hover;
 
-        @media screen and (max-width: 43.75rem) {
-            margin-bottom: 1rem;
+            @media screen and (max-width: 43.75rem) {
+                margin-bottom: 1rem;
+            }
         }
-    }
 
-    &__button:focus-visible {
-        @include buttons.btn_focus_visible;
-        margin-bottom: 3rem;
+        &:active {
+            background-color: variables.$color-active;
 
-        @media screen and (max-width: 43.75rem) {
-            margin-bottom: 1rem;
+            @media screen and (max-width: 43.75rem) {
+                margin-bottom: 1rem;
+            }
         }
-    }
 
-    &__button:active,
-    &__button:focus {
-        @include buttons.btn_active;
-        margin-bottom: 3rem;
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
 
-        @media screen and (max-width: 43.75rem) {
-            margin-bottom: 1rem;
+            @media screen and (max-width: 43.75rem) {
+                margin-bottom: 1rem;
+            }
         }
     }
 
@@ -219,7 +225,7 @@
     }
 
     &__error {
-        color: variables.$color-text;
+        color: variables.$color-primary;
         font-size: 0.85rem;
         margin: 0 0 0.8rem 0;
         font-weight: 400;
@@ -537,6 +543,7 @@
         display: flex;
         flex-direction: row;
         gap: 2rem;
+        margin-top: 4rem;
 
         @media screen and (max-width: 48.75rem) {
             flex-direction: column;
@@ -554,19 +561,18 @@
             margin-top: 0;
             margin-bottom: 0;
         }
-    }
 
-    &__button-cta:hover {
-        @include buttons.btn_hover;
-    }
+        &:hover {
+            background-color: variables.$color-hover;
+        }
 
-    &__button-cta:focus-visible {
-        @include buttons.btn_focus_visible;
-    }
+        &:active {
+            background-color: variables.$color-active;
+        }
 
-    &__button-cta:active,
-    &__button-cta:focus {
-        @include buttons.btn_active;
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
+        }
     }
 
     // button secondary
@@ -582,6 +588,18 @@
         @media screen and (max-width: 48.75rem){
             margin-top: 0;
             margin-bottom: 0;
+        }
+
+        &:hover {
+            background-color: variables.$color-hover-sec;
+        }
+
+        &:active {
+            background-color: variables.$color-active-sec;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
         }
     }
 

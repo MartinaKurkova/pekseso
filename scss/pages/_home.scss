@@ -38,20 +38,18 @@
         @media screen and (max-width: 36rem) {
             margin-top: 2rem;
         }
-    }
 
-    &__btn:hover {
-        @include buttons.btn_hover;
-        background-color: variables.$color-hover-sec;
-    }
+        &:hover {
+            background-color: variables.$color-hover-sec;
+        }
 
-    &__btn:active {
-        @include buttons.btn_active;
-        background-color: variables.$color-active-sec;
-    }
+        &:active {
+            background-color: variables.$color-active-sec;
+        }
 
-    &__btn:focus {
-        @include buttons.btn_focus_visible;
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
+        }
     }
 
     &__image-container {
@@ -134,20 +132,18 @@
         background-color: variables.$color-primary;
         color: white;
         margin-top: 2rem;
-    }
 
-    &__btn:hover {
-        @include buttons.btn_hover;
-        background-color: variables.$color-hover;
-    }
+        &:hover {
+            background-color: variables.$color-hover;
+        }
 
-    &__btn:active {
-        @include buttons.btn_active;
-        background-color: variables.$color-active;
-    }
+        &:active {
+            background-color: variables.$color-active;
+        }
 
-    &__btn:focus {
-        @include buttons.btn_focus_visible;
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
+        }
     }
 
     &__image-container {
@@ -233,20 +229,18 @@
         @include buttons.btn;
         background-color: variables.$color-secondary;
         color: variables.$color-text;
-    }
 
-    &__btn:hover {
-        @include buttons.btn_hover;
-        background-color: variables.$color-hover-sec;
-    }
+        &:hover {
+            background-color: variables.$color-hover-sec;
+        }
 
-    &__btn:active {
-        @include buttons.btn_active;
-        background-color: variables.$color-active-sec;
-    }
+        &:active {
+            background-color: variables.$color-active-sec;
+        }
 
-    &__btn:focus {
-        @include buttons.btn_focus_visible;
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
+        }
     }
 
     &__image-container {

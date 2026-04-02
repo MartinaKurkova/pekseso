@@ -151,25 +151,20 @@
         animation: fadeInUp 0.8s ease-out forwards;
         animation-delay: 0.6s;
         opacity: 0;
-        font-size: 1rem;
         background-color: variables.$color-primary;
         color: white;
-    }
 
-    &__button-cta:hover {
-        @include buttons.btn_hover;
-        margin-bottom: 3rem;
-    }
+        &:hover {
+            background-color: variables.$color-hover;
+        }
 
-    &__button-cta:focus-visible {
-        @include buttons.btn_focus_visible;
-        margin-bottom: 3rem;
-    }
+        &:active {
+            background-color: variables.$color-active;
+        }
 
-    &__button-cta:active,
-    &__button-cta:focus {
-        @include buttons.btn_active;
-        margin-bottom: 3rem;
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
+        }
     }
 
     // errors
@@ -187,7 +182,7 @@
     }
 
     &__error {
-        color: variables.$color-text;
+        color: variables.$color-primary;
         font-size: 0.85rem;
         margin: 0 0 0.8rem 0;
         font-weight: 400;

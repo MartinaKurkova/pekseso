@@ -145,27 +145,18 @@
         margin-top: 1.5rem;
         font-size: 1rem;
         padding: 1.25rem;
-    }
 
-    &__submit-btn:hover {
-        @include buttons.btn_hover;
-        background-color: variables.$color-hover;
-        color: white;
-        width: 100%;
-        margin-top: 1.5rem;
-        font-size: 1rem;
-        padding: 1.25rem;
-    }
+        &:hover {
+            background-color: variables.$color-hover;
+        }
 
-    &__submit-btn:focus,
-    &__submit-btn:active {
-        @include buttons.btn_focus_visible;
-        background-color: variables.$color-active;
-        color: white;
-        width: 100%;
-        margin-top: 1.5rem;
-        font-size: 1rem;
-        padding: 1.25rem;
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
+        }
     }
 }
 
@@ -306,6 +297,18 @@ input[type="checkbox"] {
 .btn--small {
     @include buttons.btn;
     background-color: variables.$color-secondary;
+
+    &:hover {
+        background-color: variables.$color-hover-sec;
+    }
+
+    &:active {
+        background-color: variables.$color-active-sec;
+    }
+
+    &:focus-visible {
+        outline-color: variables.$color-outline-sec; 
+    }
 }
 
 // thanks
@@ -346,12 +349,19 @@ input[type="checkbox"] {
         @include buttons.btn;
         background-color: variables.$color-primary;
         color: white;
-        margin-top: 1rem;
+        margin-top: 3rem;
         padding: .75rem 1.25rem;
 
         &:hover {
-            color: variables.$color-text;
-            border: 1px solid variables.$color-text;
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
         }
     }
 
@@ -359,5 +369,17 @@ input[type="checkbox"] {
         @include buttons.btn;
         background-color: variables.$color-primary;
         color: white;
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
+        }
     }
 }

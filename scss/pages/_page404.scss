@@ -39,15 +39,39 @@
 
     &__link {
         @include buttons.btn;
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
     }
 
     &__link--primary {
         background-color: variables.$color-primary;
         color: white;
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
     }
 
     &__link--secondary {
         background-color: variables.$color-secondary;
         color: variables.$color-text;
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
     }
 }

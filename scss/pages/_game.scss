@@ -7,12 +7,6 @@
 .game {
     &__container {
         padding-top: 5rem;
-        // min-height: 100vh;
-
-        // @media (max-height: 800px) {
-        //     min-height: auto;
-        //     padding-top: 3rem;
-        // }
     }
 
     &__text-container {
@@ -152,13 +146,15 @@
         transition: all 0.3s ease;
         
         &:hover {
-            @include buttons.btn_hover;
-            transform: translateY(-2px);
-            box-shadow: variables.$shadow;
+            background-color: variables.$color-hover-sec;
         }
-        
+
         &:active {
-            transform: translateY(0);
+            background-color: variables.$color-active-sec;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
         }
     }
 
@@ -170,14 +166,11 @@
         transition: all 0.3s ease;
         
         &:hover {
-            background-color: variables.$color-primary;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: variables.$shadow;
+            background-color: white;
         }
-        
+
         &:active {
-            transform: translateY(0);
+            background-color: white;
         }
     }
 
@@ -277,13 +270,11 @@
             border: none;
 
             &:hover {
-                @include buttons.btn_hover;
-                transform: translateY(-2px);
-                box-shadow: variables.$shadow;
+                background-color: variables.$color-hover;
             }
-            
+
             &:active {
-                transform: translateY(0);
+                background-color: variables.$color-active;
             }
         }
 
@@ -293,14 +284,16 @@
             border: none;
 
             &:hover {
-                @include buttons.btn_hover;
-                transform: translateY(-2px);
-                box-shadow: variables.$shadow;
-            }
-            
-            &:active {
-                transform: translateY(0);
-            }
+            background-color: variables.$color-hover-sec;
+        }
+
+        &:active {
+            background-color: variables.$color-active-sec;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline-sec; 
+        }
         }
         
         &--secondary {
@@ -309,14 +302,15 @@
             border: 1px solid variables.$color-primary;
 
             &:hover {
-                background-color: variables.$color-primary;
-                color: white;
-                transform: translateY(-2px);
-                box-shadow: variables.$shadow;
+                background-color: white;
             }
-            
+
             &:active {
-                transform: translateY(0);
+                background-color: white;
+            }
+
+            &:focus-visible {
+                outline-color: white; 
             }
         }
     }
