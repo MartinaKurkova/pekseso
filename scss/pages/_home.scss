@@ -32,7 +32,7 @@
     &__btn {
         @include buttons.btn;
         background-color: variables.$color-primary;
-        color: variables.$color-text;
+        color: white;
         margin-top: 3rem;
 
         @media screen and (max-width: 36rem) {

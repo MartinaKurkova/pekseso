@@ -991,8 +991,8 @@ strong {
   outline-offset: 3px;
 }
 .hero__btn {
-  background-color: #FFD23F;
-  color: #0D0D0D;
+  background-color: #540D6E;
+  color: white;
   margin-top: 3rem;
 }
 @media screen and (max-width: 36rem) {
@@ -1001,13 +1001,13 @@ strong {
   }
 }
 .hero__btn:hover {
-  background-color: #f2bc0a;
+  background-color: #2c033b;
 }
 .hero__btn:active {
-  background-color: #fde493;
+  background-color: #8127a2;
 }
 .hero__btn:focus-visible {
-  outline-color: #dba307;
+  outline-color: #a834d2;
 }
 .hero__image-container {
   flex: 1 1 100%;
