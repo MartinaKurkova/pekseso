@@ -31,7 +31,7 @@
 
     &__btn {
         @include buttons.btn;
-        background-color: variables.$color-secondary;
+        background-color: variables.$color-primary;
         color: variables.$color-text;
         margin-top: 3rem;
 
@@ -40,15 +40,15 @@
         }
 
         &:hover {
-            background-color: variables.$color-hover-sec;
+            background-color: variables.$color-hover;
         }
 
         &:active {
-            background-color: variables.$color-active-sec;
+            background-color: variables.$color-active;
         }
 
         &:focus-visible {
-            outline-color: variables.$color-outline-sec; 
+            outline-color: variables.$color-outline; 
         }
     }
 
