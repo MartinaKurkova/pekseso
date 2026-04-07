@@ -949,6 +949,10 @@ strong {
 .hero_text-container {
   flex: 1;
 }
+.hero__subheading {
+  font-weight: 600;
+  margin-top: 2rem;
+}
 .hero__btn {
   display: inline-block;
   padding: 0.75rem 1.25rem;

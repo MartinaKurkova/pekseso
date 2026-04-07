@@ -29,6 +29,16 @@
         flex: 1;
     }
 
+    &__subheading {
+        font-weight: 600;
+        // color: variables.$color-primary;
+        margin-top: 2rem;
+    }
+
+    &__perex {
+        // margin-top: 0;
+    }
+
     &__btn {
         @include buttons.btn;
         background-color: variables.$color-primary;
