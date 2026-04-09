@@ -31,7 +31,7 @@
         column-gap: 4rem;
         row-gap: 2rem;
 
-        @media screen and (max-width: 48rem) {
+        @media screen and (max-width: 44rem) {
             grid-template-columns: 1fr;
         }
     }
@@ -86,9 +86,11 @@
         border-left: 2px solid variables.$color-secondary;
         padding-left: 4rem;
 
-        @media screen and (max-width: 48rem) {
+        @media screen and (max-width: 44rem) {
             grid-column: 1/2;
             grid-row: 3/4;
+            border-left: none;
+            padding-left: 0;
         }
     }
 

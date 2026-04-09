@@ -1032,16 +1032,8 @@ strong {
 }
 
 .problem {
-  position: relative;
-}
-.problem::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url(/images/fotky/mobile.webp) top left no-repeat;
+  background: url(/images/fotky/pokus.jpg) top left no-repeat;
   background-size: cover;
-  opacity: 0.2;
-  z-index: 0;
 }
 .problem__container {
   position: relative;
@@ -1053,6 +1045,12 @@ strong {
 .problem__heading {
   font-size: clamp(1.8rem, 1.8rem + 2.6vw, 4rem);
   margin-bottom: 1.5rem;
+}
+.problem__perex--under {
+  display: inline-block;
+  position: relative;
+  -webkit-text-decoration: underline #FFD23F 5px;
+          text-decoration: underline #FFD23F 5px;
 }
 
 .advantages__main-heading {
@@ -1279,17 +1277,17 @@ strong {
   outline-offset: 3px;
 }
 .offline__btn {
-  background-color: #FFD23F;
-  color: #0D0D0D;
+  background-color: #540D6E;
+  color: white;
 }
 .offline__btn:hover {
-  background-color: #f2bc0a;
+  background-color: #2c033b;
 }
 .offline__btn:active {
-  background-color: #fde493;
+  background-color: #8127a2;
 }
 .offline__btn:focus-visible {
-  outline-color: #dba307;
+  outline-color: #a834d2;
 }
 .offline__image-container {
   flex: 1 1 100%;
@@ -1310,27 +1308,48 @@ strong {
   }
 }
 
+.second {
+  background: url(/images/mockup/ipad_m.webp) top left no-repeat;
+  background-size: cover;
+}
+@media screen and (max-width: 55.25rem) {
+  .second {
+    background: url(/images/mockup/ipad_m2.webp) top left no-repeat;
+  }
+}
+@media screen and (max-width: 52rem) {
+  .second {
+    background: url(/images/mockup/ipad_m3.webp) top left no-repeat;
+  }
+}
 .second__container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   gap: 1.25rem;
 }
-@media screen and (max-width: 36rem) {
+@media screen and (max-width: 52rem) {
   .second__container {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
 }
 .second__heading {
   font-size: clamp(1.8rem, 1.8rem + 2.6vw, 4rem);
   margin-bottom: 1.5rem;
 }
-.second__image {
-  transform: rotate(355deg);
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-top: 1rem;
-  padding: 1.25rem;
+.second__image-container {
+  flex: 1;
+}
+@media screen and (max-width: 60.625rem) {
+  .second__image-container {
+    flex: 3;
+  }
+}
+.second__text-container {
+  flex: 1;
+}
+@media screen and (max-width: 60.625rem) {
+  .second__text-container {
+    flex: 2;
+  }
 }
 .second__btn {
   display: inline-block;
@@ -1374,23 +1393,23 @@ strong {
   outline-offset: 3px;
 }
 .second__btn {
-  background-color: #540D6E;
-  color: white;
-  margin-top: 3rem;
+  background-color: #FFD23F;
+  color: #0D0D0D;
+  margin-top: 2rem;
 }
-@media screen and (max-width: 36rem) {
+@media screen and (max-width: 51.875rem) {
   .second__btn {
-    margin-top: 2rem;
+    margin-bottom: 10rem;
   }
 }
 .second__btn:hover {
-  background-color: #2c033b;
+  background-color: #f2bc0a;
 }
 .second__btn:active {
-  background-color: #8127a2;
+  background-color: #fde493;
 }
 .second__btn:focus-visible {
-  outline-color: #a834d2;
+  outline-color: #dba307;
 }
 
 .herna__container {
@@ -4445,7 +4464,7 @@ input[type=checkbox] {
        column-gap: 4rem;
   row-gap: 2rem;
 }
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 44rem) {
   .story__container {
     grid-template-columns: 1fr;
   }
@@ -4533,10 +4552,12 @@ input[type=checkbox] {
   border-left: 2px solid #FFD23F;
   padding-left: 4rem;
 }
-@media screen and (max-width: 48rem) {
+@media screen and (max-width: 44rem) {
   .story__image-container {
     grid-column: 1/2;
     grid-row: 3/4;
+    border-left: none;
+    padding-left: 0;
   }
 }
 .story__photo {

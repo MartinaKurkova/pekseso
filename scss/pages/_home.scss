@@ -78,17 +78,8 @@
 
 // problem
 .problem {
-    position: relative;
-
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: url(/images/fotky/mobile.webp) top left no-repeat;
-        background-size: cover;
-        opacity: 0.2;
-        z-index: 0;
-    }
+    background: url(/images/fotky/pokus.jpg) top left no-repeat;
+    background-size: cover;
 
     &__container {
         position: relative;
@@ -102,6 +93,12 @@
     &__heading {
         font-size: clamp(1.8rem, calc(1.8rem + 2.6vw), 4rem);
         margin-bottom: 1.5rem;
+    }
+
+    &__perex--under {
+        display: inline-block;
+        position: relative;
+        text-decoration: underline variables.$color-secondary 5px;
     }
 }
 
@@ -266,19 +263,19 @@
 
     &__btn {
         @include buttons.btn;
-        background-color: variables.$color-secondary;
-        color: variables.$color-text;
+        background-color: variables.$color-primary;
+        color: white;
 
         &:hover {
-            background-color: variables.$color-hover-sec;
+            background-color: variables.$color-hover;
         }
 
         &:active {
-            background-color: variables.$color-active-sec;
+            background-color: variables.$color-active;
         }
 
         &:focus-visible {
-            outline-color: variables.$color-outline-sec; 
+            outline-color: variables.$color-outline; 
         }
     }
 
@@ -304,13 +301,23 @@
 
 // second cta
 .second {
+    background: url(/images/mockup/ipad_m.webp)top left no-repeat;
+    background-size: cover;
+
+        @media screen and (max-width: 55.25rem) {
+            background: url(/images/mockup/ipad_m2.webp)top left no-repeat;
+        }
+
+        @media screen and (max-width: 52rem) {
+            background: url(/images/mockup/ipad_m3.webp)top left no-repeat;
+        }
+
     &__container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
         gap: 1.25rem;
 
-        @media screen and (max-width: 36rem) {
-            grid-template-columns: 1fr;
+        @media screen and (max-width: 52rem) {
+            flex-direction: column;
         }
     }
     &__heading {
@@ -318,35 +325,42 @@
         margin-bottom: 1.5rem;
     }
 
-    &__image {
-        transform: rotate(355deg);
-        width: 100%;
-        height: auto;
-        display: block;
-        margin-top: 1rem;
-        padding: 1.25rem
+    &__image-container {
+        flex: 1;
+
+        @media screen and (max-width: 60.625rem) {
+            flex: 3;
+        }
+    }
+
+    &__text-container {
+        flex: 1;
+
+        @media screen and (max-width: 60.625rem) {
+            flex: 2;
+        }
     }
 
     &__btn {
         @include buttons.btn;
-        background-color: variables.$color-primary;
-        color: white;
-        margin-top: 3rem;
+        background-color: variables.$color-secondary;
+        color: variables.$color-text;
+        margin-top: 2rem;
 
-        @media screen and (max-width: 36rem) {
-            margin-top: 2rem;
+        @media screen and (max-width: 51.875rem) {
+            margin-bottom: 10rem;
         }
 
         &:hover {
-            background-color: variables.$color-hover;
+            background-color: variables.$color-hover-sec;
         }
 
         &:active {
-            background-color: variables.$color-active;
+            background-color: variables.$color-active-sec;
         }
 
         &:focus-visible {
-            outline-color: variables.$color-outline; 
+            outline-color: variables.$color-outline-sec; 
         }
     }
 }
