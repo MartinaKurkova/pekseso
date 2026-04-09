@@ -24,12 +24,16 @@
         }
     }
 
-    &__heading {
+    &__text-container {
         margin-top: 3rem;
         grid-area: heading;
     }
 
     // form
+    &__subheading {
+        font-weight: 600;
+    }
+    
     &__form-container {
         grid-area: form;
     }

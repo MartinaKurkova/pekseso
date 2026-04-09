@@ -57,19 +57,29 @@
         flex-direction: column;
     }
 
-    &__image {
-        display: block;
-        width: 50%;
-        height: auto;
-        border-radius: .3125rem;
-        align-self: self-end;
+    &__btn {
+        @include buttons.btn;
+        background-color: variables.$color-primary;
+        color: white;
+        margin-top: 3rem;
+
+        @media screen and (max-width: 36rem) {
+            margin-top: 2rem;
+        }
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
+        }
     }
-
-    &__image:first-of-type,
-    &__image:last-of-type {
-        align-self: self-start;
-    } 
-
+    
     &__image-container {
         grid-column: 2/3;
         grid-row: 2/3;
@@ -89,12 +99,6 @@
         border-radius: 50%;
         margin-bottom: 1rem;
     }
-
-    &__photo::after {
-            content: "[]";
-            border: 3px solid red;
-            padding: 2rem;
-        }
 
     &__link {
         color: variables.$color-text;

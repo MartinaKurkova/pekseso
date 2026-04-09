@@ -29,15 +29,6 @@
         flex: 1;
     }
 
-    &__subheading {
-        font-weight: 600;
-        // color: variables.$color-primary;
-        margin-top: 2rem;
-    }
-
-    &__perex {
-        // margin-top: 0;
-    }
 
     &__btn {
         @include buttons.btn;
@@ -80,12 +71,49 @@
         display: block;
         background-color: white;
         box-shadow: variables.$shadow;
+        transform: rotate(5deg);
+        margin-top: 1rem;
+    }
+}
+
+// problem
+.problem {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url(/images/fotky/mobile.webp) top left no-repeat;
+        background-size: cover;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+    &__container {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__text-container {
+        text-align: center;
+    }
+
+    &__heading {
+        font-size: clamp(1.8rem, calc(1.8rem + 2.6vw), 4rem);
+        margin-bottom: 1.5rem;
     }
 }
 
 // advantages
 .advantages {
-    &__container {
+    &__main-heading {
+        text-align: center;
+        font-size: clamp(1.8rem, calc(1.8rem + 2.6vw), 4rem);
+        margin-bottom: 1.5rem;
+    }
+
+    &__columns {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: auto;
@@ -214,6 +242,7 @@
 
 // offline
 .offline {
+    background-color: variables.$color-bg-light;
     &__container {
         display: flex;
         flex-direction: row;
@@ -269,6 +298,55 @@
 
         @media screen and (max-width: 48rem) {
             width: 100%;
+        }
+    }
+}
+
+// second cta
+.second {
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+
+        @media screen and (max-width: 36rem) {
+            grid-template-columns: 1fr;
+        }
+    }
+    &__heading {
+        font-size: clamp(1.8rem, calc(1.8rem + 2.6vw), 4rem);
+        margin-bottom: 1.5rem;
+    }
+
+    &__image {
+        transform: rotate(355deg);
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: 1rem;
+        padding: 1.25rem
+    }
+
+    &__btn {
+        @include buttons.btn;
+        background-color: variables.$color-primary;
+        color: white;
+        margin-top: 3rem;
+
+        @media screen and (max-width: 36rem) {
+            margin-top: 2rem;
+        }
+
+        &:hover {
+            background-color: variables.$color-hover;
+        }
+
+        &:active {
+            background-color: variables.$color-active;
+        }
+
+        &:focus-visible {
+            outline-color: variables.$color-outline; 
         }
     }
 }

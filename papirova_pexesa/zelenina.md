@@ -2,7 +2,7 @@
 layout: product-layout.njk
 title: "Zelenina"
 price: 165
-subheading: "Sklidťe radost přímo ze stolu"
+subheading: "Zelenina, kterou baví objevovat"
 folder: "Zelenina"
 stripe_id: "price_1T6GWzJdC0N7uBdkUyuI0myz" 
 
@@ -14,4 +14,4 @@ ogImage: "/images/fotky/Zelenina/medium/zelenina_1_medium_650.webp"
 ogType: product
 ---
 
-Od svěžích odstínů hrášku až po sytě zelenou brokolici. Tato sada pexesa přenáší šťavnatost zeleninového záhonu přímo na váš stůl. Třicet dva dvojic ilustrací oslavuje pestrost přírody v&nbsp;hravém, čistém stylu, který dětem srozumitelně přibližuje svět zdravých dobrot. Proměňte hru v&nbsp;malé objevování zahrady, které přirozeně probouzí zvědavost a&nbsp;ukazuje, kolik radosti se skrývá v&nbsp;každém plodu či listu.
+32 dvojic ilustrací, které dětem přibližují svět zeleniny hravě a srozumitelně. Od hrášku po brokolici – každá karta ukazuje, jak pestrá může být příroda. Hra, která baví a přirozeně probouzí zvědavost. Ideální na chvíle, kdy nechcete zapnout další pohádku.

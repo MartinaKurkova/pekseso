@@ -2,7 +2,7 @@
 layout: product-layout.njk
 title: "Ptáci"
 price: 165
-subheading: "Vzhůru do korun stromů a k dalekým břehům"
+subheading: "Objevte svět ptáků zblízka"
 folder: "Ptaci"
 stripe_id: "price_1T6VnWJdC0N7uBdkzJGRE1oI" 
 
@@ -14,4 +14,4 @@ ogImage: "/images/fotky/Ptaci/medium/ptaci_1_medium_650.webp"
 ogType: product
 ---
 
-Tato sada pexesa vám představí 32 dvojic exotických ptáků. Čistý styl vektorových ilustrací klade důraz na zobrazení charakteristických znaků každého z&nbsp;nich. Je to příležitost, jak společně s&nbsp;dětmi objevovat ptačí říši, trénovat soustředění a&nbsp;nechat se vést křídly fantazie.
+Barevní, výrazní a každý jiný. 32 dvojic exotických ptáků, které děti baví objevovat a které vás na chvíli zpomalí. Každá ilustrace zachycuje typické znaky jednotlivých druhů, takže se z hraní stává i malé poznávání. Ideální na chvíle, kdy nechcete zapnout další pohádku.
