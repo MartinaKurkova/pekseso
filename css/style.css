@@ -939,7 +939,6 @@ strong {
   align-items: center;
   gap: 1.25rem;
   padding-top: 5rem;
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 @media screen and (max-width: 40rem) {
   .hero__container {
@@ -948,6 +947,11 @@ strong {
 }
 .hero_text-container {
   flex: 1;
+}
+.hero__heading, .hero__perex {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 .hero__btn {
   display: inline-block;
@@ -1423,11 +1427,15 @@ strong {
 .herna__heading {
   text-align: center;
   animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 .herna__perex {
   text-align: center;
   margin-bottom: 3rem;
   animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 .herna__sr-only {
   position: absolute;
@@ -1552,12 +1560,16 @@ strong {
 .paper__container {
   margin: 0 auto;
   padding: 7rem 1.25rem 5rem 1.25rem;
-  animation: fadeInUp 0.8s ease-out forwards;
 }
 @media screen and (max-width: 36rem) {
   .paper__container {
     padding: 5rem 1.25rem 3rem 1.25rem;
   }
+}
+.paper__heading, .paper__perex {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 
 .shop__container {
@@ -4451,6 +4463,13 @@ input[type=checkbox] {
 .story-hero__heading {
   margin-bottom: 2rem;
   animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+.story-hero__perex {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 
 .story__container {

@@ -9,8 +9,8 @@
     "stripe": "^20.4.0"
   },
   "scripts": {
-    "build": "npx @11ty/eleventy",
-    "serve": "npx @11ty/eleventy --serve",
-    "start": "npx @11ty/eleventy --serve"
-  }
+  "build": "sass scss/style.scss dist/css/style.css --style=compressed && npx @11ty/eleventy",
+  "serve": "sass scss/style.scss dist/css/style.css --style=compressed && npx @11ty/eleventy --serve",
+  "start": "sass scss/style.scss dist/css/style.css --style=compressed && npx @11ty/eleventy --serve"
+}
 }
