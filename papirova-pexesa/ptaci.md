@@ -1,6 +1,7 @@
 ---
 layout: product-layout.njk
-title: "Ptáci"
+name: "Ptáci"
+title: "Pexeso Ptáci | Hra, která baví děti i rodiče"
 price: 165
 subheading: "Objevte svět ptáků zblízka"
 folder: "Ptaci"

@@ -1,5 +1,6 @@
 ---
 layout: product-layout.njk
+name: "Lesní zvířata"
 title: "Pexeso Lesní zvířata | Hra, která baví děti i rodiče"
 price: 165
 subheading: "Lesní zvířata, která zabaví i zklidní"

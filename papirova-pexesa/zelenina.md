@@ -1,6 +1,7 @@
 ---
 layout: product-layout.njk
-title: "Zelenina"
+name: "Zelenina"
+title: "Pexeso Zelenina | Hra, která baví děti i rodiče"
 price: 165
 subheading: "Zelenina, kterou baví objevovat"
 folder: "Zelenina"

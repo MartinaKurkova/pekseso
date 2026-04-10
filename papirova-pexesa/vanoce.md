@@ -1,6 +1,7 @@
 ---
 layout: product-layout.njk
-title: "Vánoce"
+name: "Vánoce"
+title: "Pexeso Vánoce | Hra, která baví děti i rodiče"
 price: 165
 subheading: "Vánoční chvíle u jednoho stolu"
 folder: "Vanoce"
