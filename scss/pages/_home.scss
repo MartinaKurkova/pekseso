@@ -84,8 +84,20 @@
 
 // problem
 .problem {
-    background: url(/images/fotky/pokus.jpg) top left no-repeat;
+    background: url(/images/fotky/pokus.webp) top left no-repeat;
     background-size: cover;
+
+    @media screen and (max-width: 62.5rem) {
+        background: url(/images/fotky/pokus2.webp) top left no-repeat;
+    }
+
+    @media screen and (max-width: 50rem) {
+        background: url(/images/fotky/pokus3.webp)top right no-repeat;
+    }
+
+    @media screen and (max-width: 36rem) {
+        background: url(/images/fotky/pokus4.webp)top right no-repeat;
+    }
 
     &__container {
         position: relative;
@@ -94,6 +106,14 @@
 
     &__text-container {
         text-align: center;
+
+        @media screen and (max-width: 50rem) {
+            text-align: left;
+        }
+
+        @media screen and (max-width: 36rem) {
+            width: 70%;
+        }
     }
 
     &__heading {

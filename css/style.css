@@ -1036,8 +1036,23 @@ strong {
 }
 
 .problem {
-  background: url(/images/fotky/pokus.jpg) top left no-repeat;
+  background: url(/images/fotky/pokus.webp) top left no-repeat;
   background-size: cover;
+}
+@media screen and (max-width: 62.5rem) {
+  .problem {
+    background: url(/images/fotky/pokus2.webp) top left no-repeat;
+  }
+}
+@media screen and (max-width: 50rem) {
+  .problem {
+    background: url(/images/fotky/pokus3.webp) top right no-repeat;
+  }
+}
+@media screen and (max-width: 36rem) {
+  .problem {
+    background: url(/images/fotky/pokus4.webp) top right no-repeat;
+  }
 }
 .problem__container {
   position: relative;
@@ -1045,6 +1060,16 @@ strong {
 }
 .problem__text-container {
   text-align: center;
+}
+@media screen and (max-width: 50rem) {
+  .problem__text-container {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 36rem) {
+  .problem__text-container {
+    width: 70%;
+  }
 }
 .problem__heading {
   font-size: clamp(1.8rem, 1.8rem + 2.6vw, 4rem);
