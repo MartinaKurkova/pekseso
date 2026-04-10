@@ -87,7 +87,7 @@ exports.handler = async (event) => {
   try {
     // Email adminovi (vám)
     await transporter.sendMail({
-      from: `"Pekseso web" <${process.env.MAIL_USER}>`,
+      from: '"Pekseso" <ahoj@pekseso.cz>',
       to: process.env.ADMIN_EMAIL,
       replyTo: email,
       subject: `Nová objednávka – VS ${vs}`,
@@ -98,7 +98,7 @@ exports.handler = async (event) => {
 
     // Potvrzení zákazníkovi
     await transporter.sendMail({
-      from: `"Pekseso" <${process.env.MAIL_USER}>`,
+      from: '"Pekseso" <ahoj@pekseso.cz>',
       to: email,
       subject: `Máme pár! Objednávka dorazila – č. o.: ${vs}`,
       html: emailWrap('Tvoje objednávka dorazila', `
@@ -111,10 +111,10 @@ exports.handler = async (event) => {
           Částka k úhradě: <strong>${totalPrice} Kč</strong><br>
           Číslo účtu: <strong>1300712012/3030</strong><br>
           Variabilní symbol: <strong>${vs}</strong><br><br>
-          Objednávku odešleme ihned po připsání platby na účet.
+          Objednávku odešlu ihned po připsání platby na účet.
         </div>
         ` : `
-        <p style="font-family:Arial,sans-serif;">Zvolili jste platbu hotově při převzetí v Sadské. Počkejte prosím na SMS nebo e-mail, ve kterém se domluvíme na čase předání.</p>
+        <p style="font-family:Arial,sans-serif;">Zvolil jsi platbu hotově při převzetí v Sadské. Počkej prosím na SMS nebo e-mail, ve kterém se domluvíme na čase předání.</p>
         `}
 
         ${itemsTable(cart, totalPrice)}

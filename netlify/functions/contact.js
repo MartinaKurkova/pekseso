@@ -38,7 +38,7 @@ exports.handler = async (event) => {
   try {
     // Email adminovi
     await transporter.sendMail({
-      from: `"Pekseso web" <${process.env.MAIL_USER}>`,
+      from: '"Pekseso" <ahoj@pekseso.cz>',
       to: process.env.ADMIN_EMAIL,
       replyTo: email,
       subject: `Kontaktní formulář: ${subject || name}`,
@@ -54,7 +54,7 @@ exports.handler = async (event) => {
 
     // Potvrzení zákazníkovi
     await transporter.sendMail({
-      from: `"Pekseso" <${process.env.MAIL_USER}>`,
+      from: '"Pekseso" <ahoj@pekseso.cz>',
       to: email,
       subject: 'Zpráva dorazila, ozvu se ti',
       html: emailWrap('Ahoj!', `
