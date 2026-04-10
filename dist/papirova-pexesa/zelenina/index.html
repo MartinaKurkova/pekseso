@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Zelenina</title>
+    <meta name="description" content="Autorské pexeso s 32 dvojicemi motivů zeleniny, které děti baví a přirozeně rozvíjí jejich soustředění. Zahrajte si on-line a pak si ho dopřejte i ke společnému stolu.">
+
+    <meta property="og:title" content="Pexeso Zelenina | Hra, která baví děti i rodiče">
+    <meta property="og:description" content="Autorské pexeso s 32 dvojicemi motivů zeleniny, které děti baví a přirozeně rozvíjí jejich soustředění. Zahrajte si on-line a pak si ho dopřejte i ke společnému stolu.">
+    <meta property="og:image" content="/images/fotky/Zelenina/medium/zelenina_1_medium_650.webp">
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://pekseso.cz/papirova-pexesa/zelenina/">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-300.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="preload" href="/css/cookieconsent.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/cookieconsent.css"></noscript>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    
+    
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+            
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/herna/" class="header__nav-link">Herna</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/herna/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/herna/psi/" class="header__nav-link">Psi</a></li>
+                            <li class="header__nav-item"><a href="/herna/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/herna/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/herna/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/papirova-pexesa/" class="header__nav-link">Papírová pexesa</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/papirova-pexesa/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/papirova-pexesa/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/papirova-pexesa/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/papirova-pexesa/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item"><a href="/pribeh/" class="header__nav-link">Příběh Peksesa</a></li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+            <button class="header__basket" aria-label="Košík, 0 položek" id="cart-btn">
+                <img src="/images/icons/kosik_white.svg" alt="" class="header__basket-icon header__basket-icon--light" width="20" height="20">
+                <img src="/images/icons/kosik.svg" alt="" class="header__basket-icon header__basket-icon--dark" width="20" height="20">
+                <span class="header__basket-amount" aria-live="polite">0</span>
+            </button>
+                <div class="toast" id="toast">Pexeso bylo přidáno do košíku</div>
+        </div>
+</header>
+
+ <main>
+    <section class="product">
+    <div class="product__container">
+        <div class="product__image-container">
+            
+            <div class="product__image-main" onclick="openLightbox(currentImageIndex)">
+                <img src="/images/fotky/Zelenina/large/zelenina_1_large_800.webp"
+                    srcset="/images/fotky/Zelenina/small/zelenina_1_small_400.webp 400w,
+                            /images/fotky/Zelenina/medium/zelenina_1_medium_650.webp 650w,
+                            /images/fotky/Zelenina/large/zelenina_1_large_800.webp 800w,
+                            /images/fotky/Zelenina/xl/zelenina_1_xl_1000.webp 1000w"
+                    data-full="/images/fotky/Zelenina/xl/zelenina_1_xl_1000.webp"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    alt="Pexeso Zelenina - hlavní náhled"
+                    class="product__image"
+                    id="mainImg"
+                    loading="eager"
+                    fetchpriority="high">
+            </div>
+
+            <div class="product__thumbnails-carousel">
+                <div class="product__thumbnails-viewport">
+                    <button class="product__thumb-arrow product__thumb-arrow--left" id="thumbArrowLeft" onclick="slideThumbs(-1)">‹</button>
+                    <div class="product__thumbnails" id="thumbTrack">
+                        
+                        
+                        <div class="product__thumbnail active" onclick="changeImage(0)">
+                            <img src="/images/fotky/Zelenina/small/zelenina_1_small_400.webp"
+                                 data-full="/images/fotky/Zelenina/xl/zelenina_1_xl_1000.webp"
+                                 alt="Pexeso Zelenina - detail 1"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
+                        </div>
+                        
+                        <div class="product__thumbnail " onclick="changeImage(1)">
+                            <img src="/images/fotky/Zelenina/small/zelenina_2_small_400.webp"
+                                 data-full="/images/fotky/Zelenina/xl/zelenina_2_xl_1000.webp"
+                                 alt="Pexeso Zelenina - detail 2"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
+                        </div>
+                        
+                        <div class="product__thumbnail " onclick="changeImage(2)">
+                            <img src="/images/fotky/Zelenina/small/zelenina_3_small_400.webp"
+                                 data-full="/images/fotky/Zelenina/xl/zelenina_3_xl_1000.webp"
+                                 alt="Pexeso Zelenina - detail 3"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
+                        </div>
+                        
+                        <div class="product__thumbnail " onclick="changeImage(3)">
+                            <img src="/images/fotky/Zelenina/small/zelenina_4_small_400.webp"
+                                 data-full="/images/fotky/Zelenina/xl/zelenina_4_xl_1000.webp"
+                                 alt="Pexeso Zelenina - detail 4"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
+                        </div>
+                        
+                        <div class="product__thumbnail " onclick="changeImage(4)">
+                            <img src="/images/fotky/Zelenina/small/zelenina_5_small_400.webp"
+                                 data-full="/images/fotky/Zelenina/xl/zelenina_5_xl_1000.webp"
+                                 alt="Pexeso Zelenina - detail 5"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
+                        </div>
+                        
+                        <div class="product__thumbnail " onclick="changeImage(5)">
+                            <img src="/images/fotky/Zelenina/small/zelenina_6_small_400.webp"
+                                 data-full="/images/fotky/Zelenina/xl/zelenina_6_xl_1000.webp"
+                                 alt="Pexeso Zelenina - detail 6"
+                                 class="product_thumbnail-image"
+                                 loading="lazy">
+                        </div>
+                        
+                    </div>
+                    <button class="product__thumb-arrow product__thumb-arrow--right" id="thumbArrowRight" onclick="slideThumbs(+1)">›</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product__text-container">
+            <h1 class="product__heading"><span class="product__heading--italic">Zelenina</span></h1>
+            <div class="product__price" aria-label="Cena: 165 Kč">165 Kč</div>
+            <p class="product__subheading">Zelenina, kterou baví objevovat</p>
+            <div class="product__text"><p>32 dvojic ilustrací, které dětem přibližují svět zeleniny hravě a srozumitelně. Od hrášku po brokolici – každá karta ukazuje, jak pestrá může být příroda. Hra, která baví a přirozeně probouzí zvědavost. Ideální na chvíle, kdy nechcete zapnout další pohádku.</p>
+</div>
+            
+            <div class="box">
+                <h2 class="box__heading">Co najdete v balení</h2>
+                <!-- box 1 -->
+                <div class="box__item">
+                    <img src="/images/icons/paper.svg" 
+                        alt="Ikona papíru" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h3 class="box__title">Prémiový papír</h3>
+                        <p class="box__description">Pevný, nenatíraný papír s jemnou strukturou, který je příjemný na dotek a vydrží i opakované hraní.</p>
+                    </div>
+                </div>
+                <!-- box 2 -->
+                <div class="box__item">
+                    <img src="/images/icons/eko.svg" 
+                        alt="Ikona ekologického papíru" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h3 class="box__title">S úctou k přírodě</h3>
+                        <p class="box__description">Použitý papír má certifikaci FSC®, která zaručuje udržitelný a&nbsp;zodpovědný původ dřeva.</p>
+                    </div>
+                </div>
+                <!-- box 3 -->
+                <div class="box__item">
+                    <img src="/images/icons/pairs.svg" 
+                        alt="Ikona kartiček" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h3 class="box__title">32 dvojic kartiček</h3>
+                        <p class="box__description">Tři archy formátu A4 s jasně vyznačenými okraji, které si snadno rozstříháte na jednotlivé kartičky.</p>
+                    </div>
+                </div>
+                <!-- box 4 -->
+                <div class="box__item">
+                    <img src="/images/icons/box.svg" 
+                        alt="Ikona krabičky" 
+                        class="box__icon"
+                        width="60"
+                        height="60">
+                    <div class="box__text-container">
+                        <h3 class="box__title">Krabička v balení</h3>
+                        <p class="box__description">Součástí je i skládací krabička, aby mělo pexeso po hře své místo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="/herna/zelenina/" class="product__try">Nejste si jistí? Zkuste si ho on-line. &#8594;</a>
+            <a href="/papirova-pexesa/" class="product__back-link">← Zpět na všechna pexesa</a>
+            
+            <div class="product__buttons">
+                <div class="quantity__wrapper">
+                    <button class="quantity__btn" id="btn-minus" onclick="changeQty(-1)">−</button>
+                    <span class="quantity__value" id="qty-display">1</span>
+                    <button class="quantity__btn" id="btn-plus" onclick="changeQty(1)">+</button>
+                </div>
+                <button class="product__btn-buy add-to-cart-btn" 
+                        id="btnBuy"
+                        data-id="price_1T6GWzJdC0N7uBdkUyuI0myz"
+                        data-name="Zelenina"
+                        data-price="165"
+                        data-image="/images/fotky/Zelenina/small/zelenina_1_small_400.webp">
+                    Vložit do košíku
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<div id="cart__overlay" class="cart__overlay"></div>
+
+<aside id="cart__panel" class="cart__panel">
+  <div class="cart__header">
+    <h2 class="cart__heading">Váš košík</h2>
+    <button id="close__cart" class="cart__close-btn">&times;</button>
+  </div>
+
+  <div class="cart__content">
+    <div class="cart__item">
+        <img src="/images/fotky/Les/small/les_1_small_400.webp" 
+            alt="Pexeso Lesní zvířata čtyři kartičky s lesními zvířaty"
+            class="cart__image"
+            loading="lazy" 
+            width="400" 
+            height="400">
+        <div class="cart__details">
+            <h3 class="cart__subheading">Lesní zvířata</h3>
+            <p class="cart__price">165 Kč</p>
+            <div class="cart__quantity-wrapper">
+                <button class="cart__quantity-btn" id="btn-minus-aside" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+                <span class="cart__quantity-value" id="qty-display-aside" aria-live="polite" aria-atomic="true">1</span>
+                <button class="cart__quantity-btn" id="btn-plus-aside" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+            </div>
+        </div>
+        <button class="cart__item-remove" aria-label="Odebrat položku">&times;</button>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <h2 class="cart__subheading--footer">Shrnutí objednávky</h2>
+    <div class="cart__total">
+      <p class="cart__total-price">Celková cena: <span class="cart__total-price--number">165</span> Kč</p>
+    </div>
+    <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
+    <button class="cart__checkout-btn">Vybrat způsob doručení</button>
+    <a href="/papirova-pexesa/" class="cart__back-link">Pokračovat v nákupu</a>
+  </div>
+</aside>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <section class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </section>
+            <div class=" footer__section footer__section-about">
+                <p class="footer__claim">Najdi ten správný pár</p>
+                <p class="footer__text">Autorské pexeso plné ilustrací. Stačí jedno otočení a společná hra začíná.</p>
+                <p class="footer__text">Projekt ilustrátorky a grafičky Martiny Kurkové Nožičkové.</p>
+            </div>
+            <section class="footer__section footer__section_contact">
+                <h3 class="footer__subheading">Buďme v kontaktu</h3>
+                <address class="footer__contact">Máte dotaz? Napište mi na
+                    <span class="footer__email" id="email-footer"></span><br>
+                </address>
+                <p class="footer__social footer__text">Sledujte PE[KS]ESO na Instagramu</p>
+                <a href="https://www.instagram.com/pekseso.cz/" 
+                        class="footer__social-link" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="Instagram profil pekseso.cz">
+                            <img src="/images/logo/instragram_white.svg" 
+                                    alt="logo Instagram" 
+                                    class="footer__social-icon--img"
+                                    aria-hidden="true"
+                                    width="20"
+                                    height="20">pekseso.cz
+                        </a>
+                <p class="footer__credit footer__text">Moji další tvorbu najdete na 
+                    <a href="https://www.martinanozickova.com/" 
+                        class="footer__credit-link" target="_blank">www.martinanozickova.com</a>
+                </p>
+            </section>
+            <section class="footer__section footer__section-important">
+                <h3 class="footer__subheading">Důležité informace</h3>
+                <a class="footer__legal" href="/GDPR/">Zásady ochrany osobních údajů</a>
+                <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
+                <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy a&nbsp;reklamace</a>
+                <a class="footer__legal" href="/papirova-pexesa/#transport">Doprava a&nbsp;platba</a>
+                <a class="footer__legal" href="/zasady-cookies/">Zásady používání souborů cookies</a>
+                <a class="footer__legal" href="#" data-cc="show-preferencesModal">Nastavení cookies</a>
+            </section>
+            <div class="footer__section footer__section-menu">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                    <h3 class="footer__subheading">Menu</h3>
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova-pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/pribeh/" class="footer__nav-link">Příběh Peksesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            </div>
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js" defer></script>
+    <script src="/js/cart.js" defer></script>
+    <script src="/js/aside_cart_panel.js" defer></script>
+
+    <script src="/js/cookieconsent.umd.js" defer fetchpriority="low"></script>
+
+    <script type="text/plain" data-category="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-MXSR773H36"></script>
+    <script type="text/plain" data-category="analytics">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MXSR773H36');
+    </script>
+
+    <script>
+        // Spuštění konfigurace cookies až po úplném načtení stránky (kvůli defer atributům)
+        window.addEventListener('load', function() {
+            CookieConsent.run({
+                guiOptions: {
+                    consentModal: {
+                        layout: 'cloud',
+                        position: 'bottom center',
+                        equalWeightButtons: true,
+                        flipButtons: false
+                    }
+                },
+                categories: {
+                    necessary: { enabled: true },
+                    analytics: { }
+                },
+                language: {
+                    default: 'cs',
+                    translations: {
+                        cs: {
+                            consentModal: {
+                                title: 'I pexeso má svá pravidla (a my cookies)',
+                                description: 'Aby u nás všechno fungovalo, jak má – od nákupního košíku až po měření návštěvnosti – používáme malé soubory cookies. Ty nezbytné používáme hned, o těch ostatních můžete rozhodnout vy.',
+                                acceptAllBtn: 'Povolit vše',
+                                acceptNecessaryBtn: 'Jen nezbytné',
+                                showPreferencesBtn: 'Nastavit individuálně',
+                                footer: `
+                                    <a href="/GDPR/">Zásady ochrany osobních údajů</a>
+                                    <a href="/zasady-cookies/">Zásady cookies</a>
+                                `
+                            },
+                            preferencesModal: {
+                                title: 'Nastavení cookies',
+                                acceptAllBtn: 'Povolit vše',
+                                acceptNecessaryBtn: 'Jen nezbytné',
+                                savePreferencesBtn: 'Uložit nastavení',
+                                closeIconLabel: 'Zavřít',
+                                sections: [
+                                    {
+                                        title: 'Nezbytné cookies',
+                                        description: 'Tyto cookies jsou potřeba pro správné fungování webu a košíku.',
+                                        linkedCategory: 'necessary'
+                                    },
+                                    {
+                                        title: 'Analytické cookies',
+                                        description: 'Pomáhají mi pochopit, co vás na webu baví, abych ho mohla vylepšovat.',
+                                        linkedCategory: 'analytics'
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+<script src="/js/product.js" defer></script> 
+</body>
+</html>
