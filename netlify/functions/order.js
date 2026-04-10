@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// DOPLNĚNO: Přidáno ID Balíkovny do převodníku
+// doprava
 const dopravaPreklad = {
   "shr_1T6BpcJdC0N7uBdkHIPwzJUj": "Zásilkovna – Výdejní místo",
   "shr_1TGh3LJdC0N7uBdkLyfGt4eu": "Balíkovna – Výdejní místo / BOX",
@@ -49,7 +49,7 @@ exports.handler = async (event) => {
     shipping_different,
     shipping_rate, payment_method,
     zasilkovna_name,
-    pobocka_metadata, // PŘIDÁNO: Nová proměnná z frontend JS
+    pobocka_metadata,
     note,
     cart, vs, totalPrice,
   } = body;
@@ -68,9 +68,7 @@ exports.handler = async (event) => {
   const paymentLabel  = platbaPreklad[payment_method] || payment_method;
   const isTransfer    = payment_method === 'transfer';
 
-  // OPRAVA LOGIKY VÝPISU POBOČKY:
-  // Pokud máme pobocka_metadata (z našeho nového JS), použijeme je. 
-  // Pokud ne a je to starší verze Zásilkovny, zkusíme zasilkovna_name.
+  // VÝPIS POBOČKY:
   const infoOPobocce = pobocka_metadata || zasilkovna_name || null;
 
   const adminRows = [
@@ -102,10 +100,10 @@ exports.handler = async (event) => {
     await transporter.sendMail({
       from: `"Pekseso" <${process.env.MAIL_USER}>`,
       to: email,
-      subject: `Potvrzení o doručení objednávky – VS ${vs}`,
-      html: emailWrap('Vaše objednávka dorazila do ateliéru', `
-        <p style="font-family:Arial,sans-serif;">Ahoj <strong>${billing_first_name}</strong>,</p>
-        <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">díky za objednávku! Právě přistála u mě v systému a já mám radost, že vás moje ilustrace zaujaly.</p>
+      subject: `Máme pár! Objednávka dorazila – č. o.: ${vs}`,
+      html: emailWrap('Tvoje objednávka dorazila', `
+        <p style="font-family:Arial,sans-serif;">Ahoj,</p>
+        <p style="font-family:Arial,sans-serif; margin-bottom: 16px;">děkuji za tvoji objednávku – právě ke mně dorazila. Teď ji kontroluji a brzy ti pošlu potvrzení.</p>
         
         ${isTransfer ? `
         <div style="background:#fff9e6;border-left:4px solid #FFD23F;padding:16px 20px;margin:20px 0;font-family:Arial,sans-serif;">

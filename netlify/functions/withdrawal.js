@@ -70,12 +70,13 @@ exports.handler = async (event) => {
     await transporter.sendMail({
       from: `"Pekseso" <${process.env.MAIL_USER}>`,
       to: email,
-      subject: `Potvrzení přijetí – objednávka č. ${number}`,
-      html: emailWrap('Váš požadavek jsme přijali', `
-        <p style="font-family:Arial,sans-serif;">Dobrý den <strong>${name}</strong>,</p>
-        <p style="font-family:Arial,sans-serif;">obdrželi jsme vaše vyplněné údaje k objednávce č. <strong>${number}</strong>.</p>
-        <p style="font-family:Arial,sans-serif;">Standardně odpovídáme do 1–2 pracovních dnů. Sledujte prosím svou e-mailovou schránku.</p>
-        ${reason === 'odstoupeni' ? `<p style="font-family:Arial,sans-serif;">Peníze vrátíme na účet <strong>${account}</strong> do 14 dnů od obdržení vráceného zboží.</p>` : ''}
+      subject: `Vrácení nebo reklamace pexesa – ráda to s vámi vyřeším – objednávka č. ${number}`,
+      html: emailWrap('Tvůj požadavek jsem přijala', `
+        <p style="font-family:Arial,sans-serif;">Ahoj,</p>
+        <p style="font-family:Arial,sans-serif;">obdržela jsme tvé vyplněné údaje k objednávce č. <strong>${number}</strong>.</p>
+        <p style="font-family:Arial,sans-serif;">Mrzí mě, že s pexesem není něco v pořádku.Pojďme to společně vyřešit co nejjednodušeji. Co nejdříve se ti ozvu a domluvíme se na dalším postupu.</p>
+        ${reason === 'odstoupeni' ? `<p style="font-family:Arial,sans-serif;">Peníze vrátím na účet <strong>${account}</strong> do 14 dnů od obdržení vráceného zboží.</p>` : ''}
+        <br>
         <p style="font-family:Arial,sans-serif;">S pozdravem,<br>Martina – Pekseso</p>
       `),
     });
