@@ -56,11 +56,12 @@ exports.handler = async (event) => {
     await transporter.sendMail({
       from: `"Pekseso" <${process.env.MAIL_USER}>`,
       to: email,
-      subject: 'Potvrzení přijetí zprávy – Pekseso',
-      html: emailWrap('Děkujeme za vaši zprávu!', `
-        <p style="font-family:Arial,sans-serif;">Dobrý den <strong>${name}</strong>,</p>
-        <p style="font-family:Arial,sans-serif;">vaši zprávu jsme obdrželi a odpovíme vám co nejdříve.</p>
-        <p style="font-family:Arial,sans-serif;color:#777;font-size:14px;"><em>Vaše zpráva:</em><br>${message.replace(/\n/g, '<br>')}</p>
+      subject: 'Zpráva dorazila, ozvu se ti',
+      html: emailWrap('Ahoj!', `
+        <p style="font-family:Arial,sans-serif;">Děkuji za zprávu — dorazila ke mně v pořádku. Brzy se na ni podívám a odpovím ti co nejdříve.</p>
+        <p style="font-family:Arial,sans-serif;color:#777;font-size:14px;"><em>Tvoje zpráva:</em><br>${message.replace(/\n/g, '<br>')}</p>
+        <br>
+        <p style="font-family:Arial,sans-serif;"><strong>Martina, Pekseso</strong></p>
       `),
     });
 
