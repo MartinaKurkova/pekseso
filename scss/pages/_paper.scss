@@ -184,16 +184,16 @@
 
 // push
 .push {
-    background: url(/images/fotky/hra2.webp) top right no-repeat;
+    background: url(/images/fotky/hra_f1.webp) top right no-repeat;
     background-size: cover;
 
     @media screen and (max-width: 56.25rem) {
-        background: url(/images/fotky/hra2.png) bottom right no-repeat;
+        background: url(/images/fotky/hra_f2.webp) bottom right no-repeat;
         background-size: cover;
     }
 
     @media screen and (max-width: 35.625rem) {
-        background: url(/images/fotky/hra3.png) top right no-repeat;
+        background: url(/images/fotky/hra_f3.webp) top right no-repeat;
         background-size: cover;
     }
 
