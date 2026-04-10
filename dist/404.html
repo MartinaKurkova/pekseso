@@ -22,8 +22,11 @@
     <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-300.woff2" as="font" type="font/woff2" crossorigin>
 
+    <link rel="preload" href="/css/style.css" as="style">
     <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/cookieconsent.css">
+
+    <link rel="preload" href="/css/cookieconsent.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/cookieconsent.css"></noscript>
     
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
