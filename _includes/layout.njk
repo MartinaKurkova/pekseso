@@ -44,6 +44,34 @@
     {% if page.url == '/pokladna/' %}
     <script src="https://js.stripe.com/v3/" defer></script>
     {% endif %}
+
+    {# Strukturovaná data (JSON-LD) #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pekseso",
+      "url": "https://pekseso.cz",
+      "logo": "https://pekseso.cz/images/logo.png"
+    }
+    </script>
+
+    {% if layout == "blog-article.njk" %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ name | safe }}",
+      "description": "{{ description }}",
+      "image": "https://pekseso.cz{{ ogImage }}",
+      "author": {
+        "@type": "Person",
+        "name": "Martina Kurková Nožičková",
+        "url": "https://pekseso.cz/pribeh/"
+      }
+    }
+    </script>
+    {% endif %}
 </head>
 <body>
     <header class="header" role="banner">
