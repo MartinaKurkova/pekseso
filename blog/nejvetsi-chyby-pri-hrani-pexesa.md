@@ -9,7 +9,7 @@ alt: "hraní pexesa - hledání kartičky lišky"
 
 title: "Největší chyba při hraní pexesa | Pekseso"
 description: "Napovídáme, opravujeme, chceme pomoct. Děláme to z lásky – ale možná tím dětem bereme to nejdůležitější. Zjisti proč a co zkusit jinak."
-metaTitle: "Největší chyba při hraní pexesa | Pekseso
+metaTitle: "Největší chyba při hraní pexesa | Pekseso"
 ogDescription: "Napovídáme, opravujeme, chceme pomoct. Děláme to z lásky – ale možná tím dětem bereme to nejdůležitější. Zjisti proč a co zkusit jinak."
 ogImage: "/images/fotky/blog/01_nejvetsi_chyba/liska_1000_large.webp" 
 ogType: website
