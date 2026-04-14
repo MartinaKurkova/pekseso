@@ -7,13 +7,13 @@ imagePath: "/images/fotky/blog/01_nejvetsi_chyba/"
 imageName: "liska"
 alt: "hraní pexesa - hledání kartičky lišky"
 
-title: " | Pekseso"
-description: ""
-ogDescription: ""
-ogImage: "/images/gallery/lasicka-01.svg" 
+title: "Největší chyba při hraní pexesa | Pekseso"
+description: "Napovídáme, opravujeme, chceme pomoct. Děláme to z lásky – ale možná tím dětem bereme to nejdůležitější. Zjisti proč a co zkusit jinak."
+metaTitle: "Největší chyba při hraní pexesa | Pekseso
+ogDescription: "Napovídáme, opravujeme, chceme pomoct. Děláme to z lásky – ale možná tím dětem bereme to nejdůležitější. Zjisti proč a co zkusit jinak."
+ogImage: "/images/fotky/blog/01_nejvetsi_chyba/liska_1000_large.webp" 
 ogType: website
 twitterCard: summary_large_image 
-obrazek: /images/fotky/blog/01_nejvetsi_chyba/liska_1000_large.webp
 ---
 
 Znáš to. Dítě konečně dorůstá do věku, kdy se s&nbsp;ním dají hrát stolní hry. Pexeso se jeví jako ideální start – má jednoduchá pravidla, která pochopí i&nbsp;malé dítě, a&nbsp;zároveň trénuje paměť a&nbsp;soustředění. Takže zasednete, rozložíte karty a&nbsp;jde se na to.
