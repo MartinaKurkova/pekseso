@@ -1,0 +1,59 @@
+---
+layout: layout.njk
+---
+<section class="article">
+    <div class="article__container container">
+        <div class="article__head-container">
+            <h1 class="article__heading">{{ name | safe }}</h1>
+            <div class="article__perex perex">{{ perex }}</div>
+            <p class="article__date">{{ date | postDate }}</p>
+            
+            <img src="{{ imagePath }}{{ imageName }}_1200_xl.webp" 
+                alt="{{ alt }}" 
+                class="article__image"
+                srcset="{{ imagePath }}{{ imageName }}_1200_xl.webp 1200w,
+                        {{ imagePath }}{{ imageName }}_1000_large.webp 1000w,
+                        {{ imagePath }}{{ imageName }}_750_medium.webp 750w,
+                        {{ imagePath }}{{ imageName }}_400_small.webp 400w"
+                sizes="(max-width: 750px) 100vw, (max-width: 1000px) 750px, 1200px"
+                loading="eager" 
+                fetchpriority="high"
+                width="1200"
+                height="675">
+        </div>
+
+        <div class="article__text-container">
+            <div class="article__text">
+                {{ content | safe }}
+            </div>
+        </div>
+
+        <aside class="share__sidebar">
+            <p class="share__label">Sdílet</p>
+            <!-- Facebook -->
+            <a class="share__btn share__btn--fb" 
+                href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absoluteUrl('https://pekseso.cz') | urlencode }}"
+                target="_blank" rel="noopener" aria-label="Sdílet na Facebooku">
+                <img src="/images/icons/facebook.svg" alt="" class="share__icon" width="30">
+            </a>
+            <!-- X -->
+            <a class="share__btn share__btn--x"
+                href="https://twitter.com/intent/tweet?url={{ page.url | absoluteUrl('https://pekseso.cz') | urlencode }}&text={{ title | urlencode }}"
+                target="_blank" rel="noopener" aria-label="Sdílet na X">
+                <img src="/images/icons/x.svg" alt="" class="share__icon" width="30">
+            </a>
+            <!-- LinkedIn -->
+            <a class="share__btn share__btn--linkedin"
+                href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absoluteUrl('https://pekseso.cz') | urlencode }}"
+                target="_blank" rel="noopener" aria-label="Sdílet na LinkedIn">
+                <img src="/images/icons/linkedin.svg" alt="" class="share__icon" width="30">
+            </a>
+            <!-- Pinterest -->
+            <a class="share__btn share__btn--pinterest"
+                href="https://pinterest.com/pin/create/button/?url={{ page.url | absoluteUrl('https://pekseso.cz') | urlencode }}&description={{ name | urlencode }}&media={{ (imagePath + imageName + '_1000_large.webp') | absoluteUrl('https://pekseso.cz') | urlencode }}"
+                target="_blank" rel="noopener" aria-label="Sdílet na Pinterestu">
+                <img src="/images/icons/pinterest.svg" alt="" class="share__icon" width="30">
+            </a>
+        </aside>
+    </div>
+</section>

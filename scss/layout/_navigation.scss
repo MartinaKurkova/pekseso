@@ -51,9 +51,9 @@
 }
 
 // desktop
-@media screen and (min-width: 53.8125rem) {
+@media screen and (min-width: 56.9375rem) { 
     .header__nav-list-second {
-        display: none;
+        display: none; 
         position: absolute;
         background: white;
         box-shadow: variables.$shadow;
@@ -88,7 +88,7 @@
 }
 
 // mobil
-@media screen and (max-width: 53.75rem) {
+@media screen and (max-width: 56.875rem) {
     .header {
         &__menu-toggle {
             display: flex;

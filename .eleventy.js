@@ -22,6 +22,20 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("./portfolio/*.{html,njk}");
   });
 
+  // --- FILTRY ---
+  eleventyConfig.addFilter("absoluteUrl", (url, base) => {
+    return new URL(url, base).toString();
+  });
+
+  // Date
+  eleventyConfig.addFilter("postDate", (dateObj) => {
+    return new Intl.DateTimeFormat('cs-CZ', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    }).format(dateObj);
+  });
+
   // --- NASTAVENÍ ADRESÁŘŮ ---
 
   return {

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> | Pekseso</title>
+    <meta name="description" content="">
+
+    <meta property="og:title" content=" | Pekseso">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="/images/gallery/lasicka-01.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pekseso.cz/blog/nejvetsi-chyby-pri-hrani-pexesa/">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/merriweather-v33-latin_latin-ext-800italic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/work-sans-v24-latin_latin-ext-300.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="preload" href="/css/cookieconsent.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/cookieconsent.css"></noscript>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    
+    
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <div class="header__logo-title">
+                    <a href="/" class="header__logo-link" aria-label="Martina Kurková Nožičková - domovská stránka">
+                        Pe<span class="header__logo-color">[</span>ks<span class="header__logo-color">]</span>eso
+                    </a>
+                </div>
+            </div>
+            
+            <nav class="header__navigation" id="header__navigation" aria-label="Hlavní navigace">
+                <div class="header__nav-overlay"></div>
+                <ul class="header__nav-list">
+                    <li class="header__nav-item"><a href="/" class="header__nav-link">Úvod</a></li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/herna/" class="header__nav-link">Herna</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/herna/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/herna/psi/" class="header__nav-link">Psi</a></li>
+                            <li class="header__nav-item"><a href="/herna/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/herna/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/herna/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="header__nav-item">
+                        <a href="/papirova-pexesa/" class="header__nav-link">Papírová pexesa</a>
+                        <ul class="header__nav-list-second">
+                            <li class="header__nav-item"><a href="/papirova-pexesa/les/" class="header__nav-link">Lesní zvířata</a></li>
+                            <li class="header__nav-item"><a href="/papirova-pexesa/ptaci/" class="header__nav-link">Ptáci</a></li>
+                            <li class="header__nav-item"><a href="/papirova-pexesa/vanoce/" class="header__nav-link">Vánoce</a></li>
+                            <li class="header__nav-item"><a href="/papirova-pexesa/zelenina/" class="header__nav-link">Zelenina</a></li>
+                        </ul>
+                    </li>
+                    <li class="header__nav-item"><a href="/blog/" class="header__nav-link">Blog</a></li>
+                    <li class="header__nav-item"><a href="/pribeh/" class="header__nav-link">Příběh Peksesa</a></li>
+                    <li class="header__nav-item"><a href="/kontakt/" class="header__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+
+            <button class="header__menu-toggle"
+                type="button" 
+                aria-label="Otevřít navigaci" 
+                aria-expanded="false" 
+                aria-controls="header__navigation"
+                data-menu-toggle>
+                <div class="header__hamburger">
+                    <span class="header__hamburger-line"></span>
+                </div>
+                <span class="header__menu-text">Menu</span>
+            </button>
+            <button class="header__basket" aria-label="Košík, 0 položek" id="cart-btn">
+                <img src="/images/icons/kosik_white.svg" alt="" class="header__basket-icon header__basket-icon--light" width="20" height="20">
+                <img src="/images/icons/kosik.svg" alt="" class="header__basket-icon header__basket-icon--dark" width="20" height="20">
+                <span class="header__basket-amount" aria-live="polite">0</span>
+            </button>
+                <div class="toast" id="toast">Pexeso bylo přidáno do košíku</div>
+        </div>
+</header>
+
+ <main>
+    <section class="article">
+    <div class="article__container container">
+        <div class="article__head-container">
+            <h1 class="article__heading">Největší <span>chyba</span> při hraní pexesa</h1>
+            <div class="article__perex perex">Pomáháme, napovídáme, opravujeme. Děláme to z lásky – ale možná tím dětem bereme to nejdůležitější.</div>
+            <p class="article__date">14. dubna 2026</p>
+            
+            <img src="/images/fotky/blog/01_nejvetsi_chyba/liska_1200_xl.webp" 
+                alt="hraní pexesa - hledání kartičky lišky" 
+                class="article__image"
+                srcset="/images/fotky/blog/01_nejvetsi_chyba/liska_1200_xl.webp 1200w,
+                        /images/fotky/blog/01_nejvetsi_chyba/liska_1000_large.webp 1000w,
+                        /images/fotky/blog/01_nejvetsi_chyba/liska_750_medium.webp 750w,
+                        /images/fotky/blog/01_nejvetsi_chyba/liska_400_small.webp 400w"
+                sizes="(max-width: 750px) 100vw, (max-width: 1000px) 750px, 1200px"
+                loading="eager" 
+                fetchpriority="high"
+                width="1200"
+                height="675">
+        </div>
+
+        <div class="article__text-container">
+            <div class="article__text">
+                <p>Znáš to. Dítě konečně dorůstá do věku, kdy se s ním dají hrát stolní hry. Pexeso se jeví jako ideální start – má jednoduchá pravidla, která pochopí i malé dítě, a zároveň trénuje paměť a soustředění. Takže zasednete, rozložíte karty a jde se na to.</p>
+<p>Jenže pak to přijde. Začnete hrát, zatím třeba jen s omezeným množstvím kartiček, ale dítě je frustrované, protože mu to zatím moc nejde. A ty mu chceš pomoci. Mělo by přece zažít ten pocit úspěchu, ne? A tak napovídáš. Ukazuješ. Opravuješ. „Tady jsi měl tu lišku…“ Děláme to skoro všichni. A upřímně? Neděláme to jen u pexesa. Úplně stejně nás cukají ruce, když vidíme, jak se trápí s posledním dílkem puzzle a my máme strašnou chuť mu ho tam prostě „správně“ natočit. Jenže právě v tu chvíli se z té hry vytrácí to nejdůležitější.</p>
+<h2>Proč je napovídání vlastně past?</h2>
+<p>Pexeso totiž často bereme jen jako suchý trénink paměti. Ale ve skutečnosti je mnohem víc o procesu hledání než o tom, kdo má na konci víc dvojic.
+Když dítěti napovídáme, zkracujeme mu cestu. A tím ho vlastně připravujeme o ten fascinující moment, kdy si mozek sám spojuje souvislosti. Co se v tu chvíli v dětské hlavě děje?</p>
+<ul>
+<li>
+<p>Pozoruje okolí.</p>
+</li>
+<li>
+<p>Zkouší různé možnosti.</p>
+</li>
+<li>
+<p>Dělá chyby (a zjišťuje, že se svět nezboří).</p>
+</li>
+<li>
+<p>A hlavně: postupně si vytváří vlastní strategii.</p>
+</li>
+</ul>
+<p>To je ten skutečný moment, kdy se učí. Ne když mu my naservírujeme správnou odpověď na stříbrném podnose.</p>
+<h2>Zkus příště malou změnu:</h2>
+<ol>
+<li>
+<p><strong>Nech dítě hledat.</strong> I když přesně víš, kde ta karta (nebo dílek puzzle) leží, nechej ho na to přijít samotného. Ta radost z vlastního objevu je nenahraditelná.</p>
+</li>
+<li>
+<p><strong>Mlč o chybách.</strong> Chyba není problém, je to součást hry. Když otočí špatně, je to jen další informace pro příští kolo.</p>
+</li>
+<li>
+<p><strong>Sleduj proces, ne výsledek.</strong> Nejde o to, kdo vyhraje. Sleduj, jak dítě přemýšlí. A neboj, brzy přijde okamžik, kdy tě bude na hlavu porážet! :)</p>
+</li>
+</ol>
+<h2>Malý posun, velký rozdíl</h2>
+<p>Někdy stačí opravdu málo. Nechat prostor. Nechat dítě chvíli tápat. Hra najednou začne fungovat úplně jinak a ta čistá dětská radost, když „na to kápne“ bez pomoci, je nejvíc.</p>
+<p>Dej mi pak vědět, jak ti to šlo! A pokud máš chuť na jednu rychlou hru bez napovídání, zkus naše on-line pexeso → <a href="https://pekseso.cz/herna">Zkusit pexeso</a></p>
+
+            </div>
+        </div>
+
+        <aside class="share__sidebar">
+            <p class="share__label">Sdílet</p>
+            <!-- Facebook -->
+            <a class="share__btn share__btn--fb" 
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpekseso.cz%2Fblog%2Fnejvetsi-chyby-pri-hrani-pexesa%2F"
+                target="_blank" rel="noopener" aria-label="Sdílet na Facebooku">
+                <img src="/images/icons/facebook.svg" alt="" class="share__icon" width="30">
+            </a>
+            <!-- X -->
+            <a class="share__btn share__btn--x"
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fpekseso.cz%2Fblog%2Fnejvetsi-chyby-pri-hrani-pexesa%2F&text=%20%7C%20Pekseso"
+                target="_blank" rel="noopener" aria-label="Sdílet na X">
+                <img src="/images/icons/x.svg" alt="" class="share__icon" width="30">
+            </a>
+            <!-- LinkedIn -->
+            <a class="share__btn share__btn--linkedin"
+                href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fpekseso.cz%2Fblog%2Fnejvetsi-chyby-pri-hrani-pexesa%2F"
+                target="_blank" rel="noopener" aria-label="Sdílet na LinkedIn">
+                <img src="/images/icons/linkedin.svg" alt="" class="share__icon" width="30">
+            </a>
+            <!-- Pinterest -->
+            <a class="share__btn share__btn--pinterest"
+                href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fpekseso.cz%2Fblog%2Fnejvetsi-chyby-pri-hrani-pexesa%2F&description=Nejv%C4%9Bt%C5%A1%C3%AD%20%3Cspan%3Echyba%3C%2Fspan%3E%20p%C5%99i%20hran%C3%AD%20pexesa&media=https%3A%2F%2Fpekseso.cz%2Fimages%2Ffotky%2Fblog%2F01_nejvetsi_chyba%2Fliska_1000_large.webp"
+                target="_blank" rel="noopener" aria-label="Sdílet na Pinterestu">
+                <img src="/images/icons/pinterest.svg" alt="" class="share__icon" width="30">
+            </a>
+        </aside>
+    </div>
+</section>
+</main>
+
+<div id="cart__overlay" class="cart__overlay"></div>
+
+<aside id="cart__panel" class="cart__panel">
+  <div class="cart__header">
+    <h2 class="cart__heading">Váš košík</h2>
+    <button id="close__cart" class="cart__close-btn">&times;</button>
+  </div>
+
+  <div class="cart__content">
+    <div class="cart__item">
+        <img src="/images/fotky/Les/small/les_1_small_400.webp" 
+            alt="Pexeso Lesní zvířata čtyři kartičky s lesními zvířaty"
+            class="cart__image"
+            loading="lazy" 
+            width="400" 
+            height="400">
+        <div class="cart__details">
+            <h3 class="cart__subheading">Lesní zvířata</h3>
+            <p class="cart__price">165 Kč</p>
+            <div class="cart__quantity-wrapper">
+                <button class="cart__quantity-btn" id="btn-minus-aside" onclick="changeQty(-1)" aria-label="Snížit množství">−</button>
+                <span class="cart__quantity-value" id="qty-display-aside" aria-live="polite" aria-atomic="true">1</span>
+                <button class="cart__quantity-btn" id="btn-plus-aside" onclick="changeQty(1)" aria-label="Zvýšit množství">+</button>
+            </div>
+        </div>
+        <button class="cart__item-remove" aria-label="Odebrat položku">&times;</button>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <h2 class="cart__subheading--footer">Shrnutí objednávky</h2>
+    <div class="cart__total">
+      <p class="cart__total-price">Celková cena: <span class="cart__total-price--number">165</span> Kč</p>
+    </div>
+    <p class="cart__shipping-info">Dopravu a platbu si vyberete v dalším kroku</p>
+    <button class="cart__checkout-btn">Vybrat způsob doručení</button>
+    <a href="/papirova-pexesa/" class="cart__back-link">Pokračovat v nákupu</a>
+  </div>
+</aside>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container container">
+            <section class="footer__section footer__section-logo">
+                <h2 class="footer__heading">Pe<span class="footer__heading-color">[</span>ks<span class="footer__heading-color">]</span>eso</h2>
+            </section>
+            <div class=" footer__section footer__section-about">
+                <p class="footer__claim">Když nechceš zapnout další pohádku</p>
+                <p class="footer__text">Autorské pexeso ilustrátorky Martiny Kurkové Nožičkové</p>
+            </div>
+            <section class="footer__section footer__section_contact">
+                <h3 class="footer__subheading">Buďme v kontaktu</h3>
+                <address class="footer__contact">Máš dotaz? Napiš mi na
+                    <span class="footer__email" id="email-footer"></span><br>
+                </address>
+                <p class="footer__social footer__text">Sleduj PE[KS]ESO na Instagramu</p>
+                <a href="https://www.instagram.com/pekseso.cz/" 
+                        class="footer__social-link" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label="Instagram profil pekseso.cz">
+                            <img src="/images/logo/instragram_white.svg" 
+                                    alt="logo Instagram" 
+                                    class="footer__social-icon--img"
+                                    aria-hidden="true"
+                                    width="20"
+                                    height="20">pekseso.cz
+                        </a>
+                <p class="footer__credit footer__text">Moji další tvorbu najdeš na 
+                    <a href="https://www.martinanozickova.com/" 
+                        class="footer__credit-link" target="_blank">www.martinanozickova.com</a>
+                </p>
+            </section>
+            <section class="footer__section footer__section-important">
+                <h3 class="footer__subheading">Důležité informace</h3>
+                <a class="footer__legal" href="/GDPR/">Zásady ochrany osobních údajů</a>
+                <a class="footer__legal" href="/obchodni-podminky/">Obchodní podmínky</a>
+                <a class="footer__legal" href="/odstoupeni/">Odstoupení od smlouvy a&nbsp;reklamace</a>
+                <a class="footer__legal" href="/papirova-pexesa/#transport">Doprava a&nbsp;platba</a>
+                <a class="footer__legal" href="/zasady-cookies/">Zásady používání souborů cookies</a>
+                <a class="footer__legal" href="#" data-cc="show-preferencesModal">Nastavení cookies</a>
+            </section>
+            <div class="footer__section footer__section-menu">
+                <nav class="footer__navigation" id="footer__navigation" aria-label="Navigace v patičce">
+                    <h3 class="footer__subheading">Menu</h3>
+                <ul class="footer_nav-list">
+                    <li class="footer__nav-item"><a href="/" class="footer__nav-link">Úvod</a></li>
+                    <li class="footer__nav-item"><a href="/herna/" class="footer__nav-link">Herna</a></li>
+                    <li class="footer__nav-item"><a href="/papirova-pexesa/" class="footer__nav-link">Papírová pexesa</a></li>
+                    <li class="footer__nav-item"><a href="/blog/" class="footer__nav-link">Blog</a></li>
+                    <li class="footer__nav-item"><a href="/pribeh/" class="footer__nav-link">Příběh Peksesa</a></li>
+                    <li class="footer__nav-item"><a href="/kontakt/" class="footer__nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+            </div>
+            
+            <div class="footer__section footer__section_info">
+                <p class="footer__copyright footer__text">&copy; Martina Kurková Nožičková, 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js" defer></script>
+    <script src="/js/cart.js" defer></script>
+    <script src="/js/aside_cart_panel.js" defer></script>
+
+    <script src="/js/cookieconsent.umd.js" defer fetchpriority="low"></script>
+
+    <script type="text/plain" data-category="analytics" src="https://www.googletagmanager.com/gtag/js?id=G-MXSR773H36"></script>
+    <script type="text/plain" data-category="analytics">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MXSR773H36');
+    </script>
+
+    <script>
+        // Spuštění konfigurace cookies až po úplném načtení stránky (kvůli defer atributům)
+        window.addEventListener('load', function() {
+            CookieConsent.run({
+                guiOptions: {
+                    consentModal: {
+                        layout: 'cloud',
+                        position: 'bottom center',
+                        equalWeightButtons: true,
+                        flipButtons: false
+                    }
+                },
+                categories: {
+                    necessary: { enabled: true },
+                    analytics: { }
+                },
+                language: {
+                    default: 'cs',
+                    translations: {
+                        cs: {
+                            consentModal: {
+                                title: 'I pexeso má svá pravidla (a my cookies)',
+                                description: 'Aby u nás všechno fungovalo, jak má – od nákupního košíku až po měření návštěvnosti – používáme malé soubory cookies. Ty nezbytné používáme hned, o těch ostatních můžete rozhodnout vy.',
+                                acceptAllBtn: 'Povolit vše',
+                                acceptNecessaryBtn: 'Jen nezbytné',
+                                showPreferencesBtn: 'Nastavit individuálně',
+                                footer: `
+                                    <a href="/GDPR/">Zásady ochrany osobních údajů</a>
+                                    <a href="/zasady-cookies/">Zásady cookies</a>
+                                `
+                            },
+                            preferencesModal: {
+                                title: 'Nastavení cookies',
+                                acceptAllBtn: 'Povolit vše',
+                                acceptNecessaryBtn: 'Jen nezbytné',
+                                savePreferencesBtn: 'Uložit nastavení',
+                                closeIconLabel: 'Zavřít',
+                                sections: [
+                                    {
+                                        title: 'Nezbytné cookies',
+                                        description: 'Tyto cookies jsou potřeba pro správné fungování webu a košíku.',
+                                        linkedCategory: 'necessary'
+                                    },
+                                    {
+                                        title: 'Analytické cookies',
+                                        description: 'Pomáhají mi pochopit, co vás na webu baví, abych ho mohla vylepšovat.',
+                                        linkedCategory: 'analytics'
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+ 
+</body>
+</html>
