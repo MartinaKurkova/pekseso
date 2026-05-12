@@ -1,6 +1,6 @@
 ---
 layout: blog-article.njk
-name: "Jak <span>začít</span> s pexesem (a nezbláznit se u toho)"
+name: "Jak začít s <span>pexesem</span> (a nezbláznit se u toho)"
 perex: "Kdy začít s pexesem? A co když dítě zatím nevydrží klasickou hru? Někdy stačí ubrat kartičky, zpomalit a nechat všechno dozrát vlastním tempem."
 date: 2026-05-12
 imagePath: "/images/fotky/blog/02_jak_zacit/"
