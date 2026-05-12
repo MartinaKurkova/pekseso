@@ -32,7 +32,7 @@ A nejde jen o můj dojem. Vývojoví psychologové popisují, že právě kolem 
 Pokud to tedy vašemu dvouleťákovi ještě nejde, vůbec to neznamená, že by nebyl bystrý. Jeho „vnitřní řídicí věž“ se teprve postupně učí koordinovat pozornost, paměť i&nbsp;trpělivost.
 
 ## Osm krát osm? To je horor
-Možná si říkáš, že klasické pexeso má strašnou spoustu kartiček a&nbsp;na to tvoje dítě ještě nemá. A upřímně – i&nbsp;mě jímá hrůza, když mám na stůl rozložit 64&nbsp;kartiček a&nbsp;pak v tom chaosu hledat, kde co je.
+Možná si říkáš, že klasické pexeso má strašnou spoustu kartiček a&nbsp;na to tvoje dítě ještě nemá. A&nbsp;upřímně – i&nbsp;mě jímá hrůza, když mám na stůl rozložit 64&nbsp;kartiček a&nbsp;pak v tom chaosu hledat, kde co je.
 
 Vůbec ale není nutné začínat s&nbsp;plným počtem.
 
