@@ -1,7 +1,7 @@
 ---
 layout: blog-article.njk
 name: "Hry na cesty pro děti: <span>5&nbsp;nápadů</span> s&nbsp;pexesem"
-perex: "Klasické hledání dvojic nechte doma. S&nbsp;několika kartičkami pexesa si vystačíte v&nbsp;autě, ve vlaku i&nbsp;na výletě a&nbsp;děti přitom zabavíte mnohem déle, než byste čekali."
+perex: "Klasické hledání dvojic nechte doma. S několika kartičkami pexesa si vystačíte v autě, ve vlaku i na výletě a děti přitom zabavíte mnohem déle, než byste čekali."
 date: 2026-06-03
 imagePath: "/images/fotky/blog/03_5_her_na_cesty/"
 imageName: "hry_na_cesty"
