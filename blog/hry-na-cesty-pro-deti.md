@@ -46,3 +46,5 @@ Vyberte 5&nbsp;až 7&nbsp;různých kartiček a&nbsp;rozložte je před dítě o
 
 Jak je vidět, jedna krabička v&nbsp;kapse zvládne zastoupit hned několik her najednou. Příště, až budete balit batohy na výlet nebo přemýšlet, jak přečkat dlouhý přesun, nechte velké krabice doma. Stačí vám pár ilustrovaných karet a&nbsp;špetka fantazie.
 
+## Nemáte pexeso zrovna po ruce?
+Pokud jste si nechali kartičky doma, zahrajte si pexeso aspoň on-line na mobilu či tabletu. → [Zkusit pexeso](https://pekseso.cz/herna)
