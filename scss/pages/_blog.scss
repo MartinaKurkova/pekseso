@@ -30,12 +30,12 @@
 .list {
     background-color: variables.$color-bg-light;
 
-    @media screen and (min-width: 48rem) {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
-        gap: 1rem;
-    }
+    // @media screen and (min-width: 48rem) {
+    //     display: grid;
+    //     grid-template-columns: repeat(3, 1fr);
+    //     grid-template-rows: auto;
+    //     gap: 1rem;
+    // }
     
     &__container {
         padding: 2rem 1rem;
