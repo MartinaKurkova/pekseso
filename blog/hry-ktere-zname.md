@@ -1,6 +1,6 @@
 ---
 layout: blog-article.njk
-name: "Proč večer saháme po hrách, které už známe"
+name: "Proč večer saháme po hrách, které už <span>známe</span>"
 perex: "Máš někdy pocit, že ostatní rodiče po večerech staví s dětmi sopky z jedlé sody, vyrábějí modely sluneční soustavy a hrají deskové hry, jejichž pravidla mají víc stran než průměrná detektivka? A ty jsi ráda, že po celém dni vůbec sedíš? Pokud ano, nejsi v tom sama."
 date: 2026-07-16
 imagePath: "/images/fotky/blog/04_hry_ktere_zname/"
