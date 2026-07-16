@@ -29,12 +29,12 @@
 // list
 .list {
     background-color: variables.$color-bg-light;
-    
-    &__container {
-        padding: 2rem 1rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1fr;
+    
+    &__container {
+        padding: 2rem 1rem;
     }
     &__article {
         padding: 2rem;
