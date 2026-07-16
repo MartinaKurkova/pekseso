@@ -32,6 +32,9 @@
     
     &__container {
         padding: 2rem 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1fr;
     }
     &__article {
         padding: 2rem;
