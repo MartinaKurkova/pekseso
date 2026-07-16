@@ -4641,7 +4641,7 @@ input[type=checkbox] {
 .list {
   background-color: #f1eaf3;
 }
-@media screen and (max-width: 48rem) {
+@media screen and (min-width: 48rem) {
   .list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -4651,11 +4651,6 @@ input[type=checkbox] {
 }
 .list__container {
   padding: 2rem 1rem;
-}
-@media screen and (max-width: 48rem) {
-  .list__container {
-    grid-column: auto;
-  }
 }
 .list__article {
   padding: 2rem;

@@ -30,7 +30,7 @@
 .list {
     background-color: variables.$color-bg-light;
 
-    @media screen and (max-width: 48rem) {
+    @media screen and (min-width: 48rem) {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
@@ -39,9 +39,9 @@
     
     &__container {
         padding: 2rem 1rem;
-        @media screen and (max-width: 48rem) {
-            grid-column: auto;
-        }
+        // @media screen and (max-width: 48rem) {
+        //     grid-column: auto;
+        // }
     }
     &__article {
         padding: 2rem;
