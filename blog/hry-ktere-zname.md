@@ -16,7 +16,7 @@ ogType: website
 twitterCard: summary_large_image 
 ---
 
-Po práci, školce, nákupu, vaření a nekonečném proudu dětských otázek už většina z nás nemá problém najít deset minut. Problém je někde úplně jinde. Nemáme energii znovu přemýšlet. Celý den děláme jedno rozhodnutí za druhým. Co obléct dětem. Co uvařit. Co odpovědět na e-mail. Co nezapomenout zítra ráno… Večer už náš mozek jednoduše nechce dělat další rozhodnutí.
+Po práci, školce, nákupu, vaření a nekonečném proudu dětských otázek nemáme problém najít deset minut na hru s dětmi. Problém je někde úplně jinde. Nemáme energii znovu přemýšlet. Celý den děláme jedno rozhodnutí za druhým. Co obléct dětem. Co uvařit. Co odpovědět na e-mail. Co nezapomenout zítra ráno… Večer už náš mozek jednoduše nechce dělat další rozhodnutí.
 
 ## Past jménem „skvělá nová hra“
 Přesto chceš s dětmi strávit chvíli společně. A tak objednáš tu skvělou novou deskovou hru, kterou všichni chválí. 
