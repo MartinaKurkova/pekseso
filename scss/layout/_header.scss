@@ -349,7 +349,7 @@
   font-size: 0.95rem;
   position: relative;
   z-index: 10; // ověř, jaký z-index má tvůj .header, banner musí mít nižší nebo žádný konflikt
-  margin-top: 70px; // uprav podle skutečné výšky headeru
+  margin-top: 60px; // uprav podle skutečné výšky headeru
 
   &__text {
     margin: 0;
