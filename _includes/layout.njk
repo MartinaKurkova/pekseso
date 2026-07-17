@@ -135,6 +135,10 @@
         </div>
 </header>
 
+{% if site.vacationMode %}
+    {% include "partials/vacation-banner.njk" %}
+{% endif %}
+
  <main>
     {{ content | safe}}
 </main>

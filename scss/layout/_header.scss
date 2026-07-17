@@ -339,3 +339,16 @@
         border-right: 1px solid variables.$color-primary;
     }
 }
+
+// partial
+.vacation-banner {
+  background-color: $color-yellow; // #FFD23F z tvého brandu
+  color: $color-purple; // #540D6E
+  padding: $spacing-sm $spacing-md;
+  text-align: center;
+  font-size: 0.95rem;
+
+  &__text {
+    margin: 0;
+  }
+}
