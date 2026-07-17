@@ -342,11 +342,14 @@
 
 // partial
 .vacation-banner {
-  background-color: $color-yellow; // #FFD23F z tvého brandu
-  color: $color-purple; // #540D6E
-  padding: $spacing-sm $spacing-md;
+  background-color: variables.$color-secondary; 
+  color: #540D6E; // 
+  padding: 1rem;
   text-align: center;
   font-size: 0.95rem;
+  position: relative;
+  z-index: 10; // ověř, jaký z-index má tvůj .header, banner musí mít nižší nebo žádný konflikt
+  margin-top: 70px; // uprav podle skutečné výšky headeru
 
   &__text {
     margin: 0;

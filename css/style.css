@@ -517,6 +517,20 @@ strong {
   border-right: 1px solid #540D6E;
 }
 
+.vacation-banner {
+  background-color: #FFD23F;
+  color: #540D6E;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 10;
+  margin-top: 70px;
+}
+.vacation-banner__text {
+  margin: 0;
+}
+
 .header__navigation {
   margin-left: auto;
 }
