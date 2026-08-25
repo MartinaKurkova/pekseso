@@ -16,3 +16,8 @@
   from = "/papirova_pexesa/*"
   to = "/papirova-pexesa/:splat"
   status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.stripe.com https://widget.packeta.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://js.stripe.com https://b2c.cpost.cz; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://api.stripe.com; base-uri 'self'; frame-ancestors 'none'; object-src 'none'"
