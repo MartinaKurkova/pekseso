@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
 
   // --- SITEMAP A ROBOTS ---
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("llms.txt");
 
   // --- KOLEKCE ---
   
