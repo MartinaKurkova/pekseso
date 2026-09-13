@@ -1,3 +1,9 @@
+const formTime = document.getElementById('formTime');
+
+if (formTime) {
+  formTime.value = Date.now();
+}
+
 const contactForm = document.querySelector('.contact-form__fieldset')?.closest('form');
 
 if (contactForm) {
