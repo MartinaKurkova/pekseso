@@ -44,7 +44,13 @@
 
         @media screen and (max-width: 48rem) {
             grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+
+            .herna__grid-card--les      { order: 1; }
+            .herna__grid-card--zelenina { order: 2; }
+            .herna__grid-card--vanoce   { order: 3; }
+            .herna__grid-card--ptaci    { order: 4; }
+            .herna__grid-card--psi      { order: 5; }
+            .herna__grid-card--doprava  { order: 6; }
         }
 
         @media screen and (max-width: 23.125rem) {
@@ -62,36 +68,6 @@
 
     &__grid-card:hover {
         transform: translateY(-4px);
-    }
-
-    &__grid-card--les {
-        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
-            order: 1;
-        }
-    }
-
-    &__grid-card--zelenina {
-        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
-            order: 2;
-        }
-    }
-
-    &__grid-card--vanoce {
-        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
-            order: 3;
-        }
-    }
-
-    &__grid-card--ptaci {
-        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
-            order: 4;
-        }
-    }
-
-    &__grid-card--psi {
-        @media screen and (min-width: 23.125rem) and (max-width: 48rem) {
-            order: 5;
-        }
     }
 
     &__link {
