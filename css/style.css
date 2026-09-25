@@ -1505,31 +1505,6 @@ strong {
   cursor: pointer;
   transition: transform 0.2s;
 }
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--les {
-    order: 1;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--zelenina {
-    order: 2;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--vanoce {
-    order: 3;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--ptaci {
-    order: 4;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--psi {
-    order: 5;
-  }
-}
 .herna__grid-card:hover {
   transform: translateY(-4px);
 }
