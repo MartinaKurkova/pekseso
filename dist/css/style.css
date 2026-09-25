@@ -1490,45 +1490,37 @@ strong {
 }
 .herna__grid-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1.25rem;
 }
 @media screen and (max-width: 48rem) {
   .herna__grid-container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .herna__grid-container .herna__grid-card--les {
+    order: 1;
+  }
+  .herna__grid-container .herna__grid-card--zelenina {
+    order: 2;
+  }
+  .herna__grid-container .herna__grid-card--vanoce {
+    order: 3;
+  }
+  .herna__grid-container .herna__grid-card--ptaci {
+    order: 4;
+  }
+  .herna__grid-container .herna__grid-card--psi {
+    order: 5;
+  }
+  .herna__grid-container .herna__grid-card--doprava {
+    order: 6;
   }
 }
 .herna__grid-card {
-  grid-column: span 2;
   position: relative;
   cursor: pointer;
   transition: transform 0.2s;
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--les {
-    order: 1;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--zelenina {
-    order: 2;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--vanoce {
-    order: 3;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--ptaci {
-    order: 4;
-  }
-}
-@media screen and (max-width: 48rem) {
-  .herna__grid-card--psi {
-    order: 5;
-  }
 }
 .herna__grid-card:hover {
   transform: translateY(-4px);

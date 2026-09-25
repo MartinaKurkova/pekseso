@@ -1498,6 +1498,24 @@ strong {
   .herna__grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  .herna__grid-container .herna__grid-card--les {
+    order: 1;
+  }
+  .herna__grid-container .herna__grid-card--zelenina {
+    order: 2;
+  }
+  .herna__grid-container .herna__grid-card--vanoce {
+    order: 3;
+  }
+  .herna__grid-container .herna__grid-card--ptaci {
+    order: 4;
+  }
+  .herna__grid-container .herna__grid-card--psi {
+    order: 5;
+  }
+  .herna__grid-container .herna__grid-card--doprava {
+    order: 6;
+  }
 }
 .herna__grid-card {
   position: relative;
