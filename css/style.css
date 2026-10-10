@@ -1488,6 +1488,9 @@ strong {
   .herna__grid-container .herna__grid-card--doprava {
     order: 6;
   }
+  .herna__grid-container .herna__grid-card--krmitko {
+    order: 7;
+  }
 }
 .herna__grid-card {
   position: relative;
