@@ -29,28 +29,34 @@
 // list
 .list {
     background-color: variables.$color-bg-light;
+    padding: 3rem 0;
 
-    // @media screen and (min-width: 48rem) {
-    //     display: grid;
-    //     grid-template-columns: repeat(3, 1fr);
-    //     grid-template-rows: auto;
-    //     gap: 1rem;
-    // }
-    
-    &__container {
-        padding: 2rem 1rem;
-        // @media screen and (max-width: 48rem) {
-        //     grid-column: auto;
-        // }
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr; // Na mobilu 1 sloupec
+        gap: 2rem;
+
+        @media screen and (min-width: 48rem) { // Od tabletu výše 2 sloupce
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
+
     &__article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; // Tlačítka a tagy se posunou dolů
         padding: 2rem;
         border-radius: .3125rem;
         background-color: white;
+        height: 100%; // Zaručí stejnou výšku karet ve řádku
 
         @media screen and (max-width: 48rem) {
             padding: 1rem;
         }
+    }
+
+    &__text-container {
+        margin-bottom: 1.5rem; // Odsazení od spodního bloku s tlačítkem
     }
 
     &__image-container {
@@ -60,6 +66,7 @@
             margin-bottom: 1rem;
         }
     }
+
     &__image {
         display: block;
         width: 100%;
@@ -71,8 +78,8 @@
     &__heading {
         margin-bottom: 0.5rem;
     }
+
     &__perex {
-        // font-weight: 600;
         font-size: 1.2rem;
 
         @media screen and (max-width: 48rem) {
@@ -84,15 +91,13 @@
         display: flex;
         gap: 1.25rem;
         justify-content: space-between;
-
-        @media screen and (max-width: 36rem) {
-            flex-direction: column;
-        }
-
+        flex-direction: column;
+        align-items: flex-start; 
     }
 
     &__tags {
         display: flex;
+        flex-wrap: wrap; // Aby tagy při menším prostoru nezdrhaly mimo kartu
         align-items: center;
         gap: 0.6rem;
     }
@@ -108,7 +113,6 @@
         @include buttons.btn;
         background-color: variables.$color-primary;
         color: white;
-        margin-top: 1rem;
 
         &:hover {
             background-color: variables.$color-hover;

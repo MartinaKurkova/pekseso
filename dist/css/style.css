@@ -4640,19 +4640,34 @@ input[type=checkbox] {
 
 .list {
   background-color: #f1eaf3;
+  padding: 3rem 0;
 }
-.list__container {
-  padding: 2rem 1rem;
+.list__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media screen and (min-width: 48rem) {
+  .list__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .list__article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 2rem;
   border-radius: 0.3125rem;
   background-color: white;
+  height: 100%;
 }
 @media screen and (max-width: 48rem) {
   .list__article {
     padding: 1rem;
   }
+}
+.list__text-container {
+  margin-bottom: 1.5rem;
 }
 .list__image-container {
   margin-bottom: 2rem;
@@ -4684,14 +4699,12 @@ input[type=checkbox] {
   display: flex;
   gap: 1.25rem;
   justify-content: space-between;
-}
-@media screen and (max-width: 36rem) {
-  .list__links-container {
-    flex-direction: column;
-  }
+  flex-direction: column;
+  align-items: flex-start;
 }
 .list__tags {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem;
 }
@@ -4745,7 +4758,6 @@ input[type=checkbox] {
 .list__btn {
   background-color: #540D6E;
   color: white;
-  margin-top: 1rem;
 }
 .list__btn:hover {
   background-color: #2c033b;
